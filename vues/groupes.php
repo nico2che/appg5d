@@ -19,7 +19,55 @@
 	</form>
 	<div id="liste-groupes">
 		<div class="groupe">
-			<a href="#">
+			<a href="?page=groupe&amp;id=1">
+				<div class="details">
+					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
+					<h4>Tennis</h4>
+				</div>
+			</a>
+		</div>
+		<div class="groupe">
+			<a href="?page=groupe&amp;id=1">
+				<div class="details">
+					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
+					<h4>Tennis</h4>
+				</div>
+			</a>
+		</div>
+		<div class="groupe">
+			<a href="?page=groupe&amp;id=1">
+				<div class="details">
+					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
+					<h4>Tennis</h4>
+				</div>
+			</a>
+		</div>
+		<div class="groupe">
+			<a href="?page=groupe&amp;id=1">
+				<div class="details">
+					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
+					<h4>Tennis</h4>
+				</div>
+			</a>
+		</div>
+		<div class="groupe">
+			<a href="?page=groupe&amp;id=1">
+				<div class="details">
+					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
+					<h4>Tennis</h4>
+				</div>
+			</a>
+		</div>
+		<div class="groupe">
+			<a href="?page=groupe&amp;id=1">
+				<div class="details">
+					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
+					<h4>Tennis</h4>
+				</div>
+			</a>
+		</div>
+		<div class="groupe">
+			<a href="?page=groupe&amp;id=1">
 				<div class="details">
 					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
 					<h4>Tennis</h4>
