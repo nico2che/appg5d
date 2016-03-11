@@ -1,5 +1,9 @@
 <?php
 
+function connecte() {
+	return isset($_SESSION['id']);
+}
+
 function existe_email($email) {
 	global $mysqli;
 	$requete = $mysqli->query('SELECT email FROM membres WHERE email = "' .$email. '"');
@@ -18,4 +22,16 @@ function inscrire_membre($nom, $prenom, $email, $mot_de_passe) {
 		return false;
 	else
 		return $mysqli->insert_id;
+}
+
+function infos_membre($email, $mot_de_passe) {
+	global $mysqli;
+	$requete = $mysqli->prepare('SELECT * FROM membres WHERE email = ? AND mot_de_passe = ?');
+	$requete->bind_param('ss', $email, $mot_de_passe);
+	$requete->execute();
+	$donnees = $requete->get_result();
+	if(isset($mysqli->error) && !empty($mysqli->error))
+		return false;
+	else
+		return $donnees->fetch_array();
 }

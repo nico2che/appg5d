@@ -1,7 +1,5 @@
 <?php
 
-include 'modeles/membres.php';
-
 if(isset($_POST['nom']) && isset($_POST['prenom'])  && isset($_POST['email']) && isset($_POST['mot_de_passe']) && isset($_POST['confirmation_mot_de_passe'])) {
 
 	if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['mot_de_passe']) && !empty($_POST['confirmation_mot_de_passe'])) {
