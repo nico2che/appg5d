@@ -1,5 +1,5 @@
 	<h2>Groupes</h2>
-	<form action="" method="get">
+	<form action="" method="get" class="recherche-groupe">
 		<h3>Recherche</h3>
 		<div>
 			<label>Nom d'un groupe : </label>
@@ -17,7 +17,6 @@
 			<input type="submit" value="Rechercher">
 		</div>
 	</form>
-<<<<<<< HEAD
 	<div id="liste-groupes">
 		<div class="groupe">
 			<a href="#">
@@ -27,16 +26,4 @@
 				</div>
 			</a>
 		</div>
-=======
-	<div>
-		<ul>
-			<li>
-				<a href="#">
-					<div>
-						Nom
-					</div>
-				</a>
-			</li>
-		</ul>
->>>>>>> origin/master
 	</div>
