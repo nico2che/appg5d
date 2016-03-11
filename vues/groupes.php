@@ -18,9 +18,12 @@
 		</div>
 	</form>
 	<div id="liste-groupes">
-		<a href="#">
-			<div class="groupe">
-				Nom
-			</div>
-		</a>
+		<div class="groupe">
+			<a href="#">
+				<div class="details">
+					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
+					<h4>Tennis</h4>
+				</div>
+			</a>
+		</div>
 	</div>
