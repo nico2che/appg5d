@@ -1,0 +1,33 @@
+header {
+}
+
+#cover {
+	width: 100%;
+}
+#cover {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.slogan {
+  clear: both;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 30px auto auto;
+  text-transform: uppercase;
+  width: 562px;
+}
+form.accueil {
+  margin: 130px auto;
+  width: 700px;
+}
+form.accueil select {
+   width: 240px;
+   height: 34px;
+   overflow: hidden;
+   background: url(new_arrow.png) no-repeat right #ddd;
+   border: 1px solid #ccc;
+}

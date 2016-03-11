@@ -1,0 +1,49 @@
+html, body {
+	font-family: Helvetica, serif;
+	margin:0;
+	padding: 0;
+}
+.clear{
+	clear: both;
+}
+header {
+  height:120px;
+  background-color: #FA8258;
+}
+header #logo {
+  background-image: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-size: 77px auto;
+  float: left;
+  height: 90px;
+  width: 77px;
+}
+header nav {
+  float: right;
+}
+header nav ul {
+  list-style: outside none none;
+  margin-right: 70px;
+  margin-top: 35px;
+}
+header nav ul li {
+  display: inline;
+  margin-left: -15px;
+}
+header nav ul li a {
+  color: white;
+  padding: 9px 15px;
+  text-decoration: none;
+}
+header nav ul li a.colore {
+  background-color: tomato;
+}
+.page {
+  width:900px;
+  padding:10px;
+  margin: auto;
+}
+footer {
+  height: 50px;
+  /*background-color: blue;*/
+}

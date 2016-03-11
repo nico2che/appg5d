@@ -1,0 +1,21 @@
+.profil.gauche {
+  width:199px;
+  float: left;
+  text-align: center;
+  padding-top: 15px;
+  border-right:1px solid gray;
+}
+.profil.gauche img.photo {
+  border: 2px solid black;
+  padding: 2px;
+  width: 165px;
+}
+.profil.gauche .navigation {
+  text-align: left;
+}
+.profil.droite {
+  width:670px;
+  float: right;
+  padding:15px;
+}
+/* bb*/
