@@ -1,0 +1,16 @@
+form.recherche-groupe {
+  	border: 1px solid gray;
+  	padding: 0 30px 17px;
+}
+
+form.recherche-groupe div {
+	display: inline-block;
+}
+#liste-groupes {
+	margin-top: 15px;
+}
+#liste-groupes .groupe {
+  	padding: 20px;
+  	border: 1px solid gray;
+  	width:200px;
+}
