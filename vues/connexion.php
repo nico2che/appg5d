@@ -1,15 +1,16 @@
-	<form action="" method="post">
-		<h2>Connexion</h2>
-		<?php if(isset($message)) echo $message; ?>
-		<div>
-			<label>Email : </label>
-			<input type="text" name="email">
-		</div>
-		<div>
-			<label>Mot de passe : </label>
-			<input type="password" name="mot_de_passe">
-		</div>
-		<div>
-			<input type="submit">
-		</div>
-	</form>
+<!DOCTYPE html>
+<html>
+<img src="images/logo.png" width="150" height="200" />
+<body>
+<center>
+	<form method="post" action="traitement.php">
+    <p>
+        <label><font face="Verdana">Identifiant</font></label> : <input type="text" name="pseudo" />
+    </p>
+	<p>
+		<label><font face="Verdana">Mot de passe</font></label> : <input type="text" name="mot de passe" />
+	</p>
+</form>
+</center>
+</body>
+</html>
