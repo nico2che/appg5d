@@ -14,18 +14,18 @@
 	</form>
 	<h2 class="titre">Les annonces à la mode</h2>
 	<div id="titreAnnonces">
-		<div class = "annonces">
-		Salut
+		<div class = "annonces" id="titreGauche">
+		Sport 1
 		</div>
-		<div class = "annonces">
-		Salut
+		<div class = "annonces" id="titreDroite">
+		Sport 2
 		</div>
 	</div>
 	<div id="annonces">
-		<div class = "annonces">
-		Salut
+		<div class = "annonces1" id="annonceGauche">
+		
 		</div>
-		<div class = "annonces">
-		Salut
+		<div class = "annonces1" id="annonceDroite">
+		
 		</div>
 	</div>
