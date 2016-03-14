@@ -18,60 +18,16 @@
 		</div>
 	</form>
 	<div id="liste-groupes">
+	<?php foreach ($groupes as $groupe): ?>
 		<div class="groupe">
-			<a href="?page=groupe&amp;id=1">
+			<a href="?page=groupe&amp;id=<?php echo $groupe['id']; ?>">
 				<div class="details">
 					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
-					<h4>Tennis</h4>
+					<h4><?php echo $groupe['titre']; ?></h4>
+					<?php echo $groupe['nom_sport']; ?><br>
+					<?php echo $groupe['min_participants']; ?> - <?php echo $groupe['max_participants']; ?> personnes<br>
 				</div>
 			</a>
 		</div>
-		<div class="groupe">
-			<a href="?page=groupe&amp;id=1">
-				<div class="details">
-					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
-					<h4>Tennis</h4>
-				</div>
-			</a>
-		</div>
-		<div class="groupe">
-			<a href="?page=groupe&amp;id=1">
-				<div class="details">
-					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
-					<h4>Tennis</h4>
-				</div>
-			</a>
-		</div>
-		<div class="groupe">
-			<a href="?page=groupe&amp;id=1">
-				<div class="details">
-					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
-					<h4>Tennis</h4>
-				</div>
-			</a>
-		</div>
-		<div class="groupe">
-			<a href="?page=groupe&amp;id=1">
-				<div class="details">
-					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
-					<h4>Tennis</h4>
-				</div>
-			</a>
-		</div>
-		<div class="groupe">
-			<a href="?page=groupe&amp;id=1">
-				<div class="details">
-					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
-					<h4>Tennis</h4>
-				</div>
-			</a>
-		</div>
-		<div class="groupe">
-			<a href="?page=groupe&amp;id=1">
-				<div class="details">
-					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
-					<h4>Tennis</h4>
-				</div>
-			</a>
-		</div>
+	<?php endforeach; ?>
 	</div>
