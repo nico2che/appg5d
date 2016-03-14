@@ -3,4 +3,34 @@
 	height: 50px;
 	width: 120px;
 	border-radius: 10px;
+	
+
+}
+div div {display: inline-block;}
+
+a{
+	text-decoration: none;
+	color:black;
+}
+
+#complete{
+	display:block;
+	
+}
+#rejoindre{
+	display:block;
+	
+}
+
+#creer{
+	display:block;
+	
+}
+#forum{
+	display:block;
+	
+}
+#planning{
+	display:block;
+
 }
