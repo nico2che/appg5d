@@ -12,20 +12,14 @@
 		<input type="text">
 		<input type="submit" value="Rechercher">
 	</form>
-	<h2 class="titre">Les annonces à la mode</h2>
-	<div id="titreAnnonces">
-		<div class = "annonces" id="titreGauche">
-		Sport 1
-		</div>
-		<div class = "annonces" id="titreDroite">
-		Sport 2
-		</div>
-	</div>
+	<div class="fond"></div>
+	<h2 class="titre texteBase">Nos sports</h2>
+	<div class="petitTitre texteBase">Découvrez un grand choix de sport à pratiquer entre amis</div>
 	<div id="annonces">
-		<div class = "annonces1" id="annonceGauche">
-		
-		</div>
-		<div class = "annonces1" id="annonceDroite">
-		
-		</div>
+		<div class = "annonces1" ></div>
+		<div class = "annonces1" ></div>
+		<div class = "annonces1" ></div>
+		<div class = "annonces1" ></div>
+		<div class = "annonces1" ></div>
+		<div class = "annonces1" ></div>
 	</div>
