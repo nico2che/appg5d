@@ -1,5 +1,5 @@
 	<div id="cover">
-	<img src="static/images/image_accueil.jpg" alt="image test" class="image" >
+	<!--<img src="static/images/image_accueil.jpg" alt="image test" class="image" >-->
 	</div>
 	<div class="slogan">La Passion se partage</div>
 	<form class="accueil">
