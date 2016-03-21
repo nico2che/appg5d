@@ -59,24 +59,32 @@ form.accueil select {
 #annonces
 {
   margin-top: 50px;
+  color: white;
+  text-align: center;
+  font-size: 1em;
+  line-height: 100px;
 }
 
 body div div div.annonces1
 {
-  display : inline-block;
   margin-top: 1em;
   margin-left: 3.1em;
-  border-style : solid;
-  border-width: 1px;
   height: 14em ;
   width: 14em;
   background-color: white;
   border-radius: 100%;
+  float: left
 }
 
 #annonce1
 { 
-   background: url(../../static/images/foot_miniature.jpg) right; 
+   background: url(../../static/images/football.jpeg) no-repeat;
+   background-position: 50% 69%;
+}
+#annonce2
+{ 
+   background: url(../../static/images/tennis.jpeg) no-repeat;
+   background-position: right;
 }
 
 .fond
