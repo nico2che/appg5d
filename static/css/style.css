@@ -9,7 +9,7 @@ html, body {
 }
 header {
   height:120px;
-  
+  background-color: #113F59;
 }
 header #logo {
   background-image: url("../images/logo.png");

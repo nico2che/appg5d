@@ -14,3 +14,4 @@
   - Turquoise #20D6C7
   - Blanc cassé #F3EDD3
   - Rouge #D54F58
+  - https://color.adobe.com/fr/Ice-Cream-color-theme-4185778/
