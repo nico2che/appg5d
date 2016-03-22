@@ -1,0 +1,4 @@
+roomID 
+userID
+timeStamp
+action:entry_request

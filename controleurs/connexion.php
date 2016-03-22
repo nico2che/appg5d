@@ -1,5 +1,7 @@
 <?php
+
 $fichier_css='connexion.css';
+
 if(isset($_GET['inscrit'])) {
 
 	$message = "Vous êtes bien inscrit !<br>Vous pouvez maintenant vous connecter";

@@ -1,0 +1,36 @@
+.box{
+	border-style: solid;
+    border-color: white;
+    border-width: 1px;
+	border-radius: 30px;
+	margin: 0px;
+	padding: 0px;
+}
+.grad{
+	height: 180px;
+    width:100%;
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+    color:white;
+    opacity:0.95;
+}
+#cover {
+  width: 100%;
+  position : absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+.input[type=submit] {
+    padding:5px 15px; 
+    background:rgba(237, 237, 237,1); 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 3px;
+    border-radius: 3px; 
+}
+
+h2{
+	
+	
+}

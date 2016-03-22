@@ -8,7 +8,8 @@ html, body {
 	clear: both;
 }
 header {
-  height:120px;
+  height:100px;
+  background-color: rgba(187, 210, 225, 0.5);
   
 }
 header #logo {
