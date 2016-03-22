@@ -1,36 +1,70 @@
 .onglet{
 	background-color: yellow;
-	height: 50px;
-	width: 120px;
+	height: 8%;
+	width: 100%;
 	border-radius: 10px;
-	
+	text-align: center;
+
 
 }
-div div {display: inline-block;}
+.fond{
+
+	background-color: #edefed;
+	z-index: -2;
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 5000px;
+
+}
+
+
 
 a{
 	text-decoration: none;
 	color:black;
 }
+a:hover{
+	color : red;
+}
 
 #complete{
 	display:block;
+	margin: 1%;
 	
 }
 #rejoindre{
 	display:block;
+	margin: 1%;
 	
 }
 
 #creer{
 	display:block;
+	margin: 1%;
 	
 }
 #forum{
 	display:block;
+	margin: 1%;
 	
 }
 #planning{
 	display:block;
+	margin: 1%;
 
+}
+#cadre{
+	border: 2px solid #4d4d4d;
+	border-radius: 10px;
+	float right: 
+
+}
+#cadreP{
+	border: 2px solid #4d4d4d;
+	border-radius: 10px;
+	width: 15%;
+	float:left;
+	margin-left: -16%;
 }

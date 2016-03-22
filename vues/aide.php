@@ -1,8 +1,9 @@
+<div class="fond"></div>
 <div>
 	<h1> FAQ </h1>
 </div>
 <br>
-<div>
+<div id="cadreP">
 
 	<div>
 		<a href=""><h3 class="onglet">Completer son profile</h3></a>
@@ -11,7 +12,7 @@
 		<a href=""><h3 class="onglet">Rejoindre un groupe</h3></a>
 	</div>
 	<div>
-		<a href=""><h3 class="onglet">Créer un groupe</h3></a>
+		<a href=""><h3 class="onglet">Creer un groupe</h3></a>
 	</div>
 	<div>
 		<a href=""><h3 class="onglet">utilisation du forum</h3></a>
@@ -21,14 +22,14 @@
 	</div>
 
 </div>
-<div>
+<div id="cadre">
 	<div id="complete">
 		<h3 >Completer son profile</h3>
 		<p>Thalassius vero ea tempestate praefectus praetorio praesens ipse quoque adrogantis ingenii, considerans incitationem eius ad multorum augeri discrimina, non maturitate vel consiliis mitigabat, ut aliquotiens celsae potestates iras principum molliverunt, sed adversando iurgandoque cum parum congrueret, eum ad rabiem potius evibrabat, Augustum actus eius exaggerando creberrime docens, idque, incertum qua mente, ne lateret adfectans. quibus mox Caesar acrius efferatus, velut contumaciae quoddam vexillum altius erigens, sine respectu salutis alienae vel suae ad vertenda opposita instar rapidi fluminis irrevocabili impetu ferebatur.</p>
 		<img src="static/images/logo.png" height= "90px" width: "77px">
 	</div>
-	<div id="créer">
-		<h3 >créer un groupe</h3>
+	<div id="creer">
+		<h3 >creer un groupe</h3>
 		<p>Thalassius vero ea tempestate praefectus praetorio praesens ipse quoque adrogantis ingenii, considerans incitationem eius ad multorum augeri discrimina, non maturitate vel consiliis mitigabat, ut aliquotiens celsae potestates iras principum molliverunt, sed adversando iurgandoque cum parum congrueret, eum ad rabiem potius evibrabat, Augustum actus eius exaggerando creberrime docens, idque, incertum qua mente, ne lateret adfectans. quibus mox Caesar acrius efferatus, velut contumaciae quoddam vexillum altius erigens, sine respectu salutis alienae vel suae ad vertenda opposita instar rapidi fluminis irrevocabili impetu ferebatur.</p>
 		<img src="static/images/logo.png" height= "90px" width: "77px">
 	</div>
