@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="static/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
-	<?php if(isset($fichier_css)) { ?><link rel="stylesheet" type="text/css" href="static/css/<?php echo $fichier_css; ?>"><?php } ?>
+	<?php if(is_file('static/css/' . $action . '.css')) { ?><link rel="stylesheet" type="text/css" href="static/css/<?php echo $action; ?>.css"><?php } ?>
 </head>
 <body>
 	<header>
