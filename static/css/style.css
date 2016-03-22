@@ -8,14 +8,10 @@ html, body {
 	clear: both;
 }
 header {
-<<<<<<< HEAD
-  height:100px;
-  background-color: rgba(187, 210, 225, 0.5);
-  
-=======
+
   height:120px;
   background-color: #113F59;
->>>>>>> origin/master
+
 }
 header #logo {
   background-image: url("../images/logo.png");
@@ -47,7 +43,9 @@ header nav ul li a.colore {
   background-color: tomato;
 }
 .page {
-  width:900px;
+  width:80%;
+  max-width: 1000px;
+  min-width: 700px;
   padding:10px;
   margin: auto;
 }
