@@ -43,8 +43,7 @@ header nav ul li a.colore {
   background-color: tomato;
 }
 .page {
-  width:80%;
-  max-width: 1000px;
+  width:60%;
   min-width: 700px;
   padding:10px;
   margin: auto;
