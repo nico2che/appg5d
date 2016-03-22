@@ -1,3 +1,4 @@
+<div id='cover'> </div>
 <div class="connexion">
 	<center>
 		<form class="box grad" method="post">
