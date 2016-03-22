@@ -1,3 +1,6 @@
+
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
 <div id='cover'> </div>
 <div class="connexion">
 	<center>

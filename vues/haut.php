@@ -10,7 +10,7 @@
 <body>
 	<header>
 		<div class="page">
-			<a href="?"><div id="logo"></div></a>
+			<a href="?"><img src="static/images/logo2.png" alt="logo2" id="logo"></a>
 			<nav>
 				<ul>
 					<li><a href="?page=groupes">Groupes</a></li>
@@ -24,5 +24,6 @@
 				</ul>
 			</nav>
 		</div>
+		<div class="clear"></div>
 	</header>
 	<div class="page">

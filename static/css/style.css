@@ -9,17 +9,16 @@ html, body {
 }
 header {
 
-  height:120px;
+  height:85px;
   background-color: #113F59;
 
 }
 header #logo {
-  background-image: url("../images/logo.png");
   background-repeat: no-repeat;
   background-size: 77px auto;
   float: left;
-  height: 90px;
-  width: 77px;
+  height: 65px;
+  width: 45px;
 }
 header nav {
   float: right;
