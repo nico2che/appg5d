@@ -63,7 +63,7 @@ form.accueil select {
   text-shadow: 0px 0px 4px black;
   text-align: center;
   font-size: 140%;
-  line-height: 9.5em;
+  line-height: 9em;
 }
 
 body div div div.annonces1
@@ -111,7 +111,7 @@ body div div div.annonces1:hover
 
 #annonce6
 {
-  background: url(../../static/images/randonnée.jpg);
+  background: url(../../static/images/randonnee.jpg);
   background-position: 50% 85%;
 }
 
