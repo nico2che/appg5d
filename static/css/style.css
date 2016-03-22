@@ -14,12 +14,11 @@ header {
 
 }
 header #logo {
-  background-image: url("../images/logo.png");
   background-repeat: no-repeat;
   background-size: 77px auto;
   float: left;
-  height: 90px;
-  width: 77px;
+  height: 95px;
+  width: 70px;
 }
 header nav {
   float: right;
