@@ -16,9 +16,12 @@ form.recherche-groupe div {
   	width:200px;
   	display: inline-block;
   	margin:10px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 #liste-groupes .groupe a {
   text-decoration: none;
+  color:#D54F58;
 }
 #liste-groupes .groupe .details {
 	width:100%;
@@ -37,4 +40,9 @@ form.recherche-groupe div {
   color: black;
   text-align: center;
   text-transform: uppercase;
+}
+
+#liste-groupes .groupe .details p {
+  line-height: 29px;
+  margin-left: 20px;
 }

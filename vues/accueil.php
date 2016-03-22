@@ -1,5 +1,5 @@
 	<div id="cover">
-	<img src="static/images/image_accueil.jpg" alt="image test" class="image" >
+	<!--<img src="static/images/image_accueil.jpg" alt="image test" class="image" >-->
 	</div>
 	<div class="slogan">La Passion se partage</div>
 	<form class="accueil">
@@ -16,10 +16,10 @@
 	<h2 class="titre texteBase">Nos sports</h2>
 	<div class="petitTitre texteBase">Découvrez un grand choix de sport à pratiquer entre amis</div>
 	<div id="annonces">
-		<div class = "annonces1" id="annonce1" ></div>
-		<div class = "annonces1" id="annonce2"></div>
-		<div class = "annonces1" id="annonce3"></div>
-		<div class = "annonces1" id="annonce4"></div>
+		<div class = "annonces1" id="annonce1" >Football</div>
+		<div class = "annonces1" id="annonce2">ll</div>
+		<div class = "annonces1" id="annonce3">mm</div>
+		<div class = "annonces1" id="annonce4">nn</div>
 		<div class = "annonces1" ></div>
 		<div class = "annonces1" ></div>
 

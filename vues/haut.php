@@ -3,6 +3,7 @@
 <head>
 	<title></title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="static/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<?php if(isset($fichier_css)) { ?><link rel="stylesheet" type="text/css" href="static/css/<?php echo $fichier_css; ?>"><?php } ?>
 </head>
