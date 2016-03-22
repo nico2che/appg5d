@@ -9,7 +9,7 @@ html, body {
 }
 header {
 
-  height:120px;
+  height:85px;
   background-color: #113F59;
 
 }
@@ -17,8 +17,8 @@ header #logo {
   background-repeat: no-repeat;
   background-size: 77px auto;
   float: left;
-  height: 95px;
-  width: 70px;
+  height: 65px;
+  width: 45px;
 }
 header nav {
   float: right;
