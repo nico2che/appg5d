@@ -24,5 +24,6 @@
 				</ul>
 			</nav>
 		</div>
+		<div class="clear"></div>
 	</header>
 	<div class="page">
