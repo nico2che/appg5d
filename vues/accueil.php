@@ -17,7 +17,7 @@
 	<div class="petitTitre texteBase">Découvrez un grand choix de sport à pratiquer entre amis</div>
 	<div id="annonces">
 		<div class = "annonces1" id="annonce1" >Football</div>
-		<div class = "annonces1" id="annonce2">ll</div>
+		<div class = "annonces1" id="annonce2">Tennis</div>
 		<div class = "annonces1" id="annonce3">mm</div>
 		<div class = "annonces1" id="annonce4">nn</div>
 		<div class = "annonces1" ></div>
