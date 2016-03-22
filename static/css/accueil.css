@@ -48,7 +48,7 @@ form.accueil select {
 
 .titre
 {
-  margin-top : 20em ;
+  margin-top : 45%;
   text-align: center;
 }
 .petitTitre
@@ -68,24 +68,51 @@ form.accueil select {
 
 body div div div.annonces1
 {
+  display: block;
   margin-top: 1em;
   margin-left: 9%;
-  height: 21% ;
+  height: 0;
+  padding-bottom: 21%;
   width: 21%;
   background-color: white;
-  border-radius: 100%;
+  border-radius: 50%;
   float: left;
+}
+body div div div.annonces1:hover
+{
+  transform: scale(1.10);
+  -ms-transform: scale(1.10);
+  -webkit-transform: scale(1.10);
+  -o-transform: scale(1.10);
+  -moz-transform: scale(1.10);
 }
 
 #annonce1
 { 
-   background: url(../../static/images/football.jpeg) no-repeat;
+   background: url(../../static/images/football.jpeg) no-repeat ;
    background-position: 50% 69%;
 }
 #annonce2
 { 
    background: url(../../static/images/tennis.jpeg) no-repeat;
    background-position: right;
+}
+
+#annonce4
+{
+  
+}
+
+#annonce5
+{
+  background: url(../../static/images/cyclisme_miniature.jpeg);
+  background-position: 78% 120%;
+}
+
+#annonce6
+{
+  background: url(../../static/images/randonnée.jpg);
+  background-position: 50% 85%;
 }
 
 .fond
