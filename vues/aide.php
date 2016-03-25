@@ -6,19 +6,19 @@
 <div id="cadreP">
 
 	<div>
-		<a href=""><h3 class="onglet">Completer son profile</h3></a>
+		<a href="#"><h3 class="onglet">Completer son profile</h3></a>
 	</div>
 	<div>
-		<a href=""><h3 class="onglet">Rejoindre un groupe</h3></a>
+		<a href="#"><h3 class="onglet">Rejoindre un groupe</h3></a>
 	</div>
 	<div>
-		<a href=""><h3 class="onglet">Creer un groupe</h3></a>
+		<a href="#"><h3 class="onglet">Creer un groupe</h3></a>
 	</div>
 	<div>
-		<a href=""><h3 class="onglet">utilisation du forum</h3></a>
+		<a href="#"><h3 class="onglet">utilisation du forum</h3></a>
 	</div>
 	<div>
-		<a href=""><h3 class="onglet">modifier son planning</h3></a>
+		<a href="#"><h3 class="onglet">modifier son planning</h3></a>
 	</div>
 
 </div>
