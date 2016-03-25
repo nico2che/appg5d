@@ -1,5 +1,8 @@
 	<div class="profil gauche">
-		<img src="static/images/profil.jpg" class="photo">
+		<div>
+			<img src="static/images/profil.jpg" class="photo">
+			<a href="#" class="modifier-photo"><i class="fa fa-camera"></i> &nbsp; Modifier la photo</a>
+		</div>
 		<div class="navigation">
 			<ul>
 				<li><a href="?page=mon-profil">Mon Profil</a></li>
@@ -9,33 +12,33 @@
 		</div>
 	</div>
 	<div class="profil droite">
-		<form action="" method="post">
+		<form action="" method="post" id="informations-profil">
 			<h2>Mon Profil</h2>
 			<div>
-				<label>Prénom : </label>
-				<input type="text" name="prenom">
+				<label for="prenom">Prénom</label>
+				<input type="text" name="prenom" id="prenom" value="<?php echo $informations['prenom']; ?>">
 			</div>
 			<div>
-				<label>Nom : </label>
-				<input type="text" name="nom">
+				<label for="nom">Nom</label>
+				<input type="text" name="nom" id="nom" value="<?php echo $informations['nom']; ?>">
 			</div>
 			<div>
-				<label>Email : </label>
-				<input type="text" name="email">
+				<label for="email">Email</label>
+				<input type="text" name="email" id="email" value="<?php echo $informations['email']; ?>">
 			</div>
-			<div>
+			<div class="align-right">
 				<input type="submit">
 			</div>
 			<hr>
-			<div>
-				<label>Mot de passe : </label>
-				<input type="password" name="mot_de_passe">
+			<div style="margin-top:35px;">
+				<label>Mot de passe</label>
+				<input type="password" name="mot_de_passe" autocomplete="off">
 			</div>
 			<div>
-				<label>Confirmation du mot de passe : </label>
+				<label>Confirmation du mot de passe</label>
 				<input type="password" name="confirmation_mot_de_passe">
 			</div>
-			<div>
+			<div class="align-right">
 				<input type="submit">
 			</div>
 		</form>

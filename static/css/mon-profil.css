@@ -7,15 +7,59 @@
 }
 .profil.gauche img.photo {
   border: 2px solid black;
+  border-radius: 6px;
+  height: 165px;
   padding: 2px;
   width: 165px;
 }
-.profil.gauche .navigation {
-  text-align: left;
+.profil.gauche a.modifier-photo {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 1px 0 8px 8px;
+  color: white;
+  height: 28px;
+  margin-left: -172px;
+  margin-top: 132px;
+  padding-top: 11px;
+  position: absolute;
+  text-decoration: none;
+  width: 172px;
+  font-size: 14px;
 }
 .profil.droite {
   width:670px;
   float: right;
   padding:15px;
 }
-/* bb*/
+.navigation {
+  line-height: 41px;
+  margin-left: -40px;
+  text-align: center;
+}
+.navigation ul li {
+  list-style: none;
+}
+.navigation ul li a {
+  background-color: #d54f58;
+  border-radius: 4px;
+  color: white;
+  display: inline-block;
+  margin-top: 9px;
+  text-decoration: none;
+  width: 172px;
+}
+
+form#informations-profil div {
+  margin-bottom: 10px;
+}
+form#informations-profil div label {
+  display: inline-block;
+  padding-right: 15px;
+  text-align: right;
+  width: 214px;
+}
+form#informations-profil div input[type=text], form#informations-profil div input[type=password] {
+  width: 250px;
+  border-radius:5px;
+  border:1px solid gray;
+  padding:7px;
+}

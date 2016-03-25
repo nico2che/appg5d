@@ -1,5 +1,5 @@
 <?php
 
-$fichier_css = 'mon-profil.css';
+$informations = profil_membre($_SESSION['id']);
 
 include 'vues/mon-profil.php';

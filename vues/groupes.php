@@ -1,9 +1,10 @@
 	<h2>Groupes</h2>
 	<form action="" method="get" class="recherche-groupe">
+		<input type="hidden" name="page" value="groupes">
 		<h3>Recherche</h3>
 		<div>
 			<label>Nom d'un groupe : </label>
-			<input type="text" name="mot">
+			<input type="text" name="recherche">
 		</div>
 		<div>
 			<label>Sport : </label>
