@@ -6,19 +6,19 @@
 <div id="cadreP">
 
 	<div>
-		<a href="#"><h3 class="onglet">Completer son profile</h3></a>
+		<a href="#" id="menu1" onclick="affichage(1)" ><h3 class="onglet">Completer son profile</h3></a>
 	</div>
 	<div>
-		<a href="#"><h3 class="onglet">Rejoindre un groupe</h3></a>
+		<a href="#" id="menu2" onclick="affichage(2)"><h3 class="onglet">Rejoindre un groupe</h3></a>
 	</div>
 	<div>
-		<a href="#"><h3 class="onglet">Creer un groupe</h3></a>
+		<a href="#" id="menu3"onclick="affichage(3)"><h3 class="onglet">Creer un groupe</h3></a>
 	</div>
 	<div>
-		<a href="#"><h3 class="onglet">utilisation du forum</h3></a>
+		<a href="#" id="menu4"onclick="affichage(4)"><h3 class="onglet">utilisation du forum</h3></a>
 	</div>
 	<div>
-		<a href="#"><h3 class="onglet">modifier son planning</h3></a>
+		<a href="#" id="menu5"onclick="affichage(5)"><h3 class="onglet">modifier son planning</h3></a>
 	</div>
 
 </div>

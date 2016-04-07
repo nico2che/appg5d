@@ -1,13 +1,22 @@
-var Categorie =[document.getElementById("complete"),document.getElementById("creer"),document.getElementById("rejoindre"),document.getElementById("forum"),document.getElementById("planning")];
+var Categorie =[document.getElementById("complete"),document.getElementById("rejoindre"),document.getElementById("creer"),document.getElementById("forum"),document.getElementById("planning")];
+var tailleCadre=document.getElementById("cadre");
 
-var test = prompt("enter un nombre en 0 et 4");
-
-for (var i=0;i<Categorie.length;i++){
-	if(i==test){
-		Categorie[i].style.display= "block";
+var affichage= function(menu){
+	for (var i=1;i<Categorie.length+1;i++){
+	if(i==menu){
+		Categorie[i-1].style.display= "block";
 	}
 	else {
-		Categorie[i].style.display= "none";
+		Categorie[i-1].style.display= "none";
 	}
+	tailleCadre.style.borderWidth="2px";
 }
+
+}
+
+
+
+
+
+
 
