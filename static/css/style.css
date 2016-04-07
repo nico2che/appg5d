@@ -60,4 +60,6 @@ header nav ul li a.colore {
 footer {
   height: 50px;
   /*background-color: blue;*/
+  clear: both;
+  text-align: center
 }

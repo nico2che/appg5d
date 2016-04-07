@@ -1,7 +1,11 @@
 
 	</div>
-	<footer>
 	
+	<footer>
+	<div>
+		<a href="?page=aide" style="text-decoration: none;color: black">aide</a>
+		<a href="?page=contacte" style="text-decoration: none;color: black">contacte</a>
+	</div>
 	</footer>
 	<?php if(is_file('static/js/' . $action . '.js')) { ?><script type="text/javascript" src="static/js/<?php echo $action; ?>.js"></script><?php } ?>
 </body>
