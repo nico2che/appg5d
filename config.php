@@ -2,7 +2,12 @@
 
 session_start();
 
-$mysqli = new mysqli("localhost", "root", "", "app", 3306) or die("Connexion à la base de donn&eacute;es impossible");
+try {
+	$pdo = new PDO("mysql:host=localhost;dbname=app", 'root', '');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('Échec lors de la connexion : ' . $e->getMessage());
+}
 
 class DateTimeFrench extends DateTime {
     public function format($format) {

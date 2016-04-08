@@ -1,0 +1,12 @@
+.groupe .photo {
+	width:200px;
+	height:200px;
+	float: left;
+	background-size: 200px;
+	background-position: center center;
+}
+
+.groupe .details {
+	margin-left:40px;
+	display: inline-block;
+}

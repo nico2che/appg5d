@@ -6,56 +6,45 @@ function connecte() {
 
 function existe_email($email) {
 
-	global $mysqli;
-
-	$requete = $mysqli->query('SELECT email FROM membres WHERE email = "' .$email. '"');
-
-	if(empty($requete->fetch_array()))
-		return false;
-	else
-		return true;
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT email FROM membres WHERE email = :email');
+	$stmt->bindValue('email', $email, PDO::PARAM_STR);
+	return $stmt->execute();
 }
 
 function inscrire_membre($nom, $prenom, $email, $mot_de_passe) {
 
-	global $mysqli;
-
-	$requete = $mysqli->prepare('INSERT INTO membres SET nom = ?, prenom = ?, email = ?, mot_de_passe = ?');
-	$requete->bind_param('ssss', $nom, $prenom, $email, $mot_de_passe);
-	$requete->execute();
-
-	if(isset($mysqli->error) && !empty($mysqli->error))
-		return false;
+	global $pdo;
+	$stmt = $pdo->prepare('INSERT INTO membres SET nom = :nom, prenom = :prenom, email = :email, mot_de_passe = :mot_de_passe');
+	$stmt->bindValue('nom', $nom, PDO::PARAM_STR);
+	$stmt->bindValue('prenom', $prenom, PDO::PARAM_STR);
+	$stmt->bindValue('email', $email, PDO::PARAM_STR);
+	$stmt->bindValue('mot_de_passe', $mot_de_passe, PDO::PARAM_STR);
+	if($stmt->execute())
+		return $pdo->lastInsertId();
 	else
-		return $mysqli->insert_id;
+		return false;
 }
 
 function connexion_membre($email, $mot_de_passe) {
 
-	global $mysqli;
-
-	$requete = $mysqli->prepare('SELECT * FROM membres WHERE email = ? AND mot_de_passe = ?');
-	$requete->bind_param('ss', $email, $mot_de_passe);
-	$requete->execute();
-	$donnees = $requete->get_result();
-	
-	if(isset($mysqli->error) && !empty($mysqli->error))
-		return false;
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT * FROM membres WHERE email = :email AND mot_de_passe = :mot_de_passe');
+	$stmt->bindValue('email', $email, PDO::PARAM_STR);
+	$stmt->bindValue('mot_de_passe', $mot_de_passe, PDO::PARAM_STR);
+	if($stmt->execute())
+		return $stmt->fetch();
 	else
-		return $donnees->fetch_array();
+		return false;
 }
 
 function profil_membre($id) {
 
-	global $mysqli;
-
-	$requete = $mysqli->prepare('SELECT * FROM membres WHERE id = ?');
-	$requete->bind_param('d', $id);
-	$requete->execute();
-	$donnees = $requete->get_result();
-	
-	if(isset($mysqli->error) && !empty($mysqli->error))
-		return false;
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT * FROM membres WHERE id = :id');
+	$stmt->bindValue('id', $id, PDO::PARAM_INT);
+	if($stmt->execute())
+		return $stmt->fetch();
 	else
-		return $donnees->fetch_array();
+		return false;
 }

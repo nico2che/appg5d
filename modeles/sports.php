@@ -1,12 +1,12 @@
 <?php
 
 function ajouter_sport($nom, $description = '') {
-	global $mysqli;
-	$requete = $mysqli->prepare('INSERT INTO sports SET nom = ?, description = ?');
-	$requete->bind_param('ss', $nom, $description);
-	$requete->execute();
-	if(isset($mysqli->error) && !empty($mysqli->error))
-		return false;
+	global $pdo;
+	$stmt = $pdo->prepare('INSERT INTO sports SET nom = :nom, description = :description');
+	$stmt->bindValue('nom', $nom, PDO::PARAM_STR);
+	$stmt->bindValue('description', $description, PDO::PARAM_STR);
+	if($stmt->execute())
+		return $pdo->lastInsertId();
 	else
-		return $mysqli->insert_id;
+		return false;
 }
