@@ -4,7 +4,7 @@ include 'config.php';
 
 if(isset($_GET['page']) && !empty($_GET['page'])) {
 
-	$action = $_GET['page'];
+	$action = basename($_GET['page']);
 
 } else {
 

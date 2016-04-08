@@ -63,3 +63,24 @@ form#informations-profil div input[type=text], form#informations-profil div inpu
   border:1px solid gray;
   padding:7px;
 }
+
+.mois-precedent, .mois-suivant, .mois-zero {
+  text-decoration: none;
+  color:black;
+}
+.titre-mois {
+    width: 170px;
+    display: inline-block;
+}
+
+.planning {
+  border-collapse: collapse;
+}
+.planning td {
+    padding: 34px;
+    font-size: 25px;
+    border: 1px solid black;
+}
+.planning td.sans-bordure {
+    border: 0;
+}

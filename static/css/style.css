@@ -10,6 +10,9 @@ html, body {
 .align-left {
   text-align: right;
 }
+.align-center {
+  text-align: center;
+}
 input[type=submit] {
   border-radius: 6px;
   padding: 3px 15px;
