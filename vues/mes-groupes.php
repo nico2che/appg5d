@@ -1,5 +1,7 @@
 	<div class="profil gauche">
-		<img src="static/images/profil.jpg" class="photo">
+		<div>
+			<img src="<?php echo (is_file(DOSSIER_AVATAR . $_SESSION['id'] . '.jpg') ? DOSSIER_AVATAR . $_SESSION['id'] . '.jpg' : 'static/images/profil.jpg'); ?>" class="photo">
+		</div>
 		<div class="navigation">
 			<ul>
 				<li><a href="?page=mon-profil">Mon Profil</a></li>

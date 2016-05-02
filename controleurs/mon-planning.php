@@ -15,11 +15,11 @@ if(isset($_GET['mois'])) {
 	$calendrier->modify('first day of this month');
 	$retour = '<tr>';
 	for ($i=0; $i < $nombre_jours; $i++) {
-		if($calendrier->format('j') == 1 && $calendrier->format('N') != 7)
-			$retour .= '<td class="sans-bordure" colspan="'.$calendrier->format('N').'"></td>';
+		if($calendrier->format('j') == 1 && $calendrier->format('N') != 1)
+			$retour .= '<td class="sans-bordure" colspan="'.($calendrier->format('N') - 1).'"></td>';
 		$retour .= '<td>' . $calendrier->format('j') . '</td>';
 		$calendrier->add(new DateInterval('P1D'));
-		if($calendrier->format('N') == 7)
+		if($calendrier->format('N') == 1)
 			$retour .= '</tr><tr>';
 	}
 	$retour .= '</tr>';

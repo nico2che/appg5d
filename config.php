@@ -9,6 +9,8 @@ try {
     die('Échec lors de la connexion : ' . $e->getMessage());
 }
 
+define('DOSSIER_AVATAR', 'static/user/avatars/');
+
 class DateTimeFrench extends DateTime {
     public function format($format) {
         $english_days = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');

@@ -1,5 +1,7 @@
 	<div class="profil gauche">
-		<img src="static/images/profil.jpg" class="photo">
+		<div>
+			<img src="<?php echo (is_file(DOSSIER_AVATAR . $_SESSION['id'] . '.jpg') ? DOSSIER_AVATAR . $_SESSION['id'] . '.jpg' : 'static/images/profil.jpg'); ?>" class="photo">
+		</div>
 		<div class="navigation">
 			<ul>
 				<li><a href="?page=mon-profil">Mon Profil</a></li>
@@ -27,11 +29,11 @@
 				<tr>
 			<?php
 				for ($i=0; $i < $nombre_jours; $i++) {
-					if($calendrier->format('j') == 1)
-						echo '<td class="sans-bordure" colspan="'.$calendrier->format('N').'"></td>';
+					if($calendrier->format('j') == 1 && $calendrier->format('N') != 1)
+						echo '<td class="sans-bordure" colspan="'.($calendrier->format('N') - 1) .'"></td>';
 					echo '<td>' . $calendrier->format('j') . '</td>';
 					$calendrier->add(new DateInterval('P1D'));
-					if($calendrier->format('N') == 7)
+					if($calendrier->format('N') == 1)
 						echo '</tr><tr>';
 				}
 			?>

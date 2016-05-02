@@ -48,3 +48,14 @@ function profil_membre($id) {
 	else
 		return false;
 }
+
+function modifier_membre($id_membre, $nom, $prenom, $email) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('UPDATE membres SET nom = :nom, prenom = :prenom, email = :email WHERE id = :id_membre');
+	$stmt->bindValue('nom', $nom, PDO::PARAM_STR);
+	$stmt->bindValue('prenom', $prenom, PDO::PARAM_STR);
+	$stmt->bindValue('email', $email, PDO::PARAM_STR);
+	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
+	return $stmt->execute();
+}
