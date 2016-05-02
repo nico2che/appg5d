@@ -2,15 +2,7 @@
 
 $fichier_css = 'contacte.css';
 
-function test_contenu($nom,$sujet,$contenu){
-	if ($nom==none || $sujet==none || $contenu==none ) {
-		return false;
-	}
-	else {
-		return true;
-	}
 
-}
 
 function test_email($email){
 	if (filter_var($email,FILTER_VALIDATE_EMAIL)){
@@ -27,8 +19,12 @@ if(isset($_POST['userName']) && isset($_POST['Sujet']) && isset($_POST['conntenu
 			$message2= "votre adresse email est invalide";
 	}
 	else{
-		$message1 = "Tous les champs sont obligatoires";
+		$message1 = "veuillez remplir toute les parties";
 	}
 
 }
+else{
+	formulaire_contacte($_POST['userName'],$_POST['userEmail'],$_POST['Sujet'],$_POST['conntenuMessage']);
+}
+
 include 'vues/contacte.php';
