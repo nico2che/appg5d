@@ -1,3 +1,4 @@
+<div id="cover"></div>
 <div class="box grad align-center">
 	<form action="" method="post">
 		<h2>Inscription</h2>
