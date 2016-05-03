@@ -52,9 +52,23 @@
 }
 
 .connexion .connexion-fb {
-  padding:10px;
-  background-color: #3b5998;
-  color:white;
-  text-decoration: none;
-  border-radius: 5px;
+    position: relative;
+    background-color: #3b5998;
+    border-color: rgba(0,0,0,0.2);
+    padding: 6px 12px 7px 40px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.connexion .connexion-fb > span.fa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  line-height: 34px;
+  font-size: 1.6em;
+  border-right: 1px solid rgba(0,0,0,0.2);
 }

@@ -9,9 +9,10 @@
 			<input class="input" type="submit" value="Valider">
 		</div>
 		<div class="connexion-droite">
-			<a href="#" class="connexion-fb" scope="public_profile,email" onlogin="checkLoginState();">Connexion avec Facebook</a>
-			<div id="status"></div>
-			<br>
+			<a class="connexion-fb" >
+            	<span class="fa fa-facebook"></span>
+            	<span class="texte">Chargement...</span>
+          	</a>
 		</div>
 		<div class="clear"></div>
 	</form>
