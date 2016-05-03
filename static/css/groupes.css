@@ -1,3 +1,7 @@
+body
+{
+  background-color: #edefed;
+}
 form.recherche-groupe {
   	border: 1px solid gray;
   	padding: 0 30px 17px;
