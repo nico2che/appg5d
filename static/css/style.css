@@ -40,6 +40,8 @@ header nav ul {
   list-style: outside none none;
   margin-right: 70px;
   margin-top: 22px;
+  min-height: 100%;
+  position: relative;
 }
 header nav ul li {
   display: inline;
@@ -62,10 +64,16 @@ header nav ul li a.colore {
 }
 footer {
   height: 50px;
-  /*background-color: blue;*/
   clear: both;
-  text-align: center
+  text-align: center;
+  background-color :  #333333;
+  line-height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
+
 
 div.message {
   width:100%;

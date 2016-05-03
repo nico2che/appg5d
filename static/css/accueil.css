@@ -1,3 +1,14 @@
+body
+{
+  background-color: #edefed;
+}
+
+header
+{
+  background-color: transparent;
+}
+
+
 #cover {
   width: 100%;
   height:100%;
@@ -22,6 +33,7 @@
 .texteBase
 {
   color: #4d4d4d;
+  font : tahoma;
 }
 
 .slogan {
@@ -46,10 +58,17 @@ form.accueil select {
    border: 1px solid #ccc;
 }
 
-.titre
+.titreImage
 {
   margin-top : 45%;
   text-align: center;
+}
+
+.titreClassique
+{
+  margin-top: 7%;
+  text-align: center;
+
 }
 .petitTitre
 {
@@ -58,13 +77,15 @@ form.accueil select {
 }
 #annonces
 {
-  margin-top: 50px;
+  margin-top: 30px;
   color: white;
   text-shadow: 0px 0px 4px black;
   text-align: center;
   font-size: 140%;
   line-height: 9em;
 }
+
+
 
 body div div div.annonces1
 {
@@ -75,8 +96,8 @@ body div div div.annonces1
   padding-bottom: 21%;
   width: 21%;
   background-color: white;
-  border-radius: 50%;
   float: left;
+  border-radius: 50%;
 }
 body div div div.annonces1:hover
 {
@@ -91,6 +112,7 @@ body div div div.annonces1:hover
 { 
    background: url(../../static/images/football.jpeg) no-repeat ;
    background-position: 50% 69%;
+
 }
 #annonce2
 { 
@@ -100,7 +122,8 @@ body div div div.annonces1:hover
 
 #annonce4
 {
-  
+  background: url(../../static/images/basket.jpg);
+  background-position: left;
 }
 
 #annonce5
@@ -115,20 +138,33 @@ body div div div.annonces1:hover
   background-position: 50% 85%;
 }
 
-.fond
+.bouton
 {
-  position: absolute;
-  background-color: #edefed;
-  top:0;
-  left: 0;
-  width: 100%;
-  height: 5000px;
-  z-index: -2;
+  position: relative;
+  display: block;
+  margin: auto;
+  margin-top: 55%;
+  background-color: white;
+  border : 1px solid #cccccc;
+  color: #4d4d4d;
 }
-header
+
+#annoncesMoment
 {
-  background-color: transparent;
+
 }
-.page
+.annonces2
 {
+  display: inline-block;
+  position: relative;
+  margin-top: 10%;
+  margin-left: 10%;
+  background-color: white;
+  height: 500px;
+  width:35%;
+}
+footer
+{
+  bottom : initial;
+  margin-bottom: 0;
 }
