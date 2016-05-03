@@ -1,3 +1,4 @@
+<div class="box grad align-center">
 	<form action="" method="post">
 		<h2>Inscription</h2>
 		<?php if(isset($message)) echo $message; ?>
@@ -25,3 +26,4 @@
 			<input type="submit">
 		</div>
 	</form>
+<div class="box grad align-center">
