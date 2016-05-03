@@ -1,34 +1,8 @@
-.box{
-	border-style: solid;
-    border-color: white;
-    border-width: 1px;
-	border-radius: 30px;
-	margin-top: 100px;
-	padding: 10px 0px 10px 0px;
-}
-.grad{
-	height: 180px;
-    width:100%;
-    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
-    color:white;
-    opacity:0.95;
-}
-
-.input[type=submit] {
-    padding:5px 15px; 
-    background:rgba(237, 237, 237,1); 
-    border:0 none;
-    cursor:pointer;
-    -webkit-border-radius: 3px;
-    border-radius: 3px; 
-}
-
-#cover
-{
-	width:100%;
-	height:100%;
-	background:url(../../static/images/image_connexion.jpg);
-	-webkit-background-size: cover; /* pour Chrome et Safari */
+#cover {
+  width:100%;
+  height:100%;
+  background:url(../../static/images/image_connexion.jpg);
+  -webkit-background-size: cover; /* pour Chrome et Safari */
   -moz-background-size: cover; /* pour Firefox */
   -o-background-size: cover; /* pour Opera */
   background-size: cover; /* version standardisée */
@@ -36,4 +10,52 @@
   left : 0;
   position : absolute;
   z-index : -1;
+}
+
+.connexion .box{
+	border-style: solid;
+  border-color: white;
+  border-width: 1px;
+	border-radius: 30px;
+	margin-top: 100px;
+	padding: 10px 0px 10px 0px;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+  color:white;
+  opacity:0.95;
+}
+
+.connexion .input[type=submit] {
+    padding:5px 15px; 
+    background:rgba(237, 237, 237,1); 
+    border:0 none;
+    cursor:pointer;
+    border-radius: 3px;
+    margin-bottom: 25px;
+}
+
+.connexion .connexion-droite {
+  float:right;
+  width: 50%;
+  margin-top: 84px;
+  text-align: center;
+}
+
+.connexion .connexion-gauche {
+  float:left;
+  width: 50%;
+  text-align: center;
+  line-height: 35px;
+}
+
+.connexion .connexion-gauche > label {
+  width: 150px;
+  display: inline-block;
+}
+
+.connexion .connexion-fb {
+  padding:10px;
+  background-color: #3b5998;
+  color:white;
+  text-decoration: none;
+  border-radius: 5px;
 }
