@@ -26,4 +26,4 @@
 			<input type="submit">
 		</div>
 	</form>
-<div class="box grad align-center">
+</div>
