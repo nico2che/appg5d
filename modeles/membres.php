@@ -9,13 +9,20 @@ function existe_email($email) {
 	global $pdo;
 	$stmt = $pdo->prepare('SELECT email FROM membres WHERE email = :email');
 	$stmt->bindValue('email', $email, PDO::PARAM_STR);
-	return $stmt->execute();
+	if($stmt->execute())
+		return $stmt->fetch();
+	else
+		return false;
 }
 
 function inscrire_membre($nom, $prenom, $email, $mot_de_passe) {
 
 	global $pdo;
-	$stmt = $pdo->prepare('INSERT INTO membres SET nom = :nom, prenom = :prenom, email = :email, mot_de_passe = :mot_de_passe');
+	$stmt = $pdo->prepare('INSERT INTO membres SET 	nom = :nom,
+													prenom = :prenom,
+													email = :email,
+													mot_de_passe = :mot_de_passe,
+													description = ""');
 	$stmt->bindValue('nom', $nom, PDO::PARAM_STR);
 	$stmt->bindValue('prenom', $prenom, PDO::PARAM_STR);
 	$stmt->bindValue('email', $email, PDO::PARAM_STR);

@@ -11,6 +11,7 @@
 		<div class="connexion-droite">
 			<a href="#" class="connexion-fb" scope="public_profile,email" onlogin="checkLoginState();">Connexion avec Facebook</a>
 			<div id="status"></div>
+			<br>
 		</div>
 		<div class="clear"></div>
 	</form>
