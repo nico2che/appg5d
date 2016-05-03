@@ -14,12 +14,11 @@
 
 .box{
 	border-style: solid;
-  border-color: white;
+  border-color: rgba(0, 0, 0, 0.7);
   border-width: 1px;
-	border-radius: 30px;
 	margin-top: 100px;
 	padding: 10px 0px 10px 0px;
-  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+	background: rgba(0, 0, 0, 0.7);
   color:white;
   opacity:0.95;
 }

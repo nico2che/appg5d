@@ -23,7 +23,7 @@ input[type=submit] {
 header {
 
   height:85px;
-  background-color: #113F59;
+  background-color: rgba(0, 0, 0, 0.1);
 
 }
 header #logo {
