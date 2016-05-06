@@ -1,7 +1,7 @@
 .groupe .photo {
 	width:200px;
 	height:200px;
-	float: left;
+	float: right;
 	background-size: 200px;
 	background-position: center center;
 }
@@ -9,4 +9,17 @@
 .groupe .details {
 	margin-left:40px;
 	display: inline-block;
+	width: 65%
+}
+
+.groupe .details .specifications span {
+	margin-left:15px;
+}
+
+.groupe .details p.description {
+    margin: 15px;
+    border: 1px solid black;
+    padding: 18px;
+    width: 100%;
+    text-align: justify;
 }
