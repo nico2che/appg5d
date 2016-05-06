@@ -9,8 +9,11 @@
 	height: 5000px;
 
 }
-.tailleMessage{
+#tailleMessage{
 	width:30%;
-	height: 15%;
+	height: 40%;
 }
 
+#captcha{
+	margin-right: 50%
+}
