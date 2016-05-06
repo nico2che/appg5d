@@ -10,3 +10,14 @@ function ajouter_sport($nom, $description = '') {
 	else
 		return false;
 }
+
+function recuperer_sports() {
+
+	global $pdo;
+	$stmt = $pdo->query('SELECT * FROM sports');
+	$resultat = array();
+	while($ligne = $stmt->fetch()) {
+		$resultat[] = $ligne;
+	}
+	return $resultat;
+}
