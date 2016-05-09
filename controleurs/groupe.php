@@ -2,6 +2,9 @@
 
 include 'modeles/groupes.php';
 
-$infos_groupe = infos_groupe((int) $_GET['id']);
+$id_groupe = (int) $_GET['id'];
+
+$infos_groupe = infos_groupe($id_groupe);
+$membres_groupe = membres_groupe($id_groupe);
 
 include 'vues/groupe.php';

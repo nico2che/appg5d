@@ -6,6 +6,12 @@
 	background-position: center center;
 }
 
+.moderer_groupe {
+	padding:15px;
+	border:1px solid black;
+	margin-left:15px;
+}
+
 .groupe .details {
 	margin-left:40px;
 	display: inline-block;
