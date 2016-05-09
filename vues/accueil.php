@@ -6,9 +6,6 @@
 	<form class="accueil">
 	</form>
 	<div class="fond"></div>
-=======
-	
->>>>>>> origin/master
 	<h2 class="titreImage texteBase">Nos sports</h2>
 	<div class="petitTitre texteBase">Découvrez un grand choix de sport à pratiquer entre amis</div>
 	<div id="annonces">
