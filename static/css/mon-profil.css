@@ -96,3 +96,12 @@ form.formulaire-profil div input[type=text], form.formulaire-profil div input[ty
 .planning td.sans-bordure {
     border: 0;
 }
+
+footer
+{
+  bottom : initial;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

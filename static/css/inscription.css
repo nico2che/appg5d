@@ -53,4 +53,13 @@ body
     display: inline-block;
     text-align: right;
 }
+
+footer
+{
+  bottom : initial;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
  

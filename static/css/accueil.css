@@ -72,7 +72,7 @@ header
   text-shadow: 0px 0px 4px black;
   text-align: center;
   font-size: 140%;
-  line-height: 9em;
+  line-height: 4em;
 }
 
 
@@ -80,11 +80,11 @@ header
 body div div div.annonces1
 {
   display: block;
-  margin-top: 1em;
+  margin-top: 2em;
   margin-left: 9%;
   height: 0;
-  padding-bottom: 21%;
-  width: 21%;
+  padding-bottom: 10%;
+  width: 10%;
   background-color: white;
   float: left;
   border-radius: 50%;
@@ -133,7 +133,7 @@ body div div div.annonces1:hover
   position: relative;
   display: block;
   margin: auto;
-  margin-top: 55%;
+  margin-top: 55vh;
   background-color: white;
   border : 1px solid #cccccc;
   color: #4d4d4d;
