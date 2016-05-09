@@ -1,4 +1,4 @@
-<?php include 'vues/admin.php';
+<?php 
 
 if(isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
 
@@ -8,8 +8,12 @@ if(isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
 
 			$_SESSION['id'] = $infos_membre['id'];
 			$_SESSION['nom'] = $infos_membre['prenom'] . ' ' . $infos_membre['nom'];
-			header('Location: ?page=bdd');
-			exit();
+			$_SESSION['role'] = $infos_membre['role'];
+			if($_SESSION['role']=='admin'){
+				header('Location: ?page=bdd');
+			}else{
+				$message='Vous n\'êtes pas administrateur';
+			}
 
 		} else {
 
@@ -20,5 +24,5 @@ if(isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
 		$message = "Tous les champs sont obligatoires";
 	}
 }
-
+include 'vues/admin.php';
 ?>
