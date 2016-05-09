@@ -2,7 +2,6 @@
 	<!--<img src="static/images/image_accueil.jpg" alt="image test" class="image" >-->
 	</div>
 	<div class="slogan">La Passion se partage</div>
-<<<<<<< HEAD
 	<form class="accueil">
 	</form>
 	<div class="fond"></div>
