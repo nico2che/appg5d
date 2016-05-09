@@ -10,11 +10,6 @@
 			<option>Tennis</option>
 			<option>Piscine</option>
 		</select>
-		<div class="search_bar">
-			<form action="http://www.example.com/search.php">
-			<input type="text" name="search" placeholder="Votre ville">
-			<input type="submit" value="Rechercher">
-		</div>
 	</form>
 	<div class="fond"></div>
 =======
