@@ -7,10 +7,13 @@
 			<option>Football</option>
 			<option>Jogging</option>
 			<option>Tennis</option>
-			<option><P></P>Piscine</option>
+			<option>Piscine</option>
 		</select>
-		<input type="text">
-		<input type="submit" value="Rechercher">
+		<div class="search_bar">
+			<form action="http://www.example.com/search.php">
+			<input type="text" name="search" placeholder="Votre ville">
+			<input type="submit" value="Rechercher">
+		</div>
 	</form>
 	<div class="fond"></div>
 	<h2 class="titreImage texteBase">Nos sports</h2>
