@@ -10,10 +10,11 @@
 
 }
 #tailleMessage{
-	width:30%;
-	height: 40%;
+	width:50%;
+	height: 30vh;
 }
 
 #captcha{
-	margin-right: 50%
+	margin-left: 32.5%;
+
 }

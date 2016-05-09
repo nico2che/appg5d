@@ -92,3 +92,8 @@ div.message.succes {
   border-color: #31B404;
   color:#31B404;
 }
+footer
+{
+  bottom : initial;
+  margin-bottom: 0;
+}

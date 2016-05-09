@@ -12,6 +12,7 @@ header
 #cover {
   width: 100%;
   height:100%;
+  display : block;
   /*background-image: url(static/images/image_accueil.jpg);*/
   background: url(../../static/images/image_accueil.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -24,11 +25,6 @@ header
   position: absolute;
 }
 
-.image
-{
-  max-width: 100%;
-}
-
 
 .texteBase
 {
@@ -37,31 +33,25 @@ header
 }
 
 .slogan {
+  min-height: 100vh;
   clear: both;
   color: white;
   font-size: 40px;
   font-weight: bold;
-  margin: 30px auto auto;
+  margin: 0 auto auto;
   text-transform: uppercase;
   width: 562px;
   text-shadow: 0px 0px 4px black;
+  line-height: 50vh;
 }
-form.accueil {
-  margin: 130px auto;
-  width: 320px;
-}
-form.accueil select {
-   width: 240px;
-   height: 34px;
-   overflow: hidden;
-   background: url(new_arrow.png) no-repeat right #ddd;
-   border: 1px solid #ccc;
-}
+
 
 .titreImage
 {
-  margin-top : 45%;
+  margin-top : -1em;
   text-align: center;
+  display: block;
+  position: relative;
 }
 
 .titreClassique
@@ -151,7 +141,7 @@ body div div div.annonces1:hover
 
 #annoncesMoment
 {
-
+  padding-bottom: 50px;
 }
 .annonces2
 {

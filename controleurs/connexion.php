@@ -26,4 +26,6 @@ if(isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
 	}
 }
 
+
+
 include 'vues/connexion.php';
