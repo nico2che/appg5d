@@ -23,6 +23,7 @@
 					<li><a href="?page=connexion">Connexion</a></li>
 					<li><a href="?page=inscription">Inscription</a></li>
 				<?php } ?>
+					<li><a href="?page=BaseDeDonnée">BDD</a></li>
 				</ul>
 			</nav>
 		</div>

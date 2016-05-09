@@ -23,10 +23,10 @@
 			<label>Mot de passe</label>
 			<input type="password" name="mot_de_passe">
 		</div>
+		</div>
 		<div>
 			<label>Confirmation</label>
 			<input type="password" name="confirmation_mot_de_passe">
-		</div>
 		</div>
 		<div>
 			<input type="submit">

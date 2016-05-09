@@ -3,7 +3,7 @@
 	<h1> FAQ </h1>
 </div>
 <br>
-<div id="cadreP">
+<div id="cadreP" class="red-hover">
 
 	<div>
 		<a href="#" id="menu1" onclick="affichage(1)" ><h3 class="onglet">Completer son profil</h3></a>
