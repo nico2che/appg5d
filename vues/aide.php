@@ -1,4 +1,4 @@
-<div class="fond"></div>
+<div id="cover"></div>
 <div>
 	<h1> FAQ </h1>
 </div>

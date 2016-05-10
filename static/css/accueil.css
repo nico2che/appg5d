@@ -72,7 +72,7 @@ header
   text-shadow: 0px 0px 4px black;
   text-align: center;
   font-size: 140%;
-  line-height: 4em;
+  line-height: 6em;
 }
 
 
@@ -81,10 +81,10 @@ body div div div.annonces1
 {
   display: block;
   margin-top: 2em;
-  margin-left: 9%;
+  margin-left: 4%;
   height: 0;
-  padding-bottom: 10%;
-  width: 10%;
+  padding-bottom: 15%;
+  width: 15%;
   background-color: white;
   float: left;
   border-radius: 50%;
@@ -119,13 +119,19 @@ body div div div.annonces1:hover
 #annonce5
 {
   background: url(../../static/images/cyclisme_miniature.jpeg);
-  background-position: 78% 120%;
+  background-position: 78% 75%;
 }
 
 #annonce6
 {
   background: url(../../static/images/randonnee.jpg);
-  background-position: 50% 85%;
+  background-position: 60% 70%;
+}
+
+#annonce7
+{
+  background: url(../../static/images/Golf.jpeg);
+  background-position: 70% 50% ;
 }
 
 .bouton
@@ -133,7 +139,7 @@ body div div div.annonces1:hover
   position: relative;
   display: block;
   margin: auto;
-  margin-top: 55vh;
+  margin-top: 60vh;
   background-color: white;
   border : 1px solid #cccccc;
   color: #4d4d4d;

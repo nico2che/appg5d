@@ -1,6 +1,4 @@
-	<div id="cover">
-	<!--<img src="static/images/image_accueil.jpg" alt="image test" class="image" >-->
-	</div>
+	<div id="cover"></div>
 	<div class="slogan">La Passion se partage</div>
 	<form class="accueil">
 	</form>
@@ -14,10 +12,10 @@
 		<div class = "annonces1" id="annonce4">Basket</div>
 		<div class = "annonces1" id="annonce5">Cyclisme</div>
 		<div class = "annonces1" id="annonce6">Randonnée</div>
-		<div class = "annonces1" id="annonce7">Randonnée</div>
-		<div class = "annonces1" id="annonce8">Randonnée</div>
-		<div class = "annonces1" id="annonce9">Randonnée</div>
-		<div class = "annonces1" id="annonce10">Randonnée</div>
+		<div class = "annonces1" id="annonce7">Golf</div>
+		<div class = "annonces1" id="annonce8">Atlétisme</div>
+		<div class = "annonces1" id="annonce9">Voile</div>
+		<div class = "annonces1" id="annonce10">Ping-Pong</div>
 	</div>
 	<div>
 		<input type="submit" value="Voir tous les sports" class="bouton">

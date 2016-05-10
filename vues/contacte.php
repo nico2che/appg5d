@@ -1,9 +1,9 @@
-<div class="fond"></div>
-
-<div style="text-align: center;">
+<div id="cover"></div>
+<div class="Titre">Contact</div>
+<div  class="Formulaire" style="text-align: center;">
 	<?php if(isset($message1)) echo $message1; ?>
 	<?php if(isset($message2)) echo $message2; ?>
-	<form method="post">
+	<form method="post" >
 			
 		<div>
 			<label for="nom">Nom :</label>
@@ -40,10 +40,6 @@
 
 		<input type="submit" value="envoyer"></input>
 
-		
-
-
-		
 		
 	</form>	
 

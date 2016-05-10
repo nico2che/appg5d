@@ -1,7 +1,8 @@
 <div id="cover"></div>
 	<div class="inscription">
 	<form class="box" action="" method="post">
-		<h1>Inscription</h1>
+		<h2 class="Titre">S'inscrire :</h2>
+		<div class="Texte">La création création de votre compte est gratuite et vous permettra de participer aux évènements sportifs organisés par les groupes et les clubs. </div>
 		<?php if(isset($message)) echo $message; ?>
 
 		<div class="inscription-gauche">

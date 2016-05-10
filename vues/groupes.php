@@ -1,3 +1,4 @@
+	<div id="cover"></div>
 	<h2>Groupes</h2>
 	<form action="" method="get" class="recherche-groupe">
 		<input type="hidden" name="page" value="groupes">
