@@ -34,4 +34,12 @@ $infos_groupe = infos_groupe($id_groupe);
 $membres_groupe = membres_groupe($id_groupe);
 $dates_groupe = dates_groupe($id_groupe);
 
+function genererSelect($debut, $fin, $selected = null, $zero = false) {
+		for ($i=$debut; $i < ($fin + 1); $i++) { 
+			echo '<option '.($i == $selected ? 'selected=""' : null).' value="'.$i.'">'.($i < 10 && $zero ? '0'.$i : $i).'</option>';
+		}
+}
+
+$mois = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+
 include 'vues/groupe.php';

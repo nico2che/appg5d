@@ -21,7 +21,7 @@
 	<?php
 		if(isset($membres_groupe[1]) && $membres_groupe[1]['id'] == $_SESSION['id']) {
 	?>
-		<div class="moderer_groupe">
+		<div class="encadrer">
 			Vous êtes le créateur de ce groupe. Vous pouvez le <a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;modifier">modifier</a> ou le <a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;supprimer">supprimer</a>.
 		</div>
 	<?php 
@@ -50,9 +50,40 @@
 		<div class="encadrer">
 			<h4>Ajouter une date</h4>
 			<form method="post">
-				<input type="text" name="date" placeholder="Date (dd/mm/YYYY)"> 
-				<input type="text" name="localisation" id="localisationAutoCompletion"> 
-				<input type="text" name="duree" placeholder="Durée (hh:mm)" style="width:100px">
+				<u>Date</u> :
+				<select name="jour">
+					<?php genererSelect(0, 31, date('d')); ?>
+				</select>
+				<select name="mois">
+					<?php
+						foreach ($mois as $cle => $nomMois) {
+							$numMois = $cle+1;
+							echo '<option '.($numMois == date('m') ? 'selected=""' : null).' value="'.$numMois.'">'.$nomMois.'</option>';
+						}
+					?>
+				</select>
+				<select name="annee">
+					<?php genererSelect(date('Y'), (date('Y') + 4), date('Y'), true); ?>
+				</select>
+				&nbsp; à &nbsp;
+				<select name="heure">
+					<?php genererSelect(0, 23, date('H'), true); ?>
+				</select>
+				h
+				<select name="minute">
+					<?php genererSelect(0, 61, date('i'), true); ?>
+				</select><br><br>
+				<u>Lieu</u> :
+				<input type="text" name="localisation" id="localisationAutoCompletion"> <br><br>
+				<u>Durée</u> :
+				<select name="duree_heure">
+					<?php genererSelect(0, 23, 01, true); ?>
+				</select>
+				<label>heure(s)</label>
+				<select name="duree_minute">
+					<?php genererSelect(0, 61, 00, true); ?>
+				</select>
+				<label>minute(s)</label><br><br>
 				<input type="submit" value="Ajouter">
 			</form>
 		</div>

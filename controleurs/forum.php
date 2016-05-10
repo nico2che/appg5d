@@ -1,8 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-include 'vues/forum.php';
-=======
 include 'modeles/sports.php';
 include 'modeles/forum.php';
 
@@ -36,5 +33,3 @@ if(isset($_GET['ajouter'])) {
 
 	include 'vues/forum.php';
 }
-
->>>>>>> origin/master
