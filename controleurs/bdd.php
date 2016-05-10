@@ -1,9 +1,9 @@
 <?php
 	include 'vues/bdd.php'; 
 	$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8','root', '');
-	$request = $bdd->query('SELECT * FROM membres');
+	$request = $bdd->prepare('SELECT * FROM (table)');
 	
-	foreach($request as $ligne){
+	/*foreach($request as $ligne){
 		echo"
 			<tr>
 				<th>{$ligne[1]}</th>
@@ -12,7 +12,5 @@
 				<th>{$ligne[10]}</th>
 
 			</tr>";
-	}
+	}*/
 ?>
-</tbody>
-</table>

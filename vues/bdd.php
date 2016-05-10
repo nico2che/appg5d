@@ -16,6 +16,7 @@ Vous devez tout d'abord selectionner une table à modifier, puis le nom de la co
 <option>membres
 <option>sports
 </select>
+<input type="submit" name="submit1" value="Afficher"></input>
 </form>
 </p>
 <h1>Table sélectionnée:</h1>
