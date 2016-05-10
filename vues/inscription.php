@@ -24,12 +24,13 @@
 			<label>Mot de passe</label>
 			<input type="password" name="mot_de_passe">
 		</div>
-		</div>
+		
 		<div>
 			<label>Confirmation</label>
 			<input type="password" name="confirmation_mot_de_passe">
 		</div>
-		<div>
+		</div>
+		<div class="Envoyer">
 			<input type="submit">
 		</div>
 	</form>
