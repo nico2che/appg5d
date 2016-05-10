@@ -1,5 +1,4 @@
 .onglet{
-	background-color: white;
 	height: 8%;
 	width: 100%;
 	border-radius: 10px;
@@ -34,7 +33,7 @@ a{
 	color:black;
 }
 a:hover{
-	color : red;
+	color : white;
 }
 
 #menu1{
