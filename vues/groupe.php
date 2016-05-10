@@ -34,32 +34,60 @@
 		</p>
 		<p class="description"><?php echo nl2br($infos_groupe['description']); ?></p>
 		<h3>Dates</h3>
-		<p>Cet événement est <?php echo $infos_groupe['recurrence']; ?>.<br>Voici les dates actuellement proposées par le créateur de ce groupe.</p>
+		<p>Cet événement est <?php echo $infos_groupe['recurrence']; ?>.<br>Voici la ou les dates actuellement proposées par le créateur de ce groupe.</p>
 	<?php
 		if(isset($membres_groupe[1]) && $membres_groupe[1]['id'] == $_SESSION['id']) {
+			
+			if(!empty($messages)) {
 	?>
-		<div class="moderer_groupe">
-			<h4>Ajouter une date</h4><input type="text" name="date" placeholder="Date"> <input type="text" name="localisation" id="searchTextField"> <input type="text" name="duree" placeholder="Durée">
+		<div class="message <?php echo $messages['type']; ?>">
+			<?php echo $messages['message']; ?>
+		</div>
+	<?php
+			}
+	?>
+		<div class="encadrer">
+			<h4>Ajouter une date</h4>
+			<form method="post">
+				<input type="text" name="date" placeholder="Date (dd/mm/YYYY)"> 
+				<input type="text" name="localisation" id="localisationAutoCompletion"> 
+				<input type="text" name="duree" placeholder="Durée (hh:mm)" style="width:100px">
+				<input type="submit" value="Ajouter">
+			</form>
 		</div>
 	<?php 
 		}
 	?>
+		<div class="dates">
+	<?php
+		if(!empty($dates_groupe)) {
+
+			foreach ($dates_groupe as $date) {
+	?>
+			<div class="encadrer">
+				<span style="float:right"><?php echo $date['localisation']; ?></span>
+				Le <?php
+					$dateTime = new DateTimeFrench($date['date']);
+					echo $dateTime->format('l d F');
+				?>, pendant 
+				<?php 
+					$heureTime = new DateTimeFrench($date['duree']);
+					echo $heureTime->format('G\hi');
+				?>
+			</div>
+	<?php
+			}
+
+		} else {
+	?>
+		Aucune date n'existe encore pour ce groupe.
+	<?php
+		}
+	?>
+		</div>
 	</div>
 <?php
 	}
 ?>
 </div>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-
-<script>
-      function initialize() {
-		var input = document.getElementById('searchTextField');
-		var options = {
-		  componentRestrictions: {country: 'fr'}
-		};
-
-		autocomplete = new google.maps.places.Autocomplete(input, options);
- 
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>

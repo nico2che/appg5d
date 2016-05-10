@@ -81,6 +81,7 @@ div.message {
   background: #333;
   border:1px solid #000;
   border-radius:7px;
+  margin-bottom: 15px;
 }
 div.message.erreur {
   background: #F78181;

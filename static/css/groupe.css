@@ -6,7 +6,7 @@
 	background-position: center center;
 }
 
-.moderer_groupe {
+.encadrer {
 	padding:15px;
 	border:1px solid black;
 	margin-left:15px;
@@ -28,4 +28,16 @@
     padding: 18px;
     width: 100%;
     text-align: justify;
+}
+
+.groupe .encadrer h4 {
+	margin: 0px 10px 15px;
+}
+
+.groupe .dates {
+	margin-top: 15px;
+}
+
+.groupe .encadrer {
+	margin-top: -1px;
 }
