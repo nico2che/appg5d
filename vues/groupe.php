@@ -1,3 +1,4 @@
+<div id="cover"></div>
 <div class="groupe">
 <?php
 	if(!connecte()) {
