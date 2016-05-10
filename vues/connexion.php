@@ -1,12 +1,12 @@
 <div id="cover"></div>
 <div class="connexion">
-	<form class="box grad align-center" method="post">
-		<h1>Connexion</h1>
+	<form class="box grad" method="post">
+		<h1 class="Titre">Connexion</h1>
 		<div class="connexion-gauche">
-			<p>Vous avez déjà un compte ?</p>
+			<p class="Texte">Vous avez déjà un compte ?</p>
 			<label>Identifiant</label><input type="text" name="email"><br>
 			<label>Mot de passe</label><input type="password" name="mot_de_passe"><br>
-			<input class="input" type="submit" value="Valider">
+			<input class="Valider" type="submit" value="Valider">
 		</div>
 		<div class="connexion-droite">
 			<a class="connexion-fb" >

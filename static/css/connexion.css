@@ -17,42 +17,51 @@
   border-color: rgba(0, 0, 0, 0.7);
   border-width: 1px;
 	margin-top: 100px;
-	padding: 10px 0px 10px 0px;
+	padding: 10px 0px 40px 0px;
 	background: rgba(0, 0, 0, 0.7);
   color:white;
   opacity:0.95;
 }
 
-.connexion .input[type=submit] {
+.Titre
+{
+  text-align: center;
+}
+.Texte{
+  text-align: center;
+}
+.Valider {
     padding:5px 15px; 
     background:rgba(237, 237, 237,1); 
     border:0 none;
     cursor:pointer;
     border-radius: 3px;
     margin-bottom: 25px;
+    display: block;
+    margin: auto;
+    margin-top: 2em;
 }
 
-.connexion .connexion-droite {
-  float:right;
-  width: 50%;
-  margin-top: 84px;
-  text-align: center;
+ .connexion-droite {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 5em;
+  margin-left: 9em;
 }
-
-.connexion .connexion-gauche {
-  float:left;
-  width: 50%;
-  text-align: center;
+.connexion-gauche {
+  display: inline-block;
+  margin-left: 10em;
+  width: 35%;
   line-height: 35px;
 }
 
-.connexion .connexion-gauche > label {
+ label {
   width: 150px;
   display: inline-block;
 }
 
-.connexion .connexion-fb {
-    position: relative;
+.connexion-fb {
+      
     background-color: #3b5998;
     border-color: rgba(0,0,0,0.2);
     padding: 6px 12px 7px 40px;
@@ -61,11 +70,12 @@
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: 4px;
+
 }
 
 .connexion .connexion-fb > span.fa {
   position: absolute;
-  left: 0;
+  left: ;
   top: 0;
   width: 32px;
   line-height: 34px;
