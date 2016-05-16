@@ -79,11 +79,3 @@
   font-size: 1.6em;
   border-right: 1px solid rgba(0,0,0,0.2);
 }
-footer
-{
-  bottom : initial;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}

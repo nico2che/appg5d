@@ -2,10 +2,8 @@
 	</div>
 	
 	<footer>
-	<div>
-		<a href="?page=aide" style="text-decoration: none;color: white">aide</a>
-		<a href="?page=contacte" style="text-decoration: none;color: white">contact</a>
-	</div>
+			<a href="?page=aide">Aide</a> - <a href="?page=contacte">Contact</a>
+			&nbsp; &nbsp; &copy; Team Up - <?php echo date('Y'); ?> - Tous droits réservés
 	</footer>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 	<?php if(is_file('static/js/' . $action . '.js')) { ?><script type="text/javascript" src="static/js/<?php echo $action; ?>.js"></script><?php } ?>

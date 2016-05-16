@@ -52,7 +52,8 @@ function membres_groupe($id) {
 	$stmt->execute();
 	$resultat = array();
 	while($ligne = $stmt->fetch()) {
-		$resultat[$ligne['type']] = $ligne;
+		$resultat['tous'][] = $ligne;
+		$resultat['types'][$ligne['type']][] = $ligne;
 	}
 	return $resultat;
 }

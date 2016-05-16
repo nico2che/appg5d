@@ -18,6 +18,11 @@
 	float: right;
 	background-size: 200px;
 	background-position: center center;
+  margin: 37px 54px 0 0;
+  border: 1px solid black;
+  padding: 2px;
+  background-repeat: no-repeat;
+  border-radius: 5px;
 }
 
 .encadrer {
@@ -29,7 +34,13 @@
 .groupe .details {
 	margin-left:40px;
 	display: inline-block;
-	width: 65%
+	width: 65%;
+  float:left;
+}
+
+.groupe .details a.lien-titre {
+  text-decoration: none;
+  color:#19BEC0;
 }
 
 .groupe .details .specifications span {
@@ -44,23 +55,18 @@
     text-align: justify;
 }
 
-.groupe .encadrer h4 {
-	margin: 0px 10px 15px;
+.groupe .participants {
+  float: right;
+  width: 205px;
+  margin: 0 54px 0 0;
 }
-
-.groupe .dates {
-	margin-top: 15px;
+.groupe .participants > .encadrer {
+  margin-left:0;
 }
-
-.groupe .encadrer {
-	margin-top: -1px;
-}
-
-footer
-{
-  bottom : initial;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+.groupe .participants .participant {
+  width: 30px;
+  display: inline-block;
+  height: 30px;
+  background-size: 30px;
+  margin-left: 5px;
 }

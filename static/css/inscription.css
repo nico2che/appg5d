@@ -67,13 +67,3 @@ label {
   margin-top: 2em;
   text-align: center; 
 }
-
-footer
-{
-  bottom : initial;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
- 

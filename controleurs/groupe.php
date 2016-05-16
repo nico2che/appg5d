@@ -1,6 +1,7 @@
 <?php
 
 include 'modeles/groupes.php';
+include 'modeles/sports.php';
 
 $id_groupe = (int) $_GET['id'];
 
@@ -42,4 +43,16 @@ function genererSelect($debut, $fin, $selected = null, $zero = false) {
 
 $mois = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
 
-include 'vues/groupe.php';
+if(isset($_GET['modifier']) && est_auteur_groupe($membres_groupe)) {
+
+	$sports = recuperer_sports();
+	include 'vues/groupe-modifier.php';
+
+} elseif(isset($_GET['supprimer']) && est_auteur_groupe($membres_groupe)) {
+
+	include 'vues/groupe.php';
+
+} else {
+
+	include 'vues/groupe.php';
+}

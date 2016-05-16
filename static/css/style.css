@@ -2,7 +2,7 @@ html, body {
 	font-family: Helvetica, serif;
 	margin:0;
 	padding: 0;
-
+  height:100%;
 }
 .align-right {
   text-align: right;
@@ -20,11 +20,10 @@ input[type=submit] {
 .clear{
 	clear: both;
 }
-header {
 
+header {
   height:85px;
   background-color: rgba(0, 0, 0, 0.6);
-
 }
 header #logo {
   background-repeat: no-repeat;
@@ -56,25 +55,31 @@ header nav ul li a {
 header nav ul li a.colore {
   background-color: tomato;
 }
+
 .page {
   width:60%;
   min-width: 860px;
   padding:10px;
   margin: auto;
+  min-height:100%;
 }
+
 footer {
   height: 50px;
   clear: both;
   text-align: center;
   background-color :  rgba(0, 0, 0, 0.6);
   line-height: 50px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin-bottom: 0;
+  color:white;
 }
 
+footer a {
+  text-decoration: none;
+  color:white;
+}
 
+/* messages */
 div.message {
   width:100%;
   padding: 14px;
@@ -93,9 +98,45 @@ div.message.succes {
   border-color: #31B404;
   color:#31B404;
 }
-footer
-{
-  bottom : initial;
-  margin-bottom: 0;
-  margin-top: 40px;
+
+/* encadrés */
+.encadrer h4 {
+  margin: 0px 10px 15px;
+}
+.encadrer {
+  margin-top:10px;
+  border-radius: 5px;
+}
+.liste-encadrer > .encadrer {
+  margin-top: -1px;
+  border-radius: 0px;
+}
+.liste-encadrer > .encadrer:first-child {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.liste-encadrer > .encadrer:last-child {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+/* boutons */
+.bouton {
+  padding:12px;
+  border:1px solid black;
+  border-radius:7px;
+  text-decoration: none;
+  color: white;
+}
+.bouton.b-principal {
+  border-color:#19BEC0;
+  background-color: #113F59;
+}
+.bouton.b-danger {
+  border-color:red;
+  background-color: #D54F58;
 }

@@ -4,6 +4,14 @@ function connecte() {
 	return isset($_SESSION['id']);
 }
 
+function chemin_avatar($fichier) {
+	return DOSSIER_AVATAR . $fichier . '.jpg';
+}
+
+function est_auteur_groupe($membres) {
+	return isset($membres['types'][1][0]['id']) && isset($_SESSION['id']) && $membres['types'][1][0]['id'] == $_SESSION['id'];
+}
+
 function existe_email($email) {
 
 	global $pdo;
