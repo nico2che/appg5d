@@ -7,13 +7,13 @@ $id_groupe = (int) $_GET['id'];
 
 $messages = array();
 
-if(isset($_POST['date']) && isset($_POST['localisation']) && isset($_POST['duree'])) {
+if(isset($_POST['jour']) && isset($_POST['mois']) && isset($_POST['annee']) && isset($_POST['heure']) && isset($_POST['minute']) && isset($_POST['localisation']) && isset($_POST['duree_heure']) && isset($_POST['duree_minute'])) {
 
-	if(!empty($_POST['date']) && !empty($_POST['localisation']) && !empty($_POST['duree'])) {
+	if(!empty($_POST['jour']) && !empty($_POST['mois']) && !empty($_POST['annee']) && !empty($_POST['localisation'])) {
 
-		$dateTime = new DateTime($_POST['date']);
+		$dateTime = new DateTime($_POST['annee'].'-'.$_POST['mois'].'-'.$_POST['jour'].' '.$_POST['heure'].':'.$_POST['minute']);
 
-		if(ajouter_date($id_groupe, $dateTime->format('Y-m-d'), $_POST['localisation'], $_POST['duree'])) {
+		if(ajouter_date($id_groupe, $dateTime->format('Y-m-d'), $_POST['localisation'], $_POST['duree_heure'].':'.$_POST['duree_minute'])) {
 
 			$messages['type'] = 'succes';
 			$messages['message'] = 'La date a bien été ajoutée !';

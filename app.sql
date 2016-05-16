@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 06 Mai 2016 à 10:21
+-- Généré le :  Mar 17 Mai 2016 à 00:55
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -96,6 +96,16 @@ CREATE TABLE `dates_rencontres` (
   `localisation` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `dates_rencontres`
+--
+
+INSERT INTO `dates_rencontres` (`id`, `id_groupe`, `date`, `duree`, `localisation`) VALUES
+(1, 1, '2016-05-10 14:15:00', '03:00:00', 'test'),
+(2, 1, '2016-05-11 14:15:00', '03:00:00', 'test'),
+(3, 1, '2016-05-10 00:00:00', '01:00:00', 'Luxembourg, Paris, France'),
+(4, 1, '2016-05-17 00:00:00', '01:00:00', 'Le Branday, Saint-MÃªme-le-Tenu, France');
+
 -- --------------------------------------------------------
 
 --
@@ -126,6 +136,13 @@ CREATE TABLE `forum_sujets` (
   `message` text NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `forum_sujets`
+--
+
+INSERT INTO `forum_sujets` (`id`, `id_membre`, `type`, `id_sport`, `resolu`, `titre`, `message`, `date`) VALUES
+(1, 1, 'aide', 0, 0, 'edede', 'qrvsfdv', '2016-05-06 11:20:05');
 
 -- --------------------------------------------------------
 
@@ -171,7 +188,8 @@ CREATE TABLE `groupes_membres` (
 --
 
 INSERT INTO `groupes_membres` (`id`, `id_groupe`, `id_membre`, `type`) VALUES
-(1, 1, 1, 1);
+(1, 1, 1, 1),
+(2, 1, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -200,7 +218,8 @@ CREATE TABLE `membres` (
 
 INSERT INTO `membres` (`id`, `nom`, `prenom`, `email`, `mot_de_passe`, `description`, `date_naissance`, `localisation`, `sexe`, `bannis`, `role`, `activite_forum`) VALUES
 (1, 'de CHEVIGNE', 'Nicolas', 'nico2che@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921', '', '0000-00-00', '', 'homme', 0, 'membre', ''),
-(2, 'erjzsdnc', 'nicolas', 'nevÃ @vre.com', '782dd27ea8e3b4f4095ffa38eeb4d20b59069077', '', NULL, NULL, NULL, 0, 'membre', '0');
+(2, 'erjzsdnc', 'nicolas', 'nevÃ @vre.com', '782dd27ea8e3b4f4095ffa38eeb4d20b59069077', '', NULL, NULL, NULL, 0, 'membre', '0'),
+(3, 'test', 'test', 'test@test.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '', NULL, NULL, NULL, 0, 'membre', '0');
 
 -- --------------------------------------------------------
 
@@ -508,7 +527,7 @@ ALTER TABLE `contacte_message`
 -- AUTO_INCREMENT pour la table `dates_rencontres`
 --
 ALTER TABLE `dates_rencontres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `forum_messages`
 --
@@ -518,7 +537,7 @@ ALTER TABLE `forum_messages`
 -- AUTO_INCREMENT pour la table `forum_sujets`
 --
 ALTER TABLE `forum_sujets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `groupes`
 --
@@ -528,12 +547,12 @@ ALTER TABLE `groupes`
 -- AUTO_INCREMENT pour la table `groupes_membres`
 --
 ALTER TABLE `groupes_membres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `membres`
 --
 ALTER TABLE `membres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `sports`
 --

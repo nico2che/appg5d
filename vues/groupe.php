@@ -71,7 +71,7 @@
 						<?php genererSelect(0, 59, date('i'), true); ?>
 					</select><br><br>
 					<u>Lieu</u> :
-					<input type="text" name="localisation" id="localisationAutoCompletion"> <br><br>
+					<input type="text" name="localisation" id="localisationAutoCompletion" style="width:322px;"> <br><br>
 					<u>Durée</u> :
 					<select name="duree_heure">
 						<?php genererSelect(0, 23, 01, true); ?>
@@ -81,6 +81,8 @@
 						<?php genererSelect(0, 59, 00, true); ?>
 					</select>
 					<label>minute(s)</label><br><br>
+					<input type="hidden" name="latitude" id="localisation_la">
+					<input type="hidden" name="longitude" id="localisation_lo">
 					<input type="submit" value="Ajouter">
 				</form>
 			</div>
