@@ -1,199 +1,90 @@
 <?php
-	include 'vues/bdd.php'; 
-	$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8','root', '');
-	$request = $bdd->prepare('SELECT * FROM (table)');
+	include 'vues/bdd.php';
+
+	$tables = array('aide', 'sports','membres','groupes_membres','groupes','forum_sujets','forum_messages','dates_rencontres','clubs','commentaires_clubs','contacte_message');
 	
-	if(isset($_POST['table']) && !empty($_POST['table'])){
-		$request->bindParam(':table', $_POST['table']);
+	if(isset($_POST['table']) && !empty($_POST['table']) && in_array($_POST['table'], $tables)){
+
+		$request = $pdo->prepare('SELECT * FROM '.$_POST['table']);
 		$request->execute();
+		
 		switch($_POST['table']){
 			case 'aide':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Titre</th>
-									<th>Texte</th>
-								</tr>
-							</thead>
-							<tbody>";
+				include "vues/table-aide.php";
+				foreach($request as $ligne){
+				echo"
+					<tr>
+						<th>{$ligne[0]}</th>
+						<th>{$ligne[1]}</th>
+						<th>{$ligne[2]}</th>
+					</tr>";
+				}
 				break;
 
 				case 'clubs':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Nom</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>";
+				include "vues/table-clubs.php";
 				break;
 
 				case 'commentaires_clubs':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>ID club</th>
-									<th>ID membre</th>
-									<th>Commentaire</th>
-									<th>Note</th>
-								</tr>
-							</thead>
-							<tbody>";
+				include "vues/table-commentaires-clubs.php";
 				break;
 
-				case 'contact_message':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Nom</th>
-									<th>E-mail</th>
-									<th>Sujet</th>
-									<th>Contenu</th>
-								</tr>
-							</thead>
-							<tbody>";
+				case 'contacte_message':
+				include "vues/table-contacte-message.php";
 				break;
 
 				case 'dates_rencontres':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>ID groupe</th>
-									<th>Date</th>
-									<th>Durée</th>
-									<th>Localisation</th>
-								</tr>
-							</thead>
-							<tbody>";
+				include "vues/table-dates-rencontres.php";
 				break;
 
 				case 'forum_messages':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>ID sujet</th>
-									<th>ID membre</th>
-									<th>Message</th>
-									<th>Date</th>
-								</tr>
-							</thead>
-							<tbody>";
+				include "vues/table-forum-messages.php";
 				break;
 
 				case 'forum_sujets':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>ID membre</th>
-									<th>Type</th>
-									<th>ID sport</th>
-									<th>Résolus</th>
-									<th>Titre</th>
-									<th>Message</th>
-									<th>Date</th>
-								</tr>
-							</thead>
-							<tbody>";
+				include "vues/table-forum-sujets.php";
 				break;
 
 				case 'groupes':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Titre</th>
-									<th>Description</th>
-									<th>ID sport</th>
-									<th>ID club</th>
-									<th>Max participants</th>
-									<th>Min participants</th>
-									<th>Visibilitée</th>
-									<th>Récurrence</th>
-									<th>Niveau</th>
-								</tr>
-							</thead>
-							<tbody>";
+				include "vues/table-groupes.php";
 				break;
 
 				case 'groupes_membres':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>ID groupe</th>
-									<th>ID membre</th>
-									<th>Type</th>
-								</tr>
-							</thead>
-							<tbody>";
+				include "vues/table-groupes-membres.php";
 				break;
 
 				case 'membres':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Nom</th>
-									<th>Prenom</th>
-									<th>E-mail</th>
-									<th>Mot de passe</th>
-									<th>Description</th>
-									<th>Date de naissance</th>
-									<th>Localisation</th>
-									<th>Sexe</th>
-									<th>Bannis</th>
-									<th>Role</th>
-									<th>Activité forum</th>
-								</tr>
-							</thead>
-							<tbody>";
+				include "vues/table-membres.php";
+				foreach($request as $ligne){
+				echo"
+					<tr>
+						<th>{$ligne[0]}</th>
+						<th>{$ligne[1]}</th>
+						<th>{$ligne[2]}</th>
+						<th>{$ligne[3]}</th>
+						<th>{$ligne[4]}</th>
+						<th>{$ligne[5]}</th>
+						<th>{$ligne[6]}</th>
+						<th>{$ligne[7]}</th>
+						<th>{$ligne[8]}</th>
+						<th>{$ligne[9]}</th>
+						<th>{$ligne[10]}</th>
+						<th>{$ligne[11]}</th>
+					</tr>";
+				}
 				break;
 
-				case 'sport':
-				echo "
-					<h1>Table sélectionnée:</h1>
-						<table>
-							<thead>
-								<tr>
-									<th>ID</th>
-									<th>Nom</th>
-									<th>Description</th>
-								</tr>
-							</thead>
-							<tbody>";
+				case 'sports':
+				include "vues/table-sports.php";
 				break;
 		}
-		
+		echo"<tr>";
 
-		foreach($request as $ligne){
+		while($ligne = $request->fetch()) {
+			echo "<th>{$ligne[0]}</th>";
+		}
+		echo "</tr>";
+		/*foreach($request as $ligne){
 			echo"
 				<tr>
 					<th>{$ligne[1]}</th>
@@ -202,7 +93,7 @@
 					<th>{$ligne[10]}</th>
 
 				</tr>";
-		}
+		}*/
 		echo "
 			</tbody>
 		</table>";
