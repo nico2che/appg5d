@@ -47,13 +47,13 @@
   display: inline-block;
   vertical-align: top;
   margin-top: 5em;
-  margin-left: 10em;
-  max-width: 20em;
+  margin-left: 15%;
+  max-width: 20%;
 }
 .connexion-gauche {
   display: inline-block;
-  margin-left: 5em;
-  width: 19em;
+  margin-left: 10%;
+  width: 325px;
   line-height: 35px;
 }
 
