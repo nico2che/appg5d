@@ -1,4 +1,4 @@
-
+<div id='form'>
 <form method="post">
 	<select name="table" size="1">
 		<option>aide
@@ -15,3 +15,4 @@
 	</select>
 	<input type="submit" name="submit1" value="Afficher"></input>
 </form>
+</div>
