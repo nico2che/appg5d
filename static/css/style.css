@@ -17,7 +17,7 @@ input[type=submit] {
   border-radius: 6px;
   padding: 3px 15px;
 }
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number] {
   border-radius: 6px;
   padding: 3px 6px;
   border:1px solid grey;
@@ -62,8 +62,7 @@ header nav ul li a.colore {
 }
 
 .page {
-  width:60%;
-  min-width: 860px;
+  width:860px;
   padding:10px;
   margin: auto;
   min-height:calc(100% - 155px);;
@@ -103,6 +102,9 @@ div.message.succes {
   border-color: #31B404;
   color:#31B404;
 }
+div.message.succes a {
+  color:#31B404;
+}
 
 /* encadrés */
 .encadrer h4 {
@@ -121,12 +123,14 @@ div.message.succes {
   border-top-left-radius: 5px;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
+  border-bottom: 0px;
 }
 .liste-encadrer > .encadrer:last-child {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
+  border-top: 0px;
 }
 
 /* boutons */

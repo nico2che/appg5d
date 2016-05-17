@@ -1,4 +1,5 @@
 	<div id="cover"></div>
+	<a href="?page=groupe&amp;ajouter" class="bouton b-principal" style="float:right">Ajouter un groupe</a>
 	<h2>Groupes</h2>
 	<form action="" method="get" class="recherche-groupe">
 		<input type="hidden" name="page" value="groupes">

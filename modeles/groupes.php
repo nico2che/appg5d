@@ -72,3 +72,56 @@ function dates_groupe($id) {
 	}
 	return $resultat;
 }
+
+function modifier_groupe($id_groupe, $titre, $sport, $description, $min_participants, $max_participants, $visibilite, $recurrence, $niveau) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('UPDATE groupes SET titre = :titre,
+												id_sport = :sport,
+												description = :description,
+												min_participants = :min_participants,
+												max_participants = :max_participants,
+												visibilite = :visibilite,
+												recurrence = :recurrence,
+												niveau = :niveau
+											WHERE id = :id_groupe');
+	$stmt->bindValue('id_groupe', $id_groupe, PDO::PARAM_INT);
+	$stmt->bindValue('titre', $titre, PDO::PARAM_STR);
+	$stmt->bindValue('sport', $sport, PDO::PARAM_INT);
+	$stmt->bindValue('description', $description, PDO::PARAM_STR);
+	$stmt->bindValue('min_participants', $min_participants, PDO::PARAM_INT);
+	$stmt->bindValue('max_participants', $max_participants, PDO::PARAM_INT);
+	$stmt->bindValue('visibilite', $visibilite, PDO::PARAM_STR);
+	$stmt->bindValue('recurrence', $recurrence, PDO::PARAM_STR);
+	$stmt->bindValue('niveau', $niveau, PDO::PARAM_INT);
+	if($stmt->execute())
+		return true;
+	else
+		return false;
+}
+
+function ajouter_groupe($titre, $sport, $description, $min_participants, $max_participants, $visibilite, $recurrence, $niveau) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('INSERT INTO groupes SET titre = :titre,
+													id_sport = :sport,
+													description = :description,
+													min_participants = :min_participants,
+													max_participants = :max_participants,
+													visibilite = :visibilite,
+													recurrence = :recurrence,
+													id_club = 0,
+													niveau = :niveau');
+	$stmt->bindValue('titre', $titre, PDO::PARAM_STR);
+	$stmt->bindValue('sport', $sport, PDO::PARAM_INT);
+	$stmt->bindValue('description', $description, PDO::PARAM_STR);
+	$stmt->bindValue('min_participants', $min_participants, PDO::PARAM_INT);
+	$stmt->bindValue('max_participants', $max_participants, PDO::PARAM_INT);
+	$stmt->bindValue('visibilite', $visibilite, PDO::PARAM_STR);
+	$stmt->bindValue('recurrence', $recurrence, PDO::PARAM_STR);
+	$stmt->bindValue('niveau', $niveau, PDO::PARAM_INT);
+	if($stmt->execute())
+		return $stmt->lastInsertId();
+	else
+		return false;
+}
