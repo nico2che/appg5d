@@ -7,9 +7,37 @@
 	margin-top: -15px;
 	border-radius: 8px;
 }
-.sujets {
-
+.forum{
 	background-color: white;
+}
+.titre{
+	color: white;
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-left: 10px;
+	max-width: 100%;
+	height: 40px;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+.texteTitre1{
+	display: inline-block;
+}
+.texteTitre2{
+	display: inline-block;
+	margin-left: 60%;
+}
+.texteTitre3{
+	display: inline-block;
+	margin-left: 8%;
+}
+.texteTitre4{
+	display: inline-block;
+	margin-left: 8%;
+}
+
+
+
+.sujets {
 	padding-bottom: 5px;
 }
 .sujets ul {
