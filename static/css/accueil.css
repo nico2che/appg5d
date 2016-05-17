@@ -110,6 +110,12 @@ body div div div.annonces1:hover
    background-position: right;
 }
 
+#annonce3
+{
+  background: url(../../static/images/rugby2.jpg);
+  background-position: 49% 35%;
+}
+
 #annonce4
 {
   background: url(../../static/images/basket.jpg);
