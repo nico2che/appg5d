@@ -96,3 +96,16 @@ form.formulaire-profil div input[type=text], form.formulaire-profil div input[ty
 .planning td.sans-bordure {
     border: 0;
 }
+body {
+  width:100%;
+  height:100%;
+  background:url(../../static/images/fond.jpg);
+  -webkit-background-size: cover; /* pour Chrome et Safari */
+  -moz-background-size: cover; /* pour Firefox */
+  -o-background-size: cover; /* pour Opera */
+  background-size: cover; /* version standardisée */
+  top : 0;
+  left : 0;
+  position : fixed;
+  z-index : -1;
+}

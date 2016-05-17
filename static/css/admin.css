@@ -32,15 +32,10 @@
     margin-bottom: 25px;
 }
 
-.connexion .connexion-droite {
-  float:right;
-  width: 50%;
-  margin-top: 84px;
-  text-align: center;
-}
 
 .connexion .connexion-gauche {
-  float:left;
+  display: block;
+  margin : auto;
   width: 50%;
   text-align: center;
   line-height: 35px;
