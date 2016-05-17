@@ -48,11 +48,11 @@
 }
 
 .groupe .details p.description {
-    margin: 15px;
-    border: 1px solid black;
-    padding: 18px;
-    width: 100%;
-    text-align: justify;
+  margin: 15px;
+  border: 1px solid black;
+  padding: 18px;
+  width: 100%;
+  text-align: justify;
 }
 
 .groupe .participants {
@@ -69,4 +69,23 @@
   height: 30px;
   background-size: 30px;
   margin-left: 5px;
+}
+
+.form-groupe label {
+  width:150px;
+  display: inline-block;
+  text-align: right;
+  margin-right:15px;
+  margin-top:20px;
+  vertical-align: top;
+}
+.form-groupe input, .form-groupe select, .form-groupe textarea {
+  margin-top:20px;
+  border-radius:5px;
+}
+.form-groupe #nom {
+  width:200px;
+}
+.form-groupe input[type=submit] {
+  margin-left:600px;
 }

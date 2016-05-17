@@ -3,7 +3,15 @@
 include 'modeles/groupes.php';
 include 'modeles/sports.php';
 
+$mois = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+
 $id_groupe = (int) $_GET['id'];
+
+function genererSelect($debut, $fin, $selected = null, $zero = false) {
+	for ($i=$debut; $i < ($fin + 1); $i++) { 
+		echo '<option '.($i == $selected ? 'selected=""' : null).' value="'.$i.'">'.($i < 10 && $zero ? '0'.$i : $i).'</option>';
+	}
+}
 
 $messages = array();
 
@@ -34,14 +42,6 @@ if(isset($_POST['jour']) && isset($_POST['mois']) && isset($_POST['annee']) && i
 $infos_groupe = infos_groupe($id_groupe);
 $membres_groupe = membres_groupe($id_groupe);
 $dates_groupe = dates_groupe($id_groupe);
-
-function genererSelect($debut, $fin, $selected = null, $zero = false) {
-		for ($i=$debut; $i < ($fin + 1); $i++) { 
-			echo '<option '.($i == $selected ? 'selected=""' : null).' value="'.$i.'">'.($i < 10 && $zero ? '0'.$i : $i).'</option>';
-		}
-}
-
-$mois = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
 
 if(isset($_GET['modifier']) && est_auteur_groupe($membres_groupe)) {
 

@@ -1,8 +1,8 @@
 <div class="ajouter-groupe">
 	<h3>Ajouter un sport</h3>
 	<form action="" method="post">
-		<label for="nom">Nom du groupe : </label> <input type="text" id="nom" name="nom"><br>
-		<label for="sport">Sport de ce groupe : </label>
+		<label for="nom">Nom du groupe</label> <input type="text" id="nom" name="nom"><br>
+		<label for="sport">Sport de ce groupe</label>
 		<select id="sport" name="sport">
 			<option>Choisissez un sport</option>
 	<?php 

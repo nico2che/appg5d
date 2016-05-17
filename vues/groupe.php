@@ -115,9 +115,6 @@
 	?>
 		</div>
 	</div>
-<?php
-	}
-?>
 	<div class="participants">
 	<?php
 		if(est_auteur_groupe($membres_groupe)) {
@@ -136,6 +133,9 @@
 	?>
 		</div>
 	</div>
+<?php
+	}
+?>
 </div>
 <div class="clear"></div>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
