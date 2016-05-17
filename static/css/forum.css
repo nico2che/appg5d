@@ -8,19 +8,23 @@
 	border-radius: 8px;
 }
 .sujets {
+
 	background-color: white;
+	padding-bottom: 5px;
 }
 .sujets ul {
+
 	padding:0;
 	margin:0;
 }
 .sujets li {
-	border-bottom: 1px dashed black;
+	border-bottom: 1px dashed  #4d4d4d;
 	list-style: none;
 	padding:13px;
 }
 .sujets li a {
-	color: black;
+
+	color:  #4d4d4d;
 	text-decoration: none;
 }
 .sujets li .date {
