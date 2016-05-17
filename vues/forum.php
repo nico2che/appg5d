@@ -7,11 +7,11 @@
 	<?php } ?>
 	<div class="titre">
 		<h3 class="texteTitre1">Aide</h3>
-		<h3 class="texteTitre2">Topics</h3>
-		<h3 class="texteTitre3" >Posts</h3>
-		<h3 class="texteTitre4" >Dates</h3>
-
-
+		<div class="blocDroit">
+			<h3 class="texteTitre">Topics</h3>
+			<h3 class="texteTitre" >Posts</h3>
+			<h3 class="texteTitre" >Dates</h3>
+		</div>
 	</div>
 	<div class="sujets">
 		<ul>
@@ -21,7 +21,12 @@
 		</ul>
 	</div>
 	<div class="titre">
-		<h3>Sports</h3>
+		<h3 class="texteTitre1">Sports</h3>
+		<div class="blocDroit">
+			<h3 class="texteTitre">Topics</h3>
+			<h3 class="texteTitre" >Posts</h3>
+			<h3 class="texteTitre" >Dates</h3>
+		</div>
 	</div>
 	
 	<div class="sujets">
