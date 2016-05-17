@@ -18,6 +18,7 @@
 						<th>{$ligne[1]}</th>
 						<th>{$ligne[2]}</th>
 					</tr>";
+				echo"salut";
 				}
 				break;
 
