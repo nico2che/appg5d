@@ -1,3 +1,4 @@
+<div id="cover"></div>
 <div class="forum">
 	<h1>Forum</h1>
 	<a href="?page=forum&amp;ajouter" class="ajouter-sujet">Ajouter un sujet</a>
