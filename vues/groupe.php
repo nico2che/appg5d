@@ -108,9 +108,9 @@
 				<div class="details-date">
 			<?php 
 				$heureTime = new DateTimeFrench($date['duree']);
-				echo $heureTime->format('G\hi');
 			?>
-					<?php echo $date['localisation']; ?>
+					<span class="heure">à <?php echo $dateTime->format('H\hi'); ?>, pendant <?php echo $heureTime->format('G\hi'); ?></span><br>
+					<span class="localisation"><?php echo $date['localisation']; ?></span>
 				</div>
 			</div>
 	<?php
