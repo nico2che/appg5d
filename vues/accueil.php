@@ -3,6 +3,22 @@
 	<form class="accueil">
 	</form>
 	<div class="fond"></div>
+	<div class="Promo texteBase">
+		<h2>Rejoignez notre communauté simplement !</h2>
+		<table>
+			<tr>
+				<td>
+					<img src="static/images/souris.png" width="200" height="300" >
+				</td>
+				<td>
+					<img src="static/images/highfive.png" width="200" height="300">
+				</td>
+				<td>
+					<img src="static/images/vetements.png" width="200" height="200">
+				</td>
+			</tr>
+		</table>
+	</div>
 	<h2 class="titreImage texteBase">Nos sports</h2>
 	<div class="petitTitre texteBase">Découvrez un grand choix de sport à pratiquer entre amis</div>
 	<div id="annonces">

@@ -25,7 +25,6 @@ header
   position: absolute;
 }
 
-
 .texteBase
 {
   color: #4d4d4d;
@@ -33,7 +32,7 @@ header
 }
 
 .slogan {
-  min-height: 100vh;
+  min-height: 95vh;
   clear: both;
   color: white;
   font-size: 40px;
@@ -45,10 +44,15 @@ header
   line-height: 50vh;
 }
 
+.Promo
+{
+  text-align: center;
+}
+
 
 .titreImage
 {
-  margin-top : -1em;
+  margin-top : 5vh;
   text-align: center;
   display: block;
   position: relative;
