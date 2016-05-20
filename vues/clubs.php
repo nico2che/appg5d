@@ -1,6 +1,25 @@
 <div class="fond"></div>
 <div>
 	Club
+	<br>
+	<div>
+		Recherche
+		<br>
+		<form method='post'>
+			<label for="sport">Sport</label>
+			<select id="sport" name="sport">
+				<option value="0">Choisissez un sport</option>
+				<?php 
+				foreach ($sports as $sport) {
+					echo '<option value="'.$sport['id'].'"'.(isset($_POST['sport']) && $_POST['sport'] == $sport['id'] ? ' selected=""' : null).'>'.$sport['nom'].'</option>';
+				}	
+				?>
+
+			</select>
+			<input type="submit" value="rechercher"></input>
+		</form>
+
+	</div>
 	<div>
 		<?php 
 			foreach  ($L_clubs as $L_club){
