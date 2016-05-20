@@ -1,7 +1,132 @@
-table{
-	border-collapse: collapse;
+body {
+  width:100%;
+  height:100%;
+  background:url(../../static/images/fond.jpg);
+  -webkit-background-size: cover; /* pour Chrome et Safari */
+  -moz-background-size: cover; /* pour Firefox */
+  -o-background-size: cover; /* pour Opera */
+  background-size: cover; /* version standardisée */
+  top : 0;
+  left : 0;
+  position : fixed;
+  z-index : -1;
 }
+#Menu
+{
+	position: fixed;
+	left: 0;
+	top: 35%;
+}
+ul.derouler,ul.derouler li,ul.derouler ul { 
+	list-style: none;
+	margin: 0; 
+	padding: 0;
+}
+ul.derouler { 
+	position: relative; 
+	z-index: 597; 
+	float: left;
+}
+ul.derouler li { 
+	float: left; 
+	line-height: 1.3em; 
+	vertical-align: middle; 
+	zoom: 1;
+}
+ul.derouler li.hover,ul.derouler li:hover { 
+	position: relative; 
+	z-index: 599; 
+	cursor: default;
+}
+ul.derouler ul { 
+	visibility: hidden; 
+	position: absolute; 
+	top: 100%; 
+	left: 10px; 
+	width: 100%;
+}
+ul.derouler ul li { 
+	float: none;
+	width: 200px;
 
-th, td{
-	border: 1px solid black;
 }
+ul.derouler ul ul { 
+	top: 1px; 
+	left: 99%;
+}
+ul.derouler li:hover > ul { 
+	visibility: visible;
+}
+ul.derouler-vertical {
+	width: 200px;
+}
+ul.derouler-vertical ul {
+ top: 1px; 
+ left: 100%;
+}
+ul.derouler-vertical li { 
+	float: none;
+}
+ul.derouler {
+	font-weight: bold;
+
+}
+li
+{
+	color: white;
+}
+a{
+	color: white;
+}
+ul.derouler li { 
+	padding: 7px 10px; 
+	border-style: solid; 
+	border-width: 1px 1px 1px 0; 
+	border-color: #fff #d9d9d9 #d9d9d9; 
+	background-color: rgba(0, 0, 0, 0.6); 
+}
+ul.derouler li.hover,ul.derouler li:hover {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+ul.derouler a:link,
+
+ul.derouler a:visited	{  
+	text-decoration: none; 
+}
+ul.derouler a:hover		{ 
+}
+ul.derouler a:active	{ 
+}
+ul.derouler ul { 
+	width: 150px; 
+	margin-top: 1px;
+}
+ul.derouler ul li { 
+	font-weight: 
+	normal;
+}
+ul.derouler *.dir {
+	padding-right: 20px;
+	background-image: url(../images/nav-arrow-down.png);
+	background-position: 100% 50%;
+	background-repeat: no-repeat;
+}
+ul.derouler-horizontal ul *.dir {
+	padding-right: 15px;
+	background-image: url(../images/nav-arrow-right.png);
+	background-position: 100% 50%;
+	background-repeat: no-repeat;
+}
+ul.derouler-upward *.dir {
+	background-image: url(../images/nav-arrow-top.png);
+}
+ul.derouler-vertical *.dir,ul.derouler-upward ul *.dir {
+	background-image: url(../images/nav-arrow-right.png);
+}
+ul.derouler-vertical-rtl *.dir {
+	padding-right: 10px; 
+	padding-left: 15px; 
+	background-image: url(../images/nav-arrow-left.png); 
+	background-position: 0 50%;
+}
+>>>>>>> origin/master

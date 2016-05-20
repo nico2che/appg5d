@@ -43,3 +43,47 @@
 	</div>
 	</div>
 </div>
+
+<div>
+	note :
+	<?php
+	echo moyenne($recup_commentaires);
+	?>/5
+	<br>
+	commentaires : 
+	<br>
+	<div>
+		<?php
+
+			foreach ($recup_commentaires as $commentaire) {
+				echo '<table>
+				<tr>
+					<td>'.nomPrenom($commentaire[2])[0].'<br>'.nomPrenom($commentaire[2])[1].'</td>
+					<td>'.$commentaire[3].'</td>
+					<td>'.$commentaire[4].'/5</td>
+				</tr>
+				</table>';
+				echo '<br>';
+			}
+			
+		?>
+	</div>
+</div>
+
+<div>
+	<?php if (connecte()){ ?>
+	<form method="post">
+		<label for="commentaire">commentaire :</label>
+        	<textarea name="conntenuMessageComment"></textarea>  
+        	<select name="note">
+        		<option value="0">0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		<input type="submit" value="envoyer"></input>
+	</form>
+	<?php }?>
+</div>

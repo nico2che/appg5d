@@ -48,7 +48,7 @@ if(isset($_POST['jour']) && isset($_POST['mois']) && isset($_POST['annee']) && i
 
 		$dateTime = new DateTime($_POST['annee'].'-'.$_POST['mois'].'-'.$_POST['jour'].' '.$_POST['heure'].':'.$_POST['minute']);
 
-		if(ajouter_date($id_groupe, $dateTime->format('Y-m-d'), $_POST['localisation'], $_POST['duree_heure'].':'.$_POST['duree_minute'])) {
+		if($dateTime != null && ajouter_date($id_groupe, $dateTime->format('Y-m-d H:i'), $_POST['localisation'], $_POST['duree_heure'].':'.$_POST['duree_minute'])) {
 
 			$messages['type'] = 'succes';
 			$messages['message'] = 'La date a bien été ajoutée !';
