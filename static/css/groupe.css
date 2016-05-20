@@ -28,13 +28,12 @@
 .encadrer {
 	padding:15px;
 	border:1px solid black;
-	margin-left:15px;
 }
 
 .groupe .details {
 	margin-left:40px;
 	display: inline-block;
-	width: 65%;
+	width: 542px;
   float:left;
 }
 
@@ -45,8 +44,9 @@
 
 .groupe .details .specifications span {
 	margin-left:15px;
+  width:46%;
+  display: inline-block;
 }
-
 .groupe .details p.description {
   margin: 15px;
   border: 1px solid black;
@@ -55,13 +55,11 @@
   text-align: justify;
 }
 
+/* cadre des participants à droite */
 .groupe .participants {
   float: right;
   width: 205px;
   margin: 0 54px 0 0;
-}
-.groupe .participants > .encadrer {
-  margin-left:0;
 }
 .groupe .participants .participant {
   width: 30px;
@@ -71,8 +69,9 @@
   margin-left: 5px;
 }
 
+/* Formulaire ajout/ modification groupe */
 .form-groupe label {
-  width:150px;
+  width:200px;
   display: inline-block;
   text-align: right;
   margin-right:15px;
@@ -88,4 +87,37 @@
 }
 .form-groupe input[type=submit] {
   margin-left:600px;
+}
+.form-groupe input[type=number] {
+  width:50px;
+}
+
+/* Dates */
+.dates .date {
+  display: inline-block;
+  text-align: center;
+  width:50px;
+  border-right: 1px grey solid;
+  padding: 10px;
+  height:100%;
+  padding:15px;
+}
+.dates .date .jour {
+  font-size:13px;
+}
+.dates .date .numero {
+  font-weight: bold;
+}
+.dates .date .mois {
+  font-size:13px;
+}
+.dates .details-date {
+  display: inline-block;
+  padding:15px;
+}
+.dates .participer {
+  float: right;
+  border-left: 1px solid grey;
+  padding: 25px 21px;
+  font-size: 30px;
 }

@@ -1,5 +1,21 @@
 <?php
-	include 'vues/bdd.php';
+	
+	include 'vues/admin-menu.php';
+	
+	if(isset($_GET['gestion-bdd'])){
+		include 'vues/gestionBDD.php';
+	}
+	if(isset($_GET['gestion-forum'])){
+		include 'vues/gestionForum.php';
+	}
+	if(isset($_GET['gestion-nl'])){
+		include 'vues/gestionNL.php';
+	}
+	if(isset($_GET['gestion-membres'])){
+		include 'vues/gestionMembres.php';
+	}
+
+
 
 	$tables = array('aide', 'sports','membres','groupes_membres','groupes','forum_sujets','forum_messages','dates_rencontres','clubs','commentaires_clubs','contacte_message');
 	

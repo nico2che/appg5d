@@ -19,17 +19,15 @@
 	<div class="details">
 		<a class="lien-titre" href="?page=groupe&amp;id=<?php echo $id_groupe; ?>"><h2><?php echo $infos_groupe['titre']; ?></h2></a>
 		<div class="liste-encadrer">
-			<div class="encadrer">
-				<p class="specifications">
-					<span>Créé par <?php echo $membres_groupe['types'][1][0]['prenom']; ?></span>
-					<span><i class="fa fa-fire"></i> <?php echo $infos_groupe['nom_sport']; ?></span>
-					<span><i class="fa fa-calendar"></i> <?php echo $infos_groupe['recurrence']; ?></span>
-					<span><i class="fa fa-users"></i> <?php echo count($membres_groupe['tous']); ?> personnes sur <?php echo $infos_groupe['max_participants']; ?></span>
-				</p>
+			<div class="encadrer specifications">
+				<span>Créé par <?php echo $membres_groupe['types'][1][0]['prenom']; ?></span>
+				<span><i class="fa fa-fire"></i> <?php echo $infos_groupe['nom_sport']; ?></span><br><br>
+				<span><i class="fa fa-calendar"></i> <?php echo ucfirst($infos_groupe['recurrence']); ?></span>
+				<span><i class="fa fa-users"></i> <?php echo ($infos_groupe['max_participants'] > 0 ? count($membres_groupe['tous']) . ' participants sur ' . $infos_groupe['max_participants'] : count($membres_groupe['tous']) . ' participants'); ?></span>
 			</div>
 			<p class="encadrer"><?php echo nl2br($infos_groupe['description']); ?></p>
 		</div>
-		<h3>Dates</h3>
+		<h3>Dates de rencontre</h3>
 		<p>Cet événement est <?php echo $infos_groupe['recurrence']; ?>.<br>Voici la ou les dates actuellement proposées par le créateur de ce groupe.</p>
 	<?php
 		if(!empty($messages)) {
@@ -93,16 +91,27 @@
 
 			foreach ($dates_groupe as $date) {
 	?>
-			<div class="encadrer">
-				<span style="float:right"><?php echo $date['localisation']; ?></span>
-				Le <?php
-					$dateTime = new DateTimeFrench($date['date']);
-					echo $dateTime->format('l d F');
-				?>, pendant 
-				<?php 
-					$heureTime = new DateTimeFrench($date['duree']);
-					echo $heureTime->format('G\hi');
-				?>
+			<div class="encadrer dates" style="padding:0;">
+				<a href="#" class="">
+					<div class="participer vert">
+						<i class="fa fa-check-square-o"></i>
+					</div>
+				</a>
+			<?php
+				$dateTime = new DateTimeFrench($date['date']);
+				echo '	<div class="date">
+							<span class="jour">'.$dateTime->format('l').'</span><br>
+							<span class="numero">'.$dateTime->format('d').'</span><br>
+							<span class="mois">'.$dateTime->format('F').'</span>
+						</div>';
+			?>
+				<div class="details-date">
+			<?php 
+				$heureTime = new DateTimeFrench($date['duree']);
+			?>
+					<span class="heure">à <?php echo $dateTime->format('H\hi'); ?>, pendant <?php echo $heureTime->format('G\hi'); ?></span><br>
+					<span class="localisation"><?php echo $date['localisation']; ?></span>
+				</div>
 			</div>
 	<?php
 			}
