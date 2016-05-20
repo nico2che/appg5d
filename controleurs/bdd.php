@@ -6,7 +6,20 @@
 		include 'vues/gestionBDD.php';
 	}
 	if(isset($_GET['gestion-forum'])){
+		$request = $pdo->prepare('SELECT * FROM forum_messages');
+		$request->execute();
 		include 'vues/gestionForum.php';
+		if(isset($_GET['mid'])){
+			$request = $pdo -> prepare('SELECT message FROM forum_messages WHERE id='.$_GET['mid']);
+			$request->execute();
+			$message = $request->fetch();
+			include 'vues/bdd-modifier.php';
+			if(isset($_POST['messageModifie'])){
+				echo $_POST['messageModifie'];
+			}
+			
+		}
+
 	}
 	if(isset($_GET['gestion-nl'])){
 		include 'vues/gestionNL.php';
@@ -202,16 +215,6 @@
 			echo "<th>{$ligne[0]}</th>";
 		}
 		echo "</tr>";
-		/*foreach($request as $ligne){
-			echo"
-				<tr>
-					<th>{$ligne[1]}</th>
-					<th>{$ligne[2]}</th>
-					<th>{$ligne[3]}</th>
-					<th>{$ligne[10]}</th>
-
-				</tr>";
-		}*/
 		echo "
 			</tbody>
 		</table>";
