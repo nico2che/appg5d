@@ -10,15 +10,26 @@
 		$request->execute();
 		include 'vues/gestionForum.php';
 		if(isset($_GET['mid'])){
-			$request = $pdo -> prepare('SELECT message FROM forum_messages WHERE id='.$_GET['mid']);
-			$request->execute();
+			$request = $pdo -> prepare('SELECT message FROM forum_messages WHERE id=?');
+			$param = array($_GET['mid']);
+			$request->execute($param);
 			$message = $request->fetch();
 			include 'vues/bdd-modifier.php';
 			if(isset($_POST['messageModifie'])){
-				echo $_POST['messageModifie'];
+				$request = $pdo -> prepare('UPDATE forum_messages SET message =? WHERE id=?');
+				$param2 = array($_POST['messageModifie'], $_GET['mid']);
+				$request->execute($param2);
 			}
 			
 		}
+		if(isset($GET_['sid'])){
+			$request = $pdo -> prepare('DELETE FROM forum_messages WHERE id=1');
+			/*$param3= array($_GET['sid']);
+			$request-> execute($param3);*/
+			$request -> execute();
+			echo "<h1>message supprimé</h1>";
+		}
+
 
 	}
 	if(isset($_GET['gestion-nl'])){
