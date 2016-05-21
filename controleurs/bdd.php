@@ -22,12 +22,10 @@
 			}
 			
 		}
-		if(isset($GET_['sid'])){
-			$request = $pdo -> prepare('DELETE FROM forum_messages WHERE id=1');
-			/*$param3= array($_GET['sid']);
-			$request-> execute($param3);*/
-			$request -> execute();
-			echo "<h1>message supprimé</h1>";
+		if(isset($_GET['sid'])){
+			$request = $pdo -> prepare('DELETE FROM forum_messages WHERE id=?');
+			$param3= array($_GET['sid']);
+			$request-> execute($param3);
 		}
 
 

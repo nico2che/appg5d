@@ -6,7 +6,9 @@
 		<th>Action</th>
 	</tr>
 	<?php foreach($request as $ligne){
-				echo"<tr>
+				if(isset($_GET['sid']) && $_GET['sid']==$ligne[0]){
+				}else{
+					echo"<tr>
 					<td>{$ligne[4]}</td>
 					<td>{$ligne[2]}</td>
 					<td>";if(isset($_POST['messageModifie']) && $ligne[0]==$_GET['mid']){
@@ -17,6 +19,8 @@
 						  }
 						echo "<td><a href=\"?page=bdd&gestion-forum&mid=$ligne[0]\">Modifier</a> <a href=\"?page=bdd&gestion-forum&sid=$ligne[0]\">Supprimer</a></td>
 				</tr>";
+				}
+				
 		} ?>
 </table>
 
