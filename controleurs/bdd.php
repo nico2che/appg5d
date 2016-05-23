@@ -24,14 +24,19 @@
 		}
 		if(isset($_GET['sid'])){
 			$request = $pdo -> prepare('DELETE FROM forum_messages WHERE id=?');
-			$param3= array($_GET['sid']);
-			$request-> execute($param3);
+			$param3 = array($_GET['sid']);
+			$request -> execute($param3);
 		}
 
 
 	}
 	if(isset($_GET['gestion-nl'])){
 		include 'vues/gestionNL.php';
+		$newsLetter='News Letter TEAM\'UP';
+		if(isset($_POST['newsLetter'])){
+			mail ('bonefontfx@gmail.com', $newsLetter, $_POST['newsLetter']);
+		}
+		
 	}
 	if(isset($_GET['gestion-membres'])){
 		include 'vues/gestionMembres.php';

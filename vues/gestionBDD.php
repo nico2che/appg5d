@@ -1,6 +1,6 @@
 <div id='form'>
 <form method="post">
-	<select name="table" size="1">
+	<select selected="membres" name="table" size="1">
 		<option>aide
 		<option>clubs
 		<option>commentaires_clubs
