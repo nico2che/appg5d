@@ -89,14 +89,36 @@ form.formulaire-profil div input[type=text], form.formulaire-profil div input[ty
   border-collapse: collapse;
 }
 .planning td {
-    padding: 34px;
-    font-size: 25px;
-    border: 1px solid black;
+  font-size: 14px;
+  height: 79px;
+  border: 1px solid black;
+  background-color: white;
+  width: 79px;
+  vertical-align: top;
+  padding: 10px 0 0 10px;
 }
 .planning td.sans-bordure {
     border: 0;
+    background-color: transparent;
 }
-body {
+.planning td span.groupe {
+  font-size: 10px;
+  margin-left: -10px;
+  background-color: cornflowerblue;
+  white-space: nowrap;
+  color: white;
+  width: 87px;
+  padding: 1px;
+  margin-top: 2px;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+body
+{
+  background-color: #edefed;
+}
+#cover {
   width:100%;
   height:100%;
   background:url(../../static/images/fond.jpg);
@@ -108,4 +130,5 @@ body {
   left : 0;
   position : fixed;
   z-index : -1;
+  background-repeat: repeat;
 }

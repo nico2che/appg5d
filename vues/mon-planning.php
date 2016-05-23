@@ -1,3 +1,4 @@
+	<div id="cover"></div>
 	<div class="profil gauche">
 		<div>
 			<img src="<?php echo (is_file(DOSSIER_AVATAR . $_SESSION['id'] . '.jpg') ? DOSSIER_AVATAR . $_SESSION['id'] . '.jpg' : 'static/images/profil.jpg'); ?>" class="photo">
@@ -31,7 +32,13 @@
 				for ($i=0; $i < $nombre_jours; $i++) {
 					if($calendrier->format('j') == 1 && $calendrier->format('N') != 1)
 						echo '<td class="sans-bordure" colspan="'.($calendrier->format('N') - 1) .'"></td>';
-					echo '<td>' . $calendrier->format('j') . '</td>';
+					echo '<td>' . $calendrier->format('j');
+					if(isset($groupes[$calendrier->format('Y-m-d')])) {
+						foreach($groupes[$calendrier->format('Y-m-d')] as $groupe) {
+							echo '<br><a href="?page=groupe&id='.$groupe['id'].'"><span class="groupe">'.$groupe['titre'].'</span></a>';
+						}
+					}
+					echo '</td>';
 					$calendrier->add(new DateInterval('P1D'));
 					if($calendrier->format('N') == 1)
 						echo '</tr><tr>';

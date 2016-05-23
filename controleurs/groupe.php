@@ -17,6 +17,16 @@ $membres_groupe = membres_groupe($id_groupe);
 
 $messages = array();
 
+if(connecte() && isset($_GET['rejoindre'])) {
+
+	if(!est_membre_groupe($id_groupe, $_SESSION['id'])) {
+
+		ajouter_membre_groupe($id_groupe, $_SESSION['id'], 0);
+		$membres_groupe = membres_groupe($id_groupe);
+	}
+}
+
+
 if(isset($_POST['type']) && isset($_POST['nom']) && isset($_POST['sport']) && isset($_POST['description']) && isset($_POST['min_participants']) && isset($_POST['max_participants']) && isset($_POST['visibilite']) && isset($_POST['recurrence']) && isset($_POST['niveau'])) {
 
 	if(!empty($_POST['type']) && !empty($_POST['nom']) && !empty($_POST['sport']) && !empty($_POST['description']) && !empty($_POST['visibilite']) && !empty($_POST['recurrence']) && !empty($_POST['niveau'])) {

@@ -2,7 +2,8 @@
 
 if(isset($_GET['inscrit'])) {
 
-	$message = "Vous êtes bien inscrit !<br>Vous pouvez maintenant vous connecter";
+	$messages['type'] = 'succes';
+	$messages['message'] = "Vous êtes bien inscrit !<br>Vous pouvez maintenant vous connecter";
 }
 
 if(isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
@@ -18,11 +19,14 @@ if(isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
 
 		} else {
 
-			$message = "Identifiants incorrects";
+			$messages['type'] = 'erreur';
+			$messages['message'] = "Identifiants incorrects";
 		}
+
 	} else {
 
-		$message = "Tous les champs sont obligatoires";
+		$messages['type'] = 'erreur';
+		$messages['message'] = "Tous les champs sont obligatoires";
 	}
 }
 

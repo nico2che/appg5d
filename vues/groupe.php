@@ -143,10 +143,9 @@
 		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;modifier" class="bouton b-principal">Modifier le groupe</a></div>
 		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;supprimer" class="bouton b-danger">Supprimer le groupe</a></div>
 	<?php 
-		}
-		if(in_array($_SESSION['id'], $membres_groupe['tous'])) {
+		} elseif(est_membre_groupe($id_groupe, $_SESSION['id'])) {
 	?>
-		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;quitter" class="bouton b-principal">Quitter le groupe</a></div>
+		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;quitter" class="bouton b-danger">Quitter le groupe</a></div>
 	<?php 
 		} else {
 	?>
