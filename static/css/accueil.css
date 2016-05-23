@@ -57,26 +57,25 @@ header
 }
 #souris
 {
-  margin-top: 7%;
   left:7%;
 }
 #highfive{
-  margin-left: -45%;
+  left: 45%;
 }
 
 #vetements{
-  margin-left : 20%;
+ right : 7%;
   margin-top: 10%;
 }
 
 #fleche1
 {
-  margin-left: -40%;
+  left: 25%;
   margin-top: 10%;
 }
 
 #fleche2{
-  margin-left:-8%;
+  right: 25%;
   margin-top: 10%;
 }
 
@@ -90,7 +89,7 @@ header
 .textePromo{
   color: #4d4d4d;
   display: inline-block;
-  margin-top: 525px;
+  margin-top: 60vh;
   position: absolute;
 }
 #textePromo1{
@@ -141,8 +140,8 @@ body div div div.annonces1
   margin-top: 2em;
   margin-left: 5%;
   height: 0;
-  padding-bottom: 16%;
-  width: 16%;
+  padding-bottom: 18%;
+  width: 18%;
   background-color: white;
   float: left;
  

@@ -6,23 +6,23 @@
 	<div class="Promo texteBase">
 		<h1>Rejoignez notre communauté simplement !</h1>
 		<div class="image" id="souris">
-			<img src="static/images/souris.png" width="50%"  >
+			<img src="static/images/souris.png" width="175vh"  >
 			
 		</div>
 		<div class="image" id="fleche1">
-			<img src="static/images/fleche.svg" width="40%">
+			<img src="static/images/fleche.svg" width="250vh">
 			
 		</div>
 		<div class="image" id="highfive">
-			<img src="static/images/highfive.png" width="15%" >
+			<img src="static/images/highfive.png" width="175vh" >
 			
 		</div>
 		<div class="image" id="fleche2">
-			<img src="static/images/fleche.svg" width="40%">
+			<img src="static/images/fleche.svg" width="250vh">
 			
 		</div>
 		<div class="image" id="vetements">
-			<img src="static/images/vetements.png" width="50%">
+			<img src="static/images/vetements.png" width="200vh">
 			
 		</div>
 		<div >

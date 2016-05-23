@@ -62,7 +62,7 @@ header nav ul li a.colore {
 }
 
 .page {
-  width:860px;
+  width:70%;
   padding:10px;
   margin: auto;
   min-height:calc(100% - 155px);;
