@@ -25,7 +25,7 @@
 		<div class="groupe">
 			<a href="?page=groupe&amp;id=<?php echo $groupe['id']; ?>">
 				<div class="details">
-					<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
+					<div class="photo" style="background-image: url('<?php echo (is_file(DOSSIER_GROUPE . $groupe['id'] . '.jpg') ? DOSSIER_GROUPE . $groupe['id'] . '.jpg' : DOSSIER_GROUPE . '0.jpg') ?>');"></div>
 					<h4><?php echo $groupe['titre']; ?></h4>
 					<p>
 						<i class="fa fa-fire"></i> <?php echo $groupe['nom_sport']; ?><br>

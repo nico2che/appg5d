@@ -128,7 +128,9 @@
 
 		} else {
 	?>
-		Aucune date n'existe encore pour ce groupe.
+		<div class="encadrer">
+			Aucune date n'existe encore pour ce groupe.
+		</div>
 	<?php
 		}
 	?>

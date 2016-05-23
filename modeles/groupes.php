@@ -43,6 +43,21 @@ function ajouter_membre_date($id_date, $id_membre) {
 		return false;
 }
 
+function ajouter_membre_groupe($id_groupe, $id_membre, $type) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('INSERT INTO groupes_membres SET id_groupe = :id_groupe,
+															type = :type,
+															id_membre = :id_membre');
+	$stmt->bindValue('id_groupe', $id_groupe, PDO::PARAM_INT);
+	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
+	$stmt->bindValue('type', $type, PDO::PARAM_INT);
+	if($stmt->execute())
+		return $pdo->lastInsertId();
+	else
+		return false;
+}
+
 function supprimer_membre_date($id_date, $id_membre) {
 
 	global $pdo;
@@ -188,7 +203,7 @@ function ajouter_groupe($titre, $sport, $description, $min_participants, $max_pa
 	$stmt->bindValue('recurrence', $recurrence, PDO::PARAM_STR);
 	$stmt->bindValue('niveau', $niveau, PDO::PARAM_INT);
 	if($stmt->execute())
-		return $stmt->lastInsertId();
+		return $pdo->lastInsertId();
 	else
 		return false;
 }

@@ -9,7 +9,7 @@
 <?php
 	}
 ?>
-	<form action="" method="post">
+	<form action="" method="post" enctype="multipart/form-data">
 		<label for="nom">Nom du groupe</label> 
 		<input type="text" id="nom" name="nom" value="<?php echo (isset($_POST['nom']) ? htmlspecialchars($_POST['nom']) : null); ?>"><br>
 		
@@ -22,6 +22,9 @@
 		}
 	?>
 		</select><br>
+
+		<label for="image">Photo du groupe</label>
+		<input type="file" name="image" accept="image/*"><br>
 		
 		<label for="description">Description</label>
 		<textarea name="description" cols="50" rows="10" id="description"><?php echo (isset($_POST['description']) ? htmlspecialchars($_POST['description']) : null); ?></textarea><br>

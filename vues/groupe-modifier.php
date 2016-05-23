@@ -9,7 +9,7 @@
 <?php
 	}
 ?>
-	<form action="" method="post">
+	<form action="" method="post" enctype="multipart/form-data">
 		<label for="nom">Nom du groupe</label> <input type="text" id="nom" name="nom" value="<?php echo $infos_groupe['titre']; ?>"><br>
 		<label for="sport">Sport de ce groupe</label>
 		<select id="sport" name="sport">
@@ -20,6 +20,10 @@
 		}
 	?>
 		</select><br>
+
+		<label for="image">Photo du groupe</label>
+		<input type="file" name="image" accept="image/*"><br>
+		
 		<label for="description">Description</label>
 		<textarea name="description" cols="50" rows="10" id="description"><?php echo $infos_groupe['description']; ?></textarea><br>
 		

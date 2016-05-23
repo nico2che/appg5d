@@ -10,6 +10,7 @@ try {
 }
 
 define('DOSSIER_AVATAR', 'static/user/avatars/');
+define('DOSSIER_GROUPE', 'static/user/groupes/');
 
 class DateTimeFrench extends DateTime {
     public function format($format) {

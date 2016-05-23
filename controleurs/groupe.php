@@ -13,39 +13,110 @@ function genererSelect($debut, $fin, $selected = null, $zero = false) {
 	}
 }
 
-$infos_groupe = infos_groupe($id_groupe);
 $membres_groupe = membres_groupe($id_groupe);
 
 $messages = array();
 
-if(est_auteur_groupe($membres_groupe)) {
+if(isset($_POST['type']) && isset($_POST['nom']) && isset($_POST['sport']) && isset($_POST['description']) && isset($_POST['min_participants']) && isset($_POST['max_participants']) && isset($_POST['visibilite']) && isset($_POST['recurrence']) && isset($_POST['niveau'])) {
 
-	if(isset($_POST['type']) && isset($_POST['nom']) && isset($_POST['sport']) && isset($_POST['description']) && isset($_POST['min_participants']) && isset($_POST['max_participants']) && isset($_POST['visibilite']) && isset($_POST['recurrence']) && isset($_POST['niveau'])) {
+	if(!empty($_POST['type']) && !empty($_POST['nom']) && !empty($_POST['sport']) && !empty($_POST['description']) && !empty($_POST['visibilite']) && !empty($_POST['recurrence']) && !empty($_POST['niveau'])) {
+			
+		if($_POST['type'] == 'ajouter' && $id_groupe = ajouter_groupe($_POST['nom'], $_POST['sport'], $_POST['description'], $_POST['min_participants'], $_POST['max_participants'], $_POST['visibilite'], $_POST['recurrence'], $_POST['niveau'])) {
 
-		if(!empty($_POST['type']) && !empty($_POST['nom']) && !empty($_POST['sport']) && !empty($_POST['description']) && !empty($_POST['min_participants']) && !empty($_POST['max_participants']) && !empty($_POST['visibilite']) && !empty($_POST['recurrence']) && !empty($_POST['niveau'])) {
+			ajouter_membre_groupe($id_groupe, $_SESSION['id'], 1); // On ajoute le créateur du groupe
+			$upload = true;
 
-			if($_POST['type'] == 'ajouter' && $id = ajouter_groupe($_POST['nom'], $_POST['sport'], $_POST['description'], $_POST['min_participants'], $_POST['max_participants'], $_POST['visibilite'], $_POST['recurrence'], $_POST['niveau'])) {
+		} elseif($_POST['type'] == 'modifier' && est_auteur_groupe($membres_groupe) && modifier_groupe($id_groupe, $_POST['nom'], $_POST['sport'], $_POST['description'], $_POST['min_participants'], $_POST['max_participants'], $_POST['visibilite'], $_POST['recurrence'], $_POST['niveau'])) {
 
-				header('Location: ?page=groupe&id=' . $id);
-				exit();
-
-			} elseif($_POST['type'] == 'modifier' && modifier_groupe($id_groupe, $_POST['nom'], $_POST['sport'], $_POST['description'], $_POST['min_participants'], $_POST['max_participants'], $_POST['visibilite'], $_POST['recurrence'], $_POST['niveau'])) {
-
-				$messages['type'] = 'succes';
-				$messages['message'] = 'Le groupe a été modifié avec succès. <b><a href="?page=groupe&id='.$id_groupe.'">Retour au groupe</a></b>';
-
-			} else {
-
-				$messages['type'] = 'erreur';
-				$messages['message'] = 'Impossible de modifier ce sport, merci de réessayer plus tard';
-			}
+			$messages['type'] = 'succes';
+			$messages['message'] = 'Le groupe a été modifié avec succès. <b><a href="?page=groupe&id='.$id_groupe.'">Retour au groupe</a></b>';
+			$upload = true;
 
 		} else {
 
 			$messages['type'] = 'erreur';
-			$messages['message'] = 'Tous les champs sont obligatoires';
+			$messages['message'] = 'Impossible d\'effectuer cette action, merci de réessayer plus tard';
+			$upload = false;
 		}
+
+		if(isset($_FILES['image']) && $upload && !empty($_FILES['image']['name'])) {
+
+			if($_FILES['image']['error'] == 0) {
+			
+				$taille_maximale = 4194304; // 4 Mo
+
+				if($_FILES['image']['size'] < $taille_maximale) {
+					
+					$extensions_valides = array( 'jpg', 'jpeg', 'gif', 'png' );
+					$extension = substr(strrchr($_FILES['image']['name'], '.'), 1);
+
+					if(in_array($extension, $extensions_valides)) {
+
+						$nouveau_fichier = DOSSIER_GROUPE . $id_groupe . '.';
+
+						if(move_uploaded_file($_FILES['image']['tmp_name'], $nouveau_fichier . $extension)) {
+
+							if($extension != 'jpg') {
+								switch ($extension) {
+									case 'png':
+										$nouveau_jpg = imagecreatefrompng($nouveau_fichier . $extension);
+									    imagejpeg($nouveau_jpg, $nouveau_fichier . 'jpg', 100);
+									    imagedestroy($nouveau_jpg);
+									    unlink($nouveau_fichier . $extension);
+										break;
+									case 'gif':
+										$nouveau_jpg = imagecreatefromgif($nouveau_fichier . $extension);
+									    imagejpeg($nouveau_jpg, $nouveau_fichier . 'jpg', 100);
+									    imagedestroy($nouveau_jpg);
+									    unlink($nouveau_fichier . $extension);
+										break;
+									case 'jpeg':
+										rename($nouveau_fichier . $extension, $nouveau_fichier . 'jpg');
+										break;
+									default:
+										break;
+								}
+							}
+
+						} else {
+
+							$messages['type'] = 'erreur';
+							$messages['message'] = 'Une erreur est survenue, merci de réessayer plus tard';
+						}
+
+					} else {
+
+						$messages['type'] = 'erreur';
+						$messages['message'] = 'Seules les photos (jpg, jpeg, png ou gif) sont acceptées.';
+					}
+
+				} else {
+
+					$messages['type'] = 'erreur';
+					$messages['message'] = 'La photo ne doit pas dépasser 4Mo';
+				}
+
+			} else {
+
+				$messages['type'] = 'erreur';
+				$messages['message'] = 'Une erreur est survenue lors de l\'import de la photo, merci de réessayer plus tard';
+			}
+		}
+
+		if(empty($messages)) {
+
+			header('Location: ?page=groupe&id=' . $id_groupe);
+			exit();
+		}
+
+	} else {
+
+		$messages['type'] = 'erreur';
+		$messages['message'] = 'Tous les champs sont obligatoires';
 	}
+}
+
+if(est_auteur_groupe($membres_groupe)) {
 
 	if(isset($_POST['jour']) && isset($_POST['mois']) && isset($_POST['annee']) && isset($_POST['heure']) && isset($_POST['minute']) && isset($_POST['localisation']) && isset($_POST['duree_heure']) && isset($_POST['duree_minute']) && isset($_POST['latitude']) && isset($_POST['longitude'])) {
 
@@ -134,6 +205,8 @@ if(!empty($id_groupe) && isset($_GET['date']) && !empty($_GET['date'])) {
 	}
 	exit();
 }
+
+$infos_groupe = infos_groupe($id_groupe);
 
 if(isset($_GET['ajouter']) && $id_groupe == 0) {
 

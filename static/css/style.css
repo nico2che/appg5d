@@ -113,11 +113,13 @@ div.message.succes a {
   margin-top:10px;
   border-radius: 5px;
   border: 1px solid black;
+  background-color: white;
 }
 .liste-encadrer > .encadrer {
   margin-top: -1px;
   border-radius: 0px;
   border-top: 0px;
+  border-bottom-width: 2px;
 }
 .liste-encadrer > .encadrer:last-child {
   border-bottom-right-radius: 5px;
@@ -125,6 +127,7 @@ div.message.succes a {
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
   border-top: 0px;
+  border-bottom-width: 1px!important;
 }
 .liste-encadrer > .encadrer:first-child {
   border-top-right-radius: 5px;
