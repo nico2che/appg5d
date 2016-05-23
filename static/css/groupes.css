@@ -51,7 +51,7 @@ form.recherche-groupe div {
 	height:120px;
 	overflow: hidden;
 	background-position: 0 center;
-    background-size: 200px auto;
+    background-size: cover;
 }
 
 #liste-groupes .groupe .details h4 {

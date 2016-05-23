@@ -224,6 +224,8 @@ if(isset($_GET['ajouter']) && $id_groupe == 0) {
 
 } else {
 
-	$dates_membre = dates_membre($_SESSION['id']);
+	if(connecte()) {
+		$dates_membre = dates_membre($_SESSION['id']);
+	}
 	include 'vues/groupe.php';
 }

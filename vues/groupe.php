@@ -15,7 +15,7 @@
 <?php
 	} else {
 ?>
-	<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
+	<div class="photo" style="background-image: url('<?php echo (is_file(DOSSIER_GROUPE . $infos_groupe['id'] . '.jpg') ? DOSSIER_GROUPE . $infos_groupe['id'] . '.jpg' : DOSSIER_GROUPE . '0.jpg') ?>');"></div>
 	<div class="details">
 		<a class="lien-titre" href="?page=groupe&amp;id=<?php echo $id_groupe; ?>"><h2><?php echo $infos_groupe['titre']; ?></h2></a>
 		<div class="liste-encadrer">
@@ -142,6 +142,15 @@
 	?>
 		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;modifier" class="bouton b-principal">Modifier le groupe</a></div>
 		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;supprimer" class="bouton b-danger">Supprimer le groupe</a></div>
+	<?php 
+		}
+		if(in_array($_SESSION['id'], $membres_groupe['tous'])) {
+	?>
+		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;quitter" class="bouton b-principal">Quitter le groupe</a></div>
+	<?php 
+		} else {
+	?>
+		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;rejoindre" class="bouton b-principal">Rejoindre le groupe</a></div>
 	<?php 
 		}
 	?>

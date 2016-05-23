@@ -16,7 +16,7 @@
 	width:200px;
 	height:200px;
 	float: right;
-	background-size: 200px;
+	background-size: cover;
 	background-position: center center;
   margin: 37px 54px 0 0;
   border: 1px solid black;

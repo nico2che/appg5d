@@ -85,8 +85,8 @@ function infos_groupe($id) {
 
 	global $pdo;
 	$stmt = $pdo->prepare('SELECT s.nom AS nom_sport, g.* 	FROM groupes_membres AS g_m
-																JOIN groupes AS g ON g.id = g_m.id_groupe
-																JOIN membres AS m ON m.id = g_m.id_membre
+																RIGHT JOIN groupes AS g ON g.id = g_m.id_groupe
+																LEFT JOIN membres AS m ON m.id = g_m.id_membre
 																JOIN sports AS s ON s.id = g.id_sport
 															WHERE g.id = :id');
 	$stmt->bindValue('id', $id, PDO::PARAM_INT);
@@ -103,7 +103,7 @@ function membres_groupe($id) {
 														WHERE g.id = :id');
 	$stmt->bindValue('id', $id, PDO::PARAM_INT);
 	$stmt->execute();
-	$resultat = array();
+	$resultat = array('tous' => array(), 'types' => array());
 	while($ligne = $stmt->fetch()) {
 		$resultat['tous'][] = $ligne;
 		$resultat['types'][$ligne['type']][] = $ligne;
