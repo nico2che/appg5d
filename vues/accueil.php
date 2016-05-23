@@ -9,22 +9,30 @@
 			<img src="static/images/souris.png" width="250" height="375" >
 			
 		</div>
+		<div class="image" id="fleche1">
+			<img src="static/images/fleche.svg" width="400" height="400">
+			
+		</div>
 		<div class="image" id="highfive">
 			<img src="static/images/highfive.png" width="250" height="375">
+			
+		</div>
+		<div class="image" id="fleche2">
+			<img src="static/images/fleche.svg" width="400" height="400">
 			
 		</div>
 		<div class="image" id="vetements">
 			<img src="static/images/vetements.png" width="250" height="250">
 			
 		</div>
-		<div>
+		<div >
 			<h2 class="textePromo" id="textePromo1">Inscrivez vous !</h2>
 			<h2 class="textePromo" id="textePromo2">Rejoignez un groupe !</h2>
 			<h2 class="textePromo" id="textePromo3">Participez à un événement sportif !</h2>
 		</div>
+		<div class="baspresentation"></div>
 	</div>
-	<h1 class="titreImage texteBase">Nos sports</h1>
-	<div class="petitTitre texteBase">Découvrez un grand choix de sport à pratiquer entre amis</div>
+	<h2 class="titreImage texteBase">Découvrez un grand choix de sport à pratiquer entre amis</h2>
 	<div id="annonces">
 		<div class = "annonces1" id="annonce1">Football</div>
 		<div class = "annonces1" id="annonce2">Tennis</div>
@@ -40,7 +48,7 @@
 	<div>
 		<input type="submit" value="Voir tous les sports" class="bouton">
 	</div>
-	<?php if(connecte()) {  ?>
+	<!--<?php if(connecte()) {  ?>
 		<h2 class="titreClassique texteBase">Les annonces à la mode</h2>
 		<div class="petitTitre texteBase">Choisissez un groupe dynamique avec des personnes motivées</div>
 		<div id='annoncesMoment'>
@@ -51,4 +59,5 @@
 				
 			</div>
 		</div>
-	<?php } ?>
+	<?php } ?>-->
+

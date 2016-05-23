@@ -68,6 +68,24 @@ header
   margin-top: 10%;
 }
 
+#fleche1
+{
+  margin-left: -28%;
+  margin-top: 10%;
+}
+
+#fleche2{
+  margin-left:1%;
+  margin-top: 10%;
+}
+
+.baspresentation{
+  border-bottom: 1px solid #4d4d4d;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  margin-top: 625px;
+}
 .textePromo{
   color: #4d4d4d;
   display: inline-block;
@@ -87,7 +105,7 @@ header
 
 .titreImage
 {
-  margin-top : 10%;
+  margin-top : 15%;
   text-align: center;
   display: block;
 }
@@ -100,8 +118,9 @@ header
 }
 .petitTitre
 {
+  margin-top: 5%;
   text-align: center;
-  font-size: 0.9em;
+  font-size: 1.2em;
 }
 #annonces
 {
@@ -119,13 +138,13 @@ body div div div.annonces1
 {
   display: block;
   margin-top: 2em;
-  margin-left: 4%;
+  margin-left: 5%;
   height: 0;
-  padding-bottom: 15%;
-  width: 15%;
+  padding-bottom: 16%;
+  width: 16%;
   background-color: white;
   float: left;
-  border-radius: 50%;
+ 
 }
 body div div div.annonces1:hover
 {
@@ -183,7 +202,7 @@ body div div div.annonces1:hover
   position: relative;
   display: block;
   margin: auto;
-  margin-top: 60vh;
+  margin-top: 80vh;
   background-color: white;
   border : 1px solid #cccccc;
   color: #4d4d4d;
