@@ -4,22 +4,26 @@
 	</form>
 	<div class="fond"></div>
 	<div class="Promo texteBase">
-		<h2>Rejoignez notre communauté simplement !</h2>
-		<table>
-			<tr>
-				<td>
-					<img src="static/images/souris.png" width="200" height="300" >
-				</td>
-				<td>
-					<img src="static/images/highfive.png" width="200" height="300">
-				</td>
-				<td>
-					<img src="static/images/vetements.png" width="200" height="200">
-				</td>
-			</tr>
-		</table>
+		<h1>Rejoignez notre communauté simplement !</h1>
+		<div class="image" id="souris">
+			<img src="static/images/souris.png" width="250" height="375" >
+			
+		</div>
+		<div class="image" id="highfive">
+			<img src="static/images/highfive.png" width="250" height="375">
+			
+		</div>
+		<div class="image" id="vetements">
+			<img src="static/images/vetements.png" width="250" height="250">
+			
+		</div>
+		<div>
+			<h2 class="textePromo" id="textePromo1">Inscrivez vous !</h2>
+			<h2 class="textePromo" id="textePromo2">Rejoignez un groupe !</h2>
+			<h2 class="textePromo" id="textePromo3">Participez à un événement sportif !</h2>
+		</div>
 	</div>
-	<h2 class="titreImage texteBase">Nos sports</h2>
+	<h1 class="titreImage texteBase">Nos sports</h1>
 	<div class="petitTitre texteBase">Découvrez un grand choix de sport à pratiquer entre amis</div>
 	<div id="annonces">
 		<div class = "annonces1" id="annonce1">Football</div>

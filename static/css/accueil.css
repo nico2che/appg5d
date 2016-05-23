@@ -47,15 +47,49 @@ header
 .Promo
 {
   text-align: center;
+  height: 625px;
+}
+.image
+{
+  margin-top: 5%;
+  display: inline-block;
+  position: absolute;
+}
+#souris
+{
+  left:10%;
+}
+#highfive{
+  margin-left: -10%;
 }
 
+#vetements{
+  margin-left : 20%;
+  margin-top: 10%;
+}
+
+.textePromo{
+  color: #4d4d4d;
+  display: inline-block;
+  margin-top: 525px;
+  position: absolute;
+}
+#textePromo1{
+  left :10%;
+}
+#textePromo2{
+  margin-left: -10%;
+}
+
+#textePromo3{
+  margin-left: 17%;
+}
 
 .titreImage
 {
-  margin-top : 5vh;
+  margin-top : 10%;
   text-align: center;
   display: block;
-  position: relative;
 }
 
 .titreClassique
