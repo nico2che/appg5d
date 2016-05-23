@@ -4,28 +4,35 @@ if(isset($_POST['nom']) && isset($_POST['prenom'])  && isset($_POST['email']) &&
 
 	if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['mot_de_passe']) && !empty($_POST['confirmation_mot_de_passe'])) {
 
-		if($_POST['mot_de_passe'] == $_POST['confirmation_mot_de_passe']) {
+		if(strlen($_POST['mot_de_passe']) > 5) {
 
-			if(!existe_email($_POST['email'])) {
+			if($_POST['mot_de_passe'] == $_POST['confirmation_mot_de_passe']) {
 
-				if($id_membre = inscrire_membre($_POST['nom'], $_POST['prenom'], $_POST['email'], sha1($_POST['mot_de_passe']))) {
+				if(!existe_email($_POST['email'])) {
 
-					header('Location:?page=connexion&inscrit');
-					exit();
+					if($id_membre = inscrire_membre($_POST['nom'], $_POST['prenom'], $_POST['email'], sha1($_POST['mot_de_passe']))) {
+
+						header('Location:?page=connexion&inscrit');
+						exit();
+
+					} else {
+
+						$message = "Erreur de base de données, merci de réessayer plus tard ou de contacter un administrateur.";
+					}
 
 				} else {
 
-					$message = "Erreur de base de données, merci de réessayer plus tard ou de contacter un administrateur.";
+					$message = "Cet email existe déjà";
 				}
 
 			} else {
 
-				$message = "Cet email existe déjà";
+				$message = "Les deux mots de passe ne correspondent pas";
 			}
 
 		} else {
 
-			$message = "Les deux mots de passe ne correspondent pas";
+			$message = "Le mot de passe doit être de 6 caractères minimum.";
 		}
 
 	} else {
