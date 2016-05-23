@@ -1,12 +1,14 @@
 <div class="fond"></div>
 <div>
-	Club
+	<div class="title"><strong>Club</strong></div>
+	
 	<br>
-	<div>
-		Recherche
+	<div class="recherche">
+		<br>
+		Recherche : 
 		<br>
 		<form method='post'>
-			<label for="sport">Sport</label>
+			<label for="sport">Sport :</label>
 			<select id="sport" name="sport">
 				<option value="0">Choisissez un sport</option>
 				<?php 

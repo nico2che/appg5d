@@ -13,8 +13,22 @@
 .bordure{
 	border:2px solid #4d4d4d;
 	width: 20%;
+	height: 25vh;
 	text-align: center;
 	display: inline-block;
 	border-radius: 10px;
 	margin: 2px;
+	vertical-align: top;
+
+}
+
+.recherche{
+	border:2px solid #4d4d4d;
+	text-align: center;
+	border-radius: 10px;
+}
+
+#title{
+	style="text-align: center;"
+
 }
