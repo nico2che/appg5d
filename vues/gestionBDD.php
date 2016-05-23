@@ -1,17 +1,18 @@
 <div id='form'>
 <form method="post">
 	<select selected="membres" name="table" size="1">
-		<option>aide
-		<option>clubs
-		<option>commentaires_clubs
-		<option>contacte_message
-		<option>dates_rencontres
-		<option>forum_messages
-		<option>forum_sujets
-		<option>groupes
-		<option>groupes_membres
-		<option>membres
-		<option>sports
+		<option>aide</option>
+		<option>clubs</option>
+		<option>commentaires_clubs</option>
+		<option>contacte_message</option>
+		<option>dates_rencontres</option>
+		<option>forum_messages</option>
+		<option>forum_sujets</option>
+		<option>groupes</option>
+		<option>groupes_membres</option>
+		<option>membres</option>
+		<option>sports</option>
+		<option>sport_club</option>
 	</select>
 	<input type="submit" name="submit1" value="Afficher"></input>
 </form>
