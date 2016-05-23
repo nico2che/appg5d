@@ -57,10 +57,11 @@ header
 }
 #souris
 {
-  left:10%;
+  margin-top: 7%;
+  left:7%;
 }
 #highfive{
-  margin-left: -10%;
+  margin-left: -45%;
 }
 
 #vetements{
@@ -70,12 +71,12 @@ header
 
 #fleche1
 {
-  margin-left: -28%;
+  margin-left: -40%;
   margin-top: 10%;
 }
 
 #fleche2{
-  margin-left:1%;
+  margin-left:-8%;
   margin-top: 10%;
 }
 
@@ -100,7 +101,7 @@ header
 }
 
 #textePromo3{
-  margin-left: 17%;
+  margin-left: 22%;
 }
 
 .titreImage
