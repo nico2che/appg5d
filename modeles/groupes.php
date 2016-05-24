@@ -4,12 +4,7 @@
 function recuperer_groupes() {
 
 	global $pdo;
-	$stmt = $pdo->query('SELECT s.nom AS nom_sport, g.* FROM groupes AS g
-															JOIN sports AS s ON s.id = g.id_sport');
-	$resultat = array();
-	while($ligne = $stmt->fetch()) {
-		$resultat[] = $ligne;
-	}
+	$resultat = $pdo->query('SELECT s.nom AS nom_sport, g.* FROM groupes AS g JOIN sports AS s ON s.id = g.id_sport');
 	return $resultat;
 }
 /* Récupérer les informations d'un groupe précis */
