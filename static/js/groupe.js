@@ -77,7 +77,7 @@ ready(function(){
             }
         });
     });
-    Array.prototype.forEach.call(document.querySelectorAll('a.supprimer-groupe'), function(a, i){
+    Array.prototype.forEach.call(document.querySelectorAll('a.supprimer-date'), function(a, i){
         a.addEventListener('click', function(e){
             if(confirm('Etes vous sûr de vouloir supprimer cette date ?')) {
                 if(!chargement) {

@@ -1,7 +1,15 @@
 <?php
 
-function connecte() {
-	return isset($_SESSION['id']);
+function connecte($profil = false) {
+
+	if(!$profil) {
+		
+		return isset($_SESSION['id']);
+
+	} else {
+
+		return profil_membre($_SESSION['id']);
+	}
 }
 
 function chemin_avatar($fichier) {

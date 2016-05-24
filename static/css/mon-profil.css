@@ -88,6 +88,9 @@ form.formulaire-profil div input[type=text], form.formulaire-profil div input[ty
 .planning {
   border-collapse: collapse;
 }
+.planning th {
+  height: 64px;
+}
 .planning td {
   font-size: 14px;
   height: 79px;

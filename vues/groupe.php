@@ -110,7 +110,7 @@
 			<?php
 				if(est_auteur_groupe($membres_groupe)) {
 			?>
-					<a href="#" class="supprimer-groupe" data-id="<?php echo $date['infos'][0]; ?>" data-idgroupe="<?php echo $id_groupe; ?>">
+					<a href="#" class="supprimer-date" data-id="<?php echo $date['infos'][0]; ?>" data-idgroupe="<?php echo $id_groupe; ?>">
 						<i class="fa fa-trash" style="float:right"></i>
 					</a>
 			<?php
