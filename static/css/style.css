@@ -13,6 +13,12 @@ html, body {
 .align-center {
   text-align: center;
 }
+.float-right {
+  float: right;
+}
+.float-left {
+  float: right;
+}
 input[type=submit] {
   border-radius: 6px;
   padding: 3px 15px;
@@ -155,7 +161,7 @@ div.message.succes a {
 }
 .bouton.b-principal {
   border-color:#19BEC0;
-  background-color: #113F59;
+  background-color: #0067C0;
 }
 .bouton.b-danger {
   border-color:red;

@@ -21,3 +21,12 @@ function recuperer_sports() {
 	}
 	return $resultat;
 }
+
+function recuperer_sport($id) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT * FROM sports WHERE id = :id');
+	$stmt->bindValue('id', $id, PDO::PARAM_INT);
+	$stmt->execute();
+	return $stmt->fetch();
+}

@@ -8,7 +8,7 @@ function connecte($profil = false) {
 
 	} else {
 
-		return profil_membre($_SESSION['id']);
+		return (isset($_SESSION['id']) ? profil_membre($_SESSION['id']) : false);
 	}
 }
 
