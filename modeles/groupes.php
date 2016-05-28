@@ -7,6 +7,22 @@ function recuperer_groupes() {
 	$resultat = $pdo->query('SELECT s.nom AS nom_sport, g.* FROM groupes AS g JOIN sports AS s ON s.id = g.id_sport');
 	return $resultat;
 }
+/* Rechercher les groupes */
+function rechercher_groupe($titre, $id_sport, $recurrence, $requete) {
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT g.id id_groupe, g.*, s.* FROM groupes g JOIN sports s ON s.id = g.id_sport
+												WHERE ' . $requete);
+
+	if(!empty($titre))
+		$stmt->bindValue('titre', '%'.$titre.'%', PDO::PARAM_STR);
+	if(!empty($id_sport))
+		$stmt->bindValue('id_sport', $id_sport, PDO::PARAM_INT);
+	if(!empty($recurrence))
+		$stmt->bindValue('recurrence', $recurrence, PDO::PARAM_STR);
+
+	$stmt->execute();
+	return $stmt->fetchAll();
+}
 /* Récupérer les informations d'un groupe précis */
 function infos_groupe($id) {
 

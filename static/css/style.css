@@ -120,7 +120,7 @@ div.message.succes a {
 }
 
 /* encadrés */
-.encadrer h4 {
+.encadrer > h4 {
   margin: 0px 10px 15px;
 }
 .encadrer {

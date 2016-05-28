@@ -32,3 +32,4 @@
 		<div class="clear"></div>
 	</header>
 	<div class="page">
+		<div id="cover"></div>
