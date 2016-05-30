@@ -12,7 +12,7 @@
 <body>
 	<header>
 		<div class="page">
-			<a href="?"><img src="static/images/logo2.png" alt="logo2" id="logo"></a>
+			<a href="?"><img src="static/images/logo.png" alt="logo2" id="logo"></a>
 			<nav>
 				<ul>
 					<li><a href="?page=groupes">Groupes</a></li>
