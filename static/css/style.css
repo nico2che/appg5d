@@ -167,3 +167,7 @@ div.message.succes a {
   border-color:red;
   background-color: #D54F58;
 }
+
+.avatar-menu{
+  height: 100px;
+}
