@@ -42,7 +42,7 @@
 		<div class = "annonces1" id="annonce6">Randonnée</div>
 		<div class = "annonces1" id="annonce7">Golf</div>
 		<div class = "annonces1" id="annonce8">Atlétisme</div>
-		<div class = "annonces1" id="annonce9">Voile</div>
+		<div class = "annonces1" id="annonce9">Natation</div>
 		<div class = "annonces1" id="annonce10">Ping-Pong</div>
 	</div>
 	<div>
