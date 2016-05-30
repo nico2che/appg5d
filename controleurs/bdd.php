@@ -1,6 +1,8 @@
 <?php
 	include 'vues/admin-menu.php';
 	include 'modeles/admin.php';
+	echo"<p>Ici, vous  pouvez gérer votre site web, en cliquant sur un onglet du menu de gauche,
+	vous aurez accès à de nombreuses fonctionnalitées!";
 	if(isset($_GET['gestion-bdd'])){
 		include 'vues/gestionBDD.php';
 	}
