@@ -1,6 +1,6 @@
 body
 {
-  background-color: #edefed;
+  background-color:   #e6f5ff;
 }
 
 header
@@ -64,7 +64,7 @@ header
 }
 
 #vetements{
- right : 7%;
+ right : 10%;
   margin-top: 10%;
 }
 
@@ -96,11 +96,11 @@ header
   left :10%;
 }
 #textePromo2{
-  margin-left: -10%;
+  left: 43%;
 }
 
 #textePromo3{
-  margin-left: 22%;
+  right:4%;
 }
 
 .titreImage
