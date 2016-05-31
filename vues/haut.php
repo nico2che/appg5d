@@ -12,7 +12,6 @@
 <body>
 	<header>
 		<a href="?"><img src="static/images/logoteam-up.png" alt="logo" id="logo"></a>
-		<div class="page">
 			<nav>
 				<ul>
 					<li><a href="?page=groupes">Groupes</a></li>
@@ -27,6 +26,8 @@
 			<?php } ?>
 				</ul>
 			</nav>
-		</div>
+		
 		<div class="clear"></div>
 	</header>
+
+	<div class="page">

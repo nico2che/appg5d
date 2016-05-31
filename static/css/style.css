@@ -82,7 +82,7 @@ header .avatar-menu {
 }
 
 .page {
-  width:900px;
+  width:65%;
   padding:10px;
   margin: auto;
   min-height:calc(100% - 155px);;
