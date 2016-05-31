@@ -1,7 +1,4 @@
-body{
-  background:url(../../static/images/motif.jpg);
-  background-repeat: repeat;
-}
+
 .ajouter-sujet {
 	float: right;
 	margin-top: -15px;

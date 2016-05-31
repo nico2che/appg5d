@@ -57,8 +57,8 @@ label{
   border-width: 1px;
   margin-top: 5vh;
   padding: 10px 0px 40px 0px;
-  background: rgba(0, 0, 0, 0.7);
-  color:white;
+  background: rgba(255, 255, 255, 0.5);
+  color:#0c8190;
   opacity:0.95;
   height:60vh;
   overflow-y:scroll; 
