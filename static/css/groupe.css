@@ -91,6 +91,9 @@
 .form-groupe input[type=number] {
   width:50px;
 }
+.form-groupe {
+  margin-bottom: 70px;
+}
 
 /* Dates */
 .dates .date {
