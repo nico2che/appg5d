@@ -4,11 +4,6 @@
 	border-radius: 10px;
 	text-align: center;
 }
-body{
-
-	background: url(../../static/images/motif.jpg) ; 
-	background-repeat: repeat;
-}
 
 p{
 	text-overflow: justify;

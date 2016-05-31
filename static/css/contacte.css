@@ -1,20 +1,3 @@
-body
-{
-	 width: 100%;
-  height:100%;
-  display : block;
-  /*background-image: url(static/images/image_accueil.jpg);*/
-  background: url(../../static/images/fond.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  top:0;
-  left:0;
-  z-index: -1;
-  position: fixed;
-}
-
 p{
   text-align: center; 
 }

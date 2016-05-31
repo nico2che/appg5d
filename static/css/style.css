@@ -169,3 +169,7 @@ div.message.succes a {
 .avatar-menu{
   height: 100px;
 }
+body{
+  background:url(../../static/images/motif.jpg);
+  background-repeat: repeat;
+}
