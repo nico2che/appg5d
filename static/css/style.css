@@ -39,17 +39,9 @@ header {
 }
 header #logo {
   background-repeat: no-repeat;
-<<<<<<< HEAD
-  background-size: 8em auto;
   margin-left: 1.8em;
   margin-top: 1.3em;
   width: 15em;
-=======
-  background-size: 77px auto;
-  float: left;
-  height: 65px;
-  width: 55px;
->>>>>>> origin/master
 }
 header nav {
   float: right;
