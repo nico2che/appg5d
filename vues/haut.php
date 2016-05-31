@@ -19,6 +19,7 @@
 			<?php if($profil = connecte(true)) { ?>
 				<li><a href="?page=mon-profil">Mon Compte</a></li>
 				<li><a href="?page=deconnexion">Déconnexion</a></li>
+		</nav>
 		<div class="page">
 			<a href="?"><img src="static/images/logo.png" alt="logo2" id="logo"></a>
 			<nav>
@@ -28,13 +29,13 @@
 				<?php if($profil = connecte(true)) { ?>
 					<li><a href="?page=mon-profil">Mon Compte</a></li>
 					<li><a href="?page=deconnexion">Déconnexion</a></li>
-				<li><a href="?page=mon-profil"><img class="avatar-menu" src="<?php echo (is_file(DOSSIER_AVATAR . $profil['id'] . ".jpg") ? DOSSIER_AVATAR . $profil['id'] . ".jpg" : DOSSIER_AVATAR . "0.jpg"); ?>" alt="<?php echo $profil['prenom']; ?>"></a></li>
+					<li><a href="?page=mon-profil"><img class="avatar-menu" src="<?php echo (is_file(DOSSIER_AVATAR . $profil['id'] . ".jpg") ? DOSSIER_AVATAR . $profil['id'] . ".jpg" : DOSSIER_AVATAR . "0.jpg"); ?>" alt="<?php echo $profil['prenom']; ?>"></a></li>
 			<?php } else { ?>
-				<li><a href="?page=connexion">Connexion</a></li>
-				<li><a href="?page=inscription">Inscription</a></li>
+					<li><a href="?page=connexion">Connexion</a></li>
+					<li><a href="?page=inscription">Inscription</a></li>
 			<?php } ?>
-			</ul>
-		</nav>
+				</ul>
+			</nav>
 		</div>
 		<div class="clear"></div>
 	</header>
