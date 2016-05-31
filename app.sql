@@ -1,11 +1,12 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.5.4.1
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Lun 23 Mai 2016 à 09:51
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+
+-- Client :  localhost
+-- Généré le :  Lun 23 Mai 2016 à 14:37
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `app`
@@ -26,12 +27,11 @@ SET time_zone = "+00:00";
 -- Structure de la table `aide`
 --
 
-CREATE TABLE IF NOT EXISTS `aide` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `aide` (
+  `id` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
-  `texte` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `texte` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXISTS `aide` (
 -- Structure de la table `clubs`
 --
 
-CREATE TABLE IF NOT EXISTS `clubs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `clubs` (
+  `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `photo_club` varchar(256) NOT NULL,
@@ -48,9 +48,8 @@ CREATE TABLE IF NOT EXISTS `clubs` (
   `code_postale` int(11) NOT NULL,
   `site` varchar(255) NOT NULL,
   `telephone` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `email` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `clubs`
@@ -67,11 +66,12 @@ INSERT INTO `clubs` (`id`, `nom`, `description`, `photo_club`, `localisation`, `
 -- Structure de la table `commentaires_clubs`
 --
 
-CREATE TABLE IF NOT EXISTS `commentaires_clubs` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `commentaires_clubs` (
+  `id` int(11) NOT NULL,
   `id_club` int(11) NOT NULL,
   `id_membre` int(11) NOT NULL,
   `commentaire` text NOT NULL,
+<<<<<<< HEAD
   `note` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_club` (`id_club`,`id_membre`)
@@ -85,6 +85,10 @@ INSERT INTO `commentaires_clubs` (`id`, `id_club`, `id_membre`, `commentaire`, `
 (1, 1, 2, 'test', 5),
 (2, 1, 3, 'coucou', 3),
 (12, 1, 4, 'club', 3);
+=======
+  `note` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> ef1f737c8eb7de2d4e418a73166dbf59f7af0436
 
 -- --------------------------------------------------------
 
@@ -92,14 +96,13 @@ INSERT INTO `commentaires_clubs` (`id`, `id_club`, `id_membre`, `commentaire`, `
 -- Structure de la table `contacte_message`
 --
 
-CREATE TABLE IF NOT EXISTS `contacte_message` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contacte_message` (
+  `id` int(11) NOT NULL,
   `nom` varchar(256) NOT NULL,
   `email` varchar(256) NOT NULL,
   `sujet` varchar(256) NOT NULL,
-  `contenu` varchar(5000) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  `contenu` varchar(5000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `contacte_message`
@@ -114,17 +117,45 @@ INSERT INTO `contacte_message` (`id`, `nom`, `email`, `sujet`, `contenu`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `dates_membres`
+--
+
+CREATE TABLE `dates_membres` (
+  `id` int(11) NOT NULL,
+  `id_membre` int(11) NOT NULL,
+  `id_date` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `dates_membres`
+--
+
+INSERT INTO `dates_membres` (`id`, `id_membre`, `id_date`) VALUES
+(35, 1, 8),
+(39, 1, 13),
+(41, 1, 14);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `dates_rencontres`
 --
 
-CREATE TABLE IF NOT EXISTS `dates_rencontres` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `dates_rencontres` (
+  `id` int(11) NOT NULL,
   `id_groupe` int(11) NOT NULL,
   `date` datetime NOT NULL,
   `duree` time NOT NULL,
   `localisation` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `coordonnees` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `dates_rencontres`
+--
+
+INSERT INTO `dates_rencontres` (`id`, `id_groupe`, `date`, `duree`, `localisation`, `coordonnees`) VALUES
+(14, 1, '2016-05-23 10:00:00', '06:00:00', 'Luxembourg, Paris, France', '48.845577,2.3398520000000644');
 
 -- --------------------------------------------------------
 
@@ -132,14 +163,13 @@ CREATE TABLE IF NOT EXISTS `dates_rencontres` (
 -- Structure de la table `forum_messages`
 --
 
-CREATE TABLE IF NOT EXISTS `forum_messages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `forum_messages` (
+  `id` int(11) NOT NULL,
   `id_sujet` int(11) NOT NULL,
   `id_membre` int(11) NOT NULL,
   `message` text NOT NULL,
-  `date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `date` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -147,17 +177,23 @@ CREATE TABLE IF NOT EXISTS `forum_messages` (
 -- Structure de la table `forum_sujets`
 --
 
-CREATE TABLE IF NOT EXISTS `forum_sujets` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `forum_sujets` (
+  `id` int(11) NOT NULL,
   `id_membre` int(11) NOT NULL,
   `type` enum('aide','sport') NOT NULL,
   `id_sport` int(11) NOT NULL,
   `resolu` tinyint(1) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `date` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `date` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `forum_sujets`
+--
+
+INSERT INTO `forum_sujets` (`id`, `id_membre`, `type`, `id_sport`, `resolu`, `titre`, `message`, `date`) VALUES
+(1, 1, 'aide', 0, 0, 'edede', 'qrvsfdv', '2016-05-06 11:20:05');
 
 -- --------------------------------------------------------
 
@@ -165,8 +201,8 @@ CREATE TABLE IF NOT EXISTS `forum_sujets` (
 -- Structure de la table `groupes`
 --
 
-CREATE TABLE IF NOT EXISTS `groupes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `groupes` (
+  `id` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `id_sport` int(11) NOT NULL,
@@ -175,16 +211,16 @@ CREATE TABLE IF NOT EXISTS `groupes` (
   `min_participants` int(11) NOT NULL,
   `visibilite` enum('public','prive') NOT NULL,
   `recurrence` enum('occasionnel','quotidien','hebdomadaire','mensuel','annuel') NOT NULL,
-  `niveau` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `niveau` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `groupes`
 --
 
 INSERT INTO `groupes` (`id`, `titre`, `description`, `id_sport`, `id_club`, `max_participants`, `min_participants`, `visibilite`, `recurrence`, `niveau`) VALUES
-(1, 'Competition de tennis', 'Bonjour,\r\n\r\nVoici une description...\r\n\r\nnvsdkn, kenvjnd ,,efveferv !!\r\n', 165, 0, 10, 2, 'public', 'occasionnel', 1);
+(1, 'CompÃ©tition de tennis !', 'Bonjour,\r\nVoici mon groupe de sport', 165, 0, 10, 1, 'public', 'hebdomadaire', 2),
+(3, 'Nom du groupe un peu plus long', 'Description d\'un groupe de hockeyyy', 83, 0, 0, 0, 'public', 'occasionnel', 1);
 
 -- --------------------------------------------------------
 
@@ -192,20 +228,21 @@ INSERT INTO `groupes` (`id`, `titre`, `description`, `id_sport`, `id_club`, `max
 -- Structure de la table `groupes_membres`
 --
 
-CREATE TABLE IF NOT EXISTS `groupes_membres` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `groupes_membres` (
+  `id` int(11) NOT NULL,
   `id_groupe` int(11) NOT NULL,
   `id_membre` int(11) NOT NULL,
-  `type` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `type` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `groupes_membres`
 --
 
 INSERT INTO `groupes_membres` (`id`, `id_groupe`, `id_membre`, `type`) VALUES
-(1, 1, 1, 1);
+(1, 1, 1, 1),
+(2, 1, 2, 0),
+(3, 3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -213,8 +250,8 @@ INSERT INTO `groupes_membres` (`id`, `id_groupe`, `id_membre`, `type`) VALUES
 -- Structure de la table `membres`
 --
 
-CREATE TABLE IF NOT EXISTS `membres` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `membres` (
+  `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -225,9 +262,14 @@ CREATE TABLE IF NOT EXISTS `membres` (
   `sexe` enum('homme','femme','autre') DEFAULT NULL,
   `bannis` tinyint(1) NOT NULL DEFAULT '0',
   `role` enum('membre','admin') NOT NULL DEFAULT 'membre',
+<<<<<<< HEAD
   `activite_forum` varchar(255) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+=======
+  `activite_forum` varchar(255) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+>>>>>>> ef1f737c8eb7de2d4e418a73166dbf59f7af0436
 
 --
 -- Contenu de la table `membres`
@@ -236,8 +278,13 @@ CREATE TABLE IF NOT EXISTS `membres` (
 INSERT INTO `membres` (`id`, `nom`, `prenom`, `email`, `mot_de_passe`, `description`, `date_naissance`, `localisation`, `sexe`, `bannis`, `role`, `activite_forum`) VALUES
 (1, 'de CHEVIGNE', 'Nicolas', 'nico2che@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921', '', '0000-00-00', '', 'homme', 0, 'membre', ''),
 (2, 'erjzsdnc', 'nicolas', 'nevÃ @vre.com', '782dd27ea8e3b4f4095ffa38eeb4d20b59069077', '', NULL, NULL, NULL, 0, 'membre', '0'),
+<<<<<<< HEAD
 (3, 'chipon', 'romain', 'romain.chipon@free.fr', '42c3bcf92c52146ed7c639a87b5425adda4f0a04', '', NULL, NULL, NULL, 0, 'membre', '0'),
 (4, 'chipon', 'romain', 'romain.chipon77@free.fr', '231e305b64f8db3bffcb86e45555eb21ad90ab2e', '', NULL, NULL, NULL, 0, 'membre', '0');
+=======
+(3, 'test', 'test', 'test@test.com', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '', NULL, NULL, NULL, 0, 'membre', '0'),
+(4, 'Doe', 'John', 'johndoe@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921', '', NULL, NULL, NULL, 0, 'membre', '0');
+>>>>>>> ef1f737c8eb7de2d4e418a73166dbf59f7af0436
 
 -- --------------------------------------------------------
 
@@ -245,12 +292,11 @@ INSERT INTO `membres` (`id`, `nom`, `prenom`, `email`, `mot_de_passe`, `descript
 -- Structure de la table `sports`
 --
 
-CREATE TABLE IF NOT EXISTS `sports` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sports` (
+  `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=190 ;
+  `description` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `sports`
@@ -300,7 +346,7 @@ INSERT INTO `sports` (`id`, `nom`, `description`) VALUES
 (41, 'Chambara\r\n', ''),
 (42, 'Combat libre\r\n', ''),
 (43, 'Concours complet\r\n', ''),
-(44, 'Course d''orientation\r\n', ''),
+(44, 'Course d\'orientation\r\n', ''),
 (45, 'Course sur Route\r\n', ''),
 (46, 'Cricket\r\n', ''),
 (47, 'Curling\r\n', ''),
@@ -395,7 +441,7 @@ INSERT INTO `sports` (`id`, `nom`, `description`) VALUES
 (136, 'Roller\r\n', ''),
 (137, 'Rugby\r\n', ''),
 (138, 'Sarbacane\r\n', ''),
-(139, 'Saut d''obstacles\r\n', ''),
+(139, 'Saut d\'obstacles\r\n', ''),
 (140, 'Self d&#233;fense\r\n', ''),
 (141, 'Set-pool\r\n', ''),
 (142, 'Skateboard\r\n', ''),
@@ -425,7 +471,7 @@ INSERT INTO `sports` (`id`, `nom`, `description`) VALUES
 (166, 'Tennis de table\r\n', ''),
 (167, 'Tir\r\n', ''),
 (168, 'Tir &#224; la corde\r\n', ''),
-(169, 'Tir &#224; l''arc\r\n', ''),
+(169, 'Tir &#224; l\'arc\r\n', ''),
 (170, 'Tourisme &#233;questre\r\n', ''),
 (171, 'Trail\r\n', ''),
 (172, 'Trampoline\r\n', ''),
@@ -453,7 +499,7 @@ INSERT INTO `sports` (`id`, `nom`, `description`) VALUES
 -- Structure de la table `sport_club`
 --
 
-CREATE TABLE IF NOT EXISTS `sport_club` (
+CREATE TABLE `sport_club` (
   `id_clubs` int(11) NOT NULL,
   `id_sports` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -468,6 +514,147 @@ INSERT INTO `sport_club` (`id_clubs`, `id_sports`) VALUES
 (4, 30),
 (1, 37);
 
+--
+-- Index pour les tables exportées
+--
+
+--
+-- Index pour la table `aide`
+--
+ALTER TABLE `aide`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `clubs`
+--
+ALTER TABLE `clubs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `commentaires_clubs`
+--
+ALTER TABLE `commentaires_clubs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_club` (`id_club`,`id_membre`);
+
+--
+-- Index pour la table `contacte_message`
+--
+ALTER TABLE `contacte_message`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `dates_membres`
+--
+ALTER TABLE `dates_membres`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `dates_rencontres`
+--
+ALTER TABLE `dates_rencontres`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `forum_messages`
+--
+ALTER TABLE `forum_messages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `forum_sujets`
+--
+ALTER TABLE `forum_sujets`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `groupes`
+--
+ALTER TABLE `groupes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `groupes_membres`
+--
+ALTER TABLE `groupes_membres`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `membres`
+--
+ALTER TABLE `membres`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `sports`
+--
+ALTER TABLE `sports`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `aide`
+--
+ALTER TABLE `aide`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `clubs`
+--
+ALTER TABLE `clubs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT pour la table `commentaires_clubs`
+--
+ALTER TABLE `commentaires_clubs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `contacte_message`
+--
+ALTER TABLE `contacte_message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT pour la table `dates_membres`
+--
+ALTER TABLE `dates_membres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+--
+-- AUTO_INCREMENT pour la table `dates_rencontres`
+--
+ALTER TABLE `dates_rencontres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT pour la table `forum_messages`
+--
+ALTER TABLE `forum_messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `forum_sujets`
+--
+ALTER TABLE `forum_sujets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `groupes`
+--
+ALTER TABLE `groupes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `groupes_membres`
+--
+ALTER TABLE `groupes_membres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `membres`
+--
+ALTER TABLE `membres`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT pour la table `sports`
+--
+ALTER TABLE `sports`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

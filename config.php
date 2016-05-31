@@ -2,6 +2,8 @@
 
 session_start();
 
+date_default_timezone_set('Europe/Paris');
+
 try {
 	$pdo = new PDO("mysql:host=localhost;dbname=app", 'root', '');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -10,6 +12,7 @@ try {
 }
 
 define('DOSSIER_AVATAR', 'static/user/avatars/');
+define('DOSSIER_GROUPE', 'static/user/groupes/');
 
 class DateTimeFrench extends DateTime {
     public function format($format) {

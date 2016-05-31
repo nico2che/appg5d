@@ -16,13 +16,18 @@ body
   z-index : -1;
   background-repeat: repeat;
 }
-form.recherche-groupe {
-  	border: 1px solid gray;
-  	padding: 0 30px 17px;
+
+.recherche h3 {
+  margin-left: 15px;
+  float: left;
 }
 
-form.recherche-groupe div {
-	display: inline-block;
+.recherche > .inputs {
+  margin:18px 138px;
+}
+
+.charge-groupe {
+  margin-top: 50px;
 }
 
 #liste-groupes {
@@ -51,7 +56,7 @@ form.recherche-groupe div {
 	height:120px;
 	overflow: hidden;
 	background-position: 0 center;
-    background-size: 200px auto;
+    background-size: cover;
 }
 
 #liste-groupes .groupe .details h4 {

@@ -1,7 +1,8 @@
 <?php
-	
 	include 'vues/admin-menu.php';
-	
+	include 'modeles/admin.php';
+	echo"<p>Ici, vous  pouvez gérer votre site web, en cliquant sur un onglet du menu de gauche,
+	vous aurez accès à de nombreuses fonctionnalitées!";
 	if(isset($_GET['gestion-bdd'])){
 		include 'vues/gestionBDD.php';
 	}
@@ -32,19 +33,29 @@
 	}
 	if(isset($_GET['gestion-nl'])){
 		include 'vues/gestionNL.php';
-		$newsLetter='News Letter TEAM\'UP';
 		if(isset($_POST['newsLetter'])){
-			mail ('bonefontfx@gmail.com', $newsLetter, $_POST['newsLetter']);
+			mail_to_members($_POST['newsLetter']);
 		}
 		
 	}
 	if(isset($_GET['gestion-membres'])){
 		include 'vues/gestionMembres.php';
+	
+		if(isset($_POST['pseudo']) && !empty($_POST['pseudo'])){
+			$request=$pdo->query("SELECT * FROM membres WHERE pseudo='".$_POST['pseudo']."'");
+			include 'vues/membres-modifier.php';
+		}
+
+		if(isset($_POST['email']) && !empty($_POST['email'])){
+			$request=$pdo->query("SELECT * FROM membres WHERE email='".$_POST['email']."'");
+			include 'vues/membres-modifier.php';
+		}
+
 	}
 
 
 
-	$tables = array('aide', 'sports','membres','groupes_membres','groupes','forum_sujets','forum_messages','dates_rencontres','clubs','commentaires_clubs','contacte_message');
+	$tables = array('aide', 'sports','membres','groupes_membres','groupes','forum_sujets','forum_messages','dates_rencontres','clubs','commentaires_clubs','contacte_message','sport_club');
 	
 	if(isset($_POST['table']) && !empty($_POST['table']) && in_array($_POST['table'], $tables)){
 
@@ -222,6 +233,19 @@
 					</tr>";
 				}
 				break;
+
+				case 'sport_club':
+				include "vues/table-sport_club.php";
+				foreach($request as $ligne){
+				echo"
+					<tr>
+						<th>{$ligne[0]}</th>
+						<th>{$ligne[1]}</th>
+					</tr>";
+				}
+				break;
+
+
 		}
 		echo"<tr>";
 

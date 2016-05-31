@@ -15,7 +15,7 @@
 <?php
 	} else {
 ?>
-	<div class="photo" style="background-image: url('static/user/groupes/tennis_1.png');"></div>
+	<div class="photo" style="background-image: url('<?php echo (is_file(DOSSIER_GROUPE . $infos_groupe['id'] . '.jpg') ? DOSSIER_GROUPE . $infos_groupe['id'] . '.jpg' : DOSSIER_GROUPE . '0.jpg') ?>');"></div>
 	<div class="details">
 		<a class="lien-titre" href="?page=groupe&amp;id=<?php echo $id_groupe; ?>"><h2><?php echo $infos_groupe['titre']; ?></h2></a>
 		<div class="liste-encadrer">
@@ -110,7 +110,7 @@
 			<?php
 				if(est_auteur_groupe($membres_groupe)) {
 			?>
-					<a href="#" class="supprimer-groupe" data-id="<?php echo $date['infos'][0]; ?>" data-idgroupe="<?php echo $id_groupe; ?>">
+					<a href="#" class="supprimer-date" data-id="<?php echo $date['infos'][0]; ?>" data-idgroupe="<?php echo $id_groupe; ?>">
 						<i class="fa fa-trash" style="float:right"></i>
 					</a>
 			<?php
@@ -128,7 +128,9 @@
 
 		} else {
 	?>
-		Aucune date n'existe encore pour ce groupe.
+		<div class="encadrer">
+			Aucune date n'existe encore pour ce groupe.
+		</div>
 	<?php
 		}
 	?>
@@ -140,6 +142,14 @@
 	?>
 		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;modifier" class="bouton b-principal">Modifier le groupe</a></div>
 		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;supprimer" class="bouton b-danger">Supprimer le groupe</a></div>
+	<?php 
+		} elseif(est_membre_groupe($id_groupe, $_SESSION['id'])) {
+	?>
+		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;quitter" class="bouton b-danger">Quitter le groupe</a></div>
+	<?php 
+		} else {
+	?>
+		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;rejoindre" class="bouton b-principal">Rejoindre le groupe</a></div>
 	<?php 
 		}
 	?>

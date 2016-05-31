@@ -1,8 +1,9 @@
-html, body {
-	font-family: Helvetica, serif;
+* {
+  font-family: 'Titillium Web', sans-serif;
 	margin:0;
 	padding: 0;
   height:100%
+  width: 100%;
 }
 .align-right {
   text-align: right;
@@ -12,6 +13,12 @@ html, body {
 }
 .align-center {
   text-align: center;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: right;
 }
 input[type=submit] {
   border-radius: 6px;
@@ -27,42 +34,55 @@ input[type=text], input[type=password], input[type=number] {
 }
 
 header {
-  height:85px;
-  background-color: rgba(0, 0, 0, 0.6);
+  height:7em;
+  background-color: white;
 }
 header #logo {
   background-repeat: no-repeat;
+<<<<<<< HEAD
+  background-size: 8em auto;
+  margin-left: 1.8em;
+  margin-top: 1.3em;
+  width: 15em;
+=======
   background-size: 77px auto;
   float: left;
   height: 65px;
-  width: 45px;
+  width: 55px;
+>>>>>>> origin/master
 }
 header nav {
   float: right;
 }
 header nav ul {
   list-style: outside none none;
-  margin-right: 70px;
-  margin-top: 22px;
+  margin-top: 2.3em;
   min-height: 100%;
-  position: relative;
+  font-size: 1.3em;
+  font-weight: bold;
 }
 header nav ul li {
   display: inline;
-  margin-left: -15px;
 }
 header nav ul li a {
-  color: white;
-  padding: 9px 15px;
+  color: #0c8190;
+  padding-right: 2em;
   text-decoration: none;
-  text-shadow: 0px 0px 4px black;
 }
 header nav ul li a.colore {
   background-color: tomato;
 }
+header .avatar-menu {
+  width:50px;
+  height: 50px;
+  float: right;
+  margin-top: -15px;
+  margin-left: 21px;
+  border-radius: 7px;
+}
 
 .page {
-  width:860px;
+  width:65%;
   padding:10px;
   margin: auto;
   min-height:calc(100% - 155px);;
@@ -106,29 +126,32 @@ div.message.succes a {
 }
 
 /* encadrés */
-.encadrer h4 {
+.encadrer > h4 {
   margin: 0px 10px 15px;
 }
 .encadrer {
   margin-top:10px;
   border-radius: 5px;
   border: 1px solid black;
+  background-color: white;
 }
 .liste-encadrer > .encadrer {
   margin-top: -1px;
   border-radius: 0px;
   border-top: 0px;
+  border-bottom-width: 2px;
 }
 .liste-encadrer > .encadrer:last-child {
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
+  border-bottom-right-radius: 5px!important;
+  border-bottom-left-radius: 5px!important;
+  border-top-right-radius: 0px!important;
+  border-top-left-radius: 0px!important;
   border-top: 0px;
+  border-bottom-width: 1px!important;
 }
 .liste-encadrer > .encadrer:first-child {
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
+  border-top-right-radius: 5px!important;
+  border-top-left-radius: 5px!important;
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
   border-top: 1px solid black;
@@ -144,9 +167,13 @@ div.message.succes a {
 }
 .bouton.b-principal {
   border-color:#19BEC0;
-  background-color: #113F59;
+  background-color: #0067C0;
 }
 .bouton.b-danger {
   border-color:red;
   background-color: #D54F58;
+}
+
+.avatar-menu{
+  height: 100px;
 }

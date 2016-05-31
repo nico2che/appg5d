@@ -1,4 +1,4 @@
-<h1>Bienvenue sur votre espace d'administration</h1>
+<h1>Espace d'administration TEAM-UP</h1>
 <div id="Menu">
 <ul id="nav" class="derouler derouler-vertical">
 	<li><a href="?page=bdd&gestion-bdd">Base de données</a></li>

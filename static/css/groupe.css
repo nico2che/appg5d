@@ -16,7 +16,7 @@
 	width:200px;
 	height:200px;
 	float: right;
-	background-size: 200px;
+	background-size: cover;
 	background-position: center center;
   margin: 37px 54px 0 0;
   border: 1px solid black;
@@ -61,11 +61,12 @@
   margin: 0 54px 0 0;
 }
 .groupe .participants .participant {
-  width: 30px;
+  width: 50px;
   display: inline-block;
-  height: 30px;
-  background-size: 30px;
+  height: 50px;
+  background-size: cover;
   margin-left: 5px;
+  border: 1px solid grey;
 }
 
 /* Formulaire ajout/ modification groupe */
@@ -82,7 +83,7 @@
   border-radius:5px;
 }
 .form-groupe #nom {
-  width:200px;
+  width:250px;
 }
 .form-groupe input[type=submit] {
   margin-left:600px;
@@ -116,7 +117,7 @@
   vertical-align: top;
   line-height: 22px;
   font-size: 14px;
-  width: 364px;
+  width: 363px;
 }
 .dates .participer {
   float: right;

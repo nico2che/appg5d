@@ -1,15 +1,19 @@
 <?php
 
-function connecte() {
-	return isset($_SESSION['id']);
+function connecte($profil = false) {
+
+	if(!$profil) {
+		
+		return isset($_SESSION['id']);
+
+	} else {
+
+		return (isset($_SESSION['id']) ? profil_membre($_SESSION['id']) : false);
+	}
 }
 
 function chemin_avatar($fichier) {
 	return DOSSIER_AVATAR . $fichier . '.jpg';
-}
-
-function est_auteur_groupe($membres) {
-	return isset($membres['types'][1][0]['id']) && isset($_SESSION['id']) && $membres['types'][1][0]['id'] == $_SESSION['id'];
 }
 
 function existe_email($email) {
