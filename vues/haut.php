@@ -15,7 +15,9 @@
 			<nav>
 				<ul>
 					<li><a href="?page=groupes">Groupes</a></li>
+					<li><a href="?page=clubs">Clubs</a></li>
 					<li><a href="?page=forum">Forum</a></li>
+
 				<?php if($profil = connecte(true)) { ?>
 					<li><a href="?page=mon-profil">Mon Compte</a></li>
 					<li><a href="?page=deconnexion">Déconnexion</a></li>
