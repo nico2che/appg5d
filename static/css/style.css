@@ -79,7 +79,7 @@ header .avatar-menu {
 .page {
   width:65%;
   margin: auto;
-  min-height:calc(100% - 155px);
+  min-height:100vh;
 }
 
 footer {
