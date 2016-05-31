@@ -15,7 +15,6 @@ if(isset($_GET['nom']) && isset($_GET['sport']) && isset($_GET['recurrence'])) {
 	$requete .= ' 1=1';
 	$groupes = rechercher_groupe($_GET['nom'], $_GET['sport'], $_GET['recurrence'], $requete);
 	echo json_encode($groupes);
-	usleep(500000); // miaou
 	exit();
 }
 

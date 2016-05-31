@@ -6,7 +6,6 @@
 									<th>Nom  </th>
 									<th>Prenom   </th>
 									<th>E-mail  </th>
-									<th>Mot de passe  </th>
 									<th>Description  </th>
 									<th>Date de naissance  </th>
 									<th>Localisation  </th>
