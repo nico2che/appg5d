@@ -3,7 +3,7 @@
 	<h2>Groupes</h2>
 	<div class="recherche encadrer">
 		<h3>Recherche</h3>
-		<form class="inputs">
+		<form class="inputs" onSubmit="return false;">
 			<input type="text" name="recherche" placeholder="Nom d'un groupe">
 			<select name="sport">
 				<option value="">-- Sport --</option>
