@@ -73,7 +73,7 @@ header .avatar-menu {
 
 .page {
   width:65%;
-  padding:10px;
+/*  padding:10px;*/
   margin: auto;
   min-height:calc(100% - 155px);;
 }
@@ -166,4 +166,8 @@ div.message.succes a {
 
 .avatar-menu{
   height: 100px;
+}
+body{
+  background:url(../../static/images/motif.jpg);
+  background-repeat: repeat;
 }

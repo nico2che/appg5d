@@ -1,7 +1,6 @@
 	<div class="banniere">
 		<div class="banniere_contenu">
 			<h1>La passion se partage</h1>
-<!-- 			<p>Trouvez un partenaire de sport n'importe où</p> -->
 		</div>
 	</div>
 	<form class="accueil">
