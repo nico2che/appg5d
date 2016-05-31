@@ -26,7 +26,7 @@
 			<option value="0">Choisissez un département</option>
 	<?php 
 		foreach ($departements as $departement) {
-			echo '<option value="'.$departement['departement_id'].'"'.(isset($_POST['departement']) && $_POST['departement'] == $departement['departement_id'] ? ' selected=""' : null).'>'.$departement['departement_code'].' - '.$departement['departement_nom'].'</option>';
+			echo '<option value="'.$departement['departement_id'].'"'.($infos_groupe['id_departement'] == $departement['departement_id'] ? ' selected=""' : null).'>'.$departement['departement_code'].' - '.$departement['departement_nom'].'</option>';
 		}
 	?>
 		</select><br>

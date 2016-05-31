@@ -1,5 +1,5 @@
 	<a href="?page=groupe&amp;ajouter" class="bouton b-principal float-right">Ajouter un groupe</a>
-	<h2>Groupes</h2>
+	<h1><a href="?page=groupes" class="lien-simple">Groupes</a></h1>
 	<div class="recherche encadrer">
 		<form class="inputs<?php echo (!isset($_GET['recherche']) ? ' recherche-simple' : null); ?>"<?php echo (!isset($_GET['recherche']) ? ' onSubmit="return false;"' : null); ?>>
 			<h3>Recherche</h3>
@@ -81,6 +81,10 @@
 	<?php
 				}
 			}
+	?>
+		<div class="clear"></div>
+	<?php
+			pagination($total_de_groupes);
 
 		} else {
 	?>

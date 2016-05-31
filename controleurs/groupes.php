@@ -3,6 +3,7 @@
 include 'modeles/groupes.php';
 include 'modeles/sports.php';
 include 'modeles/clubs.php';
+include 'modeles/pagination.php';
 
 $recurrences = array(	"occasionnel" => 'Occasionnel',
 						"quotidien" => 'Quotidien',
@@ -10,6 +11,21 @@ $recurrences = array(	"occasionnel" => 'Occasionnel',
 						"mensuel" => 'Mensuel',
 						"annuel" => 'Annuel'
 					);
+
+
+$total_de_groupes = recuperer_nombre_groupes();
+$groupes_par_page = 10;
+
+if(isset($_GET['p']) && !empty($_GET['p'])) {
+
+	$page = (int) $_GET['p'];
+
+} else {
+
+	$page = 1;
+}
+
+$debut_requete = ($page - 1) * $groupes_par_page;
 
 if(isset($_GET['nom']) && isset($_GET['sport']) && isset($_GET['recurrence'])) {
 
@@ -24,7 +40,7 @@ if(isset($_GET['nom']) && isset($_GET['sport']) && isset($_GET['recurrence'])) {
 	$requete .= ' 1=1';
 
 	// On interroge la base de données
-	$groupes = rechercher_groupe($_GET['nom'], $_GET['sport'], $_GET['recurrence'], $requete);
+	$groupes = rechercher_groupe($_GET['nom'], $_GET['sport'], $_GET['recurrence'], $requete, $debut_requete, $groupes_par_page);
 
 	// On encode et on quitte pour l'AJAX
 	echo json_encode($groupes);
@@ -47,11 +63,11 @@ if(isset($_GET['nom']) && isset($_GET['sport']) && isset($_GET['recurrence'])) {
 		$requete .= ' id_departement = :departement AND';
 	$requete .= ' 1=1';
 
-	$groupes = rechercher_groupe_avancee($_GET['recherche'], $_GET['sport'], $_GET['recurrence'], $_GET['min'], $_GET['max'], $_GET['departement'], $requete);
+	$groupes = rechercher_groupe_avancee($_GET['recherche'], $_GET['sport'], $_GET['recurrence'], $_GET['min'], $_GET['max'], $_GET['departement'], $requete, $debut_requete, $groupes_par_page);
 
 } else {
 
-	$groupes = recuperer_groupes();
+	$groupes = recuperer_groupes($debut_requete, $groupes_par_page);
 }
 
 $sports = recuperer_sports();

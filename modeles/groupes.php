@@ -1,23 +1,37 @@
 <?php
 
 /* Récupérer les groupes */
-function recuperer_groupes() {
+function recuperer_groupes($debut, $combien) {
 
 	global $pdo;
-	$resultat = $pdo->query('SELECT g.id AS id_groupe, s.nom AS nom_sport, g.*, COUNT(*) AS nbre FROM groupes AS g
+	$stmt = $pdo->prepare('SELECT g.id AS id_groupe, s.nom AS nom_sport, g.*, COUNT(*) AS nbre FROM groupes AS g
 																									JOIN sports AS s ON s.id = g.id_sport
 																									LEFT JOIN groupes_membres gm ON gm.id_groupe = g.id
-																								GROUP BY g.id');
-	return $resultat;
+																								GROUP BY g.id
+																								LIMIT :debut, :combien');
+	
+	$stmt->bindValue('debut', $debut, PDO::PARAM_INT);
+	$stmt->bindValue('combien', $combien, PDO::PARAM_INT);
+
+	$stmt->execute();
+	return $stmt->fetchAll();
+}
+/* Récupérer les groupes */
+function recuperer_nombre_groupes() {
+
+	global $pdo;
+	$resultat = $pdo->query('SELECT COUNT(*) AS nbre FROM groupes')->fetch();
+	return $resultat['nbre'];
 }
 /* Rechercher les groupes */
-function rechercher_groupe($titre, $id_sport, $recurrence, $requete) {
+function rechercher_groupe($titre, $id_sport, $recurrence, $requete, $debut, $combien) {
 	global $pdo;
 	$stmt = $pdo->prepare('SELECT g.id id_groupe, g.*, s.*, COUNT(*) AS nbre FROM groupes g
 																				JOIN sports s ON s.id = g.id_sport
 																				LEFT JOIN groupes_membres gm ON gm.id_groupe = g.id
 																			WHERE ' . $requete . '
-																			GROUP BY g.id');
+																			GROUP BY g.id
+																			LIMIT :debut, :combien');
 
 	if(!empty($titre))
 		$stmt->bindValue('titre', '%'.$titre.'%', PDO::PARAM_STR);
@@ -25,18 +39,22 @@ function rechercher_groupe($titre, $id_sport, $recurrence, $requete) {
 		$stmt->bindValue('id_sport', $id_sport, PDO::PARAM_INT);
 	if(!empty($recurrence))
 		$stmt->bindValue('recurrence', $recurrence, PDO::PARAM_STR);
+	
+	$stmt->bindValue('debut', $debut, PDO::PARAM_INT);
+	$stmt->bindValue('combien', $combien, PDO::PARAM_INT);
 
 	$stmt->execute();
 	return $stmt->fetchAll();
 }
 /* Recherche avancée des groupes */
-function rechercher_groupe_avancee($titre, $id_sport, $recurrence, $min, $max, $departement, $requete) {
+function rechercher_groupe_avancee($titre, $id_sport, $recurrence, $min, $max, $departement, $requete, $debut, $combien) {
 	global $pdo;
 	$stmt = $pdo->prepare('SELECT s.nom AS nom_sport, g.id AS id_groupe, g.*, s.*, COUNT(*) AS nbre FROM groupes g
 																										JOIN sports s ON s.id = g.id_sport
 																										LEFT JOIN groupes_membres gm ON gm.id_groupe = g.id
 																									WHERE ' . $requete . '
-																									GROUP BY g.id');
+																									GROUP BY g.id
+																									LIMIT :debut, :combien');
 
 	if(!empty($titre))
 		$stmt->bindValue('titre', '%'.$titre.'%', PDO::PARAM_STR);
@@ -50,6 +68,9 @@ function rechercher_groupe_avancee($titre, $id_sport, $recurrence, $min, $max, $
 		$stmt->bindValue('max', $max, PDO::PARAM_INT);
 	if(!empty($departement))
 		$stmt->bindValue('departement', $departement, PDO::PARAM_INT);
+	
+	$stmt->bindValue('debut', $debut, PDO::PARAM_INT);
+	$stmt->bindValue('combien', $combien, PDO::PARAM_INT);
 
 	$stmt->execute();
 	return $stmt->fetchAll();

@@ -40,6 +40,10 @@ input[type=text], input[type=password], input[type=number] {
 .clear{
 	clear: both;
 }
+h1 a {
+ text-decoration: none;
+ color:black;
+}
 
 /* Toutes les pages boxées */
 .page {
@@ -136,6 +140,9 @@ div.message.succes a {
   border: 1px solid black;
   background-color: white;
 }
+.liste-encadrer {
+  margin: 15px 0 20px 0;
+}
 .liste-encadrer > .encadrer {
   margin-top: 0;
   border-radius: 0px;
@@ -173,4 +180,20 @@ div.message.succes a {
 .bouton.b-danger {
   border-color:red;
   background-color: #D54F58;
+}
+
+/* pagination */
+.pagination {
+  float:right;
+  margin-bottom: 20px;
+}
+.pagination a {
+  padding: 4px;
+  color: white;
+  background-color: #5E5E5E;
+}
+.pagination span {
+  padding: 4px;
+  color: #5E5E5E;
+  background-color: white;
 }

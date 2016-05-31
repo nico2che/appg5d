@@ -7,11 +7,8 @@
 	margin-top: 60px;
 	background-color: white;
 }
-h3 a, td a, h1 a {
+h3 a, td a {
 	color:black;
-}
-h1 a {
- text-decoration: none;
 }
 table {
 	width: 100%;
