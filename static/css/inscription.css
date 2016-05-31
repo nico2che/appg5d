@@ -1,4 +1,3 @@
-
 .box{
 	border-style: solid;
 	border-color: rgba(0, 0, 0, 0.7);
@@ -12,17 +11,14 @@
   margin: auto;
   margin-top: 15vh;
 }
- 
- .Titre{
-    margin-left: 4em;
- } 
-
+.Titre{
+  margin-left: 4em;
+} 
 .Texte {
   width: 85%;
   margin-left: 6em;
   margin-bottom: 2em;
 }
-
 .inscription{
 }
 .inscription-droite{
@@ -31,7 +27,6 @@
   line-height: 35px;
   vertical-align: top;
 }
-
 .inscription-gauche {
   display: inline-block;
   padding-left: 10em;
@@ -39,14 +34,11 @@
   line-height: 35px;
   width: 20em;
 }
-
 label {
 	 width: 100px;
     display: block;
     float : left;
 }
- 
-
 .Envoyer
 {
   margin-top: 2em;
