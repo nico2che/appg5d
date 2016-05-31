@@ -110,16 +110,6 @@ function modifierComment($Comment,$note,$idM){
 		return $stmt->execute();
 }
 
-function recuperer_sports() {
-
-	global $pdo;
-	$stmt = $pdo->query('SELECT * FROM sports');
-	$resultat = array();
-	while($ligne = $stmt->fetch()) {
-		$resultat[] = $ligne;
-	}
-	return $resultat;
-}
 function idS_C($id){
 	global $pdo;
 	$stmt = $pdo-> prepare('SELECT id_clubs FROM sport_club WHERE id_sports=:id');
@@ -151,7 +141,7 @@ function rechercheParDepart($dep){
 
 function recuperer_departement(){
 	global $pdo;
-	$stmt = $pdo->query('SELECT departement_id,departement_nom FROM departement');
+	$stmt = $pdo->query('SELECT departement_id,departement_nom,departement_code FROM departement');
 	$resultat = array();
 	while($ligne = $stmt->fetch()) {
 		$resultat[] = $ligne;

@@ -8,6 +8,8 @@ body{
   background-repeat: repeat;
   min-height:100%;
 }
+
+/* Classes générales */
 .align-right {
   text-align: right;
 }
@@ -32,10 +34,22 @@ input[type=text], input[type=password], input[type=number] {
   padding: 3px 6px;
   border:1px solid grey;
 }
+.lien-simple {
+  color: black;
+}
 .clear{
 	clear: both;
 }
 
+/* Toutes les pages boxées */
+.page {
+  width:1125px;
+  margin: 20px auto;
+  min-height:calc(100vh - 202px);
+}
+
+
+/* Header sur toutes les pages */
 header {
   height:7em;
   background-color: white;
@@ -71,18 +85,11 @@ header .avatar-menu {
   width:50px;
   height: 50px;
   float: right;
-  margin-top: -15px;
-  margin-left: 21px;
+  margin: -15px 50px 0 21px;
   border-radius: 7px;
 }
 
-.page {
-  width:1125px;
-  margin: 20px auto;
-  min-height:calc(100vh - 202px);
-}
-
-
+/* footer */
 footer {
   height: 50px;
   clear: both;
@@ -92,7 +99,6 @@ footer {
   margin-bottom: 0;
   color:white;
 }
-
 footer a {
   text-decoration: none;
   color:white;
@@ -167,9 +173,4 @@ div.message.succes a {
 .bouton.b-danger {
   border-color:red;
   background-color: #D54F58;
-}
-
-.avatar-menu{
-  height: 100px;
-  margin-right: 50px;
 }

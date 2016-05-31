@@ -1,9 +1,9 @@
 var chargement = false, timeout;
 ready(function(){
-    Array.prototype.forEach.call(document.querySelectorAll('.inputs select'), function(a, i){
+    Array.prototype.forEach.call(document.querySelectorAll('.inputs.recherche-simple select'), function(a, i){
         a.addEventListener('change', chargerGroupes);
     });
-    Array.prototype.forEach.call(document.querySelectorAll('.inputs input'), function(a, i){
+    Array.prototype.forEach.call(document.querySelectorAll('.inputs.recherche-simple input'), function(a, i){
         a.addEventListener('keydown', chargerGroupes);
     });
 });

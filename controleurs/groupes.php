@@ -2,6 +2,14 @@
 
 include 'modeles/groupes.php';
 include 'modeles/sports.php';
+include 'modeles/clubs.php';
+
+$recurrences = array(	"occasionnel" => 'Occasionnel',
+						"quotidien" => 'Quotidien',
+						"hebdomadaire" => 'Hebdomadaire',
+						"mensuel" => 'Mensuel',
+						"annuel" => 'Annuel'
+					);
 
 if(isset($_GET['nom']) && isset($_GET['sport']) && isset($_GET['recurrence'])) {
 
@@ -20,5 +28,10 @@ if(isset($_GET['nom']) && isset($_GET['sport']) && isset($_GET['recurrence'])) {
 
 $groupes = recuperer_groupes();
 $sports = recuperer_sports();
+
+if(isset($_GET['recherche'])) {
+
+	$departements = recuperer_departement();
+}
 
 include 'vues/groupes.php';

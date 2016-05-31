@@ -1,6 +1,7 @@
 <?php
 
 include 'modeles/clubs.php';
+include 'modeles/sports.php';
 
 $L_clubs=list_club();
 $sports=recuperer_sports();

@@ -1,28 +1,58 @@
-	<div id="cover"></div>
 	<a href="?page=groupe&amp;ajouter" class="bouton b-principal float-right">Ajouter un groupe</a>
 	<h2>Groupes</h2>
 	<div class="recherche encadrer">
-		<form class="inputs" onSubmit="return false;">
+		<form class="inputs<?php echo (!isset($_GET['recherche']) ? ' recherche-simple' : null); ?>"<?php echo (!isset($_GET['recherche']) ? ' onSubmit="return false;"' : null); ?>>
 			<h3>Recherche</h3>
-			<input type="text" name="recherche" placeholder="Nom d'un groupe">
+			<input type="text" name="recherche" placeholder="Nom d'un groupe" class="decale-droite" value="<?php echo (isset($_GET['recherche']) ? htmlspecialchars($_GET['recherche']) : null); ?>">
 			<select name="sport">
 				<option value="">-- Sport --</option>
 			<?php
 				foreach ($sports as $sport) {
 			?>
-				<option value="<?php echo $sport['id']; ?>"><?php echo $sport['nom']; ?></option>
+				<option value="<?php echo $sport['id']; ?>"<?php echo ((isset($_GET['sport']) && $_GET['sport'] == $sport['id']) ? ' selected=""' : null); ?>><?php echo $sport['nom']; ?></option>
 			<?php
 				}
 			?>
 			</select>
-			<select name="recurrence">
+			<select name="recurrence" class="decale-droite">
 				<option value="">-- Récurrence --</option>
-				<option value="occasionnel">Occasionnel</option>
-				<option value="quotidien">Quotidien</option>
-				<option value="hebdomadaire">Hebdomadaire</option>
-				<option value="mensuel">Mensuel</option>
-				<option value="annuel">Annuel</option>
+			<?php
+				foreach ($recurrences as $value => $reccurrence) {
+			?>
+				<option value="<?php echo $value; ?>"<?php echo ((isset($_GET['recurrence']) && $_GET['recurrence'] == $value) ? ' selected=""' : null); ?>><?php echo $reccurrence; ?></option>
+			<?php
+				}
+			?>
 			</select>
+		<?php
+			if(isset($_GET['recherche'])) {
+		?>
+			<a href="?page=groupes" class="lien-simple">Recherche simple</a>
+			<div class="recherche-avancee">
+				<label for="nbre_min">Nombre minimum de participants</label> <input type="number" value="<?php echo (isset($_GET['min']) ? htmlspecialchars($_GET['min']) : 0); ?>" name="min" class="decale-droite"> 
+				<label for="nbre_max">Nombre maximum de participants</label> <input type="number" value="<?php echo (isset($_GET['max']) ? htmlspecialchars($_GET['max']) : 0); ?>" name="max"> &nbsp;(0 pour illimité)<br>
+				<label>Département</label> &nbsp;
+				<select name="departement">
+					<option value="0">-- Sélectionnez un département --</option>
+		<?php
+			foreach ($departements as $departement) {
+		?>
+					<option value="<?php echo $departement['departement_id']; ?>"<?php echo ((isset($_GET['departement']) && $_GET['departement'] == $departement['departement_id']) ? ' selected=""' : null); ?>><?php echo $departement['departement_code']; ?> - <?php echo $departement['departement_nom']; ?></option>
+		<?php
+			}
+		?>
+				</select><br>
+				<input type="hidden" value="groupes" name="page">
+				<input type="submit" value="Rechercher" class="rechercher-bouton">
+				<div class="clear"></div>
+			</div>
+		<?php
+			} else {
+		?>
+			<a href="?page=groupes&amp;recherche" class="lien-simple">Recherche avancée</a>
+		<?php
+			}
+		?>
 		</form>
 		<div class="clear"></div>
 	</div>
