@@ -6,7 +6,7 @@
 	</h5>
 	<div>
 	<div class="description">
-		ville : <?php echo $recup_club['localisation'].",".$recup_club['code_postale'] ; ?>
+		adresse : <?php echo $recup_club['localisation'].",".$recup_club['code_postale'] ; ?>
 		<br>
 		sport : 
 		<?php
