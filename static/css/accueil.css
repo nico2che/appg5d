@@ -57,6 +57,11 @@
   background-color: black;
 }
 
+.etape {
+  width: 20em;
+  background-color: blue;
+}
+
 .troisetapes.etape h1 {
   text-align: center;
 }
