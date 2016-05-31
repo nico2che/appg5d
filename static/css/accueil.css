@@ -26,22 +26,6 @@
   margin-bottom: 4em;
 }
 
-#cover {
-  width: 100%;
-  height:100%;
-  display : block;
-  /*background-image: url(static/images/image_accueil.jpg);*/
-/*  background: url(../../static/images/image_accueil.jpg) no-repeat center center fixed; */
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  top:0;
-  left:0;
-  z-index: -1;
-  position: absolute;
-}
-
 .texteBase
 {
   color: #4d4d4d;
@@ -66,42 +50,27 @@
   text-align: center;
   height: 625px;
 }
-.image
-{
-  margin-top: 5%;
-  display: inline-block;
-  position: absolute;
-}
-#souris
-{
-  left:7%;
-}
-#highfive{
-  left: 45%;
+
+.troisetapes {
+  display: flex;
+  height: 20em;
+/*  background-color: black;*/
 }
 
-#vetements{
- right : 7%;
-  margin-top: 10%;
+.troisetapes.etape h1 {
+  text-align: center;
 }
 
-#fleche1
-{
-  left: 25%;
-  margin-top: 10%;
-}
-
-#fleche2{
-  right: 25%;
-  margin-top: 10%;
+.etape.fleche {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .baspresentation{
-  border-bottom: 1px solid #4d4d4d;
   position: absolute;
   width: 100%;
   left: 0;
-  margin-top: 625px;
 }
 .textePromo{
   color: #4d4d4d;

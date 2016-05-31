@@ -9,7 +9,8 @@
 
 ### Couleurs
 
-  - Bleu clair #19BEC0
+  - Bleu pâle ##0c8190
   - Turquoise foncé #0c8190
   - Rouge Corail #dd281f
+  - Jaune moutarde #ffa23d
   - Blanc cassé #F3EDD3
