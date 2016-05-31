@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 .banniere{
   align-content: center;
   width: 100vw;
   height: 100vh;
   background: url('../../static/images/beach_volley.jpg'), no-repeat, left top;
   background-size: cover;
+=======
+body
+{
+  background-color:   #e6f5ff;
+>>>>>>> origin/master
 }
 
 .banniere_contenu {
@@ -51,10 +57,16 @@
   height: 625px;
 }
 
+<<<<<<< HEAD
 .troisetapes {
   display: flex;
   height: 20em;
 /*  background-color: black;*/
+=======
+#vetements{
+ right : 10%;
+  margin-top: 10%;
+>>>>>>> origin/master
 }
 
 .troisetapes.etape h1 {
@@ -82,16 +94,16 @@
   left :10%;
 }
 #textePromo2{
-  margin-left: -10%;
+  left: 43%;
 }
 
 #textePromo3{
-  margin-left: 22%;
+  right:4%;
 }
 
 .titreImage
 {
-  margin-top : 15%;
+  margin-top : 8%;
   text-align: center;
   display: block;
 }
@@ -115,7 +127,12 @@
   text-shadow: 0px 0px 4px black;
   text-align: center;
   font-size: 140%;
-  line-height: 6em;
+  line-height: 9em;
+}
+
+.page{
+  width: initial;
+  width: 100%;
 }
 
 
@@ -126,8 +143,8 @@ body div div div.annonces1
   margin-top: 2em;
   margin-left: 5%;
   height: 0;
-  padding-bottom: 18%;
-  width: 18%;
+  padding-bottom: 14%;
+  width: 14%;
   background-color: white;
   float: left;
  
@@ -181,6 +198,21 @@ body div div div.annonces1:hover
 {
   background: url(../../static/images/Golf.jpeg);
   background-position: 70% 50% ;
+}
+#annonce8
+{
+  background: url(../../static/images/atlétisme.jpg);
+  background-position: center ;
+}
+#annonce9
+{
+  background: url(../../static/images/natation.jpeg);
+  background-position: center;
+}
+#annonce10
+{
+  background: url(../../static/images/ping-pong.jpg);
+  background-position: center ;
 }
 
 .bouton

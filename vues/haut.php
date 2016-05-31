@@ -11,6 +11,7 @@
 </head>
 <body>
 	<header>
+<<<<<<< HEAD
 		<a href="?"><img src="static/images/logoteam-up.png" alt="logo" id="logo"></a>
 		<nav>
 			<ul>
@@ -19,6 +20,17 @@
 			<?php if($profil = connecte(true)) { ?>
 				<li><a href="?page=mon-profil">Mon Compte</a></li>
 				<li><a href="?page=deconnexion">Déconnexion</a></li>
+=======
+		<div class="page">
+			<a href="?"><img src="static/images/logo.png" alt="logo2" id="logo"></a>
+			<nav>
+				<ul>
+					<li><a href="?page=groupes">Groupes</a></li>
+					<li><a href="?page=forum">Forum</a></li>
+				<?php if($profil = connecte(true)) { ?>
+					<li><a href="?page=mon-profil">Mon Compte</a></li>
+					<li><a href="?page=deconnexion">Déconnexion</a></li>
+>>>>>>> origin/master
 
 				<li><a href="?page=mon-profil"><img class="avatar-menu" src="<?php echo (is_file(DOSSIER_AVATAR . $profil['id'] . ".jpg") ? DOSSIER_AVATAR . $profil['id'] . ".jpg" : DOSSIER_AVATAR . "0.jpg"); ?>" alt="<?php echo $profil['prenom']; ?>"></a></li>
 			<?php } else { ?>

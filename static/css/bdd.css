@@ -19,6 +19,10 @@ body {
   left : 0;
   position : fixed;
   z-index : -1;
+
+}
+h1{
+	text-align: center;
 }
 #Menu
 {
@@ -139,3 +143,10 @@ ul.derouler-vertical-rtl *.dir {
 	background-position: 0 50%;
 }
 >>>>>>> origin/master
+
+.formulaireBDD{
+	margin-left: 50%;
+}
+.test{
+	color: blue;
+}

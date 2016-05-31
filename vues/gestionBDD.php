@@ -1,7 +1,7 @@
-<div id='form'>
+<div id='form' class="formulaireBDD">
 <form method="post">
 	<select selected="membres" name="table" size="1">
-		<option>aide</option>
+		<option >aide</option>
 		<option>clubs</option>
 		<option>commentaires_clubs</option>
 		<option>contacte_message</option>

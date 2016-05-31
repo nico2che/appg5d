@@ -1,6 +1,8 @@
 <?php
 	include 'vues/admin-menu.php';
 	include 'modeles/admin.php';
+	echo"<p>Ici, vous  pouvez gérer votre site web, en cliquant sur un onglet du menu de gauche,
+	vous aurez accès à de nombreuses fonctionnalitées!";
 	if(isset($_GET['gestion-bdd'])){
 		include 'vues/gestionBDD.php';
 	}
@@ -38,16 +40,16 @@
 	}
 	if(isset($_GET['gestion-membres'])){
 		include 'vues/gestionMembres.php';
-		$request=$pdo->prepare('SELECT ? FROM membres WHERE ?=?');
-		
-		if(isset($_POST['pseudo'])){
-			$param=array('pseudo', 'pseudo', $_POST['pseudo']);
+	
+		if(isset($_POST['pseudo']) && !empty($_POST['pseudo'])){
+			$request=$pdo->query("SELECT * FROM membres WHERE pseudo='".$_POST['pseudo']."'");
+			include 'vues/membres-modifier.php';
 		}
-		if(isset($_POST['email'])){
-			$param=array('email', 'email', $_POST['email']);
+
+		if(isset($_POST['email']) && !empty($_POST['email'])){
+			$request=$pdo->query("SELECT * FROM membres WHERE email='".$_POST['email']."'");
+			include 'vues/membres-modifier.php';
 		}
-		$request->execute($param);
-		
 
 	}
 
