@@ -72,7 +72,6 @@
 						<th>{$ligne[1]}</th>
 						<th>{$ligne[2]}</th>
 					</tr>";
-				echo"salut";
 				}
 				break;
 
@@ -84,8 +83,11 @@
 						<th>{$ligne[0]}</th>
 						<th>{$ligne[1]}</th>
 						<th>{$ligne[2]}</th>
-						<th>{$ligne[3]}</th>
 						<th>{$ligne[4]}</th>
+						<th>{$ligne[5]}</th>
+						<th>{$ligne[6]}</th>
+						<th>{$ligne[7]}</th>
+						<th>{$ligne[8]}</th>
 					</tr>";
 				}
 				break;
@@ -211,7 +213,6 @@
 						<th>{$ligne[2]}</th>
 						<th>{$ligne[3]}</th>
 						<th>{$ligne[5]}</th>
-						<th>{$ligne[4]}</th>
 						<th>{$ligne[6]}</th>
 						<th>{$ligne[7]}</th>
 						<th>{$ligne[8]}</th>
