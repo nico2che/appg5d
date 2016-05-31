@@ -1,6 +1,3 @@
-
-	</div>
-	
 	<footer>
 			<a href="?page=aide">Aide</a> - <a href="?page=contacte">Contact</a>
 			&nbsp; &nbsp; &copy; Team Up - <?php echo date('Y'); ?> - Tous droits réservés

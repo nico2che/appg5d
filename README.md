@@ -9,9 +9,7 @@
 
 ### Couleurs
 
-  - Bleu foncé #113F59
   - Bleu clair #19BEC0
-  - Turquoise #20D6C7
+  - Turquoise foncé #0c8190
+  - Rouge Corail #dd281f
   - Blanc cassé #F3EDD3
-  - Rouge #D54F58
-  - https://color.adobe.com/fr/Ice-Cream-color-theme-4185778/

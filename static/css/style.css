@@ -1,8 +1,9 @@
-html, body {
-	font-family: Helvetica, serif;
+* {
+  font-family: 'Titillium Web', sans-serif;
 	margin:0;
 	padding: 0;
   height:100%
+  width: 100%;
 }
 .align-right {
   text-align: right;
@@ -33,35 +34,33 @@ input[type=text], input[type=password], input[type=number] {
 }
 
 header {
-  height:85px;
-  background-color: rgba(0, 0, 0, 0.6);
+  height:7em;
+  background-color: white;
 }
 header #logo {
   background-repeat: no-repeat;
-  background-size: 77px auto;
-  float: left;
-  height: 65px;
-  width: 45px;
+  background-size: 8em auto;
+  margin-left: 1.8em;
+  margin-top: 1.3em;
+  width: 15em;
 }
 header nav {
   float: right;
 }
 header nav ul {
   list-style: outside none none;
-  margin-right: 70px;
-  margin-top: 22px;
+  margin-top: 2.3em;
   min-height: 100%;
-  position: relative;
+  font-size: 1.3em;
+  font-weight: bold;
 }
 header nav ul li {
   display: inline;
-  margin-left: -15px;
 }
 header nav ul li a {
-  color: white;
-  padding: 9px 15px;
+  color: #0c8190;
+  padding-right: 2em;
   text-decoration: none;
-  text-shadow: 0px 0px 4px black;
 }
 header nav ul li a.colore {
   background-color: tomato;
