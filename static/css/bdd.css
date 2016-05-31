@@ -86,20 +86,20 @@ ul.derouler {
 }
 li
 {
-	color: white;
+	color: #0c8190;
 }
 a{
-	color: white;
+	color: #0c8190;
 }
 ul.derouler li { 
 	padding: 7px 10px; 
 	border-style: solid; 
 	border-width: 1px 1px 1px 0; 
 	border-color: #fff #d9d9d9 #d9d9d9; 
-	background-color: rgba(0, 0, 0, 0.6); 
+	background-color: white; 
 }
 ul.derouler li.hover,ul.derouler li:hover {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(255, 255, 255, 0.6);
 }
 ul.derouler a:link,
 
