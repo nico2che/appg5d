@@ -1,24 +1,28 @@
-.fond{
-
-	background-color: #edefed;
-	z-index: -2;
-	position: absolute;
-	top:0;
-	left: 0;
-	width: 100%;
-	height: 5000px;
-
+#cover {
+  width:100%;
+  height:100%;
+  background:url(../../static/images/fond.jpg);
+  -webkit-background-size: cover; /* pour Chrome et Safari */
+  -moz-background-size: cover; /* pour Firefox */
+  -o-background-size: cover; /* pour Opera */
+  background-size: cover; /* version standardisée */
+  top : 0;
+  left : 0;
+  position : fixed;
+  z-index : -1;
+  background-repeat: repeat;
 }
 
 .bordure{
 	border:2px solid #4d4d4d;
-	width: 20%;
+	width: 19%;
 	height: 25vh;
 	text-align: center;
 	display: inline-block;
 	border-radius: 10px;
 	margin: 2px;
 	vertical-align: top;
+	background-color: white;
 
 }
 
@@ -29,11 +33,13 @@
 }
 
 .title{
-	style="text-align: center;"
+	text-align: center;
+	font-size: 30px;
 
 }
 
 a{
 	text-decoration: none;
 	color : black;
+
 }

@@ -1,11 +1,11 @@
-<div class="fond"></div>
+<div id="cover"></div>
 <div>
 	<div class="title"><strong>Club</strong></div>
 	
 	<br>
 	<div class="recherche">
 		<br>
-		Recherche : 
+		<strong>Recherche : </strong>
 		<br>
 		<form method='post'>
 			<label for="sport">Sport :</label>
@@ -39,10 +39,17 @@
 			<a href="?page=club&amp;id='.$L_club[0].'">
 			'.$L_club[1].'
 			<br>
-			'.$L_club[4].'
+			'.$L_club[4];
+			if ($L_club[3]==null){
+				echo '<img src="http://ccfd56.fr/wordpress/wp-content/themes/openmind/img/no_image.png" style="width: 80%","height=20px">';
+			}
+			
+			else{
+				echo '
 			<img src="'.$L_club[3].'" style="width: 80%","height=20px">
 			</a>
 			</div>';
+		}
 		}
 		?>
 		 

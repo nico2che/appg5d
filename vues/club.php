@@ -1,4 +1,4 @@
-<div class="fond"></div>
+<div id="cover"></div>
 
 <div>
 	<h5 style="text-align: center ; font-size: 50px">
