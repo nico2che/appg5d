@@ -1,24 +1,10 @@
-#cover {
-  width:100%;
-  height:100%;
-  background:url(../../static/images/beach_volley.jpg);
-  -webkit-background-size: cover; /* pour Chrome et Safari */
-  -moz-background-size: cover; /* pour Firefox */
-  -o-background-size: cover; /* pour Opera */
-  background-size: cover; /* version standardisée */
-  top : 0;
-  left : 0;
-  position : absolute;
-  z-index : -1;
-}
-
-.box{
+﻿.box{
 	border-style: solid;
   border-color: rgba(0, 0, 0, 0.7);
   border-width: 1px;
 	margin-top: 100px;
 	padding: 10px 0px 10px 0px;
-	background: rgba(255, 255, 255, 0.4);
+	background: rgba(255, 255, 255, 0.5);
   color:black;
   opacity:0.95;
 }

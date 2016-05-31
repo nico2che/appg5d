@@ -1,14 +1,13 @@
-
-
-.bordure{
+﻿.bordure{
 	border:2px solid #4d4d4d;
-	width: 20%;
+	width: 19%;
 	height: 25vh;
 	text-align: center;
 	display: inline-block;
 	border-radius: 10px;
 	margin: 2px;
 	vertical-align: top;
+	background-color: white;
 
 }
 
@@ -19,11 +18,13 @@
 }
 
 .title{
-	style="text-align: center;"
+	text-align: center;
+	font-size: 30px;
 
 }
 
 a{
 	text-decoration: none;
 	color : black;
+
 }
