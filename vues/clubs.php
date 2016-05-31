@@ -18,6 +18,16 @@
 				?>
 
 			</select>
+			Departement :
+			<select name="departement">
+				<option value="0">Choisissez un departement</option>
+				<?php
+
+				foreach ($departements as $departement) {
+					echo '<option value="'.$departement['departement_id'].'"'.(isset($_POST['departement']) && $_POST['departement'] == $departement['departement_id'] ? ' selected=""' : null).'>'.$departement['departement_nom'].'</option>';
+				}
+				?>
+			</select>
 			<input type="submit" value="rechercher"></input>
 		</form>
 
@@ -30,7 +40,7 @@
 			'.$L_club[1].'
 			<br>
 			'.$L_club[4].'
-			<img src="'.$L_club[3].'" style="width: 100%">
+			<img src="'.$L_club[3].'" style="width: 80%","height=20px">
 			</a>
 			</div>';
 		}

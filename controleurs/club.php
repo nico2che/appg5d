@@ -43,7 +43,7 @@ if (isset($_POST['conntenuMessageComment']) && (!empty($_POST['conntenuMessageCo
 	$idM=$_SESSION['id'];
 	$comment=$_POST['conntenuMessageComment'];
 	$note=$_POST['note'];
-	if (DejaCommenter($_SESSION['id'])==false){
+	if (DejaCommenter($_SESSION['id'],$_GET['id'])==false){
 		ajouterCommentaire($idC,$idM,$comment,$note);
 	}
 	else {

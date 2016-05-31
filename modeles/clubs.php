@@ -88,11 +88,11 @@ function ajouterCommentaire($idC,$idM,$Comment,$note){
 		return false;
 }
 
-function DejaCommenter($idM){
+function DejaCommenter($idM,$idC){
 	global $pdo;
-	$stmt = $pdo-> prepare('SELECT * FROM commentaires_clubs WHERE id_membre= :idM');
+	$stmt = $pdo-> prepare('SELECT * FROM commentaires_clubs WHERE id_membre= :idM AND id_club= :idC');
 	$stmt->bindValue('idM', $idM, PDO::PARAM_INT);
-
+	$stmt->bindValue('idC', $idC, PDO::PARAM_INT);
 	$stmt->execute();
 	return $stmt->fetch();
 
@@ -134,20 +134,28 @@ function idS_C($id){
 	return $resultat;
 }
 
-
-
-
-function rechercheClubParSport($id){
+function rechercheParDepart($dep){
 	global $pdo;
-	$stmt = $pdo-> prepare('SELECT * FROM clubs  	
-						JOIN sport_club.id_clubs=clubs.id
-						WHERE sport_club.id=:id');
+	$stmt = $pdo-> prepare('SELECT id FROM clubs WHERE departement_id=:dep');
 
-	$stmt->bindValue('id', $id, PDO::PARAM_STR);
+	$stmt->bindValue('dep', $dep, PDO::PARAM_INT);
 	$stmt->execute();
+
 	$resultat = array();
 	while($ligne = $stmt->fetch()) {
 		$resultat[] = $ligne;
 	}
 	return $resultat;
 }
+
+
+function recuperer_departement(){
+	global $pdo;
+	$stmt = $pdo->query('SELECT departement_id,departement_nom FROM departement');
+	$resultat = array();
+	while($ligne = $stmt->fetch()) {
+		$resultat[] = $ligne;
+	}
+	return $resultat;
+}
+

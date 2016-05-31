@@ -92,13 +92,14 @@
 			foreach ($dates_groupe as $date) {
 	?>
 			<div class="encadrer dates" style="padding:0;">
-				<a href="#" class="">
-					<div class="participer vert">
-						<i class="fa fa-check-square-o"></i>
+				<a href="#" class="participation" data-id="<?php echo $date['infos'][0]; ?>" data-idgroupe="<?php echo $id_groupe; ?>">
+					<div class="participer <?php echo (in_array($_SESSION['id'], $date['membres']) ? 'vert' : null); ?>">
+						<img src="static/images/ajax-loader-2.gif" style="display:none;" class="loader-participation">
+						<i class="fa fa-calendar-<?php echo (in_array($_SESSION['id'], $date['membres']) ? 'check' : 'plus'); ?>-o"></i>
 					</div>
 				</a>
 			<?php
-				$dateTime = new DateTimeFrench($date['date']);
+				$dateTime = new DateTimeFrench($date['infos']['date']);
 				echo '	<div class="date">
 							<span class="jour">'.$dateTime->format('l').'</span><br>
 							<span class="numero">'.$dateTime->format('d').'</span><br>
@@ -106,11 +107,20 @@
 						</div>';
 			?>
 				<div class="details-date">
-			<?php 
-				$heureTime = new DateTimeFrench($date['duree']);
+			<?php
+				if(est_auteur_groupe($membres_groupe)) {
+			?>
+					<a href="#" class="supprimer-groupe" data-id="<?php echo $date['infos'][0]; ?>" data-idgroupe="<?php echo $id_groupe; ?>">
+						<i class="fa fa-trash" style="float:right"></i>
+					</a>
+			<?php
+				}
+				$heureTime = new DateTimeFrench($date['infos']['duree']);
 			?>
 					<span class="heure">à <?php echo $dateTime->format('H\hi'); ?>, pendant <?php echo $heureTime->format('G\hi'); ?></span><br>
-					<span class="localisation"><?php echo $date['localisation']; ?></span>
+					<a href="#" class="lieu" data-coordonnees="<?php echo $date['infos']['coordonnees']; ?>">
+						<span class="localisation"><?php echo $date['infos']['localisation']; ?></span>
+					</a>
 				</div>
 			</div>
 	<?php
@@ -148,3 +158,4 @@
 </div>
 <div class="clear"></div>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="static/js/gmaps.js"></script>

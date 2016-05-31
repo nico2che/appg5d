@@ -28,7 +28,12 @@
 	border-radius: 10px;
 }
 
-#title{
+.title{
 	style="text-align: center;"
 
+}
+
+a{
+	text-decoration: none;
+	color : black;
 }

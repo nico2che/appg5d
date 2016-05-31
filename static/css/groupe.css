@@ -27,7 +27,6 @@
 
 .encadrer {
 	padding:15px;
-	border:1px solid black;
 }
 
 .groupe .details {
@@ -100,7 +99,7 @@
   border-right: 1px grey solid;
   padding: 10px;
   height:100%;
-  padding:15px;
+  padding:9px;
 }
 .dates .date .jour {
   font-size:13px;
@@ -114,10 +113,29 @@
 .dates .details-date {
   display: inline-block;
   padding:15px;
+  vertical-align: top;
+  line-height: 22px;
+  font-size: 14px;
+  width: 364px;
 }
 .dates .participer {
   float: right;
   border-left: 1px solid grey;
-  padding: 25px 21px;
+  padding: 19px 21px;
   font-size: 30px;
+  color:black;
+}
+.dates .participer.vert {
+  color: green;
+}
+.encadrer.coordonnees {
+  height:200px;
+}
+.loader-participation {
+  width: 29px;
+  margin-top: -1px;
+  margin-right: 1px;
+}
+.dates .details-date a.supprimer-groupe {
+  color:#D54F58;
 }

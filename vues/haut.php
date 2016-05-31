@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<?php if(is_file('static/css/' . $action . '.css') || isset($fichier_css)) { ?><link rel="stylesheet" type="text/css" href="static/css/<?php echo (isset($fichier_css) ? $fichier_css : $action); ?>.css"><?php } ?>
 	<script src="https://www.google.com/recaptcha/api.js"></script>
+	
 </head>
 <body>
 	<header>

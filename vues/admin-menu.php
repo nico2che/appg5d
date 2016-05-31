@@ -1,8 +1,10 @@
 <h1>Bienvenue sur votre espace d'administration</h1>
-<ul>
-	<li><a href="?page=bdd&gestion-bdd">Gestion de la base de donnée</a></li>
-	<li><a href="?page=bdd&gestion-forum">Gestion du forum</a></li>
-	<li><a href="?page=bdd&gestion-nl">Gestion de la news-letter</a></li>
-	<li><a href="?page=bdd&gestion-membres">Gestion des membres</a></li>
-<ul>
+<div id="Menu">
+<ul id="nav" class="derouler derouler-vertical">
+	<li><a href="?page=bdd&gestion-bdd">Base de données</a></li>
+	<li><a href="?page=bdd&gestion-forum">Forum</a></li>
+	<li><a href="?page=bdd&gestion-membres">Membres</a></li>
+	<li><a href="?page=bdd&gestion-nl">Newsletter</a></li>
+</ul>
+</div>
 
