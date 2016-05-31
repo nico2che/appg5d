@@ -12,17 +12,7 @@
 <body>
 	<header>
 		<a href="?"><img src="static/images/logoteam-up.png" alt="logo" id="logo"></a>
-		<nav>
-			<ul>
-				<li><a href="?page=groupes">Groupes</a></li>
-				<li><a href="?page=forum">Forum</a></li>
-			<?php if($profil = connecte(true)) { ?>
-				<li><a href="?page=mon-profil">Mon Compte</a></li>
-				<li><a href="?page=deconnexion">Déconnexion</a></li>
-				<?php } ?>
-		</nav>
 		<div class="page">
-			<a href="?"><img src="static/images/logo.png" alt="logo2" id="logo"></a>
 			<nav>
 				<ul>
 					<li><a href="?page=groupes">Groupes</a></li>
