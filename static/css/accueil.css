@@ -208,3 +208,7 @@ body div div div.annonces1:hover
   height: 500px;
   width:35%;
 }
+
+.page{
+  width: initial;
+}
