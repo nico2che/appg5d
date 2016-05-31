@@ -2,8 +2,8 @@
 	<a href="?page=groupe&amp;ajouter" class="bouton b-principal float-right">Ajouter un groupe</a>
 	<h2>Groupes</h2>
 	<div class="recherche encadrer">
-		<h3>Recherche</h3>
 		<form class="inputs" onSubmit="return false;">
+			<h3>Recherche</h3>
 			<input type="text" name="recherche" placeholder="Nom d'un groupe">
 			<select name="sport">
 				<option value="">-- Sport --</option>
@@ -30,14 +30,14 @@
 	<div id="liste-groupes">
 	<?php foreach ($groupes as $groupe): ?>
 		<div class="groupe encadrer">
-			<a href="?page=groupe&amp;id=<?php echo $groupe['id']; ?>">
+			<a href="?page=groupe&amp;id=<?php echo $groupe['id']; ?>" title="<?php echo $groupe['titre']; ?>">
 				<div class="details">
 					<div class="photo" style="background-image: url('<?php echo (is_file(DOSSIER_GROUPE . $groupe['id'] . '.jpg') ? DOSSIER_GROUPE . $groupe['id'] . '.jpg' : DOSSIER_GROUPE . '0.jpg') ?>');"></div>
 					<h4><?php echo $groupe['titre']; ?></h4>
 					<p>
 						<i class="fa fa-fire"></i> <?php echo $groupe['nom_sport']; ?><br>
 						<i class="fa fa-calendar"></i> <?php echo ucfirst($groupe['recurrence']); ?><br>
-						<i class="fa fa-users"></i> 2 personnes sur <?php echo $groupe['max_participants']; ?><br>
+						<i class="fa fa-users"></i> 2 participants<?php echo ($groupe['max_participants'] > 0 ? ' sur ' . $groupe['max_participants'] : null);  ?><br>
 					</p>
 				</div>
 			</a>
