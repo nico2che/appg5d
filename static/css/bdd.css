@@ -135,3 +135,23 @@ ul.derouler-vertical-rtl *.dir {
 .test{
 	color: blue;
 }
+
+.membres{
+	text-align: center;
+	margin: auto;
+	margin-top: 3vh;
+}
+h3{
+	text-align: center;
+	margin-top: 5vh;
+}
+
+.rechercher{
+	margin-top: 2vh;
+}
+
+.bdd{
+	text-align: center;
+	margin: auto;
+	margin-top: 5vh;
+}
