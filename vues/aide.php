@@ -48,7 +48,7 @@
 	<div id="planning">
 		<h3>modification du planning</h3>
 		<p>Intellectum est enim mihi quidem in multis, et maxime in me ipso, sed paulo ante in omnibus, cum M. Marcellum senatui reique publicae concessisti, commemoratis praesertim offensionibus, te auctoritatem huius ordinis dignitatemque rei publicae tuis vel doloribus vel suspicionibus anteferre. Ille quidem fructum omnis ante actae vitae hodierno die maximum cepit, cum summo consensu senatus, tum iudicio tuo gravissimo et maximo. Ex quo profecto intellegis quanta in dato beneficio sit laus, cum in accepto sit tanta gloria.</p>
-		<img class="logo" src="static/images/logo.png" height= "90px" width: "77px">
+		<img class="logo" src="static/images/logoteam-up.svg" height= "90px" width: "77px">
 	</div>
 </div>
 </form>
