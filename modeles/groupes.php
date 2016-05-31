@@ -4,14 +4,20 @@
 function recuperer_groupes() {
 
 	global $pdo;
-	$resultat = $pdo->query('SELECT s.nom AS nom_sport, g.* FROM groupes AS g JOIN sports AS s ON s.id = g.id_sport');
+	$resultat = $pdo->query('SELECT g.id AS id_groupe, s.nom AS nom_sport, g.*, COUNT(*) AS nbre FROM groupes AS g
+																									JOIN sports AS s ON s.id = g.id_sport
+																									LEFT JOIN groupes_membres gm ON gm.id_groupe = g.id
+																								GROUP BY g.id');
 	return $resultat;
 }
 /* Rechercher les groupes */
 function rechercher_groupe($titre, $id_sport, $recurrence, $requete) {
 	global $pdo;
-	$stmt = $pdo->prepare('SELECT g.id id_groupe, g.*, s.* FROM groupes g JOIN sports s ON s.id = g.id_sport
-												WHERE ' . $requete);
+	$stmt = $pdo->prepare('SELECT g.id id_groupe, g.*, s.*, COUNT(*) AS nbre FROM groupes g
+																				JOIN sports s ON s.id = g.id_sport
+																				LEFT JOIN groupes_membres gm ON gm.id_groupe = g.id
+																			WHERE ' . $requete . '
+																			GROUP BY g.id');
 
 	if(!empty($titre))
 		$stmt->bindValue('titre', '%'.$titre.'%', PDO::PARAM_STR);
@@ -19,6 +25,31 @@ function rechercher_groupe($titre, $id_sport, $recurrence, $requete) {
 		$stmt->bindValue('id_sport', $id_sport, PDO::PARAM_INT);
 	if(!empty($recurrence))
 		$stmt->bindValue('recurrence', $recurrence, PDO::PARAM_STR);
+
+	$stmt->execute();
+	return $stmt->fetchAll();
+}
+/* Recherche avancée des groupes */
+function rechercher_groupe_avancee($titre, $id_sport, $recurrence, $min, $max, $departement, $requete) {
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT s.nom AS nom_sport, g.id AS id_groupe, g.*, s.*, COUNT(*) AS nbre FROM groupes g
+																										JOIN sports s ON s.id = g.id_sport
+																										LEFT JOIN groupes_membres gm ON gm.id_groupe = g.id
+																									WHERE ' . $requete . '
+																									GROUP BY g.id');
+
+	if(!empty($titre))
+		$stmt->bindValue('titre', '%'.$titre.'%', PDO::PARAM_STR);
+	if(!empty($id_sport))
+		$stmt->bindValue('id_sport', $id_sport, PDO::PARAM_INT);
+	if(!empty($recurrence))
+		$stmt->bindValue('recurrence', $recurrence, PDO::PARAM_STR);
+	if(!empty($min))
+		$stmt->bindValue('min', $min, PDO::PARAM_INT);
+	if(!empty($max))
+		$stmt->bindValue('max', $max, PDO::PARAM_INT);
+	if(!empty($departement))
+		$stmt->bindValue('departement', $departement, PDO::PARAM_INT);
 
 	$stmt->execute();
 	return $stmt->fetchAll();
@@ -55,11 +86,12 @@ function recuperer_groupes_mois($mois, $id_membre) {
 	return $resultat;
 }
 /* Ajouter un groupe */
-function ajouter_groupe($titre, $sport, $description, $min_participants, $max_participants, $visibilite, $recurrence, $niveau) {
+function ajouter_groupe($titre, $sport, $departement, $description, $min_participants, $max_participants, $visibilite, $recurrence, $niveau) {
 
 	global $pdo;
 	$stmt = $pdo->prepare('INSERT INTO groupes SET titre = :titre,
 													id_sport = :sport,
+													id_departement = :departement,
 													description = :description,
 													min_participants = :min_participants,
 													max_participants = :max_participants,
@@ -69,6 +101,7 @@ function ajouter_groupe($titre, $sport, $description, $min_participants, $max_pa
 													niveau = :niveau');
 	$stmt->bindValue('titre', $titre, PDO::PARAM_STR);
 	$stmt->bindValue('sport', $sport, PDO::PARAM_INT);
+	$stmt->bindValue('departement', $departement, PDO::PARAM_INT);
 	$stmt->bindValue('description', $description, PDO::PARAM_STR);
 	$stmt->bindValue('min_participants', $min_participants, PDO::PARAM_INT);
 	$stmt->bindValue('max_participants', $max_participants, PDO::PARAM_INT);
@@ -81,11 +114,12 @@ function ajouter_groupe($titre, $sport, $description, $min_participants, $max_pa
 		return false;
 }
 /* Modifier un groupe */
-function modifier_groupe($id_groupe, $titre, $sport, $description, $min_participants, $max_participants, $visibilite, $recurrence, $niveau) {
+function modifier_groupe($id_groupe, $titre, $sport, $departement, $description, $min_participants, $max_participants, $visibilite, $recurrence, $niveau) {
 
 	global $pdo;
 	$stmt = $pdo->prepare('UPDATE groupes SET titre = :titre,
 												id_sport = :sport,
+												id_departement = :departement,
 												description = :description,
 												min_participants = :min_participants,
 												max_participants = :max_participants,
@@ -96,6 +130,7 @@ function modifier_groupe($id_groupe, $titre, $sport, $description, $min_particip
 	$stmt->bindValue('id_groupe', $id_groupe, PDO::PARAM_INT);
 	$stmt->bindValue('titre', $titre, PDO::PARAM_STR);
 	$stmt->bindValue('sport', $sport, PDO::PARAM_INT);
+	$stmt->bindValue('departement', $departement, PDO::PARAM_INT);
 	$stmt->bindValue('description', $description, PDO::PARAM_STR);
 	$stmt->bindValue('min_participants', $min_participants, PDO::PARAM_INT);
 	$stmt->bindValue('max_participants', $max_participants, PDO::PARAM_INT);

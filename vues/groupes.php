@@ -29,9 +29,9 @@
 		?>
 			<a href="?page=groupes" class="lien-simple">Recherche simple</a>
 			<div class="recherche-avancee">
-				<label for="nbre_min">Nombre minimum de participants</label> <input type="number" value="<?php echo (isset($_GET['min']) ? htmlspecialchars($_GET['min']) : 0); ?>" name="min" class="decale-droite"> 
-				<label for="nbre_max">Nombre maximum de participants</label> <input type="number" value="<?php echo (isset($_GET['max']) ? htmlspecialchars($_GET['max']) : 0); ?>" name="max"> &nbsp;(0 pour illimité)<br>
-				<label>Département</label> &nbsp;
+				<label for="nbre_min">Limite de participant(s) entre </label> <input min="0" type="number" value="<?php echo (isset($_GET['min']) ? htmlspecialchars($_GET['min']) : 0); ?>" name="min"> 
+				<label for="nbre_max"> et </label> <input type="number" min="0" value="<?php echo (isset($_GET['max']) ? htmlspecialchars($_GET['max']) : 0); ?>" name="max"> &nbsp;(0 pour illimité) <label for="nbre_actuel">, avec au moins </label> <input type="number" min="0" value="<?php echo (isset($_GET['actuel']) ? htmlspecialchars($_GET['actuel']) : 0); ?>" name="actuel"> participant(s) actuel(s)<br>
+				<label>Département : </label> &nbsp;
 				<select name="departement">
 					<option value="0">-- Sélectionnez un département --</option>
 		<?php
@@ -58,19 +58,36 @@
 	</div>
 	<div class="align-center charge-groupe" style="display:none;"><img src="static/images/ajax-loader-2.gif" alt="Chargement..."></div>
 	<div id="liste-groupes">
-	<?php foreach ($groupes as $groupe): ?>
+	<?php
+		if(!empty($groupes)) {
+
+			foreach ($groupes as $groupe) {
+
+				if((!isset($_GET['actuel']) || empty($_GET['actuel'])) || $groupe['nbre'] >= $_GET['actuel']) {
+	?>
 		<div class="groupe encadrer">
-			<a href="?page=groupe&amp;id=<?php echo $groupe['id']; ?>" title="<?php echo $groupe['titre']; ?>">
+			<a href="?page=groupe&amp;id=<?php echo $groupe['id_groupe']; ?>" title="<?php echo $groupe['titre']; ?>">
 				<div class="details">
-					<div class="photo" style="background-image: url('<?php echo (is_file(DOSSIER_GROUPE . $groupe['id'] . '.jpg') ? DOSSIER_GROUPE . $groupe['id'] . '.jpg' : DOSSIER_GROUPE . '0.jpg') ?>');"></div>
+					<div class="photo" style="background-image: url('<?php echo (is_file(DOSSIER_GROUPE . $groupe['id_groupe'] . '.jpg') ? DOSSIER_GROUPE . $groupe['id_groupe'] . '.jpg' : DOSSIER_GROUPE . '0.jpg') ?>');"></div>
 					<h4><?php echo $groupe['titre']; ?></h4>
 					<p>
 						<i class="fa fa-fire"></i> <?php echo $groupe['nom_sport']; ?><br>
 						<i class="fa fa-calendar"></i> <?php echo ucfirst($groupe['recurrence']); ?><br>
-						<i class="fa fa-users"></i> 2 participants<?php echo ($groupe['max_participants'] > 0 ? ' sur ' . $groupe['max_participants'] : null);  ?><br>
+						<i class="fa fa-users"></i> <?php echo $groupe['nbre']; ?> participant<?php echo ($groupe['nbre'] > 1 ? 's' : null); ?><?php echo ($groupe['max_participants'] > 0 ? ' sur ' . $groupe['max_participants'] : null);  ?><br>
 					</p>
 				</div>
 			</a>
 		</div>
-	<?php endforeach; ?>
+	<?php
+				}
+			}
+
+		} else {
+	?>
+		<div class="groupe encadrer align-center" style="width:98%;padding-top:10px;">
+			<h4>Aucun résultat</h4>
+		</div>
+	<?php
+		}
+	?>
 	</div>

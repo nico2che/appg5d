@@ -21,6 +21,16 @@
 	?>
 		</select><br>
 
+		<label for="departement">Département : </label>
+		<select id="departement" name="departement">
+			<option value="0">Choisissez un département</option>
+	<?php 
+		foreach ($departements as $departement) {
+			echo '<option value="'.$departement['departement_id'].'"'.(isset($_POST['departement']) && $_POST['departement'] == $departement['departement_id'] ? ' selected=""' : null).'>'.$departement['departement_code'].' - '.$departement['departement_nom'].'</option>';
+		}
+	?>
+		</select><br>
+
 		<label for="image">Photo du groupe</label>
 		<input type="file" name="image" accept="image/*"><br>
 		

@@ -1,6 +1,6 @@
 .groupe .photo {
-	width:200px;
-	height:200px;
+	width:300px;
+	height:300px;
 	float: right;
 	background-size: cover;
 	background-position: center center;
@@ -18,7 +18,7 @@
 .groupe .details {
 	margin-left:40px;
 	display: inline-block;
-	width: 542px;
+	width: 700px;
   float:left;
 }
 
@@ -43,7 +43,7 @@
 /* cadre des participants à droite */
 .groupe .participants {
   float: right;
-  width: 205px;
+  width: 300px;
   margin: 0 54px 0 0;
 }
 .groupe .participants .participant {
@@ -77,9 +77,6 @@
 .form-groupe input[type=number] {
   width:50px;
 }
-.form-groupe {
-  margin-bottom: 70px;
-}
 
 /* Dates */
 .dates .date {
@@ -111,7 +108,7 @@
 .dates .participer {
   float: right;
   border-left: 1px solid grey;
-  padding: 24px 21px;
+  padding: 22px 21px;
   font-size: 30px;
   color:black;
 }

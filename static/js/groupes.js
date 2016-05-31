@@ -39,8 +39,8 @@ function chargerGroupes() {
 										<h4>'+data[i].titre+'</h4>\
 										<p>\
 											<i class="fa fa-fire"></i> '+data[i].nom+'<br>\
-											<i class="fa fa-calendar"></i> '+data[i].recurrence+'<br>\
-											<i class="fa fa-users"></i> 2 personnes sur '+data[i].max_participants+'<br>\
+											<i class="fa fa-calendar"></i> '+data[i].recurrence.charAt(0).toUpperCase()+data[i].recurrence.slice(1)+'<br>\
+											<i class="fa fa-users"></i> '+data[i].nbre+' participant'+(data[i].nbre > 1 ? 's' : '')+(data[i].max_participants > 0 ? ' sur ' +data[i].max_participants : '')+'<br>\
 										</p>\
 									</div>\
 								</a>\

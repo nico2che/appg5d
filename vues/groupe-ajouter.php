@@ -23,6 +23,16 @@
 	?>
 		</select><br>
 
+		<label for="departement">Département : </label>
+		<select id="departement" name="departement">
+			<option value="0">Choisissez un département</option>
+	<?php 
+		foreach ($departements as $departement) {
+			echo '<option value="'.$departement['departement_id'].'"'.(isset($_POST['departement']) && $_POST['departement'] == $departement['departement_id'] ? ' selected=""' : null).'>'.$departement['departement_code'].' - '.$departement['departement_nom'].'</option>';
+		}
+	?>
+		</select><br>
+
 		<label for="image">Photo du groupe</label>
 		<input type="file" name="image" accept="image/*"><br>
 		
@@ -50,9 +60,10 @@
 		
 		<label for="niveau">Niveau sportif</label>
 		<select id="niveau" name="niveau">
-			<option value="1"<?php echo (isset($_POST['niveau']) && $_POST['niveau'] == 1 ? ' selected=""' : null); ?>>Débutant</option>
-			<option value="2"<?php echo (isset($_POST['niveau']) && $_POST['niveau'] == 2 ? ' selected=""' : null); ?>>Moyen</option>
-			<option value="3"<?php echo (isset($_POST['niveau']) && $_POST['niveau'] == 3 ? ' selected=""' : null); ?>>Confirmé</option>
+			<option value="1"<?php echo (isset($_POST['niveau']) && $_POST['niveau'] == 1 ? ' selected=""' : null); ?>>Tout</option>
+			<option value="2"<?php echo (isset($_POST['niveau']) && $_POST['niveau'] == 2 ? ' selected=""' : null); ?>>Débutant</option>
+			<option value="3"<?php echo (isset($_POST['niveau']) && $_POST['niveau'] == 3 ? ' selected=""' : null); ?>>Moyen</option>
+			<option value="4"<?php echo (isset($_POST['niveau']) && $_POST['niveau'] == 3 ? ' selected=""' : null); ?>>Confirmé</option>
 		</select><br>
 		
 		<input type="hidden" name="type" value="ajouter">
