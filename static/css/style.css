@@ -168,6 +168,7 @@ div.message.succes a {
 
 .avatar-menu{
   height: 100px;
+  margin-right: 50px;
 }
 body{
   background:url(../../static/images/motif.jpg);

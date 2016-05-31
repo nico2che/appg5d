@@ -1,5 +1,5 @@
 	<div id="cover"></div>
-	<a href="?page=groupe&amp;ajouter" class="bouton b-principal" style="float:right; background-color:#D54F58">Ajouter un groupe</a>
+	<a href="?page=groupe&amp;ajouter" class="bouton b-principal" style="display: block; width: 10vw; text-align: center; background-color:#D54F58">Ajouter un groupe</a>
 	<h2>Groupes</h2>
 	<div class="recherche encadrer">
 		<h3>Recherche</h3>
