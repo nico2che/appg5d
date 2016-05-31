@@ -58,7 +58,7 @@
 }
 
 .etape {
-  width: 20em;
+  min-width: 25%;
   background-color: blue;
 }
 
