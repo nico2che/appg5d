@@ -3,6 +3,11 @@
 	margin:0;
 	padding: 0;
 }
+body{
+  background:url(../../static/images/motif.jpg);
+  background-repeat: repeat;
+  min-height:100%;
+}
 .align-right {
   text-align: right;
 }
@@ -75,7 +80,6 @@ header .avatar-menu {
   width:65%;
   margin: auto;
   min-height:calc(100% - 155px);
-  text-align: center;
 }
 
 footer {
@@ -167,8 +171,4 @@ div.message.succes a {
 .avatar-menu{
   height: 100px;
   margin-right: 50px;
-}
-body{
-  background:url(../../static/images/motif.jpg);
-  background-repeat: repeat;
 }
