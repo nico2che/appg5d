@@ -19,6 +19,7 @@
 			<?php if($profil = connecte(true)) { ?>
 				<li><a href="?page=mon-profil">Mon Compte</a></li>
 				<li><a href="?page=deconnexion">Déconnexion</a></li>
+				<?php } ?>
 		</nav>
 		<div class="page">
 			<a href="?"><img src="static/images/logo.png" alt="logo2" id="logo"></a>
