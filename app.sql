@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 31 Mai 2016 à 16:29
+-- Généré le :  Mar 31 Mai 2016 à 23:14
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -328,6 +328,7 @@ CREATE TABLE `forum_sujets` (
 CREATE TABLE `groupes` (
   `id` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
+  `id_departement` int(11) NOT NULL,
   `description` text NOT NULL,
   `id_sport` int(11) NOT NULL,
   `id_club` int(11) NOT NULL,
@@ -342,15 +343,18 @@ CREATE TABLE `groupes` (
 -- Contenu de la table `groupes`
 --
 
-INSERT INTO `groupes` (`id`, `titre`, `description`, `id_sport`, `id_club`, `max_participants`, `min_participants`, `visibilite`, `recurrence`, `niveau`) VALUES
-(1, 'CompÃ©tition de tennis !', 'Bonjour,\r\nVoici mon groupe de sport', 165, 0, 8, 1, 'public', 'hebdomadaire', 2),
-(4, 'Promenade en montagne', 'Description d\'un groupe\r\n\r\nAlpinisme et compagnie', 5, 0, 0, 2, 'public', 'occasionnel', 1),
-(3, 'Nom du groupe un peu plus long', 'Description d\'un groupe de hockeyyy', 83, 0, 0, 0, 'public', 'occasionnel', 1),
-(5, 'Rencontres foot', 'Bonjour !\r\n\r\nRetrouvons nous tous les samedi aprÃ¨s midi pour jouer au foot\r\n\r\n4v4\r\n5v5\r\n6v6\r\n7v7\r\nou 8v8', 69, 0, 16, 8, 'public', 'hebdomadaire', 2),
-(6, 'CompÃ©tition d\'escrime - Participez au nouveau tournoi officiel version 2016 !', 'Bla bla bla\r\n\r\nbla bla bla', 65, 0, 0, 0, 'public', 'quotidien', 3),
-(7, 'Dansons !', 'danse danse danse !\r\n\r\n10 max', 55, 0, 10, 0, 'public', 'mensuel', 1),
-(8, 'Regroupement de moto', 'Faisons un tour !', 107, 0, 0, 0, 'public', 'occasionnel', 1),
-(9, 'Combats de rue', 'Comme chaque annÃ©e, assistez Ã  nos combats de karatÃ© !\r\n\r\nVenez nombreux', 94, 0, 0, 0, 'public', 'annuel', 3);
+INSERT INTO `groupes` (`id`, `titre`, `id_departement`, `description`, `id_sport`, `id_club`, `max_participants`, `min_participants`, `visibilite`, `recurrence`, `niveau`) VALUES
+(1, 'CompÃ©tition de tennis !', 76, 'Bonjour,\r\nVoici mon groupe de sport', 165, 0, 8, 1, 'public', 'hebdomadaire', 2),
+(4, 'Promenade en montagne', 66, 'Description d\'un groupe\r\n\r\nAlpinisme et compagnie', 5, 0, 0, 2, 'public', 'occasionnel', 1),
+(3, 'Nom du groupe un peu plus long', 86, 'Description d\'un groupe de hockeyyy', 83, 0, 0, 0, 'public', 'occasionnel', 1),
+(5, 'Rencontres foot', 45, 'Bonjour !\r\n\r\nRetrouvons nous tous les samedi aprÃ¨s midi pour jouer au foot\r\n\r\n4v4\r\n5v5\r\n6v6\r\n7v7\r\nou 8v8', 69, 0, 16, 8, 'public', 'hebdomadaire', 2),
+(6, 'CompÃ©tition d\'escrime - Participez au nouveau tournoi officiel version 2016 !', 57, 'Bla bla bla\r\n\r\nbla bla bla', 65, 0, 0, 0, 'public', 'quotidien', 3),
+(7, 'Dansons !', 32, 'danse danse danse !\r\n\r\n10 max', 55, 0, 10, 0, 'public', 'mensuel', 1),
+(8, 'Regroupement de moto', 34, 'Faisons un tour !', 107, 0, 0, 0, 'public', 'occasionnel', 1),
+(9, 'Combats de rue', 76, 'Comme chaque annÃ©e, assistez Ã  nos combats de karatÃ© !\r\n\r\nVenez nombreux', 94, 0, 0, 0, 'public', 'annuel', 3),
+(10, 'Rendez-vous en ULM !', 30, 'Viens !', 176, 0, 4, 0, 'public', 'occasionnel', 3),
+(11, 'AprÃ¨s-midi tandem !', 73, 'Pour les nouveaux !\r\n\r\nOn part tous en voiture !', 116, 0, 5, 0, 'public', 'occasionnel', 1),
+(12, 'RÃ©gate amicale d\'aviron', 76, 'Tous niveaux !', 13, 0, 20, 11, 'public', 'occasionnel', 1);
 
 -- --------------------------------------------------------
 
@@ -378,7 +382,10 @@ INSERT INTO `groupes_membres` (`id`, `id_groupe`, `id_membre`, `type`) VALUES
 (6, 6, 1, 1),
 (7, 7, 1, 1),
 (8, 8, 1, 1),
-(9, 9, 1, 1);
+(9, 9, 1, 1),
+(10, 10, 1, 1),
+(11, 11, 1, 1),
+(12, 12, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -753,7 +760,7 @@ ALTER TABLE `contacte_message`
 -- AUTO_INCREMENT pour la table `dates_membres`
 --
 ALTER TABLE `dates_membres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT pour la table `dates_rencontres`
 --
@@ -778,12 +785,12 @@ ALTER TABLE `forum_sujets`
 -- AUTO_INCREMENT pour la table `groupes`
 --
 ALTER TABLE `groupes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `groupes_membres`
 --
 ALTER TABLE `groupes_membres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `membres`
 --
