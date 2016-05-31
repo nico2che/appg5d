@@ -17,13 +17,17 @@ body
   background-repeat: repeat;
 }
 
+.recherche {
+  margin-top: 25px;
+}
+
 .recherche h3 {
-  margin-left: 15px;
+  margin-right: 25px;
   float: left;
 }
 
 .recherche > .inputs {
-  margin:18px 138px;
+  margin:18px;
 }
 
 .charge-groupe {
@@ -56,13 +60,24 @@ body
 	height:120px;
 	overflow: hidden;
 	background-position: 0 center;
-    background-size: cover;
+  background-size: cover;
+}
+
+#liste-groupes .groupe .details i.fa {
+  margin-right: 6px;
 }
 
 #liste-groupes .groupe .details h4 {
   color: black;
   text-align: center;
+  height: 56px;
+  margin-top: 15px;
+  max-width: 200px;
+  text-overflow: ellipsis;
   text-transform: uppercase;
+  /* white-space: pre; */
+  overflow: hidden;
+  padding: 0 7px;
 }
 
 #liste-groupes .groupe .details p {
