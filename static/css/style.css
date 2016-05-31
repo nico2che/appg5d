@@ -75,9 +75,9 @@ header .avatar-menu {
 
 .page {
   width:65%;
-/*  padding:10px;*/
   margin: auto;
-  min-height:calc(100% - 155px);;
+  min-height:calc(100% - 155px);
+  text-align: center;
 }
 
 footer {
