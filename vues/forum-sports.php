@@ -1,4 +1,3 @@
-	<div id="cover"></div>
 	<h1><a href="?page=forum">Forum</a></h1>
 	<h3><a href="?page=forum&amp;sport=<?php echo $id_sport; ?>"><?php echo $sport['nom']; ?></a></h3>
 <?php if(connecte()) {  ?>

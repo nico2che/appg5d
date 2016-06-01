@@ -1,5 +1,3 @@
-<div id="cover"></div>
-
 	<form class="box" method="post" >
 		<h2>Contact</h2>
 		<p>Pour nous contacter, veuillez remplir le formulaire si dessous. Nous vous répondrons dans les plus brefs délais.</p>
@@ -11,34 +9,26 @@
 				<label for="nom">Nom :</label>
 	       		<input type="text" name="userName" />
 			</div>
-
 			<div class="label1">
 				<label for="Email" id="Email">Email :</label>
 	        	<input type="text" name="userEmail" />
 			</div>
-
 			<div class="label1">
 				<label for="Sujet" id="Sujet">Sujet :</label>
 	        	<input type="text" name="Sujet" />
 			</div>
 			</div>
-
 			<div class="blocDroite">
-			<label for="Message">Message :</label>
-        	<textarea id="tailleMessage" name="conntenuMessage"></textarea>  
+				<label for="Message">Message :</label>
+        		<textarea id="tailleMessage" name="conntenuMessage"></textarea>  
 			</div>
-		
 			<div  id="captcha">
-			<div class="g-recaptcha" data-sitekey="6Ld-8h4TAAAAAFvrs6bAWoLKRZ7mwmxmlyTvN4CO">
+				<div class="g-recaptcha" data-sitekey="6Ld-8h4TAAAAAFvrs6bAWoLKRZ7mwmxmlyTvN4CO">
+				</div>
 			</div>
-			</div>
-
-
-		<input type="submit" value="envoyer" class="envoyer"></input>
-
-</div>
-		
-</form>	
+			<input type="submit" value="envoyer" class="envoyer"></input>
+		</div>
+	</form>	
 
 
 

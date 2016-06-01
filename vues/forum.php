@@ -1,4 +1,3 @@
-<div id="cover"></div>
 <h1><a href="?page=forum">Forum</a></h1>
 <?php
 	if(!empty($messages)) {

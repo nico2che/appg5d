@@ -23,4 +23,11 @@ if(isset($_GET['sport']) && !empty($_GET['sport']) && isset($_GET['departement']
 	$clubs = recuperer_clubs();
 }
 
-include 'vues/clubs.php';
+if(isset($_GET['proposer'])) {
+
+	include 'vues/clubs-proposer.php';
+
+} else {
+
+	include 'vues/clubs.php';
+}

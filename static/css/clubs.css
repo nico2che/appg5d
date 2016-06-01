@@ -19,6 +19,36 @@
   margin-right: 100px;
 }
 
+/* proposer un club */
+.form-club p {
+  margin: 15px 0;
+}
+.form-club label {
+  width:200px;
+  display: inline-block;
+  text-align: right;
+  margin-right:15px;
+  margin-top:20px;
+  vertical-align: top;
+}
+.form-club input, .form-club select, .form-club textarea {
+  margin-top:20px;
+  border-radius:5px;
+}
+.form-club #nom {
+  width:250px;
+}
+.form-club select[multiple] {
+  height:250px;
+}
+.form-club input[type=submit] {
+  margin-left:500px;
+  margin-bottom: 50px;
+}
+.form-club input[type=number] {
+  width:50px;
+}
+
 #liste-clubs {
 	margin-top: 15px;
 }
