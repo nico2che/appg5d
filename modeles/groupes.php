@@ -4,7 +4,7 @@
 function recuperer_groupes($debut, $combien) {
 
 	global $pdo;
-	$stmt = $pdo->prepare('SELECT g.id AS id_groupe, s.nom AS nom_sport, g.*, COUNT(*) AS nbre FROM groupes AS g
+	$stmt = $pdo->prepare('SELECT SQL_CALC_FOUND_ROWS g.id AS id_groupe, s.nom AS nom_sport, g.*, COUNT(*) AS nbre FROM groupes AS g
 																									JOIN sports AS s ON s.id = g.id_sport
 																									LEFT JOIN groupes_membres gm ON gm.id_groupe = g.id
 																								GROUP BY g.id
@@ -14,19 +14,12 @@ function recuperer_groupes($debut, $combien) {
 	$stmt->bindValue('combien', $combien, PDO::PARAM_INT);
 
 	$stmt->execute();
-	return $stmt->fetchAll();
-}
-/* Récupérer les groupes */
-function recuperer_nombre_groupes() {
-
-	global $pdo;
-	$resultat = $pdo->query('SELECT COUNT(*) AS nbre FROM groupes')->fetch();
-	return $resultat['nbre'];
+	return array('nombre' => $pdo->query('SELECT FOUND_ROWS();')->fetch(PDO::FETCH_COLUMN), 'lignes' => $stmt->fetchAll());
 }
 /* Rechercher les groupes */
 function rechercher_groupe($titre, $id_sport, $recurrence, $requete, $debut, $combien) {
 	global $pdo;
-	$stmt = $pdo->prepare('SELECT g.id id_groupe, g.*, s.*, COUNT(*) AS nbre FROM groupes g
+	$stmt = $pdo->prepare('SELECT SQL_CALC_FOUND_ROWS g.id id_groupe, g.*, s.*, COUNT(*) AS nbre FROM groupes g
 																				JOIN sports s ON s.id = g.id_sport
 																				LEFT JOIN groupes_membres gm ON gm.id_groupe = g.id
 																			WHERE ' . $requete . '
@@ -44,12 +37,12 @@ function rechercher_groupe($titre, $id_sport, $recurrence, $requete, $debut, $co
 	$stmt->bindValue('combien', $combien, PDO::PARAM_INT);
 
 	$stmt->execute();
-	return $stmt->fetchAll();
+	return array('nombre' => $pdo->query('SELECT FOUND_ROWS();')->fetch(PDO::FETCH_COLUMN), 'lignes' => $stmt->fetchAll());
 }
 /* Recherche avancée des groupes */
 function rechercher_groupe_avancee($titre, $id_sport, $recurrence, $min, $max, $departement, $requete, $debut, $combien) {
 	global $pdo;
-	$stmt = $pdo->prepare('SELECT s.nom AS nom_sport, g.id AS id_groupe, g.*, s.*, COUNT(*) AS nbre FROM groupes g
+	$stmt = $pdo->prepare('SELECT SQL_CALC_FOUND_ROWS s.nom AS nom_sport, g.id AS id_groupe, g.*, s.*, COUNT(*) AS nbre FROM groupes g
 																										JOIN sports s ON s.id = g.id_sport
 																										LEFT JOIN groupes_membres gm ON gm.id_groupe = g.id
 																									WHERE ' . $requete . '
@@ -73,7 +66,8 @@ function rechercher_groupe_avancee($titre, $id_sport, $recurrence, $min, $max, $
 	$stmt->bindValue('combien', $combien, PDO::PARAM_INT);
 
 	$stmt->execute();
-	return $stmt->fetchAll();
+
+	return array('nombre' => $pdo->query('SELECT FOUND_ROWS();')->fetch(PDO::FETCH_COLUMN), 'lignes' => $stmt->fetchAll());
 }
 /* Récupérer les informations d'un groupe précis */
 function infos_groupe($id) {

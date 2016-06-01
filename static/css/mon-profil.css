@@ -1,25 +1,20 @@
 .profil.gauche {
-  width:199px;
+  width:250px;
   float: left;
   text-align: center;
   padding-top: 15px;
   border-right:1px solid gray;
 }
-.profil.gauche img.photo {
+.profil.gauche div.photo {
   border: 2px solid black;
   border-radius: 6px;
-  height: 165px;
+  height: 210px;
   padding: 2px;
-  width: 165px;
+  width: 210px;
+  margin-bottom: 35px;
+  background-size: cover; 
 }
-.profil.gauche img.photo {
-  border: 2px solid black;
-  border-radius: 6px;
-  height: 165px;
-  padding: 2px;
-  width: 165px;
-}
-.profil.gauche img.photo.chargement-avatar {
+.profil.gauche div.photo.chargement-avatar {
   padding: 79px 63px;
   width: auto;
   height: auto;
@@ -29,16 +24,16 @@
   border-radius: 1px 0 4px 4px;
   color: white;
   height: 28px;
-  margin-left: -172px;
-  margin-top: 132px;
+  margin-left: -108px;
+  margin-top: 174px;
   padding-top: 11px;
   position: absolute;
   text-decoration: none;
-  width: 172px;
+  width: 216px;
   font-size: 14px;
 }
 .profil.droite {
-  width:79%;
+  width:72%;
   float: right;
   padding:15px;
 }
@@ -46,6 +41,7 @@
   line-height: 41px;
   margin-left: -40px;
   text-align: center;
+  margin-bottom: 20px;
 }
 .navigation ul li {
   list-style: none;
@@ -68,12 +64,24 @@ form.formulaire-profil div label {
   padding-right: 15px;
   text-align: right;
   width: 214px;
+  vertical-align: top;
 }
 form.formulaire-profil div input[type=text], form.formulaire-profil div input[type=password] {
   width: 250px;
   border-radius:5px;
   border:1px solid gray;
   padding:7px;
+}
+form.formulaire-profil textarea {
+  height: 167px;
+  width: 437px;
+}
+form.formulaire-profil label.label-radio {
+  width:50px;
+  text-align: left;
+}
+form.formulaire-profil h3 {
+  margin-bottom: 20px;
 }
 
 .mois-precedent, .mois-suivant, .mois-zero {

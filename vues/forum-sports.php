@@ -2,7 +2,7 @@
 	<h1><a href="?page=forum">Forum</a></h1>
 	<h3><a href="?page=forum&amp;sport=<?php echo $id_sport; ?>"><?php echo $sport['nom']; ?></a></h3>
 <?php if(connecte()) {  ?>
-	<p><a href="?page=forum&amp;ajouter&amp;sport=<?php echo $id_sport; ?>" class="bouton b-principal ajouter-sujet">Ajouter un sujet</a><br></p>
+	<p><a href="?page=forum&amp;ajouter&amp;sport=<?php echo $id_sport; ?>" class="bouton b-principal ajouter-sujet">Ajouter un sujet</a><br><br></p>
 <?php } ?>
 	<table>
 		<thead>
@@ -32,3 +32,4 @@
 		?>
 		</tbody>
 	</table>
+	<?php pagination($total_sujets, $sujets_par_page); ?>

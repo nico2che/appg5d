@@ -1,151 +1,124 @@
 <?php  
 
-function list_club(){
+function recuperer_clubs(){
 	global $pdo;
-	$stmt = $pdo->query('SELECT * FROM clubs');
-
+	$stmt = $pdo->query('SELECT c.nom AS nom_club, c.id AS id_club, c.*, s.* FROM clubs AS c
+												LEFT JOIN sport_club AS sc ON sc.id_clubs = c.id
+												LEFT JOIN sports AS s ON sc.id_sports = s.id');
+	$resultat = array();
 	while($ligne = $stmt->fetch()) {
-		$resultat[] = $ligne;
+		$resultat[$ligne[0]][] = $ligne;
 	}
 	return $resultat;
 
 }
-
-
-function sport_club($idC){
+function recuperer_departement(){
 	global $pdo;
-	$stmt = $pdo-> prepare('SELECT * FROM sport_club WHERE id_clubs= :idC');
-	
-	$stmt->bindValue('idC', $idC, PDO::PARAM_INT);
+	return $pdo->query('SELECT * FROM departement');
+}
+function recuperer_clubs_sport_departement($id_sport, $id_departement){
+	global $pdo;
+	$stmt = $pdo-> prepare('SELECT c.nom AS nom_club, c.id AS id_club, c.*, s.* FROM clubs AS c
+													JOIN sport_club AS sc ON sc.id_clubs = c.id
+													JOIN sports AS s ON sc.id_sports = s.id
+												WHERE c.departement_id = :id_departement AND sc.id_sports = :id_sport');
+
+	$stmt->bindValue('id_sport', $id_sport, PDO::PARAM_INT);
+	$stmt->bindValue('id_departement', $id_departement, PDO::PARAM_INT);
 	$stmt->execute();
 	$resultat = array();
-
 	while($ligne = $stmt->fetch()) {
-		$resultat[] = $ligne;
+		$resultat[$ligne[0]][] = $ligne;
 	}
 	return $resultat;
-	
-
-
-
 }
-
-function sport_id($id){
+function recuperer_clubs_sport($id_sport){
 	global $pdo;
-	$stmt = $pdo-> prepare('SELECT nom FROM sports WHERE id= :id');
+	$stmt = $pdo-> prepare('SELECT c.nom AS nom_club, c.id AS id_club, c.*, s.* FROM clubs AS c
+													JOIN sport_club AS sc ON sc.id_clubs = c.id
+													JOIN sports AS s ON sc.id_sports = s.id
+												WHERE sc.id_sports = :id_sport');
 
-	$stmt->bindValue('id', $id, PDO::PARAM_INT);
-	$stmt->execute();
-	return $stmt->fetch();
-
-}
-
-function info_club($idt){
-	global $pdo;
-	$stmt = $pdo-> prepare('SELECT * FROM clubs WHERE id=:idt');
-
-	$stmt->bindValue('idt', $idt, PDO::PARAM_INT);
-	$stmt->execute();
-	return $stmt->fetch();
-}
-
-function commentaire($idC){
-	global $pdo;
-	$stmt = $pdo-> prepare('SELECT * FROM commentaires_clubs WHERE id_club=:idC');
-	
-	$stmt->bindValue('idC', $idC, PDO::PARAM_INT);
+	$stmt->bindValue('id_sport', $id_sport, PDO::PARAM_INT);
 	$stmt->execute();
 	$resultat = array();
-
 	while($ligne = $stmt->fetch()) {
-		$resultat[] = $ligne;
+		$resultat[$ligne[0]][] = $ligne;
 	}
 	return $resultat;
-
 }
-
-function idM_nomM($idM){
+function recuperer_clubs_departement($id_departement){
 	global $pdo;
-	$stmt = $pdo-> prepare('SELECT nom,prenom FROM membres WHERE id=:idM');
+	$stmt = $pdo-> prepare('SELECT c.nom AS nom_club, c.id AS id_club, c.*, s.* FROM clubs AS c
+													JOIN sport_club AS sc ON sc.id_clubs = c.id
+													JOIN sports AS s ON sc.id_sports = s.id
+												WHERE c.departement_id = :id_departement');
 
-	$stmt->bindValue('idM', $idM, PDO::PARAM_INT);
+	$stmt->bindValue('id_departement', $id_departement, PDO::PARAM_INT);
 	$stmt->execute();
-	return $stmt->fetch();
+	$resultat = array();
+	while($ligne = $stmt->fetch()) {
+		$resultat[$ligne[0]][] = $ligne;
+	}
+	return $resultat;
 }
 
-function ajouterCommentaire($idC,$idM,$Comment,$note){
+function recuperer_club($id_club){
 	global $pdo;
+	$stmt = $pdo-> prepare('SELECT c.*, m.nom AS nom_membre, m.prenom AS prenom_membre, cc.id AS id_commentaire, cc.*, s.nom AS nom_sport
+												FROM clubs AS c
+													LEFT JOIN commentaires_clubs cc ON cc.id_club = c.id
+													LEFT JOIN membres m ON m.id = cc.id_membre
+													LEFT JOIN sport_club AS sc ON sc.id_clubs = c.id
+													LEFT JOIN sports AS s ON sc.id_sports = s.id
+												WHERE c.id = :id_club');
+	$stmt->bindValue('id_club', $id_club, PDO::PARAM_INT);
+	$stmt->execute();
+	$resultat = array();
+	while($ligne = $stmt->fetch()) {
+		$resultat['club'] = $ligne;
+		$resultat['commentaires'][$ligne['id_commentaire']] = $ligne;
+		$resultat['sports'][$ligne['nom_sport']] = $ligne;
+	}
+	return $resultat;
+}
 
-	$stmt = $pdo-> prepare('INSERT INTO commentaires_clubs SET id_club= :idC, id_membre= :idM, commentaire= :comment, note= :note');
-	$stmt->bindValue('idC', $idC, PDO::PARAM_INT);
-	$stmt->bindValue('idM', $idM, PDO::PARAM_INT);
-	$stmt->bindValue('comment', $Comment, PDO::PARAM_STR);
+/* Commentaires */
+function ajouterCommentaire($id_club, $id_membre, $commentaire, $note){
+	global $pdo;
+	$stmt = $pdo-> prepare('INSERT INTO commentaires_clubs SET id_club = :id_club,
+																id_membre = :id_membre,
+																commentaire = :commentaire,
+																note = :note');
+	$stmt->bindValue('id_club', $id_club, PDO::PARAM_INT);
+	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
+	$stmt->bindValue('commentaire', $commentaire, PDO::PARAM_STR);
 	$stmt->bindValue('note', $note, PDO::PARAM_STR);
-
 	if($stmt->execute())
 		return $pdo->lastInsertId();
 	else
 		return false;
 }
-
-function DejaCommenter($idM,$idC){
+function dejaCommente($id_membre, $id_club){
 	global $pdo;
-	$stmt = $pdo-> prepare('SELECT * FROM commentaires_clubs WHERE id_membre= :idM AND id_club= :idC');
-	$stmt->bindValue('idM', $idM, PDO::PARAM_INT);
-	$stmt->bindValue('idC', $idC, PDO::PARAM_INT);
+	$stmt = $pdo-> prepare('SELECT * FROM commentaires_clubs WHERE id_membre= :id_membre AND id_club= :id_club');
+	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
+	$stmt->bindValue('id_club', $id_club, PDO::PARAM_INT);
 	$stmt->execute();
 	return $stmt->fetch();
-
-
 }
-
-function modifierComment($Comment,$note,$idM){
+function modifierCommentaire($id_club, $id_membre, $commentaire, $note){
 	global $pdo;
-		$stmt = $pdo->prepare('UPDATE commentaires_clubs SET commentaire =:comment, note= :note WHERE id_membre=:idM');
-
-		$stmt->bindValue('comment', $Comment, PDO::PARAM_STR);
-		$stmt->bindValue('note', $note, PDO::PARAM_INT);
-		$stmt->bindValue('idM', $idM, PDO::PARAM_INT);
-
-		return $stmt->execute();
-}
-
-function idS_C($id){
-	global $pdo;
-	$stmt = $pdo-> prepare('SELECT id_clubs FROM sport_club WHERE id_sports=:id');
-
-	$stmt->bindValue('id', $id, PDO::PARAM_INT);
+	$stmt = $pdo->prepare('UPDATE commentaires_clubs SET commentaire = :commentaire,
+															note = :note
+														WHERE id_club = :id_club AND id_membre = :id_membre');
+	$stmt->bindValue('commentaire', $commentaire, PDO::PARAM_STR);
+	$stmt->bindValue('note', $note, PDO::PARAM_INT);
+	$stmt->bindValue('id_club', $id_club, PDO::PARAM_INT);
+	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
 	$stmt->execute();
-
-	$resultat = array();
-	while($ligne = $stmt->fetch()) {
-		$resultat[] = $ligne;
-	}
-	return $resultat;
+	if($stmt->execute())
+		return true;
+	else
+		return false;
 }
-
-function rechercheParDepart($dep){
-	global $pdo;
-	$stmt = $pdo-> prepare('SELECT id FROM clubs WHERE departement_id=:dep');
-
-	$stmt->bindValue('dep', $dep, PDO::PARAM_INT);
-	$stmt->execute();
-
-	$resultat = array();
-	while($ligne = $stmt->fetch()) {
-		$resultat[] = $ligne;
-	}
-	return $resultat;
-}
-
-
-function recuperer_departement(){
-	global $pdo;
-	$stmt = $pdo->query('SELECT departement_id,departement_nom,departement_code FROM departement');
-	$resultat = array();
-	while($ligne = $stmt->fetch()) {
-		$resultat[] = $ligne;
-	}
-	return $resultat;
-}
-

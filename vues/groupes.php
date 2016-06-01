@@ -84,7 +84,7 @@
 	?>
 		<div class="clear"></div>
 	<?php
-			pagination($total_de_groupes);
+			pagination($total_groupes);
 
 		} else {
 	?>

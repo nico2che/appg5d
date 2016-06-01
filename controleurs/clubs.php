@@ -3,46 +3,24 @@
 include 'modeles/clubs.php';
 include 'modeles/sports.php';
 
-$L_clubs=list_club();
-$sports=recuperer_sports();
-$departements=recuperer_departement();
+$sports = recuperer_sports();
+$departements = recuperer_departement();
 
-if(isset($_POST['sport']) && !empty($_POST['sport'])&&isset($_POST['departement']) && !empty($_POST['departement'])){
-	$recS=$_POST['sport'];
-	$tabs=idS_C($recS);
-	$lists=array();
-	$listCompars= array();
-	foreach ($tabs as $tab) {
-		$lists[]=info_club($tab[0]);
-	}
-	foreach ($lists as $list) {
-		if ($list['departement_id']==$_POST['departement']) {
-			$listCompars[]= $list;
-		}
-	}
-	$L_clubs=$listCompars;
-}
+if(isset($_GET['sport']) && !empty($_GET['sport']) && isset($_GET['departement']) && !empty($_GET['departement'])){
 
-else{
-if(isset($_POST['sport']) && !empty($_POST['sport'])){
-	$recS=$_POST['sport'];
-	
-	$tabs=idS_C($recS);
-	$list=array();
-	foreach ($tabs as $tab) {
-		$list[]=info_club($tab[0]);
-	}
-	$L_clubs=$list;
-}
-if(isset($_POST['departement']) && !empty($_POST['departement'])){
-	$recD=$_POST['departement'];
-	$tabD=rechercheParDepart($recD);
-	$list=array();
-	foreach ($tabD as $tab) {
-		$list[]=info_club($tab[0]);
-	}
-	$L_clubs=$list;
-}
+	$clubs = recuperer_clubs_sport_departement($_GET['sport'], $_GET['departement']);
+
+} elseif(isset($_GET['sport']) && !empty($_GET['sport'])){
+
+	$clubs = recuperer_clubs_sport($_GET['sport']);
+
+} elseif(isset($_GET['departement']) && !empty($_GET['departement'])) {
+
+	$clubs = recuperer_clubs_departement($_GET['departement']);
+
+} else {
+
+	$clubs = recuperer_clubs();
 }
 
 include 'vues/clubs.php';

@@ -1,11 +1,9 @@
-
+.forum{
+	margin-top: 60px;
+}
 .ajouter-sujet {
 	float: right;
 	margin-top: -15px;
-}
-.forum{
-	margin-top: 60px;
-	background-color: white;
 }
 h3 a, td a {
 	color:black;
@@ -14,6 +12,8 @@ table {
 	width: 100%;
     border-collapse: collapse;
     margin: 0px;
+	background-color: white;
+	margin-bottom: 50px;
 }
 th {
 	background-color: #0c8190;
@@ -24,11 +24,26 @@ td {
     padding: 9px;
     border: 1px solid black;
 }
-
 .encadrer {
 	padding:15px;
 }
-.message-infos {
+.encadrer hr {
+	margin-bottom:15px;
+}
+.message-infos, .message-infos a {
 	color:grey;
 }
- 
+.forum-formulaire h3 {
+	margin: 20px 0;
+}
+.forum-formulaire label {
+    width: 180px;
+    text-align: right;
+    vertical-align: top;
+    margin-right: 30px;
+    margin-bottom: 25px;
+    display: inline-block;
+}
+.forum-formulaire input[type=text] {
+	width: 250px;
+}

@@ -29,10 +29,13 @@ input[type=submit] {
   border-radius: 6px;
   padding: 3px 15px;
 }
-input[type=text], input[type=password], input[type=number] {
+input[type=text], input[type=password], input[type=number], input[type=email], textarea {
   border-radius: 6px;
   padding: 3px 6px;
   border:1px solid grey;
+}
+select {
+  padding: 3px 6px;
 }
 .lien-simple {
   color: black;
@@ -43,6 +46,9 @@ input[type=text], input[type=password], input[type=number] {
 h1 a {
  text-decoration: none;
  color:black;
+}
+.ecarts-y {
+  margin:20px 0;
 }
 
 /* Toutes les pages boxées */

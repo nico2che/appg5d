@@ -2,60 +2,61 @@
 
 include 'modeles/clubs.php';
 
-$recup_club=info_club((int) $_GET['id']);
-
-function sportParId($listIds){
-
-	$resultat = array();
-	foreach ($listIds as $listId) {
-		$resultat[] = sport_id($listId[1]);
-		 
-	}
-	return $resultat;
-}
-
-
-
-
-function nomPrenom($id){
-	return idM_nomM($id);
-}
-
 function moyenne($commentaires){
 	$moyenne=0;
-	$nombre=0;
-	foreach ($commentaires as $recup_commentaire) {
-			$moyenne=$moyenne+$recup_commentaire[4];
-			$nombre=1+$nombre;
+	$nombre_commentaires = count($commentaires);
+	if($nombre_commentaires == 0)
+		return 0;
+	foreach($commentaires as $commentaire) {
+		$moyenne += $commentaire['note'];
+	}
+	return round($moyenne / count($commentaires), 1);
+}
+
+if(isset($_GET['id']) && !empty($_GET['id'])) {
+
+	$id_club = (int) $_GET['id'];
+
+	$informations = recuperer_club($id_club);
+
+	if(!empty($informations)) {
+
+		$club = $informations['club'];
+		$commentaires = $informations['commentaires'];
+		$sports = $informations['sports'];
+
+		if(connecte() && isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
+
+			if(dejaCommente($_SESSION['id'],$_GET['id'])==false){
+
+				if(ajouterCommentaire($id_club, $_SESSION['id'], $_POST['commentaire'], $_POST['note'])) {
+
+					$messages['type'] = 'succes';
+					$messages['message'] = 'Le commentaire a été ajouté avec succès';
+				} else {
+
+					$messages['type'] = 'erreur';
+					$messages['message'] = 'Impossible d\'ajouter le commentaire, veuillez réessayer plus tard';
+				}
+
+			} else {
+
+				if(modifierCommentaire($id_club, $_SESSION['id'], $_POST['commentaire'], $_POST['note'])) {
+
+					$messages['type'] = 'succes';
+					$messages['message'] = 'Le commentaire a été modifié avec succès';
+
+				} else {
+
+					$messages['type'] = 'erreur';
+					$messages['message'] = 'Impossible de modifier le commentaire, veuillez réessayer plus tard';
+				}
+			}
+
+			$informations = recuperer_club($id_club);
+			$commentaires = $informations['commentaires'];
 		}
-	
-	if ($nombre==0){
-		return "-";
 	}
-	else {
-		return $moyenne/$nombre;
-	}
-	
+
+	include 'vues/club.php';
 }
-
-if (isset($_POST['conntenuMessageComment']) && (!empty($_POST['conntenuMessageComment']) )){
-	$idC=$recup_club['id'];
-	$idM=$_SESSION['id'];
-	$comment=$_POST['conntenuMessageComment'];
-	$note=$_POST['note'];
-	if (DejaCommenter($_SESSION['id'],$_GET['id'])==false){
-		ajouterCommentaire($idC,$idM,$comment,$note);
-	}
-	else {
-		modifierComment($comment,$note,$idM);
-	}
-	
-}
-	
-$recup_commentaires=commentaire((int) $_GET['id']);
-
-
-
-
-
-include 'vues/club.php';
