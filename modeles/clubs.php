@@ -62,7 +62,6 @@ function recuperer_clubs_departement($id_departement){
 	}
 	return $resultat;
 }
-
 function recuperer_club($id_club){
 	global $pdo;
 	$stmt = $pdo-> prepare('SELECT c.*, m.nom AS nom_membre, m.prenom AS prenom_membre, cc.id AS id_commentaire, cc.*, s.nom AS nom_sport
@@ -82,6 +81,44 @@ function recuperer_club($id_club){
 	}
 	return $resultat;
 }
+
+function ajouter_club($nom, $adresse, $departement, $code_postal, $email, $telephone, $site, $description) {
+	global $pdo;
+	$stmt = $pdo-> prepare('INSERT INTO clubs SET nom = :nom,
+													localisation = :adresse,
+													departement_id = :departement,
+													code_postale = :code_postal,
+													email = :email,
+													telephone = :telephone,
+													site = :site,
+													description = :description,
+													approuve = 0');
+
+	$stmt->bindValue('nom', $nom, PDO::PARAM_STR);
+	$stmt->bindValue('adresse', $adresse, PDO::PARAM_STR);
+	$stmt->bindValue('departement', $departement, PDO::PARAM_STR);
+	$stmt->bindValue('code_postal', $code_postal, PDO::PARAM_STR);
+	$stmt->bindValue('email', $email, PDO::PARAM_STR);
+	$stmt->bindValue('telephone', $telephone, PDO::PARAM_STR);
+	$stmt->bindValue('site', $site, PDO::PARAM_STR);
+	$stmt->bindValue('description', $description, PDO::PARAM_STR);
+
+	if($stmt->execute())
+		return $pdo->lastInsertId();
+	else
+		return false;
+}
+function ajouter_sport_club($id_sport, $id_club) {
+	global $pdo;
+	$stmt = $pdo->prepare('INSERT INTO sport_club SET id_clubs = :id_club, id_sports = :id_sport');
+	$stmt->bindValue('id_club', $id_club, PDO::PARAM_INT);
+	$stmt->bindValue('id_sport', $id_sport, PDO::PARAM_INT);
+	if($stmt->execute())
+		return $pdo->lastInsertId();
+	else
+		return false;
+}
+
 
 /* Commentaires */
 function ajouterCommentaire($id_club, $id_membre, $commentaire, $note){

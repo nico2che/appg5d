@@ -1,13 +1,4 @@
 <h1><a href="?page=forum">Forum</a></h1>
-<?php
-	if(!empty($messages)) {
-?>
-		<div class="message <?php echo $messages['type']; ?>">
-			<?php echo $messages['message']; ?>
-		</div>
-<?php
-	}
-?>
 <?php if(connecte()) {  ?>
 	<a href="?page=forum&amp;ajouter" class="bouton b-principal ajouter-sujet">Ajouter un sujet</a>
 <?php } ?>

@@ -5,15 +5,6 @@
 		Après avoir valider le formulaire, le club sera vérifié par un administrateur et sera mis en ligne dès que possible.<br><br>
 		Les champs marqués (*) sont obligatoires
 	</p>
-<?php
-	if(!empty($messages)) {
-?>
-	<div class="message <?php echo $messages['type']; ?>">
-		<?php echo $messages['message']; ?>
-	</div>
-<?php
-	}
-?>
 	<form action="" method="post" enctype="multipart/form-data">
 
 		<label for="nom">Nom du club * :</label> 
@@ -22,7 +13,7 @@
 		<label for="image">Photo du club * :</label>
 		<input type="file" name="image" accept="image/*"><br>
 		
-		<label for="sport">Sports pratiqué(s) dans ce club * :</label>
+		<label for="sport">Sports pratiqué(s) dans ce club * :<br><small>(Ctrl+C ou Cmd+C pour en sélectionner plusieurs)</small></label>
 		<select id="sport" name="sports[]" multiple>
 	<?php 
 		foreach ($sports as $sport) {

@@ -28,15 +28,6 @@
 		</div>
 		<h3>Dates de rencontre</h3>
 		<p>Cet événement est <?php echo $infos_groupe['recurrence']; ?>.<br>Voici la ou les dates actuellement proposées par le créateur de ce groupe.</p>
-	<?php
-		if(!empty($messages)) {
-	?>
-		<div class="message <?php echo $messages['type']; ?>">
-			<?php echo $messages['message']; ?>
-		</div>
-	<?php
-		}
-	?>
 		<div class="liste-encadrer">
 	<?php
 		if(est_auteur_groupe($membres_groupe)) {

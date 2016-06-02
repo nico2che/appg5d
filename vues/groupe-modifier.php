@@ -1,14 +1,5 @@
 <div class="form-groupe">
 	<h3>Modifier un groupe</h3>
-<?php
-	if(!empty($messages)) {
-?>
-	<div class="message <?php echo $messages['type']; ?>">
-		<?php echo $messages['message']; ?>
-	</div>
-<?php
-	}
-?>
 	<form action="" method="post" enctype="multipart/form-data">
 		<label for="nom">Nom du groupe</label> <input type="text" id="nom" name="nom" value="<?php echo $infos_groupe['titre']; ?>"><br>
 		<label for="sport">Sport de ce groupe</label>

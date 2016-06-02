@@ -6,15 +6,6 @@
 
 ?>
 	<h3>Modifier un sujet</h3>
-<?php
-	if(!empty($messages)) {
-?>
-		<div class="message <?php echo $messages['type']; ?>">
-			<?php echo $messages['message']; ?>
-		</div>
-<?php
-	}
-?>
 	<form method="post" action="">
 		<label>Nom du sujet * : </label><input type="text" name="titre" required="" value="<?php echo htmlspecialchars($sujet['titre']); ?>"><br>
 		<label>Contenu * : </label>

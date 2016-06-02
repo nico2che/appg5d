@@ -8,15 +8,6 @@
 	} else {
 ?>
 	<h1><a href="?page=clubs" class="lien-simple"><?php echo $club['nom'] ?></a></h1>
-	<?php
-		if(!empty($messages)) {
-	?>
-		<div class="message <?php echo $messages['type']; ?>">
-			<?php echo $messages['message']; ?>
-		</div>
-	<?php
-		}
-	?>
 	<div class="encadrer details ">
 		<span class="label">Adresse :</span> <?php echo $club['localisation'].", ".$club['code_postale']; ?>
 		<?php
@@ -47,7 +38,7 @@
 		<br><span class="label">Description :</span> 
 		<div class="description"><?php echo nl2br(htmlspecialchars($club['description'])); ?></div>
 	</div>
-	<div class="image encadrer" style="background-image:url('<?php echo $club['photo_club']; ?>');"></div>
+	<div class="image encadrer" style="background-image:url('<?php echo (is_file(DOSSIER_CLUBS . $id_club . '.jpg') ? DOSSIER_CLUBS . $id_club . '.jpg' : 'http://ccfd56.fr/wordpress/wp-content/themes/openmind/img/no_image.png') ?>');"></div>
 	<div class="clear"></div>
 	<h3>Commentaires</h3>
 	<div class="liste-encadrer ">

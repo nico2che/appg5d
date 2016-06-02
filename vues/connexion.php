@@ -2,15 +2,6 @@
 	<form class="box grad" method="post">
 		<h1 class="titre">Connexion</h1>
 		<div class="connexion-cadre">
-	<?php
-		if(!empty($messages)) {
-	?>
-			<div class="message <?php echo $messages['type']; ?>">
-				<?php echo $messages['message']; ?>
-			</div>
-	<?php
-		}
-	?>
 			<p class="texte">Vous avez déjà un compte ?</p>
 			<label for="email">Identifiant :</label><input type="text" name="email" id="email"><br>
 			<label for="mot_de_passe">Mot de passe :</label><input type="password" name="mot_de_passe" id="mot_de_passe"><br>

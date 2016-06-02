@@ -44,7 +44,7 @@
 		<?php
 			foreach ($departements as $departement) {
 		?>
-					<option value="<?php echo $departement['departement_id']; ?>"<?php echo ($informations['localisation'] == $departement['departement_id'] ? ' selected=""' : null); ?>><?php echo $departement['departement_code']; ?> - <?php echo $departement['departement_nom']; ?></option>
+					<option value="<?php echo $departement['departement_id']; ?>"<?php echo ($informations['id_departement'] == $departement['departement_id'] ? ' selected=""' : null); ?>><?php echo $departement['departement_code']; ?> - <?php echo $departement['departement_nom']; ?></option>
 		<?php
 			}
 		?>

@@ -1,16 +1,7 @@
 	<h1><a href="?page=forum">Forum</a></h1>
-	<?php
-		if(!empty($messages)) {
-	?>
-			<div class="message <?php echo $messages['type']; ?>">
-				<?php echo $messages['message']; ?>
-			</div>
-	<?php
-		}
-		$date_sujet = new DateTimeFrench($sujet['date']);
-	?>
 	<h3><?php echo $sujet['titre']; ?></h3>
 	<?php
+		$date_sujet = new DateTimeFrench($sujet['date']);
 		if(connecte() && $sujet['id_membre'] == $_SESSION['id']) {
 	?>
 		<p class="ecarts-y">Vous êtes le créateur de ce sujet. Vous pouvez le <a href="?page=forum&amp;modifier&amp;sujet=<?php echo $sujet['id_sujet']; ?>" class="lien-simple">modifier</a> ou le <a href="?page=forum&amp;supprimer&amp;sujet=<?php echo $sujet['id_sujet']; ?>" class="lien-simple" onClick="return confirm('Voulez-vous vraiment supprimer ce sujet ?');">supprimer</a>.</p>
