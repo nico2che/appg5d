@@ -1,4 +1,10 @@
+<?php
+	if(connecte()) {
+?>
 	<a href="?page=clubs&amp;proposer" class="bouton b-principal float-right">Proposer un club</a>
+<?php
+	}
+?>
 	<h1><a href="?page=clubs" class="lien-simple">Clubs</a></h1>
 	<div class="recherche encadrer">
 		<form class="inputs">

@@ -1,4 +1,10 @@
+<?php
+	if(connecte()) {
+?>
 	<a href="?page=groupe&amp;ajouter" class="bouton b-principal float-right">Ajouter un groupe</a>
+<?php
+	}
+?>
 	<h1><a href="?page=groupes" class="lien-simple">Groupes</a></h1>
 	<div class="recherche encadrer">
 		<form class="inputs<?php echo (!isset($_GET['recherche']) ? ' recherche-simple' : null); ?>"<?php echo (!isset($_GET['recherche']) ? ' onSubmit="return false;"' : null); ?>>
