@@ -3,6 +3,7 @@
 <head>
 	<title>TEAM UP</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="static/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:200,400,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<?php if(is_file('static/css/' . $action . '.css') || isset($fichier_css)) { ?><link rel="stylesheet" type="text/css" href="static/css/<?php echo (isset($fichier_css) ? $fichier_css : $action); ?>.css"><?php } ?>

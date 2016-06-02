@@ -6,7 +6,8 @@ $(document).ready(function(){
 	$('#avatar_fichier').on('change', function(){
 		var ancien = $('.photo').attr('src');
 		var thumb = window.URL.createObjectURL(this.files[0]);
-		$('.photo').attr('src', 'static/images/ajax-loader.gif').addClass('chargement-avatar');
+		$('.photo').css('background-image', 'url(static/images/ajax-loader.gif)').addClass('chargement-avatar');
+		$('.avatar-menu').attr('src', 'static/images/ajax-loader.gif').addClass('chargement-avatar');
 		$.ajax({
 			url : '?page=mon-profil&upload',
 			type : 'POST',
@@ -14,10 +15,12 @@ $(document).ready(function(){
             processData: false, // obligatoire pour de l'upload
 			data : ((window.FormData) ? new FormData($('#form_avatar')[0]) : $('#form_avatar').serialize()),
 			success : function(data) {
-				$('.photo').removeClass('chargement-avatar').attr('src', thumb);
+				$('.photo').removeClass('chargement-avatar').css('background-image', 'url('+thumb+')');
+				$('.avatar-menu').removeClass('chargement-avatar').attr('src', thumb);
 			},
 			error : function(){
-				$('.photo').removeClass('chargement-avatar').attr('src', ancien);
+				$('.photo').removeClass('chargement-avatar').css('background-image', 'url('+ancien+')');
+				$('.avatar-menu').removeClass('chargement-avatar').attr('src', ancien);
 			}
 		})
 	});

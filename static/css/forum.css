@@ -1,24 +1,22 @@
+.forum{
+	margin-top: 60px;
+}
 .ajouter-sujet {
 	float: right;
 	margin-top: -15px;
 }
-.forum{
-	margin-top: 60px;
-	background-color: white;
-}
-h3 a, td a, h1 a {
+h3 a, td a {
 	color:black;
-}
-h1 a {
- text-decoration: none;
 }
 table {
 	width: 100%;
     border-collapse: collapse;
     margin: 0px;
+	background-color: white;
+	margin-bottom: 50px;
 }
 th {
-	background-color: #0067C0;
+	background-color: #0c8190;
     color: white;
     padding:12px;
 }
@@ -26,25 +24,26 @@ td {
     padding: 9px;
     border: 1px solid black;
 }
-
 .encadrer {
 	padding:15px;
 }
-.message-infos {
+.encadrer hr {
+	margin-bottom:15px;
+}
+.message-infos, .message-infos a {
 	color:grey;
 }
-
-#cover {
-  width:100%;
-  height:100%;
-  background:url(../../static/images/fond.jpg);
-  -webkit-background-size: cover; /* pour Chrome et Safari */
-  -moz-background-size: cover; /* pour Firefox */
-  -o-background-size: cover; /* pour Opera */
-  background-size: cover; /* version standardisée */
-  top : 0;
-  left : 0;
-  position : fixed;
-  z-index : -1;
+.forum-formulaire h3 {
+	margin: 20px 0;
 }
- 
+.forum-formulaire label {
+    width: 180px;
+    text-align: right;
+    vertical-align: top;
+    margin-right: 30px;
+    margin-bottom: 25px;
+    display: inline-block;
+}
+.forum-formulaire input[type=text] {
+	width: 250px;
+}

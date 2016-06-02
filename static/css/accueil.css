@@ -1,9 +1,10 @@
 .banniere{
   align-content: center;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  background: url('../../static/images/beach_volley.jpg'), no-repeat, left top;
+  background: url('../../static/images/bg2.jpg'), no-repeat, left top;
   background-size: cover;
+  margin-top:-20px;
 }
 
 .banniere_contenu {
@@ -48,23 +49,41 @@
 .Promo
 {
   text-align: center;
-  height: 625px;
+  padding: 1%;
+}
+
+.Promo h1{
+  margin-bottom: 1%
 }
 
 .troisetapes {
   display: flex;
-  height: 20em;
-  background-color: black;
+  height: 35em;
+  width: 100%;
+  color: white;
 }
 
+.etape {
+  padding: 2%;
+  width: 30%;
+  background-color: blue;
+}
+#souris {
+  background-color:#dd281f;
+}
+#highfive {
+  background-color:#ffa23d;
+}
+#vetements {
+  background-color:#0c8190;
+}
 .troisetapes.etape h1 {
-  text-align: center;
+  top: 75%
 }
 
-.etape.fleche {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+.divfleche{
+  width: 5%;
+  margin-top: 15em;
 }
 
 .baspresentation{

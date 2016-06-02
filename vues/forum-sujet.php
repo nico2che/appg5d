@@ -1,34 +1,38 @@
-	<div id="cover"></div>
 	<h1><a href="?page=forum">Forum</a></h1>
 	<?php
-		if(isset($message))
-			echo '<p>'.$message.'</p>';
-
+		if(!empty($messages)) {
+	?>
+			<div class="message <?php echo $messages['type']; ?>">
+				<?php echo $messages['message']; ?>
+			</div>
+	<?php
+		}
 		$date_sujet = new DateTimeFrench($sujet['date']);
 	?>
 	<h3><?php echo $sujet['titre']; ?></h3>
 	<?php
-		if($sujet['id_membre'] == $_SESSION['id']) {
+		if(connecte() && $sujet['id_membre'] == $_SESSION['id']) {
 	?>
-		<p><a href="?page=modifier-sujet&amp;sujet=<?php echo $sujet['id_sujet']; ?>">Modifier le sujet</a></p>
+		<p class="ecarts-y">Vous êtes le créateur de ce sujet. Vous pouvez le <a href="?page=forum&amp;modifier&amp;sujet=<?php echo $sujet['id_sujet']; ?>" class="lien-simple">modifier</a> ou le <a href="?page=forum&amp;supprimer&amp;sujet=<?php echo $sujet['id_sujet']; ?>" class="lien-simple" onClick="return confirm('Voulez-vous vraiment supprimer ce sujet ?');">supprimer</a>.</p>
 	<?php
 		}
 	?>
-	<div class="liste-encadrer">
+	<div class="liste-encadrer ">
 		<div class="encadrer">
 			<span class="message-infos">Rédigé par <?php echo $sujet['prenom'] . ' '. $sujet['nom']; ?><span class="float-right">le <?php echo $date_sujet->format('d F Y'); ?> à <?php echo $date_sujet->format('H:i'); ?></span></span>
 			<hr>
 			<?php echo nl2br(htmlspecialchars($sujet['message'])); ?>
 		</div>
 	<?php
-		foreach($messages as $message) {
+
+		foreach($messages_sujet as $message) {
 			
 			$date_reponse = new DateTimeFrench($message['date']);
 	?>
 		<div class="encadrer">
-			<span class="message-infos">Réponse de <?php echo $message['prenom'] . ' '. $message['nom']; ?> <span class="float-right">le <?php echo $date_reponse->format('d F Y'); ?> à <?php echo $date_reponse->format('H:i'); ?></span></span>
+			<span class="message-infos">Réponse de <?php echo $message['prenom'] . ' '. $message['nom'] . (connecte() && $message['id_membre'] == $_SESSION['id'] ? ' (<a href="?page=forum&sujet='.$id_sujet.'&supprimer-message='.$message['id_message'].'" onClick="return confirm(\'Voulez-vous vraiment supprimer votre message ?\');">supprimer</a>)' : null); ?> <span class="float-right">le <?php echo $date_reponse->format('d F Y'); ?> à <?php echo $date_reponse->format('H:i'); ?></span></span>
 			<hr>
-			<?php echo nl2br(htmlspecialchars($sujet['message'])); ?>
+			<?php echo nl2br(htmlspecialchars($message['message'])); ?>
 		</div>
 	<?php
 		}

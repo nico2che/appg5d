@@ -2,9 +2,14 @@
   font-family: 'Titillium Web', sans-serif;
 	margin:0;
 	padding: 0;
-  height:100%
-  width: 100%;
 }
+body{
+  background:url(../../static/images/motif.jpg);
+  background-repeat: repeat;
+  min-height:100%;
+}
+
+/* Classes générales */
 .align-right {
   text-align: right;
 }
@@ -24,39 +29,53 @@ input[type=submit] {
   border-radius: 6px;
   padding: 3px 15px;
 }
-input[type=text], input[type=password], input[type=number] {
+input[type=text], input[type=password], input[type=number], input[type=email], textarea {
   border-radius: 6px;
   padding: 3px 6px;
   border:1px solid grey;
 }
+select {
+  padding: 3px 6px;
+}
+.lien-simple {
+  color: black;
+}
 .clear{
 	clear: both;
 }
+h1 a {
+ text-decoration: none;
+ color:black;
+}
+.ecarts-y {
+  margin:20px 0;
+}
 
+/* Toutes les pages boxées */
+.page {
+  width:1125px;
+  margin: 20px auto;
+  min-height:calc(100vh - 202px);
+}
+
+
+/* Header sur toutes les pages */
 header {
   height:7em;
   background-color: white;
 }
 header #logo {
   background-repeat: no-repeat;
-<<<<<<< HEAD
-  background-size: 8em auto;
   margin-left: 1.8em;
   margin-top: 1.3em;
   width: 15em;
-=======
-  background-size: 77px auto;
-  float: left;
-  height: 65px;
-  width: 55px;
->>>>>>> origin/master
 }
 header nav {
   float: right;
 }
 header nav ul {
   list-style: outside none none;
-  margin-top: 2.3em;
+  margin-top: 38px;
   min-height: 100%;
   font-size: 1.3em;
   font-weight: bold;
@@ -76,18 +95,11 @@ header .avatar-menu {
   width:50px;
   height: 50px;
   float: right;
-  margin-top: -15px;
-  margin-left: 21px;
+  margin: -7px 50px 0 -38px;
   border-radius: 7px;
 }
 
-.page {
-  width:65%;
-  padding:10px;
-  margin: auto;
-  min-height:calc(100% - 155px);;
-}
-
+/* footer */
 footer {
   height: 50px;
   clear: both;
@@ -97,7 +109,6 @@ footer {
   margin-bottom: 0;
   color:white;
 }
-
 footer a {
   text-decoration: none;
   color:white;
@@ -135,11 +146,14 @@ div.message.succes a {
   border: 1px solid black;
   background-color: white;
 }
+.liste-encadrer {
+  margin: 15px 0 20px 0;
+}
 .liste-encadrer > .encadrer {
-  margin-top: -1px;
+  margin-top: 0;
   border-radius: 0px;
   border-top: 0px;
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
 }
 .liste-encadrer > .encadrer:last-child {
   border-bottom-right-radius: 5px!important;
@@ -159,7 +173,7 @@ div.message.succes a {
 
 /* boutons */
 .bouton {
-  padding:12px;
+  padding:6px 12px;
   border:1px solid black;
   border-radius:7px;
   text-decoration: none;
@@ -174,6 +188,18 @@ div.message.succes a {
   background-color: #D54F58;
 }
 
-.avatar-menu{
-  height: 100px;
+/* pagination */
+.pagination {
+  float:right;
+  margin-bottom: 20px;
+}
+.pagination a {
+  padding: 4px;
+  color: white;
+  background-color: #5E5E5E;
+}
+.pagination span {
+  padding: 4px;
+  color: #5E5E5E;
+  background-color: white;
 }
