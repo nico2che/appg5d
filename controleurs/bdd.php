@@ -1,13 +1,24 @@
 <?php
 	include 'vues/admin-menu.php';
 	include 'modeles/admin.php';
+
+	$tables = array('aide', 'sports','membres','groupes_membres','groupes','forum_sujets','forum_messages','dates_rencontres','clubs','commentaires_clubs','contacte_message','sport_club');
+	
 	echo"<p>Ici, vous  pouvez gérer votre site web, en cliquant sur un onglet du menu de gauche,
 	vous aurez accès à de nombreuses fonctionnalitées!";
+	
+
+
+
 	if(isset($_GET['gestion-bdd'])){
 		?><div class="cadre-gestion"><?php
 		include 'vues/gestionBDD.php';
 		?></div><?php
 	}
+	
+
+
+
 	if(isset($_GET['gestion-forum'])){
 		$request = $pdo->prepare('SELECT * FROM forum_messages');
 		$request->execute();
@@ -38,6 +49,8 @@
 
 
 	}
+	
+
 	if(isset($_GET['gestion-nl'])){
 		?><div class="cadre-gestion"><?php
 		include 'vues/gestionNL.php';
@@ -47,19 +60,28 @@
 		}
 		
 	}
+	
+
+	
+
 	if(isset($_GET['gestion-membres'])){
 		?><div class="cadre-gestion"><?php
 		include 'vues/gestionMembres.php';
 		?></div><?php
-	
+
+		if(isset($_POST['bannis']) && $_POST['bannis']==0){
+				$request=$pdo->query("UPDATE membres SET bannis=0 WHERE pseudo='".$_POST['pseudo']."'");
+			}
+			if(isset($_POST['bannis']) && $_POST['bannis']==1){
+				$request=$pdo->query("UPDATE membres SET bannis=1 WHERE pseudo='".$_POST['pseudo']."'");
+			}
+
 		if(isset($_POST['pseudo']) && !empty($_POST['pseudo'])){
 			$request=$pdo->query("SELECT * FROM membres WHERE pseudo='".$_POST['pseudo']."'");
 			?><div class="cadre-gestion"><?php
 			include 'vues/membres-modifier.php';
 			?></div><?php
-			if(isset($_POST['bannis']) && !empty($_POST['bannis'])){
-				$request=$pdo->query("UPDATE membres SET bannis='".$_POST['bannis']."'");
-			}
+			
 		}
 
 		if(isset($_POST['email']) && !empty($_POST['email'])){
@@ -69,11 +91,11 @@
 			?></div><?php
 		}
 
+
 	}
 
 
 
-	$tables = array('aide', 'sports','membres','groupes_membres','groupes','forum_sujets','forum_messages','dates_rencontres','clubs','commentaires_clubs','contacte_message','sport_club');
 	
 	if(isset($_POST['table']) && !empty($_POST['table']) && in_array($_POST['table'], $tables)){
 
