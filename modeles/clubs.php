@@ -99,7 +99,7 @@ function ajouter_club($nom, $adresse, $departement, $code_postal, $email, $telep
 	$stmt->bindValue('nom', $nom, PDO::PARAM_STR);
 	$stmt->bindValue('adresse', $adresse, PDO::PARAM_STR);
 	$stmt->bindValue('departement', $departement, PDO::PARAM_STR);
-	$stmt->bindValue('code_postal', $code_postal, PDO::PARAM_STR);
+	$stmt->bindValue('code_postal', (int) $code_postal, PDO::PARAM_INT);
 	$stmt->bindValue('email', $email, PDO::PARAM_STR);
 	$stmt->bindValue('telephone', $telephone, PDO::PARAM_STR);
 	$stmt->bindValue('site', $site, PDO::PARAM_STR);

@@ -19,10 +19,14 @@
 		<a class="lien-titre" href="?page=groupe&amp;id=<?php echo $id_groupe; ?>"><h2><?php echo $infos_groupe['titre']; ?></h2></a>
 		<div class="liste-encadrer">
 			<div class="encadrer specifications">
-				<span>Créé par <?php echo $membres_groupe['types'][1][0]['prenom']; ?></span>
-				<span><i class="fa fa-fire"></i> <?php echo $infos_groupe['nom_sport']; ?></span><br><br>
-				<span><i class="fa fa-calendar"></i> <?php echo ucfirst($infos_groupe['recurrence']); ?></span>
+				<span><i class="fa fa-fire"></i> <a class="lien-simple" href="?page=groupes&amp;recherche=&amp;sport=<?php echo $infos_groupe['id_sport']; ?>"><?php echo $infos_groupe['nom_sport']; ?></a></span>
+				<span><i class="fa fa-bar-chart"></i> <a class="lien-simple" href="?page=groupes&amp;recherche=&amp;niveau=<?php echo $infos_groupe['niveau']; ?>"><?php echo $niveaux[$infos_groupe['niveau']]; ?></a></span>
+				<br><br>
+				<span><i class="fa fa-user"></i> Créé par <?php echo $membres_groupe['types'][1][0]['prenom']; ?></span>
 				<span><i class="fa fa-users"></i> <?php echo ($infos_groupe['max_participants'] > 0 ? count($membres_groupe['tous']) . ' participants sur ' . $infos_groupe['max_participants'] : count($membres_groupe['tous']) . ' participants'); ?></span>
+				<br><br>
+				<span><i class="fa fa-calendar"></i> <a class="lien-simple" href="?page=groupes&amp;recherche=&amp;recurrence=<?php echo $infos_groupe['recurrence']; ?>"><?php echo ucfirst($infos_groupe['recurrence']); ?></a></span
+>				<span><i class="fa fa-map"></i> <a class="lien-simple" href="?page=groupes&amp;recherche=&amp;departement=<?php echo $infos_groupe['id_departement']; ?>"><?php echo $infos_groupe['departement_nom']; ?> (<?php echo $infos_groupe['departement_code']; ?>)</a></span>
 			</div>
 			<p class="encadrer"><?php echo nl2br($infos_groupe['description']); ?></p>
 		</div>
@@ -108,7 +112,7 @@
 				$heureTime = new DateTimeFrench($date['infos']['duree']);
 			?>
 					<span class="heure">à <?php echo $dateTime->format('H\hi'); ?>, pendant <?php echo $heureTime->format('G\hi'); ?></span><br>
-					<a href="#" class="lieu" data-coordonnees="<?php echo $date['infos']['coordonnees']; ?>">
+					<a href="#" class="lien-simple lieu" data-coordonnees="<?php echo $date['infos']['coordonnees']; ?>">
 						<span class="localisation"><?php echo $date['infos']['localisation']; ?></span>
 					</a>
 				</div>
@@ -147,7 +151,9 @@
 	<?php echo count($membres_groupe['tous']); ?> membres<br><br>
 	<?php 
 		foreach ($membres_groupe['tous'] as $membre) {
-			echo '<div class="participant" title="'.$membre['prenom'].'" style="background-image:url(\''.(is_file(chemin_avatar($membre['id'])) ? chemin_avatar($membre['id']) : chemin_avatar('0')).'\');"></div>';
+			echo '	<a class="profil" href="?page=profil&id='.$membre['id'].'">
+						<div class="participant" title="'.$membre['prenom'].'" style="background-image:url(\''.(is_file(chemin_avatar($membre['id'])) ? chemin_avatar($membre['id']) : chemin_avatar('0')).'\');"></div>
+					</a>';
 		}
 	?>
 		</div>

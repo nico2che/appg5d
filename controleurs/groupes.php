@@ -39,24 +39,34 @@ if(isset($_GET['nom']) && isset($_GET['sport']) && isset($_GET['recurrence'])) {
 	echo json_encode($recherche['lignes']);
 	exit();
 
-} elseif(isset($_GET['recherche']) && isset($_GET['sport']) && isset($_GET['recurrence']) && isset($_GET['min']) && isset($_GET['max']) && isset($_GET['departement'])) {
+} elseif(isset($_GET['recherche'])) {
 
 	$requete = '';
+	
 	if(!empty($_GET['recherche']))
 		$requete .= ' titre LIKE :titre AND';
-	if(!empty($_GET['sport']))
+
+	if(isset($_GET['sport']) && !empty($_GET['sport']))
 		$requete .= ' id_sport = :id_sport AND';
-	if(!empty($_GET['recurrence']))
+
+	if(isset($_GET['recurrence']) && !empty($_GET['recurrence']))
 		$requete .= ' recurrence = :recurrence AND';
-	if(!empty($_GET['min']))
+
+	if(isset($_GET['min']) && !empty($_GET['min']))
 		$requete .= ' min_participants >= :min AND';
-	if(!empty($_GET['max']))
+
+	if(isset($_GET['max']) && !empty($_GET['max']))
 		$requete .= ' (max_participants <= :max AND max_participants != 0) AND';
-	if(!empty($_GET['departement']))
+
+	if(isset($_GET['departement']) && !empty($_GET['departement']))
 		$requete .= ' id_departement = :departement AND';
+
+	if(isset($_GET['niveau']) && !empty($_GET['niveau']))
+		$requete .= ' niveau = :niveau AND';
+
 	$requete .= ' 1=1';
 
-	$recherche = rechercher_groupe_avancee($_GET['recherche'], $_GET['sport'], $_GET['recurrence'], $_GET['min'], $_GET['max'], $_GET['departement'], $requete, $debut_requete, $groupes_par_page);
+	$recherche = rechercher_groupe_avancee($_GET['recherche'], (isset($_GET['sport']) ? $_GET['sport'] : null), (isset($_GET['recurrence']) ? $_GET['recurrence'] : null), (isset($_GET['min']) ? $_GET['min'] : null), (isset($_GET['max']) ? $_GET['max'] : null), (isset($_GET['departement']) ? $_GET['departement'] : null), (isset($_GET['niveau']) ? $_GET['niveau'] : null), $requete, $debut_requete, $groupes_par_page);
 
 } else {
 

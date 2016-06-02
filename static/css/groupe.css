@@ -27,9 +27,12 @@
 }
 
 .groupe .details .specifications span {
-	margin-left:15px;
+  margin-left:15px;
   width:46%;
   display: inline-block;
+}
+.groupe .details .specifications span i {
+  margin-right:10px;
 }
 .groupe .details p.description {
   margin: 15px;
@@ -122,6 +125,9 @@
   margin-top: -1px;
   margin-right: 1px;
 }
-.dates .details-date a.supprimer-groupe {
+.dates .details-date a.supprimer-date {
   color:#D54F58;
+}
+.profil {
+  text-decoration: none;
 }

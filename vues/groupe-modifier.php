@@ -53,6 +53,14 @@
 			<option value="2"<?php echo ($infos_groupe['niveau'] == 2 ? ' selected=""' : null); ?>>Moyen</option>
 			<option value="3"<?php echo ($infos_groupe['niveau'] == 3 ? ' selected=""' : null); ?>>Confirmé</option>
 		</select><br>
+
+		<label for="niveau">Niveau sportif</label>
+		<select id="niveau" name="niveau">
+			<option value="1"<?php echo (isset($infos_groupe['niveau']) && $infos_groupe['niveau'] == 1 ? ' selected=""' : null); ?>>Tout</option>
+			<option value="2"<?php echo (isset($infos_groupe['niveau']) && $infos_groupe['niveau'] == 2 ? ' selected=""' : null); ?>>Débutant</option>
+			<option value="3"<?php echo (isset($infos_groupe['niveau']) && $infos_groupe['niveau'] == 3 ? ' selected=""' : null); ?>>Moyen</option>
+			<option value="4"<?php echo (isset($infos_groupe['niveau']) && $infos_groupe['niveau'] == 4 ? ' selected=""' : null); ?>>Confirmé</option>
+		</select><br>
 		
 		<input type="hidden" name="type" value="modifier">
 		<input type="submit" value="Modifier le groupe" class="float-right">

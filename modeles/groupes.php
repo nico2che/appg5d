@@ -40,7 +40,7 @@ function rechercher_groupe($titre, $id_sport, $recurrence, $requete, $debut, $co
 	return array('nombre' => $pdo->query('SELECT FOUND_ROWS();')->fetch(PDO::FETCH_COLUMN), 'lignes' => $stmt->fetchAll());
 }
 /* Recherche avancée des groupes */
-function rechercher_groupe_avancee($titre, $id_sport, $recurrence, $min, $max, $departement, $requete, $debut, $combien) {
+function rechercher_groupe_avancee($titre, $id_sport, $recurrence, $min, $max, $departement, $niveau, $requete, $debut, $combien) {
 	global $pdo;
 	$stmt = $pdo->prepare('SELECT SQL_CALC_FOUND_ROWS s.nom AS nom_sport, g.id AS id_groupe, g.*, s.*, COUNT(*) AS nbre FROM groupes g
 																										JOIN sports s ON s.id = g.id_sport
@@ -61,6 +61,8 @@ function rechercher_groupe_avancee($titre, $id_sport, $recurrence, $min, $max, $
 		$stmt->bindValue('max', $max, PDO::PARAM_INT);
 	if(!empty($departement))
 		$stmt->bindValue('departement', $departement, PDO::PARAM_INT);
+	if(!empty($niveau))
+		$stmt->bindValue('niveau', $niveau, PDO::PARAM_INT);
 	
 	$stmt->bindValue('debut', $debut, PDO::PARAM_INT);
 	$stmt->bindValue('combien', $combien, PDO::PARAM_INT);
@@ -73,10 +75,11 @@ function rechercher_groupe_avancee($titre, $id_sport, $recurrence, $min, $max, $
 function infos_groupe($id) {
 
 	global $pdo;
-	$stmt = $pdo->prepare('SELECT s.nom AS nom_sport, g.* 	FROM groupes_membres AS g_m
+	$stmt = $pdo->prepare('SELECT s.nom AS nom_sport, s.id AS id_sport, g.*, d.departement_nom, d.departement_code FROM groupes_membres AS g_m
 																RIGHT JOIN groupes AS g ON g.id = g_m.id_groupe
 																LEFT JOIN membres AS m ON m.id = g_m.id_membre
 																JOIN sports AS s ON s.id = g.id_sport
+																LEFT JOIN departement d ON d.departement_id = g.id_departement
 															WHERE g.id = :id');
 	$stmt->bindValue('id', $id, PDO::PARAM_INT);
 	$stmt->execute();

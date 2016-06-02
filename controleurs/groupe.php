@@ -5,6 +5,7 @@ include 'modeles/sports.php';
 include 'modeles/clubs.php';
 
 $mois = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+$niveaux = array(1 => 'Tous les niveaux', 'Niveau débutant', 'Niveau moyen', 'Niveau confirmé');
 
 $id_groupe = (int) (isset($_GET['id']) ? $_GET['id'] : 0);
 

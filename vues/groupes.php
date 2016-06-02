@@ -36,9 +36,10 @@
 			<a href="?page=groupes" class="lien-simple">Recherche simple</a>
 			<div class="recherche-avancee">
 				<label for="nbre_min">Limite de participant(s) entre </label> <input min="0" type="number" value="<?php echo (isset($_GET['min']) ? htmlspecialchars($_GET['min']) : 0); ?>" name="min"> 
-				<label for="nbre_max"> et </label> <input type="number" min="0" value="<?php echo (isset($_GET['max']) ? htmlspecialchars($_GET['max']) : 0); ?>" name="max"> &nbsp;(0 pour illimité) <label for="nbre_actuel">, avec au moins </label> <input type="number" min="0" value="<?php echo (isset($_GET['actuel']) ? htmlspecialchars($_GET['actuel']) : 0); ?>" name="actuel"> participant(s) actuel(s)<br>
-				<label>Département : </label> &nbsp;
-				<select name="departement">
+				<label for="nbre_max"> et </label> <input type="number" min="0" value="<?php echo (isset($_GET['max']) ? htmlspecialchars($_GET['max']) : 0); ?>" name="max" id="nbre_max"> &nbsp;(0 pour illimité) <label for="nbre_actuel">, avec au moins </label> <input type="number" min="0" value="<?php echo (isset($_GET['actuel']) ? htmlspecialchars($_GET['actuel']) : 0); ?>" name="actuel"> participant(s) actuel(s)<br>
+				
+				<label for="departement">Département : </label> &nbsp;
+				<select name="departement" id="departement">
 					<option value="0">-- Sélectionnez un département --</option>
 		<?php
 			foreach ($departements as $departement) {
@@ -48,6 +49,16 @@
 			}
 		?>
 				</select><br>
+
+				<label for="niveau">Niveau sportif</label> &nbsp;
+				<select id="niveau" name="niveau">
+					<option value="0">-- Sélectionnez un niveau --</option>
+					<option value="1"<?php echo (isset($_GET['niveau']) && $_GET['niveau'] == 1 ? ' selected=""' : null); ?>>Tout</option>
+					<option value="2"<?php echo (isset($_GET['niveau']) && $_GET['niveau'] == 2 ? ' selected=""' : null); ?>>Débutant</option>
+					<option value="3"<?php echo (isset($_GET['niveau']) && $_GET['niveau'] == 3 ? ' selected=""' : null); ?>>Moyen</option>
+					<option value="4"<?php echo (isset($_GET['niveau']) && $_GET['niveau'] == 4 ? ' selected=""' : null); ?>>Confirmé</option>
+				</select><br>
+
 				<input type="hidden" value="groupes" name="page">
 				<input type="submit" value="Rechercher" class="rechercher-bouton">
 				<div class="clear"></div>
