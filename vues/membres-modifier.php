@@ -10,7 +10,7 @@
 		<th>Sexe</th>
 		<th>Bannis</th>
 		<th>Role</th>
-		<th>Activite forum</th>
+		<th>Activité forum</th>
 	</tr>
 	<?php foreach($request as $ligne){
 			echo"<tr>
