@@ -21,10 +21,21 @@
 					<td>{$ligne[5]}</td>
 					<td>{$ligne[6]}</td>
 					<td>{$ligne[7]}</td>
-					<td>{$ligne[8]}</td>
-					<td>{$ligne[9]}</td>
-					<td>{$ligne[10]}</td>
-					<td>{$ligne[11]}</td>
-				</tr></table>
-			";
+					<td>{$ligne[8]}</td>";
+					if($ligne[9]==0){
+						echo"<td><form method=\"post\" action=\"bdd.php\"><select name=\"bannis\"><option selected=\"selected\">0</option><option>1</option></td>";
+					}else{
+						echo"<td><form method=\"post\" action=\"bdd.php\"><select name=\"bannis\"><option>0</option><optionselected=\"selected\">1</option></td>";
+					}
+
+					if($ligne[10]=='membre'){
+						echo"<td><form method=\"post\"><select name=\"role\"><option selected=\"selected\">membre</option><option>admin</option></td>";
+					}else{
+						echo"<td><form method=\"post\"><select name=\"role\"><option>membre</option><optionselected=\"selected\">admin</option></td>";
+					}
+
+					echo"<td>{$ligne[11]}</td>
+				</tr></table>";
+			
 	}
+	?>

@@ -44,6 +44,9 @@
 		if(isset($_POST['pseudo']) && !empty($_POST['pseudo'])){
 			$request=$pdo->query("SELECT * FROM membres WHERE pseudo='".$_POST['pseudo']."'");
 			include 'vues/membres-modifier.php';
+			if(isset($_POST['bannis']) && !empty($_POST['bannis'])){
+				$request=$pdo->query("UPDATE membres SET bannis='".$_POST['bannis']."'");
+			}
 		}
 
 		if(isset($_POST['email']) && !empty($_POST['email'])){
