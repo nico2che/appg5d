@@ -33,7 +33,7 @@ if(isset($_GET['proposer'])) {
 
 				foreach ($_POST['sports'] as $sport) {
 					
-					ajouter_sport_club($id_club, $sport);
+					ajouter_sport_club($sport, $id_club);
 				}
 
 				header('Location: ?page=clubs&ajout-succes');

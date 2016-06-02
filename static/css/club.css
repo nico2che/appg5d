@@ -10,7 +10,9 @@ span.label {
 	width:150px;
 	display: inline-block;
 	margin-right:15px;
-	margin-top:10px;
+	margin-bottom:20px;
+	vertical-align: top;
+
 }
 div.description {
 	display: inline-block;
@@ -18,7 +20,7 @@ div.description {
 }
 .image{
     width: 44%;
-    height: 219px;
+    height: 260px;
     display: inline-block;
     vertical-align: top;
     margin-left: 50px;

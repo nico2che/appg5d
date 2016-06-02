@@ -4,7 +4,8 @@ function recuperer_clubs(){
 	global $pdo;
 	$stmt = $pdo->query('SELECT c.nom AS nom_club, c.id AS id_club, c.*, s.* FROM clubs AS c
 												LEFT JOIN sport_club AS sc ON sc.id_clubs = c.id
-												LEFT JOIN sports AS s ON sc.id_sports = s.id');
+												LEFT JOIN sports AS s ON sc.id_sports = s.id
+												WHERE approuve = 1');
 	$resultat = array();
 	while($ligne = $stmt->fetch()) {
 		$resultat[$ligne[0]][] = $ligne;
@@ -21,7 +22,7 @@ function recuperer_clubs_sport_departement($id_sport, $id_departement){
 	$stmt = $pdo-> prepare('SELECT c.nom AS nom_club, c.id AS id_club, c.*, s.* FROM clubs AS c
 													JOIN sport_club AS sc ON sc.id_clubs = c.id
 													JOIN sports AS s ON sc.id_sports = s.id
-												WHERE c.departement_id = :id_departement AND sc.id_sports = :id_sport');
+												WHERE c.departement_id = :id_departement AND sc.id_sports = :id_sport AND approuve = 1');
 
 	$stmt->bindValue('id_sport', $id_sport, PDO::PARAM_INT);
 	$stmt->bindValue('id_departement', $id_departement, PDO::PARAM_INT);
@@ -37,7 +38,7 @@ function recuperer_clubs_sport($id_sport){
 	$stmt = $pdo-> prepare('SELECT c.nom AS nom_club, c.id AS id_club, c.*, s.* FROM clubs AS c
 													JOIN sport_club AS sc ON sc.id_clubs = c.id
 													JOIN sports AS s ON sc.id_sports = s.id
-												WHERE sc.id_sports = :id_sport');
+												WHERE sc.id_sports = :id_sport AND approuve = 1');
 
 	$stmt->bindValue('id_sport', $id_sport, PDO::PARAM_INT);
 	$stmt->execute();
@@ -52,7 +53,7 @@ function recuperer_clubs_departement($id_departement){
 	$stmt = $pdo-> prepare('SELECT c.nom AS nom_club, c.id AS id_club, c.*, s.* FROM clubs AS c
 													JOIN sport_club AS sc ON sc.id_clubs = c.id
 													JOIN sports AS s ON sc.id_sports = s.id
-												WHERE c.departement_id = :id_departement');
+												WHERE c.departement_id = :id_departement AND approuve = 1');
 
 	$stmt->bindValue('id_departement', $id_departement, PDO::PARAM_INT);
 	$stmt->execute();
@@ -62,7 +63,7 @@ function recuperer_clubs_departement($id_departement){
 	}
 	return $resultat;
 }
-function recuperer_club($id_club){
+function recuperer_club($id_club, $approuve = 1){
 	global $pdo;
 	$stmt = $pdo-> prepare('SELECT c.*, m.nom AS nom_membre, m.prenom AS prenom_membre, cc.id AS id_commentaire, cc.*, s.nom AS nom_sport
 												FROM clubs AS c
@@ -70,8 +71,9 @@ function recuperer_club($id_club){
 													LEFT JOIN membres m ON m.id = cc.id_membre
 													LEFT JOIN sport_club AS sc ON sc.id_clubs = c.id
 													LEFT JOIN sports AS s ON sc.id_sports = s.id
-												WHERE c.id = :id_club');
+												WHERE c.id = :id_club AND approuve = :approuve');
 	$stmt->bindValue('id_club', $id_club, PDO::PARAM_INT);
+	$stmt->bindValue('approuve', $approuve, PDO::PARAM_INT);
 	$stmt->execute();
 	$resultat = array();
 	while($ligne = $stmt->fetch()) {
