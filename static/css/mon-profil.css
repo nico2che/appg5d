@@ -101,10 +101,10 @@ form.formulaire-profil h3 {
 }
 .planning td {
   font-size: 14px;
-  height: 79px;
+  height: 105px;
   border: 1px solid black;
   background-color: white;
-  width: 79px;
+  width: 105px;
   vertical-align: top;
   padding: 10px 0 0 10px;
 }
@@ -121,9 +121,9 @@ form.formulaire-profil h3 {
   background-color: cornflowerblue;
   white-space: nowrap;
   color: white;
-  width: 87px;
+  width: 113px;
   padding: 1px;
-  margin-top: 2px;
+  margin-top: 1px;
   display: block;
   text-overflow: ellipsis;
   overflow: hidden;

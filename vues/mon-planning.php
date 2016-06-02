@@ -33,7 +33,7 @@
 					echo '<td>' . $calendrier->format('j');
 					if(isset($groupes[$calendrier->format('Y-m-d')])) {
 						foreach($groupes[$calendrier->format('Y-m-d')] as $groupe) {
-							echo '<br><a href="?page=groupe&id='.$groupe['id'].'"><span class="groupe">'.$groupe['titre'].'</span></a>';
+							echo '<a href="?page=groupe&id='.$groupe['id'].'"><span class="groupe">'.$groupe['titre'].'</span></a>';
 						}
 					}
 					echo '</td>';
