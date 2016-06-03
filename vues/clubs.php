@@ -40,13 +40,14 @@
 			'.$L_club[1].'
 			<br>
 			'.$L_club[4];
-			if ($L_club[3]==null){
-				echo '<img src="http://ccfd56.fr/wordpress/wp-content/themes/openmind/img/no_image.png" style="width: 80%","height=20px">';
+			if ($L_club[3]==null||$L_club[3]=='static/images/'){
+				echo '<img src="http://ccfd56.fr/wordpress/wp-content/themes/openmind/img/no_image.png" style="width: 90%","height=20px"></a>
+			</div>';
 			}
 			
 			else{
 				echo '
-			<img src="'.$L_club[3].'" style="width: 80%","height=20px">
+			<img src="'.$L_club[3].'" style="width: 90%","height=20px">
 			</a>
 			</div>';
 		}

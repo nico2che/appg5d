@@ -38,7 +38,13 @@
 	</div>
 	<div class="image">
 		<?php
-		echo '<img src="'.$recup_club['photo_club'].'" style="width: 100%" />'
+		if ($recup_club['photo_club']==null) {
+			echo '<img src="http://ccfd56.fr/wordpress/wp-content/themes/openmind/img/no_image.png" style="width: 100%">';
+		}
+		else{
+			echo '<img src="'.$recup_club['photo_club'].'" style="width: 100%" />';
+		}
+		
 		?>
 	</div>
 	</div>
