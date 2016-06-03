@@ -1,10 +1,5 @@
 <div id="cover"></div>
 
-<form class="box grad" method="post">
-<div>
-	<h2 class="Title">Foire aux Questions</h2>
-</div>
-
 <div id="cadreP" class="red-hover">
 
 	<div>
@@ -24,6 +19,13 @@
 	</div>
 
 </div>
+
+<form class="box grad" method="post">
+<div>
+	<h2 class="Title">Foire aux Questions</h2>
+</div>
+
+
 <div id="cadre">
 	<div id="complete">
 		<h3 >Completer son profile</h3>
