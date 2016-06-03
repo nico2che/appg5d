@@ -41,7 +41,7 @@
 	margin-top: 15px;
 }
 #liste-groupes .groupe {
-  	border: 1px #888888;
+  	border: 1px solid #888888;
   	width:200px;
   	display: inline-block;
   	margin:10px;
