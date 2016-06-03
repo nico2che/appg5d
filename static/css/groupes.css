@@ -1,4 +1,8 @@
-﻿/* emplacement de recherche de groupe */
+﻿*{
+  border-color: #888888;
+}
+
+/* emplacement de recherche de groupe */
 .recherche {
   margin-top: 25px;
 }
@@ -37,7 +41,7 @@
 	margin-top: 15px;
 }
 #liste-groupes .groupe {
-  	border: 1px solid gray;
+  	border: 1px #888888;
   	width:200px;
   	display: inline-block;
   	margin:10px;
@@ -62,7 +66,7 @@
 }
 /* titre du groupe */
 #liste-groupes .groupe .details h4 {
-  color: black;
+  color: #5e5e5e;
   text-align: center;
   height: 52px;
   margin-top: 15px;
