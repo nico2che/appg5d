@@ -74,47 +74,19 @@
 			?><div class="cadre-gestion"><?php
 			include 'vues/membres-modifier.php';
 			?></div><?php
-
-			if(isset($_POST['bannis'])){
-				?>
-				<audio src="static/b2o.mp3" autoplay>
-				<?php
-				$request_id=$pdo->query("SELECT id FROM membres WHERE pseudo='".$_POST['pseudo']."'");
-				$id = $request_id->fetch();
-				$request=$pdo->query("UPDATE membres SET bannis='1' WHERE pseudo='".$id[0]."'");
-				}
-			if(isset($_POST['bannis']) && $_POST['bannis']==0){
-				?>
-				<audio src="static/b2o.mp3" autoplay>
-				<?php
-				$request_id=$pdo->query("SELECT id FROM membres WHERE pseudo='".$_POST['pseudo']."'");
-				$id = $request_id->fetch();
-				$request=$pdo->query("UPDATE membres SET bannis='0' WHERE pseudo='".$id[0]."'");
-				}
-
-		
-			if(isset($_POST['role']) && $_POST['role']=='admin'){
-				?>
-				<audio src="static/b2o.mp3" autoplay>
-				<?php
-				$request_id=$pdo->query("SELECT id FROM membres WHERE pseudo='".$_POST['pseudo']."'");
-				$id = $request_id->fetch();
-				$request=$pdo->query("UPDATE membres SET role='admin' WHERE pseudo='".$id[0]."'");
-				}
-			if(isset($_POST['role']) && $_POST['role']=='membre'){
-				?>
-				<audio src="static/b2o.mp3" autoplay>
-				<?php
-				$request_id=$pdo->query("SELECT id FROM membres WHERE pseudo='".$_POST['pseudo']."'");
-				$id = $request_id->fetch();
-				$request=$pdo->query("UPDATE membres SET role='membre' WHERE pseudo='".$id[0]."'");
-				}
 			
+
 		}
+		if(isset($_POST['bannis'])){
+				$request=$pdo->query("UPDATE membres SET bannis='".$_POST['bannis']."' WHERE id='".$_SESSION['membre_id']."'");
 
-		
+			}
 
-		
+		if(isset($_POST['role'])){
+			echo $_POST['role'];
+				$request=$pdo->query("UPDATE membres SET role='".$_POST['role']."' WHERE id='".$_SESSION['membre_id']."'");
+
+			}	
 
 	}
 

@@ -9,6 +9,7 @@ if(isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
 			$_SESSION['id'] = $infos_membre['id'];
 			$_SESSION['nom'] = $infos_membre['prenom'] . ' ' . $infos_membre['nom'];
 			$_SESSION['role'] = $infos_membre['role'];
+			$_SESSION['pseudo'] = $infos_membre['pseudo'];
 			if($_SESSION['role']=='admin'){
 				header('Location: ?page=bdd');
 			}else{

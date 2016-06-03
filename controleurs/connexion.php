@@ -14,6 +14,7 @@ if(isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
 
 			$_SESSION['id'] = $infos_membre['id'];
 			$_SESSION['nom'] = $infos_membre['prenom'] . ' ' . $infos_membre['nom'];
+			$_SESSION['pseudo'] = $infos_membre['pseudo'];
 			header('Location: ?page=mon-profil');
 			exit();
 

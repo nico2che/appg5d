@@ -14,7 +14,8 @@
 	</tr>
 	<?php if(!empty($request)){
 				foreach($request as $ligne){
-				echo"<tr>
+					$_SESSION['membre_id']=$ligne[0];
+					echo"<tr>
 						<td>{$ligne[0]}</td>
 						<td>{$ligne[1]}</td>
 						<td>{$ligne[2]}</td>
@@ -23,22 +24,32 @@
 						<td>{$ligne[6]}</td>
 						<td>{$ligne[7]}</td>
 						<td>{$ligne[8]}</td>
-						<td>{$ligne[9]}</td>";
-						if($ligne[10]==0){
-							echo"<td><form method=\"post\"><select name=\"bannis\"><option selected=\"selected\" value=\"0\">0</option><option value=\"1\">1</option></select><button type=\"submit\">envoyer</button></form></td>";
-						}else{
-							echo"<td><form method=\"post\"><select name=\"bannis\"><option value=\"0\">0</option><option selected=\"selected\" value=\"1\">1</option></select><button type=\"submit\">envoyer</button></form></td>";
-						}
-
-						if($ligne[11]=='membre'){
-							echo"<td><form method=\"post\"><select name=\"role\"><option selected=\"selected\">membre</option><option>admin</option></select><button type=\"submit\">envoyer</button></form></td>";
-						}else{
-							echo"<td><form method=\"post\"><select name=\"role\"><option>membre</option><option selected=\"selected\">admin</option></select><button type=\"submit\">envoyer</button></form></td>";
-						}
-
-						echo"</tr></table>";
-		}		
-	}else{
-		echo"</table>";
-	}
+						<td>{$ligne[9]}</td>
+						<td>{$ligne[10]}</td>
+						<td>{$ligne[11]}</td>
+						</tr>";
+				}
+			}		
 	?>
+	</table>
+	</br><form method="post">
+	<table>
+		<tr>
+			<th>Bannir</th>
+			<th>Role</th>
+		</tr>
+		<tr>	
+			<td>
+				<input type="radio" name="bannis" value="1">Oui</input></br>
+		    	<input type="radio" name="bannis" value="0">Non</input></br>
+		    </td>
+		       	
+			<td>
+				<input type="radio" name="role" value="admin">admin</input></br>
+		    	<input type="radio" name="role" value="membre">membre</input></br>
+		    </td>
+		    <td><input type="submit" name=""></td>
+		</tr>       
+	</table>
+	<input type="hidden" value="<?php echo $_SESSION['membre_id'] ?>"></input>
+	</form>	       
