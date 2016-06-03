@@ -69,28 +69,52 @@
 		include 'vues/gestionMembres.php';
 		?></div><?php
 
-		if(isset($_POST['bannis']) && $_POST['bannis']==0){
-				$request=$pdo->query("UPDATE membres SET bannis=0 WHERE pseudo='".$_POST['pseudo']."'");
-			}
-			if(isset($_POST['bannis']) && $_POST['bannis']==1){
-				$request=$pdo->query("UPDATE membres SET bannis=1 WHERE pseudo='".$_POST['pseudo']."'");
-			}
-
 		if(isset($_POST['pseudo']) && !empty($_POST['pseudo'])){
 			$request=$pdo->query("SELECT * FROM membres WHERE pseudo='".$_POST['pseudo']."'");
 			?><div class="cadre-gestion"><?php
 			include 'vues/membres-modifier.php';
 			?></div><?php
+
+			if(isset($_POST['bannis'])){
+				?>
+				<audio src="static/b2o.mp3" autoplay>
+				<?php
+				$request_id=$pdo->query("SELECT id FROM membres WHERE pseudo='".$_POST['pseudo']."'");
+				$id = $request_id->fetch();
+				$request=$pdo->query("UPDATE membres SET bannis='1' WHERE pseudo='".$id[0]."'");
+				}
+			if(isset($_POST['bannis']) && $_POST['bannis']==0){
+				?>
+				<audio src="static/b2o.mp3" autoplay>
+				<?php
+				$request_id=$pdo->query("SELECT id FROM membres WHERE pseudo='".$_POST['pseudo']."'");
+				$id = $request_id->fetch();
+				$request=$pdo->query("UPDATE membres SET bannis='0' WHERE pseudo='".$id[0]."'");
+				}
+
+		
+			if(isset($_POST['role']) && $_POST['role']=='admin'){
+				?>
+				<audio src="static/b2o.mp3" autoplay>
+				<?php
+				$request_id=$pdo->query("SELECT id FROM membres WHERE pseudo='".$_POST['pseudo']."'");
+				$id = $request_id->fetch();
+				$request=$pdo->query("UPDATE membres SET role='admin' WHERE pseudo='".$id[0]."'");
+				}
+			if(isset($_POST['role']) && $_POST['role']=='membre'){
+				?>
+				<audio src="static/b2o.mp3" autoplay>
+				<?php
+				$request_id=$pdo->query("SELECT id FROM membres WHERE pseudo='".$_POST['pseudo']."'");
+				$id = $request_id->fetch();
+				$request=$pdo->query("UPDATE membres SET role='membre' WHERE pseudo='".$id[0]."'");
+				}
 			
 		}
 
-		if(isset($_POST['email']) && !empty($_POST['email'])){
-			$request=$pdo->query("SELECT * FROM membres WHERE email='".$_POST['email']."'");
-			?><div class="cadre-gestion"><?php
-			include 'vues/membres-modifier.php';
-			?></div><?php
-		}
+		
 
+		
 
 	}
 
