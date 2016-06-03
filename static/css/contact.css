@@ -41,14 +41,14 @@ label{
 
 #captcha{
  display: block;
- margin-top: 2em;
- margin-left: 32.5%;
+ margin-top: 2vh;
+ margin-left: 36%;
 
 }
 .envoyer{
   display: block;
   margin: auto;
-  margin-top: 1em;
+  margin-top: 2vh;
 }
 
 .box{
@@ -60,6 +60,6 @@ label{
   background: rgba(255, 255, 255, 0.5);
   color:#0c8190;
   opacity:0.95;
-  height:60vh;
+  height:52vh;
   overflow-y:scroll; 
 }
