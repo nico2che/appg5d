@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 03 Juin 2016 à 10:07
+-- Généré le :  Ven 03 Juin 2016 à 14:25
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -302,6 +302,13 @@ CREATE TABLE `forum_messages` (
   `date` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `forum_messages`
+--
+
+INSERT INTO `forum_messages` (`id`, `id_sujet`, `id_membre`, `message`, `date`) VALUES
+(5, 2, 1, 's<v', '2016-06-01 05:21:22');
+
 -- --------------------------------------------------------
 
 --
@@ -318,6 +325,22 @@ CREATE TABLE `forum_sujets` (
   `message` text NOT NULL,
   `date` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `forum_sujets`
+--
+
+INSERT INTO `forum_sujets` (`id`, `id_membre`, `type`, `id_sport`, `resolu`, `titre`, `message`, `date`) VALUES
+(2, 1, 'aide', 0, 0, 'Besoin d\'aide !', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
+(3, 1, 'aide', 0, 0, 'Comment faire ?', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(4, 6, 'aide', 0, 0, 'Demande de rajout sur le site', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(5, 5, 'aide', 0, 0, 'Je ne peux plus accÃ©der Ã  mon groupe', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(6, 2, 'aide', 0, 0, 'Help', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
+(7, 1, 'aide', 0, 0, 'Une idÃ©e pour votre site !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(8, 4, 'aide', 0, 0, 'Merci beaucoup !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(9, 6, 'aide', 0, 0, 'Je ne peux plus accÃ©der Ã  mon groupe encore une fois', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(10, 6, 'aide', 0, 0, 'Oups', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
+(11, 1, 'aide', 1, 0, 'OÃ¹ aller faire son sport ?', 'Question !', '2016-06-01 05:37:21');
 
 -- --------------------------------------------------------
 
@@ -786,12 +809,12 @@ ALTER TABLE `departement`
 -- AUTO_INCREMENT pour la table `forum_messages`
 --
 ALTER TABLE `forum_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `forum_sujets`
 --
 ALTER TABLE `forum_sujets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `groupes`
 --

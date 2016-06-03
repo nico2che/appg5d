@@ -2,7 +2,7 @@
 if(isset($_POST['m'])) {
 	if(!is_file('app.sql'))
 		exit("Impossible de trouver le fichier app.sql pour mettre a jour la base de donnees.<br>Rien a ete modifie");
-	include 'config.php';
+	include 'init.php';
 	$tables = $pdo->query('SHOW tables');
 	while($l = $tables->fetch()) {
 		$pdo->query('DROP TABLE '.$l[0]);
