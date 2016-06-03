@@ -23,7 +23,20 @@ if(connecte() && isset($_GET['rejoindre'])) {
 
 	if(!est_membre_groupe($id_groupe, $_SESSION['id'])) {
 
+		$messages['type'] = 'succes';
+		$messages['message'] = 'Vous avez rejoint le groupe';
 		ajouter_membre_groupe($id_groupe, $_SESSION['id'], 0);
+		$membres_groupe = membres_groupe($id_groupe);
+	}
+}
+
+if(connecte() && isset($_GET['quitter'])) {
+
+	if(est_membre_groupe($id_groupe, $_SESSION['id'])) {
+
+		$messages['type'] = 'succes';
+		$messages['message'] = 'Vous avez quitté le groupe';
+		supprimer_membre_groupe($id_groupe, $_SESSION['id'], 0);
 		$membres_groupe = membres_groupe($id_groupe);
 	}
 }

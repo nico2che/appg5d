@@ -27,16 +27,18 @@ function existe_email($email) {
 		return false;
 }
 
-function inscrire_membre($nom, $prenom, $email, $mot_de_passe, $sexe, $id_departement) {
+function inscrire_membre($pseudo, $nom, $prenom, $email, $mot_de_passe, $sexe, $id_departement) {
 
 	global $pdo;
 	$stmt = $pdo->prepare('INSERT INTO membres SET 	nom = :nom,
+													pseudo = :pseudo,
 													prenom = :prenom,
 													email = :email,
 													mot_de_passe = :mot_de_passe,
 													sexe = :sexe,
 													id_departement = :id_departement,
 													description = ""');
+	$stmt->bindValue('pseudo', $pseudo, PDO::PARAM_STR);
 	$stmt->bindValue('nom', $nom, PDO::PARAM_STR);
 	$stmt->bindValue('prenom', $prenom, PDO::PARAM_STR);
 	$stmt->bindValue('email', $email, PDO::PARAM_STR);
