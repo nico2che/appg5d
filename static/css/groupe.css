@@ -1,6 +1,6 @@
 .groupe .photo {
-	width:200px;
-	height:200px;
+	width:300px;
+	height:300px;
 	float: right;
 	background-size: cover;
 	background-position: center center;
@@ -10,15 +10,14 @@
   background-repeat: no-repeat;
   border-radius: 5px;
 }
-
 .encadrer {
-	padding:15px;
+  padding: 15px;
 }
 
 .groupe .details {
 	margin-left:40px;
 	display: inline-block;
-	width: 542px;
+	width: 700px;
   float:left;
 }
 
@@ -28,9 +27,12 @@
 }
 
 .groupe .details .specifications span {
-	margin-left:15px;
+  margin-left:15px;
   width:46%;
   display: inline-block;
+}
+.groupe .details .specifications span i {
+  margin-right:10px;
 }
 .groupe .details p.description {
   margin: 15px;
@@ -43,7 +45,7 @@
 /* cadre des participants à droite */
 .groupe .participants {
   float: right;
-  width: 205px;
+  width: 300px;
   margin: 0 54px 0 0;
 }
 .groupe .participants .participant {
@@ -77,9 +79,6 @@
 .form-groupe input[type=number] {
   width:50px;
 }
-.form-groupe {
-  margin-bottom: 70px;
-}
 
 /* Dates */
 .dates .date {
@@ -106,12 +105,12 @@
   vertical-align: top;
   line-height: 22px;
   font-size: 14px;
-  width: 363px;
+  width: 74%;
 }
 .dates .participer {
   float: right;
   border-left: 1px solid grey;
-  padding: 19px 21px;
+  padding: 22px 21px;
   font-size: 30px;
   color:black;
 }
@@ -126,6 +125,9 @@
   margin-top: -1px;
   margin-right: 1px;
 }
-.dates .details-date a.supprimer-groupe {
+.dates .details-date a.supprimer-date {
   color:#D54F58;
+}
+.profil {
+  text-decoration: none;
 }

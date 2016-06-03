@@ -1,6 +1,6 @@
 	</div>
 	<footer>
-			<a href="?page=aide">Aide</a> - <a href="?page=contacte">Contact</a>
+			<a href="?page=aide">Aide</a> - <a href="?page=contact">Contact</a>
 			&nbsp; &nbsp; &copy; Team Up - <?php echo date('Y'); ?> - Tous droits réservés
 	</footer>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>

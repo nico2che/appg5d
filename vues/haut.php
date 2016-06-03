@@ -34,3 +34,12 @@
 	</header>
 
 	<div class="page">
+	<?php
+		if(!empty($messages) && isset($messages['type']) && isset($messages['message'])) {
+	?>
+		<div class="message <?php echo $messages['type']; ?>">
+			<?php echo $messages['message']; ?>
+		</div>
+	<?php
+		}
+	?>

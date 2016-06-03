@@ -1,14 +1,5 @@
 <div class="form-groupe">
 	<h3>Modifier un groupe</h3>
-<?php
-	if(!empty($messages)) {
-?>
-	<div class="message <?php echo $messages['type']; ?>">
-		<?php echo $messages['message']; ?>
-	</div>
-<?php
-	}
-?>
 	<form action="" method="post" enctype="multipart/form-data">
 		<label for="nom">Nom du groupe</label> <input type="text" id="nom" name="nom" value="<?php echo $infos_groupe['titre']; ?>"><br>
 		<label for="sport">Sport de ce groupe</label>
@@ -17,6 +8,16 @@
 	<?php 
 		foreach ($sports as $sport) {
 			echo '<option value="'.$sport['id'].'"'.($infos_groupe['id_sport'] == $sport['id'] ? ' selected=""' : null).'>'.$sport['nom'].'</option>';
+		}
+	?>
+		</select><br>
+
+		<label for="departement">Département : </label>
+		<select id="departement" name="departement">
+			<option value="0">Choisissez un département</option>
+	<?php 
+		foreach ($departements as $departement) {
+			echo '<option value="'.$departement['departement_id'].'"'.($infos_groupe['id_departement'] == $departement['departement_id'] ? ' selected=""' : null).'>'.$departement['departement_code'].' - '.$departement['departement_nom'].'</option>';
 		}
 	?>
 		</select><br>
@@ -51,6 +52,14 @@
 			<option value="1"<?php echo ($infos_groupe['niveau'] == 1 ? ' selected=""' : null); ?>>Débutant</option>
 			<option value="2"<?php echo ($infos_groupe['niveau'] == 2 ? ' selected=""' : null); ?>>Moyen</option>
 			<option value="3"<?php echo ($infos_groupe['niveau'] == 3 ? ' selected=""' : null); ?>>Confirmé</option>
+		</select><br>
+
+		<label for="niveau">Niveau sportif</label>
+		<select id="niveau" name="niveau">
+			<option value="1"<?php echo (isset($infos_groupe['niveau']) && $infos_groupe['niveau'] == 1 ? ' selected=""' : null); ?>>Tout</option>
+			<option value="2"<?php echo (isset($infos_groupe['niveau']) && $infos_groupe['niveau'] == 2 ? ' selected=""' : null); ?>>Débutant</option>
+			<option value="3"<?php echo (isset($infos_groupe['niveau']) && $infos_groupe['niveau'] == 3 ? ' selected=""' : null); ?>>Moyen</option>
+			<option value="4"<?php echo (isset($infos_groupe['niveau']) && $infos_groupe['niveau'] == 4 ? ' selected=""' : null); ?>>Confirmé</option>
 		</select><br>
 		
 		<input type="hidden" name="type" value="modifier">

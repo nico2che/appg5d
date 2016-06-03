@@ -1,44 +1,41 @@
-﻿
-body
-{
-  background-color: #edefed;
-}
-#cover {
-  width:100%;
-  height:100%;
-  background:url(../../static/images/fond.jpg);
-  -webkit-background-size: cover; /* pour Chrome et Safari */
-  -moz-background-size: cover; /* pour Firefox */
-  -o-background-size: cover; /* pour Opera */
-  background-size: cover; /* version standardisée */
-  top : 0;
-  left : 0;
-  position : fixed;
-  z-index : -1;
-  background-repeat: repeat;
-}
-
+﻿/* emplacement de recherche de groupe */
 .recherche {
   margin-top: 25px;
 }
-
 .recherche h3 {
   margin-right: 25px;
   float: left;
 }
-
 .recherche > .inputs {
   margin:18px;
 }
+.recherche > .inputs input[name=recherche] {
+  width:250px;
+}
+.recherche > .inputs input[type=number] {
+  width:50px;
+}
+.recherche > .inputs .decale-droite {
+  margin-right: 50px;
+}
+.recherche div.recherche-avancee {
+  margin-left: 111px;
+  margin-top: 18px;
+  line-height: 51px;
+}
+.recherche .rechercher-bouton {
+  float: right;
+  margin-right: 250px;
+}
 
+
+/* Affichage des groupes */
 .charge-groupe {
   margin-top: 50px;
 }
-
 #liste-groupes {
 	margin-top: 15px;
 }
-
 #liste-groupes .groupe {
   	border: 1px solid gray;
   	width:200px;
@@ -55,7 +52,7 @@ body
 	width:100%;
 	height: 100%;
 }
-
+/* photo du groupe */
 #liste-groupes .groupe .details .photo {
 	width:200px;
 	height:120px;
@@ -63,25 +60,24 @@ body
 	background-position: 0 center;
   background-size: cover;
 }
-
-#liste-groupes .groupe .details i.fa {
-  margin-right: 6px;
-}
-
+/* titre du groupe */
 #liste-groupes .groupe .details h4 {
   color: black;
   text-align: center;
-  height: 56px;
+  height: 52px;
   margin-top: 15px;
   max-width: 200px;
   text-overflow: ellipsis;
   text-transform: uppercase;
-  /* white-space: pre; */
   overflow: hidden;
   padding: 0 7px;
 }
-
+/* détails du groupe */
 #liste-groupes .groupe .details p {
   line-height: 29px;
   margin-left: 20px;
+  margin-bottom: 15px;
+}
+#liste-groupes .groupe .details i.fa {
+  margin-right: 6px;
 }

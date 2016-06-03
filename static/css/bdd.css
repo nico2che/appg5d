@@ -1,3 +1,7 @@
+.cadre-gestion{
+	margin-left: 20%;
+}
+
 table
 {
     border-collapse: collapse;
@@ -142,7 +146,6 @@ ul.derouler-vertical-rtl *.dir {
 	margin-top: 3vh;
 }
 h3{
-	text-align: center;
 	margin-top: 5vh;
 }
 

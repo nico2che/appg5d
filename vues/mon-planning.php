@@ -1,7 +1,5 @@
-	<div id="cover"></div>
 	<div class="profil gauche">
-		<div>
-			<img src="<?php echo (is_file(DOSSIER_AVATAR . $_SESSION['id'] . '.jpg') ? DOSSIER_AVATAR . $_SESSION['id'] . '.jpg' : 'static/images/profil.jpg'); ?>" class="photo">
+		<div class="photo" style="background-image:url('<?php echo (is_file(DOSSIER_AVATAR . $_SESSION['id'] . '.jpg') ? DOSSIER_AVATAR . $_SESSION['id'] . '.jpg' : 'static/images/profil.jpg'); ?>')">
 		</div>
 		<div class="navigation">
 			<ul>
@@ -35,7 +33,7 @@
 					echo '<td>' . $calendrier->format('j');
 					if(isset($groupes[$calendrier->format('Y-m-d')])) {
 						foreach($groupes[$calendrier->format('Y-m-d')] as $groupe) {
-							echo '<br><a href="?page=groupe&id='.$groupe['id'].'"><span class="groupe">'.$groupe['titre'].'</span></a>';
+							echo '<a href="?page=groupe&id='.$groupe['id'].'"><span class="groupe">'.$groupe['titre'].'</span></a>';
 						}
 					}
 					echo '</td>';

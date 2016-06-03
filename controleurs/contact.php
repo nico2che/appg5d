@@ -48,6 +48,6 @@ if(isset($_POST['userName']) && isset($_POST['Sujet']) && isset($_POST['conntenu
 }
 
 
-include 'vues/contacte.php';
+include 'vues/contact.php';
 
 
