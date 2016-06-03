@@ -1,6 +1,6 @@
 <?php
 
-include 'config.php';
+include 'init.php';
 
 if(isset($_GET['page']) && !empty($_GET['page'])) {
 

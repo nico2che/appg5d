@@ -203,3 +203,8 @@ div.message.succes a {
   color: #5E5E5E;
   background-color: white;
 }
+
+.installation {
+  width:500px;
+  margin:auto;
+}
