@@ -16,16 +16,19 @@
 		}
 	?>
 		<div class="inscription-gauche">
+			<label class="label" for="pseudo">Pseudo *</label>
+			<input type="text" name="pseudo" required="" value="<?php echo (isset($_POST['prenom']) ? htmlspecialchars($_POST['pseudo']) : null); ?>" id="pseudo"><br>
+
 			<label class="label" for="prenom">Prénom *</label>
 			<input type="text" name="prenom" required="" value="<?php echo (isset($_POST['prenom']) ? htmlspecialchars($_POST['prenom']) : null); ?>" id="prenom"><br>
 
 			<label class="label" for="nom">Nom *</label>
 			<input type="text" name="nom" required="" value="<?php echo (isset($_POST['prenom']) ? htmlspecialchars($_POST['nom']) : null); ?>" id="nom"><br>
-
-			<label class="label" for="email">Email *</label>
-			<input type="email" name="email" required="" value="<?php echo (isset($_POST['prenom']) ? htmlspecialchars($_POST['email']) : null); ?>" id="email"><br>
 		</div>
 		<div class="inscription-droite">
+			<label class="label" for="email">Email *</label>
+			<input type="email" name="email" required="" value="<?php echo (isset($_POST['prenom']) ? htmlspecialchars($_POST['email']) : null); ?>" id="email"><br>
+
 			<label class="label" for="mot_de_passe">Mot de passe *</label>
 			<input type="password" name="mot_de_passe" required="" id="mot_de_passe"><br>
 

@@ -2,9 +2,9 @@
 
 include 'modeles/clubs.php';
 
-if(isset($_POST['nom']) && isset($_POST['prenom'])  && isset($_POST['email']) && isset($_POST['mot_de_passe']) && isset($_POST['confirmation_mot_de_passe'])) {
+if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom'])  && isset($_POST['email']) && isset($_POST['mot_de_passe']) && isset($_POST['confirmation_mot_de_passe'])) {
 
-	if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['mot_de_passe']) && !empty($_POST['confirmation_mot_de_passe'])) {
+	if(!empty($_POST['nom']) && !empty($_POST['pseudo']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['mot_de_passe']) && !empty($_POST['confirmation_mot_de_passe'])) {
 
 		if(strlen($_POST['mot_de_passe']) > 5) {
 
@@ -16,7 +16,7 @@ if(isset($_POST['nom']) && isset($_POST['prenom'])  && isset($_POST['email']) &&
 
 						if(!existe_email($_POST['email'])) {
 
-							if($id_membre = inscrire_membre($_POST['nom'], $_POST['prenom'], $_POST['email'], sha1($_POST['mot_de_passe']), (isset($_POST['sexe']) ? $_POST['sexe'] : null), (isset($_POST['departement']) ? $_POST['departement'] : null))) {
+							if($id_membre = inscrire_membre($_POST['pseudo'], $_POST['nom'], $_POST['prenom'], $_POST['email'], sha1($_POST['mot_de_passe']), (isset($_POST['sexe']) ? $_POST['sexe'] : null), (isset($_POST['departement']) ? $_POST['departement'] : null))) {
 
 								header('Location:?page=connexion&inscrit');
 								exit();
