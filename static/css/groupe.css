@@ -5,7 +5,7 @@
 	background-size: cover;
 	background-position: center center;
   margin: 37px 54px 0 0;
-  border: 1px solid black;
+  border: 1px #888888;
   padding: 2px;
   background-repeat: no-repeat;
   border-radius: 5px;
@@ -36,7 +36,7 @@
 }
 .groupe .details p.description {
   margin: 15px;
-  border: 1px solid black;
+  border: 1px #888888;
   padding: 18px;
   width: 100%;
   text-align: justify;
@@ -54,7 +54,7 @@
   height: 50px;
   background-size: cover;
   margin-left: 5px;
-  border: 1px solid grey;
+  border: 1px #888888;
 }
 
 /* Formulaire ajout/ modification groupe */
@@ -85,7 +85,7 @@
   display: inline-block;
   text-align: center;
   width:50px;
-  border-right: 1px grey solid;
+  border-right: 1px #888888;
   padding: 10px;
   height:100%;
   padding:9px;
@@ -109,10 +109,9 @@
 }
 .dates .participer {
   float: right;
-  border-left: 1px solid grey;
+  border-left: 1px #888888;
   padding: 22px 21px;
   font-size: 30px;
-  color:black;
 }
 .dates .participer.vert {
   color: green;
