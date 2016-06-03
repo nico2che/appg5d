@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<title>TEAM UP</title>
+	<title>TEAM UP - <?php echo (isset($titre_page) ? $titre_page : 'Trouvez votre partenaire sportif !'); ?></title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="static/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:200,400,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
 	<?php if(is_file('static/css/' . $action . '.css') || isset($fichier_css)) { ?><link rel="stylesheet" type="text/css" href="static/css/<?php echo (isset($fichier_css) ? $fichier_css : $action); ?>.css"><?php } ?>
 	<script src="https://www.google.com/recaptcha/api.js"></script>
-	
+	<link href="static/images/favicon.png" rel='apple-touch-icon'>
+	<link rel="shortcut icon" type="image/x-icon" href="static/images/favicon.png"/>
 </head>
 <body>
 	<header>
