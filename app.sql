@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Jeu 02 Juin 2016 à 12:38
+-- Généré le :  Ven 03 Juin 2016 à 10:07
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -771,7 +771,7 @@ ALTER TABLE `contacte_message`
 -- AUTO_INCREMENT pour la table `dates_membres`
 --
 ALTER TABLE `dates_membres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT pour la table `dates_rencontres`
 --
