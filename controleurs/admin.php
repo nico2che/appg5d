@@ -12,6 +12,7 @@ if(isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
 			$_SESSION['pseudo'] = $infos_membre['pseudo'];
 			if($_SESSION['role']=='admin'){
 				header('Location: ?page=bdd');
+				exit();
 			}else{
 				$message='Vous n\'êtes pas administrateur';
 			}

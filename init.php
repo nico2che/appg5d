@@ -75,6 +75,18 @@ define('DOSSIER_AVATAR', 'static/user/avatars/');
 define('DOSSIER_GROUPE', 'static/user/groupes/');
 define('DOSSIER_CLUBS',  'static/user/clubs/');
 
+include 'modeles/membres.php';
+
+if(!connecte() && isset($_COOKIE['membre']) && !empty($_COOKIE['membre']) && isset($_COOKIE['hash']) && !empty($_COOKIE['hash'])) {
+
+    if($infos_membre = verifier_membre($_COOKIE['membre'], $_COOKIE['hash'])) {
+
+        $_SESSION['id'] = $infos_membre['id'];
+        $_SESSION['nom'] = $infos_membre['prenom'] . ' ' . $infos_membre['nom'];
+        $_SESSION['pseudo'] = $infos_membre['pseudo'];
+    }
+}
+
 class DateTimeFrench extends DateTime {
     public function format($format) {
         $english_days = array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');
@@ -84,5 +96,3 @@ class DateTimeFrench extends DateTime {
         return str_replace($english_months, $french_months, str_replace($english_days, $french_days, parent::format($format)));
     }
 }
-
-include 'modeles/membres.php';
