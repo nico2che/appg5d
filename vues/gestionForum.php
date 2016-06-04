@@ -1,3 +1,5 @@
+<a href="?page=bdd&gestion-forum&sujets">Gérer les sujets du forum</a>
+
 <table>
 	<tr>
 		<th>Date et Heure</th>
