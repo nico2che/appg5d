@@ -1,3 +1,7 @@
+h1{
+  text-align: center;
+}
+
 .banniere{
   align-content: center;
   width: 100%;
@@ -15,7 +19,6 @@
 
 .banniere h1{
   color: white;
-  text-align: center;
   font-size: 4.8em;
   font-weight: 200;
 }
@@ -89,6 +92,27 @@
   margin-top: 15em;
 }
 
+.titrepanel{
+  height: 15em;
+  margin: 1%;
+  border-style: solid;
+  border-color: white;
+  border-width: 0.3em;
+}
+
+.titrepanel h1{
+  font-size: 2.5em;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.paneldesports{
+  margin-top:2em;
+  margin-bottom: 2em;
+  margin-left:6em;
+  margin-right: 6em;
+}
 .ligne{
   display: flex;
 }
@@ -129,144 +153,6 @@
 #basketball,#rugby{
   background-color: #ff5e2a;
 }
-
-.textePromo{
-  color: #4d4d4d;
-  display: inline-block;
-  margin-top: 60vh;
-  position: absolute;
-}
-#textePromo1{
-  left :10%;
-}
-#textePromo2{
-  margin-left: -10%;
-}
-
-#textePromo3{
-  margin-left: 22%;
-}
-
-.titreImage
-{
-  margin-top : 15%;
-  text-align: center;
-  display: block;
-}
-
-.titreClassique
-{
-  margin-top: 7%;
-  text-align: center;
-
-}
-.petitTitre
-{
-  margin-top: 5%;
-  text-align: center;
-  font-size: 1.2em;
-}
-#annonces
-{
-  margin-top: 30px;
-  color: white;
-  text-shadow: 0px 0px 4px black;
-  text-align: center;
-  font-size: 140%;
-  line-height: 6em;
-}
-
-
-
-body div div div.annonces1
-{
-  display: block;
-  margin-top: 2em;
-  margin-left: 5%;
-  height: 0;
-  padding-bottom: 18%;
-  width: 18%;
-  background-color: white;
-  float: left;
- 
-}
-body div div div.annonces1:hover
-{
-  transform: scale(1.10);
-  -ms-transform: scale(1.10);
-  -webkit-transform: scale(1.10);
-  -o-transform: scale(1.10);
-  -moz-transform: scale(1.10);
-}
-
-#annonce1
-{ 
-   background: url(../../static/images/football.jpeg) no-repeat ;
-   background-position: 50% 69%;
-
-}
-#annonce2
-{ 
-   background: url(../../static/images/tennis.jpeg) no-repeat;
-   background-position: right;
-}
-
-#annonce3
-{
-  background: url(../../static/images/rugby2.jpg);
-  background-position: 49% 35%;
-}
-
-#annonce4
-{
-  background: url(../../static/images/basket.jpg);
-  background-position: left;
-}
-
-#annonce5
-{
-  background: url(../../static/images/cyclisme_miniature.jpeg);
-  background-position: 78% 75%;
-}
-
-#annonce6
-{
-  background: url(../../static/images/randonnee.jpg);
-  background-position: 60% 70%;
-}
-
-#annonce7
-{
-  background: url(../../static/images/Golf.jpeg);
-  background-position: 70% 50% ;
-}
-
-.bouton
-{
-  position: relative;
-  display: block;
-  margin: auto;
-  margin-top: 80vh;
-  background-color: white;
-  border : 1px solid #cccccc;
-  color: #4d4d4d;
-}
-
-#annoncesMoment
-{
-  padding-bottom: 50px;
-}
-.annonces2
-{
-  display: inline-block;
-  position: relative;
-  margin-top: 10%;
-  margin-left: 10%;
-  background-color: white;
-  height: 500px;
-  width:35%;
-}
-
 .page{
   width: initial;
 }

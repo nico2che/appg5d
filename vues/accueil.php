@@ -25,8 +25,10 @@
 			</div>
 		</div>
 	</div>
-	<h2 class="titreImage texteBase">Découvrez un grand choix de sport à pratiquer entre amis</h2>
-	<div class="panelDeSports">
+	<div class="titrepanel">
+		<h1 class="titreImage texteBase">Découvrez un grand choix de sport à pratiquer entre amis</h1>
+	</div>
+	<div class="paneldesports">
 		<div class="ligne">
 			<div class="sport" id="tennis"><img src="static/images/Ptennis.jpg"></br><h2>Tennis</h2></div>
 			<div class="sport" id="football"><img src="static/images/Pfootball.jpg"></br><h2>Football</h2></div>
