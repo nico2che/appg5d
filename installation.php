@@ -33,10 +33,10 @@
 				Afin d'installer votre site internet, vous devez vous munir de vos identifiants de base de données.
 			</p>
 			<form method="post">
-				<label for="hote">Hôte : </label> <input type="text" name="hote" id="hote" value="localhost"><br>
-				<label for="user">Utilisateur : </label> <input type="text" name="user" id="user" value="root"><br>
-				<label for="pass">Mot de passe : </label> <input type="text" name="pass" id="pass" value=""><br>
-				<label for="base">Nom de la base de données :</label> <input type="text" name="base" id="base" value="app"><br>
+				<label for="hote">Hôte : </label> <input type="text" name="hote" id="hote" value="<?php echo (isset($_POST['hote']) ? htmlspecialchars($_POST['hote']) : 'localhost'); ?>"><br>
+				<label for="user">Utilisateur : </label> <input type="text" name="user" id="user" value="<?php echo (isset($_POST['user']) ? htmlspecialchars($_POST['user']) : 'root'); ?>"><br>
+				<label for="pass">Mot de passe : </label> <input type="password" name="pass" id="pass" value=""><br>
+				<label for="base">Nom de la base de données :</label> <input type="text" name="base" id="base" value="<?php echo (isset($_POST['base']) ? htmlspecialchars($_POST['base']) : 'team_up'); ?>"><br>
 				<input type="hidden" name="droits" value="<?php echo $droits; ?>">
 				<input type="submit" value="Installer" class="float-right">
 				<div class="clear"></div>

@@ -23,41 +23,49 @@ if($installation) {
 
     $installation_fini = false;
 
-    if(isset($_POST['hote']) && isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['base'])) {
+    if(isset($_POST['hote']) && isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['base']) && isset($_POST['droits'])) {
 
-        if(!empty($_POST['hote']) && !empty($_POST['user']) && !empty($_POST['base'])) {
+        if($_POST['droits'] == 1) {
 
-            try {
+            if(!empty($_POST['hote']) && !empty($_POST['user']) && !empty($_POST['base'])) {
 
-                $pdo = new PDO("mysql:host=".$_POST['hote'].";dbname=".$_POST['base'], $_POST['user'], $_POST['pass']);
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                try {
 
-                $configuration  = '<?php' . "\n";
-                $configuration .= 'define("HOTE", "'.$_POST['hote'].'");' . "\n";
-                $configuration .= 'define("USER", "'.$_POST['user'].'");' . "\n";
-                $configuration .= 'define("PASS", "'.$_POST['pass'].'");' . "\n";
-                $configuration .= 'define("BASE", "'.$_POST['base'].'");';
+                    $pdo = new PDO("mysql:host=".$_POST['hote'].";dbname=".$_POST['base'], $_POST['user'], $_POST['pass']);
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                if(is_writable('config.php') && file_put_contents('config.php', $configuration)) {
+                    $configuration  = '<?php' . "\n";
+                    $configuration .= 'define("HOTE", "'.$_POST['hote'].'");' . "\n";
+                    $configuration .= 'define("USER", "'.$_POST['user'].'");' . "\n";
+                    $configuration .= 'define("PASS", "'.$_POST['pass'].'");' . "\n";
+                    $configuration .= 'define("BASE", "'.$_POST['base'].'");';
 
-                    $installation_fini = true;
-                    
-                } else {
+                    if(is_writable('config.php') && file_put_contents('config.php', $configuration)) {
+
+                        $installation_fini = true;
+                        
+                    } else {
+
+                        $messages['type'] = 'erreur';
+                        $messages['message'] = 'Impossible de modifier le fichier "config.php".<br>Veuillez vérifier vos droits sur ce fichier';
+                    }
+
+                } catch (PDOException $e) {
 
                     $messages['type'] = 'erreur';
-                    $messages['message'] = 'Impossible de modifier le fichier "config.php".<br>Veuillez vérifier vos droits sur ce fichier';
+                    $messages['message'] = 'Impossible de se connecter à la base de données.<br>Veuillez vérifier vos identifiants';
                 }
 
-            } catch (PDOException $e) {
+            } else {
 
                 $messages['type'] = 'erreur';
-                $messages['message'] = 'Impossible de se connecter à la base de données.<br>Veuillez vérifier vos identifiants';
+                $messages['message'] = 'Tous les champs sont obligatoires, sauf le mot de passe.';
             }
 
         } else {
 
             $messages['type'] = 'erreur';
-            $messages['message'] = 'Tous les champs sont obligatoires, sauf le mot de passe.';
+            $messages['message'] = 'Veuillez vérifier la configuration de vos dossiers.';
         }
     }
 
