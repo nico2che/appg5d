@@ -11,7 +11,7 @@
 	<?php
 		if(!$installation_fini) {
 
-			if(decoct(fileperms('static/user/avatars') & 0777) >= 755 && decoct(fileperms('static/user/avatars') & 0777) >= 755 && decoct(fileperms('static/user/avatars') & 0777) >= 755) {
+			if(is_writable('static/user/avatars') && is_writable('static/user/clubs') && is_writable('static/user/groupes') && is_writable('config.php')) {
 				
 				$droits = 1;
 
@@ -44,10 +44,10 @@
 			<p>
 				Vérification des droits sur les dossiers nécessaires :
 				<ul>
-					<li>config.php : <font color="<?php echo (decoct(fileperms('config.php') & 0777) >= 755 ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('config.php') & 0777); ?>)</font></li>
-					<li>static/user/avatars : <font color="<?php echo (decoct(fileperms('static/user/avatars') & 0777) >= 755 ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/avatars') & 0777); ?>)</font></li>
-					<li>static/user/clubs : <font color="<?php echo (decoct(fileperms('static/user/clubs') & 0777) >= 755 ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/clubs') & 0777); ?>)</font></li>
-					<li>static/user/groupes : <font color="<?php echo (decoct(fileperms('static/user/groupes') & 0777) >= 755 ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/groupes') & 0777); ?>)</font></li>
+					<li>config.php : <font color="<?php echo (is_writable('config.php') ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('config.php') & 0777); ?>)</font></li>
+					<li>static/user/avatars : <font color="<?php echo (is_writable('static/user/avatars') ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/avatars') & 0777); ?>)</font></li>
+					<li>static/user/clubs : <font color="<?php echo (is_writable('static/user/clubs') ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/clubs') & 0777); ?>)</font></li>
+					<li>static/user/groupes : <font color="<?php echo (is_writable('static/user/groupes') ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/groupes') & 0777); ?>)</font></li>
 				</ul>
 			<?php if($droits == 0) { ?>
 				<br>Un ou plusieurs de ces dossiers ne sont pas correctement configurés.<br>Veuillez vous rendre à la page X du manuel de déploiement afin de corriger le problème.
