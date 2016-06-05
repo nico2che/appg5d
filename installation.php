@@ -10,6 +10,16 @@
 		<div class="installation">
 	<?php
 		if(!$installation_fini) {
+
+			if(decoct(fileperms('static/user/avatars') & 0777) >= 755 && decoct(fileperms('static/user/avatars') & 0777) >= 755 && decoct(fileperms('static/user/avatars') & 0777) >= 755) {
+				
+				$droits = 1;
+
+			} else {
+
+				$droits = 0;
+			}
+
 			if(!empty($messages) && isset($messages['type']) && isset($messages['message'])) {
 	?>
 		<div class="message <?php echo $messages['type']; ?>">
@@ -27,6 +37,7 @@
 				<label for="user">Utilisateur : </label> <input type="text" name="user" id="user" value="root"><br>
 				<label for="pass">Mot de passe : </label> <input type="text" name="pass" id="pass" value=""><br>
 				<label for="base">Nom de la base de données :</label> <input type="text" name="base" id="base" value="app"><br>
+				<input type="hidden" name="droits" value="<?php echo $droits; ?>">
 				<input type="submit" value="Installer" class="float-right">
 				<div class="clear"></div>
 			</form>
@@ -37,6 +48,11 @@
 					<li>static/user/clubs : <font color="<?php echo (decoct(fileperms('static/user/clubs') & 0777) >= 755 ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/clubs') & 0777); ?>)</font></li>
 					<li>static/user/groupes : <font color="<?php echo (decoct(fileperms('static/user/groupes') & 0777) >= 755 ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/groupes') & 0777); ?>)</font></li>
 				</ul>
+			<?php if($droits == 0) { ?>
+				<br>Un ou plusieurs de ces dossiers ne sont pas correctement configurés.<br>Veuillez vous rendre à la page X du manuel de déploiement afin de corriger le problème.
+			<?php } else { ?>
+				<br>Tous vos dossiers sont correctement configurés !
+			<?php } ?>
 			</p>
 	<?php
 
