@@ -6,28 +6,22 @@ session_start();
 
 date_default_timezone_set('Europe/Paris');
 
-$installation_fini = false;
-$installation = false;
+$installation = true;
 
-if(defined('HOTE') && defined('HOTE') && defined('HOTE') && defined('BASE')) {
+if(defined('HOTE') && defined('USER') && defined('PASS') && defined('BASE')) {
 
     try {
 
         $pdo = new PDO("mysql:host=".HOTE.";dbname=".BASE, USER, PASS);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $installation = false;
 
-    } catch (PDOException $e) {
-
-        $installation = true;
-    }
-
-} else {
-
-    $installation = true;
+    } catch (PDOException $e) {}
 }
 
-
 if($installation) {
+
+    $installation_fini = false;
 
     if(isset($_POST['hote']) && isset($_POST['user']) && isset($_POST['pass']) && isset($_POST['base'])) {
 

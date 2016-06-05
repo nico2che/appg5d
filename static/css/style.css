@@ -205,6 +205,33 @@ div.message.succes a {
 }
 
 .installation {
-  width:500px;
-  margin:auto;
+  width: 700px;
+  margin: auto;
+  padding: 40px;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid grey;
+}
+
+.installation h1 {
+  margin-bottom:20px;
+}
+
+.installation form {
+  margin-left:50px;
+}
+
+.installation ul {
+  margin-left:50px;
+}
+
+.installation p {
+  margin-bottom:20px;
+}
+
+.installation form label {
+  width:250px;
+  display: inline-block;
+  margin-bottom: 15px;
+  text-align: right;
 }
