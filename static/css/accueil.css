@@ -93,13 +93,42 @@
   display: flex;
 }
 .sport{
-  padding: 1%;
+  margin: 1%;
   width: 25%;
 }
 .sport img{
   width: 100%;
 }
-
+.sport h2{
+  text-align: center;
+  color: white;
+  padding-bottom: 0.3em;
+}
+.sport p{
+  font-size: 3em;
+  padding: 0.5em;
+  padding-top:3em;
+  font-style: italic;
+  color: white;
+}
+#tennis,#volleyball{
+  background-color: #ecd623;
+}
+#football,#natation{
+  background-color: #61a723;
+}
+#cyclisme,#badminton{
+  background-color: #dd281f;
+}
+#athletisme,#etbienplusencore{
+  background-color: #ffa23d;
+}
+#randonnee,#golf{
+  background-color: #18b2be;
+}
+#basketball,#rugby{
+  background-color: #ff5e2a;
+}
 
 .textePromo{
   color: #4d4d4d;
