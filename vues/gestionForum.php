@@ -1,6 +1,6 @@
-<a href="?page=bdd&gestion-forum&sujets">Gérer les sujets du forum</a>
 
-<table>
+<table style="display:inline;">
+	<caption>Messages du Forum</caption>
 	<tr>
 		<th>Date et Heure</th>
 		<th>Membre</th>

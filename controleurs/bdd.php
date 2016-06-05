@@ -21,24 +21,25 @@
 
 	if(isset($_GET['gestion-forum'])){
 		
-		if(isset($_GET['sujets'])){
-			$request = $pdo->query('SELECT * FROM forum_sujets');
+		if(isset($_GET['sujet'])){
+			$request1 = $pdo->query('SELECT * FROM forum_sujets');
 			?><div class="cadre-gestion"><?php
 			include 'vues/gestionSujets.php';
 			?></div><?php
-
-			if(isset($_POST['resolus'])){
-				$request=$pdo->prepare('UPDATE forum_sujets SET resolu =? WHERE id=?');
-				$param3 = array($_POST['resolus'], $_POST['id_sujet']);
-				$request->execute($param3);
-			}
-
 		}else{
 			$request = $pdo->query('SELECT * FROM forum_messages');
 			?><div class="cadre-gestion"><?php
 			include 'vues/gestionForum.php';
 			?></div><?php
 		}
+		
+
+		if(isset($_POST['resolus'])){
+			$request=$pdo->prepare('UPDATE forum_sujets SET resolu =? WHERE id=?');
+			$param3 = array($_POST['resolus'], $_POST['id_sujet']);
+			$request->execute($param3);
+		}
+		
 		
 		if(isset($_GET['mid'])){
 			$request = $pdo -> prepare('SELECT message FROM forum_messages WHERE id=?');
@@ -53,15 +54,14 @@
 				$param2 = array($_POST['messageModifie'], $_GET['mid']);
 				$request->execute($param2);
 			}
-			
 		}
+
+
 		if(isset($_GET['sid'])){
 			$request = $pdo -> prepare('DELETE FROM forum_messages WHERE id=?');
 			$param3 = array($_GET['sid']);
 			$request -> execute($param3);
 		}
-
-
 	}
 	
 

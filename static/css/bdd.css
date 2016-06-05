@@ -5,6 +5,7 @@
 table
 {
     border-collapse: collapse;
+    margin-right: 10px;
 }
 td, th
 {
