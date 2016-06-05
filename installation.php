@@ -44,6 +44,7 @@
 			<p>
 				Vérification des droits sur les dossiers nécessaires :
 				<ul>
+					<li>config.php : <font color="<?php echo (decoct(fileperms('config.php') & 0777) >= 755 ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('config.php') & 0777); ?>)</font></li>
 					<li>static/user/avatars : <font color="<?php echo (decoct(fileperms('static/user/avatars') & 0777) >= 755 ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/avatars') & 0777); ?>)</font></li>
 					<li>static/user/clubs : <font color="<?php echo (decoct(fileperms('static/user/clubs') & 0777) >= 755 ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/clubs') & 0777); ?>)</font></li>
 					<li>static/user/groupes : <font color="<?php echo (decoct(fileperms('static/user/groupes') & 0777) >= 755 ? 'green">OK ! (' : 'red">KO ! (') . decoct(fileperms('static/user/groupes') & 0777); ?>)</font></li>
