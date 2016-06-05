@@ -22,6 +22,10 @@
 			</div>
 		<?php endif; ?>
 			<div>
+				<label for="pseudo">Pseudo *</label>
+				<input type="text" name="pseudo" required="" placeholder="Champs obligatoire" id="pseudo" value="<?php echo htmlspecialchars($informations['pseudo']); ?>">
+			</div>
+			<div>
 				<label for="prenom">Prénom *</label>
 				<input type="text" name="prenom" required="" placeholder="Champs obligatoire" id="prenom" value="<?php echo htmlspecialchars($informations['prenom']); ?>">
 			</div>

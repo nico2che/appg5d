@@ -37,6 +37,7 @@ if(connecte() && isset($_GET['quitter'])) {
 		$messages['type'] = 'succes';
 		$messages['message'] = 'Vous avez quitté le groupe';
 		supprimer_membre_groupe($id_groupe, $_SESSION['id'], 0);
+		supprimer_dates_rencontres_membres($id_groupe, $_SESSION['id']);
 		$membres_groupe = membres_groupe($id_groupe);
 	}
 }
@@ -143,6 +144,13 @@ if(isset($_POST['type']) && isset($_POST['nom']) && isset($_POST['sport']) && is
 
 if(est_auteur_groupe($membres_groupe)) {
 
+	if(isset($_GET['supprimer'])) {
+
+		supprimer_groupe($id_groupe);
+		header('Location: ?page=groupes&supprimer-succes');
+		exit();
+	}
+
 	if(isset($_POST['jour']) && isset($_POST['mois']) && isset($_POST['annee']) && isset($_POST['heure']) && isset($_POST['minute']) && isset($_POST['localisation']) && isset($_POST['duree_heure']) && isset($_POST['duree_minute']) && isset($_POST['latitude']) && isset($_POST['longitude'])) {
 
 		if(!empty($_POST['jour']) && !empty($_POST['mois']) && !empty($_POST['annee']) && !empty($_POST['localisation']) && !empty($_POST['latitude']) && !empty($_POST['longitude'])) {
@@ -244,10 +252,6 @@ if(isset($_GET['ajouter']) && $id_groupe == 0) {
 	$sports = recuperer_sports();
 	$departements = recuperer_departement();
 	include 'vues/groupe-modifier.php';
-
-} elseif(isset($_GET['supprimer']) && est_auteur_groupe($membres_groupe)) {
-
-	include 'vues/groupe.php';
 
 } else {
 

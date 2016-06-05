@@ -27,6 +27,17 @@ function existe_email($email) {
 		return false;
 }
 
+function existe_pseudo($pseudo) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT pseudo FROM membres WHERE pseudo = :pseudo');
+	$stmt->bindValue('pseudo', $pseudo, PDO::PARAM_STR);
+	if($stmt->execute())
+		return $stmt->fetch();
+	else
+		return false;
+}
+
 function inscrire_membre($pseudo, $nom, $prenom, $email, $mot_de_passe, $sexe, $id_departement) {
 
 	global $pdo;
@@ -85,10 +96,11 @@ function profil_membre($id) {
 		return false;
 }
 
-function modifier_membre($id_membre, $nom, $prenom, $email, $sexe, $description, $id_departement) {
+function modifier_membre($id_membre, $pseudo, $nom, $prenom, $email, $sexe, $description, $id_departement) {
 
 	global $pdo;
-	$stmt = $pdo->prepare('UPDATE membres SET nom = :nom, prenom = :prenom, email = :email, sexe = :sexe, description = :description, id_departement = :id_departement WHERE id = :id_membre');
+	$stmt = $pdo->prepare('UPDATE membres SET pseudo = :pseudo, nom = :nom, prenom = :prenom, email = :email, sexe = :sexe, description = :description, id_departement = :id_departement WHERE id = :id_membre');
+	$stmt->bindValue('pseudo', $pseudo, PDO::PARAM_STR);
 	$stmt->bindValue('nom', $nom, PDO::PARAM_STR);
 	$stmt->bindValue('prenom', $prenom, PDO::PARAM_STR);
 	$stmt->bindValue('email', $email, PDO::PARAM_STR);

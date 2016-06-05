@@ -80,13 +80,30 @@
 
 			foreach ($groupes as $groupe) {
 
-				if((!isset($_GET['actuel']) || empty($_GET['actuel'])) || $groupe['nbre'] >= $_GET['actuel']) {
+				if(!isset($_GET['actuel']) || empty($_GET['actuel']) || $groupe['nbre'] >= $_GET['actuel']) {
 	?>
 		<div class="groupe encadrer">
-			<a href="?page=groupe&amp;id=<?php echo $groupe['id_groupe']; ?>" title="<?php echo $groupe['titre']; ?>">
+			<a href="?page=groupe&amp;id=<?php echo $groupe['id_groupe']; ?>" title="<?php echo htmlspecialchars($groupe['titre']); ?>">
 				<div class="details">
-					<div class="photo" style="background-image: url('<?php echo (is_file(DOSSIER_GROUPE . $groupe['id_groupe'] . '.jpg') ? DOSSIER_GROUPE . $groupe['id_groupe'] . '.jpg' : DOSSIER_GROUPE . '0.jpg') ?>');"></div>
-					<h4><?php echo $groupe['titre']; ?></h4>
+					<div class="photo" style="background-image: url('<?php echo (is_file(DOSSIER_GROUPE . $groupe['id_groupe'] . '.jpg') ? DOSSIER_GROUPE . $groupe['id_groupe'] . '.jpg' : DOSSIER_GROUPE . '0.jpg') ?>');">
+				<?php
+					if(connecte() && $membre_groupe = est_membre_groupe($groupe['id_groupe'], $_SESSION['id'])) {
+
+						if($membre_groupe['type'] == 1) {
+				?>
+						<span>Responsable</span>
+				<?php
+						} else {
+				?>
+						<span>Inscrit</span>
+				<?php
+						}
+				?>
+				<?php
+					}
+				?>
+					</div>
+					<h4><?php echo htmlspecialchars($groupe['titre']); ?></h4>
 					<p>
 						<i class="fa fa-fire"></i> <?php echo $groupe['nom_sport']; ?><br>
 						<i class="fa fa-calendar"></i> <?php echo ucfirst($groupe['recurrence']); ?><br>

@@ -1,4 +1,5 @@
 ready(function(){
+
     function creation() {
         var input = document.getElementById('localisationAutoCompletion');
         var options = {
@@ -13,8 +14,10 @@ ready(function(){
         });
     }
     google.maps.event.addDomListener(window, 'load', creation);
-    Array.prototype.forEach.call(document.querySelectorAll('a.lieu'), function(a, i){
-        a.addEventListener('click', function(e){
+
+    var liens = document.querySelectorAll('a.lieu');
+    for (var i = liens.length - 1; i >= 0; i--) {
+        liens[i].addEventListener('click', function(e){
             e.preventDefault();
             Array.prototype.forEach.call(document.querySelectorAll('.coordonnees'), function(el, i){
                 el.remove();
@@ -37,10 +40,11 @@ ready(function(){
               lng: this.dataset.coordonnees.split(',')[1]
             });
         });
-    });
-    var chargement = false;
-    Array.prototype.forEach.call(document.querySelectorAll('a.participation'), function(a, i){
-        a.addEventListener('click', function(e){
+    }
+
+    var liens = document.querySelectorAll('a.participation'), chargement = false;
+    for (var i = liens.length - 1; i >= 0; i--) {
+        liens[i].addEventListener('click', function(e){
             if(!chargement) {
                 chargement = true;
                 e.preventDefault();
@@ -76,13 +80,14 @@ ready(function(){
                 requete.send();
             }
         });
-    });
-    Array.prototype.forEach.call(document.querySelectorAll('a.supprimer-date'), function(a, i){
-        a.addEventListener('click', function(e){
+    }
+    var liens = document.querySelectorAll('a.supprimer-date');
+    for (var i = liens.length - 1; i >= 0; i--) {
+        liens[i].addEventListener('click', function(e){
+            e.preventDefault();
             if(confirm('Etes vous sûr de vouloir supprimer cette date ?')) {
                 if(!chargement) {
                     chargement = true;
-                    e.preventDefault();
                     var that = this;
                     var requete = new XMLHttpRequest();
                     requete.open('GET', '?page=groupe&supprimer-date=' + this.dataset.id + '&id=' + this.dataset.idgroupe, true);
@@ -104,5 +109,13 @@ ready(function(){
                 }   
             }
         });
+    }
+
+    document.querySelector('.modifier-membres').addEventListener('click', function(e){
+        e.preventDefault();
+        var checkboxes = document.querySelectorAll('.check-membre');
+        for (var i = checkboxes.length - 1; i >= 0; i--) {
+            checkboxes[i].style.display = '';
+        }
     });
 })

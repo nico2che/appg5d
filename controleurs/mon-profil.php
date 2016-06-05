@@ -1,5 +1,10 @@
 <?php
 
+if(!connecte()) {
+	header('Location: ./');
+	exit();
+}
+
 include 'modeles/clubs.php';
 
 if(isset($_GET['upload'])) {
@@ -72,21 +77,39 @@ if(isset($_GET['upload'])) {
 
 $messages = array('informations' => array(), 'mot_de_passe' => array());
 
-if(isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email'])) {
+if(isset($_POST['pseudo']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['email'])) {
 
-	if(!empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['email'])) {
+	if(!empty($_POST['pseudo']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['email'])) {
 
 		if(preg_match('#^[a-zA-Z0-9._-]+\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$#', $_POST['email'])) {
 
-			if(modifier_membre($_SESSION['id'], $_POST['nom'], $_POST['prenom'], $_POST['email'], (isset($_POST['sexe']) ? $_POST['sexe'] : null), (isset($_POST['description']) ? $_POST['description'] : null), (isset($_POST['departement']) ? $_POST['departement'] : null))) {
+			$informations = profil_membre($_SESSION['id']);
 
-				$messages['informations']['type'] = 'succes';
-				$messages['informations']['message'] = 'Les informations ont été modifiées avec succès.';
+			if($informations['email'] == $_POST['email'] || !existe_email($_POST['email'])) {
+			
+				if($informations['pseudo'] == $_POST['pseudo'] || !existe_pseudo($_POST['pseudo'])) {
+
+					if(modifier_membre($_SESSION['id'], $_POST['pseudo'], $_POST['nom'], $_POST['prenom'], $_POST['email'], (isset($_POST['sexe']) ? $_POST['sexe'] : null), (isset($_POST['description']) ? $_POST['description'] : null), (isset($_POST['departement']) ? $_POST['departement'] : null))) {
+
+						$messages['informations']['type'] = 'succes';
+						$messages['informations']['message'] = 'Les informations ont été modifiées avec succès.';
+
+					} else {
+
+						$messages['informations']['type'] = 'erreur';
+						$messages['informations']['message'] = 'Une erreur est survenue, merci de réessayer plus tard.';
+					}
+
+				} else {
+
+					$messages['informations']['type'] = 'erreur';
+					$messages['informations']['message'] = 'Ce pseudo est déjà utilisé par un autre membre, merci d\'en choisir un autre.';
+				}
 
 			} else {
 
 				$messages['informations']['type'] = 'erreur';
-				$messages['informations']['message'] = 'Une erreur est survenue, merci de réessayer plus tard.';
+					$messages['informations']['message'] = 'Cet email est déjà utilisé par un autre membre, merci d\'en choisir un autre.';
 			}
 
 		} else {

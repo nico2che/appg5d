@@ -66,6 +66,8 @@ if(isset($_GET['nom']) && isset($_GET['sport']) && isset($_GET['recurrence'])) {
 
 	$requete .= ' 1=1';
 
+	$departements = recuperer_departement();
+
 	$recherche = rechercher_groupe_avancee($_GET['recherche'], (isset($_GET['sport']) ? $_GET['sport'] : null), (isset($_GET['recurrence']) ? $_GET['recurrence'] : null), (isset($_GET['min']) ? $_GET['min'] : null), (isset($_GET['max']) ? $_GET['max'] : null), (isset($_GET['departement']) ? $_GET['departement'] : null), (isset($_GET['niveau']) ? $_GET['niveau'] : null), $requete, $debut_requete, $groupes_par_page);
 
 } else {
@@ -78,9 +80,10 @@ $total_groupes = (int) $recherche['nombre'];
 
 $sports = recuperer_sports();
 
-if(isset($_GET['recherche'])) {
+if(isset($_GET['supprimer-succes'])) {
 
-	$departements = recuperer_departement();
+	$messages['type'] = 'succes';
+	$messages['message'] = 'Le groupe a bien été supprimé !';
 }
 
 include 'vues/groupes.php';

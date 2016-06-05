@@ -116,6 +116,7 @@ function ajouter_groupe($titre, $sport, $departement, $description, $min_partici
 													visibilite = :visibilite,
 													recurrence = :recurrence,
 													id_club = 0,
+													tendance = 0,
 													niveau = :niveau');
 	$stmt->bindValue('titre', $titre, PDO::PARAM_STR);
 	$stmt->bindValue('sport', $sport, PDO::PARAM_INT);
@@ -164,7 +165,10 @@ function modifier_groupe($id_groupe, $titre, $sport, $departement, $description,
 function supprimer_groupe($id_groupe) {
 
 	global $pdo;
-	$stmt = $pdo->prepare('DELETE FROM groupes WHERE id = :id_groupe');
+	$stmt = $pdo->prepare('DELETE dm, dr, gm, g FROM dates_membres dm INNER JOIN dates_rencontres dr ON dm.id_date = dr.id
+																INNER JOIN groupes_membres gm ON gm.id_groupe = :id_groupe
+																INNER JOIN groupes g ON g.id = :id_groupe
+															WHERE dr.id_groupe = :id_groupe');
 	$stmt->bindValue('id_groupe', $id_groupe, PDO::PARAM_INT);
 	if($stmt->execute())
 		return true;
@@ -216,7 +220,19 @@ function supprimer_membre_groupe($id_groupe, $id_membre) {
 	else
 		return false;
 }
+/* Supprimer les dates d'un membre, d'un groupe */
+function supprimer_dates_rencontres_membres($id_groupe, $id_membre) {
 
+	global $pdo;
+	$stmt = $pdo->prepare('DELETE dm FROM dates_membres dm LEFT JOIN dates_rencontres dr ON dm.id_date = dr.id
+															WHERE dr.id_groupe = :id_groupe AND dm.id_membre = :id_membre');
+	$stmt->bindValue('id_groupe', $id_groupe, PDO::PARAM_INT);
+	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
+	if($stmt->execute())
+		return true;
+	else
+		return false;
+}
 /* Lister les dates de rencontre d'un membre */
 function dates_membre($id_membre) {
 
@@ -321,6 +337,7 @@ function est_membre_groupe($id_groupe, $id_membre) {
 	$stmt->bindValue('id_groupe', $id_groupe, PDO::PARAM_INT);
 	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
 	$stmt->execute();
-	return (!empty($stmt->fetch()));
+	$resultat = $stmt->fetch();
+	return (!empty($resultat) ? $resultat : false);
 }
 

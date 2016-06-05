@@ -13,7 +13,7 @@
 </head>
 <body>
 	<header>
-		<a href="?"><img src="static/images/logoteam-up.png" alt="logo" id="logo"></a>
+		<a href="./"><img src="static/images/logoteam-up.png" alt="logo" id="logo"></a>
 			<nav>
 				<ul>
 					<li><a href="?page=groupes">Groupes</a></li>
