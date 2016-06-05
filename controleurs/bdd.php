@@ -18,6 +18,26 @@
 	
 
 
+	if(isset($_GET['gestion-clubs'])){
+		$request = $pdo->query('SELECT * FROM clubs WHERE approuve=0');
+		if(empty($request)){
+			echo"</br><h2 style=\"text-align:center\">Pas de clubs non aprouvés!</h2>";
+		}else{
+			
+			?><div class="cadre-gestion"><?php
+			include 'vues/gestionClubs.php';
+			?></div><?php
+			if(isset($_POST['approuve']) && isset($_POST['club_id'])){
+				$request=$pdo->prepare('UPDATE clubs SET approuve =? WHERE id=?');
+				$param4 = array($_POST['approuve'], $_POST['club_id']);
+				$request->execute($param4);
+			}
+			}
+			
+		
+
+	}
+
 
 	if(isset($_GET['gestion-forum'])){
 		
