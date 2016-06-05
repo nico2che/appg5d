@@ -26,7 +26,10 @@
 		</div>
 	</div>
 	<div class="titrepanel">
-		<h1 class="titreImage texteBase">Découvrez un grand choix de sport à pratiquer entre amis</h1>
+		<div class="titrepanelcontenu">
+			<h1>Trouvez un partenaire de sport près de chez vous</h1></br>
+			<a class="bouton" href="?page=inscription">S'inscrire</a>
+		</div>
 	</div>
 	<div class="paneldesports">
 		<div class="ligne">

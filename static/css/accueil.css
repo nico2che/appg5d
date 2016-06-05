@@ -100,11 +100,24 @@ h1{
   border-width: 0.3em;
 }
 
-.titrepanel h1{
-  font-size: 2.5em;
+.titrepanelcontenu{
+  text-align: center;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  color: #888888;
+}
+.titrepanelcontenu h1{
+  margin-bottom: 0.5em;
+}
+.bouton{
+  background-color: #0c8190;
+  border: none;
+  border-radius:0;
+  padding:0.5em;
+  padding-left:1.3em;
+  padding-right:1.3em;
+  font-size: 1.3em;
 }
 
 .paneldesports{
