@@ -26,31 +26,16 @@
 		</div>
 	</div>
 	<h2 class="titreImage texteBase">Découvrez un grand choix de sport à pratiquer entre amis</h2>
-	<div id="annonces">
-		<div class = "annonces1" id="annonce1">Football</div>
-		<div class = "annonces1" id="annonce2">Tennis</div>
-		<div class = "annonces1" id="annonce3">Rugby</div>
-		<div class = "annonces1" id="annonce4">Basket</div>
-		<div class = "annonces1" id="annonce5">Cyclisme</div>
-		<div class = "annonces1" id="annonce6">Randonnée</div>
-		<div class = "annonces1" id="annonce7">Golf</div>
-		<div class = "annonces1" id="annonce8">Atlétisme</div>
-		<div class = "annonces1" id="annonce9">Natation</div>
-		<div class = "annonces1" id="annonce10">Ping-Pong</div>
+	<div class="annonces">
+		<div id="annonce1">Football</div>
+		<div id="annonce2">Tennis</div>
+		<div id="annonce3">Rugby</div>
+		<div id="annonce4">Basket</div>
+		<div id="annonce5">Cyclisme</div>
+		<div id="annonce6">Randonnée</div>
+		<div id="annonce7">Golf</div>
+		<div id="annonce8">Atlétisme</div>
+		<div id="annonce9">Natation</div>
+		<div id="annonce10">Ping-Pong</div>
 	</div>
-	<div>
-		<input type="submit" value="Voir tous les sports" class="bouton">
-	</div>
-	<!--<?php if(connecte()) {  ?>
-		<h2 class="titreClassique texteBase">Les annonces à la mode</h2>
-		<div class="petitTitre texteBase">Choisissez un groupe dynamique avec des personnes motivées</div>
-		<div id='annoncesMoment'>
-			<div class="annonces2">
-				
-			</div>
-			<div class="annonces2">
-				
-			</div>
-		</div>
-	<?php } ?>-->
 
