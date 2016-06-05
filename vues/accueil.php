@@ -26,16 +26,24 @@
 		</div>
 	</div>
 	<h2 class="titreImage texteBase">Découvrez un grand choix de sport à pratiquer entre amis</h2>
-	<div class="annonces">
-		<div id="annonce1">Football</div>
-		<div id="annonce2">Tennis</div>
-		<div id="annonce3">Rugby</div>
-		<div id="annonce4">Basket</div>
-		<div id="annonce5">Cyclisme</div>
-		<div id="annonce6">Randonnée</div>
-		<div id="annonce7">Golf</div>
-		<div id="annonce8">Atlétisme</div>
-		<div id="annonce9">Natation</div>
-		<div id="annonce10">Ping-Pong</div>
+	<div class="panelDeSports">
+		<div class="ligne">
+			<div class="sport" id="tennis"><img src="static/images/Ptennis.jpg"></br>Tennis</div>
+			<div class="sport" id="football"><img src="static/images/Pfootball.jpg"></br>Football</div>
+			<div class="sport" id="cyclisme"><img src="static/images/Pvelo.jpg"></br>Cyclisme</div>
+			<div class="sport" id="athletisme"><img src="static/images/Prunning.jpg"></br>Athlétisme</div>
+		</div>
+		<div class="ligne">
+			<div class="sport" id="randonnee"><img src="static/images/Prandonnee.jpg"></br>Randonnée</div>
+			<div class="sport" id="badminton"><img src="static/images/Pbadminton.jpg"></br>Badminton</div>
+			<div class="sport" id="basketball"><img src="static/images/Pbasket.jpg"></br>Basketball</div>
+			<div class="sport" id="volleyball"><img src="static/images/Pvolley.jpg"></br>Volleyball</div>
+		</div>
+		<div class="ligne">
+			<div class="sport" id="rugby"><img src="static/images/Prugby.jpg"></br>Rugby</div>
+			<div class="sport" id="golf"><img src="static/images/Pgolf.jpg"></br>Golf</div>
+			<div class="sport" id="natation"><img src="static/images/Pnatation.jpg"></br>Natation</div>
+			<div class="sport" id="etbienplusencore">Et bien plus encore !</div>
+		</div>
 	</div>
 

@@ -89,6 +89,18 @@
   margin-top: 15em;
 }
 
+.ligne{
+  display: flex;
+}
+.sport{
+  padding: 1%;
+  width: 25%;
+}
+.sport img{
+  width: 100%;
+}
+
+
 .textePromo{
   color: #4d4d4d;
   display: inline-block;
