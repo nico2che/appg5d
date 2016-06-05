@@ -208,6 +208,32 @@ function ajouter_membre_groupe($id_groupe, $id_membre, $type) {
 	else
 		return false;
 }
+/* Promouvoir un membre en tant que responsable d'un groupe */
+function promouvoir_membre_groupe($id_groupe, $id_membre) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('UPDATE groupes_membres SET type = 1
+											WHERE id_groupe = :id_groupe AND id_membre = :id_membre');
+	$stmt->bindValue('id_groupe', $id_groupe, PDO::PARAM_INT);
+	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
+	if($stmt->execute())
+		return true;
+	else
+		return false;
+}
+/* Rétrograde un membre en tant que responsable d'un groupe */
+function retrograde_membre_groupe($id_groupe, $id_membre) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('UPDATE groupes_membres SET type = 0
+											WHERE id_groupe = :id_groupe AND id_membre = :id_membre');
+	$stmt->bindValue('id_groupe', $id_groupe, PDO::PARAM_INT);
+	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
+	if($stmt->execute())
+		return true;
+	else
+		return false;
+}
 /* Supprimer un membre d'un groupe */
 function supprimer_membre_groupe($id_groupe, $id_membre) {
 

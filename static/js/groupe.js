@@ -111,11 +111,83 @@ ready(function(){
         });
     }
 
-    document.querySelector('.modifier-membres').addEventListener('click', function(e){
-        e.preventDefault();
-        var checkboxes = document.querySelectorAll('.check-membre');
-        for (var i = checkboxes.length - 1; i >= 0; i--) {
-            checkboxes[i].style.display = '';
-        }
-    });
+    var modifie = false;
+    if(document.querySelector('.modifier-membres') != undefined) {
+        document.querySelector('.modifier-membres').addEventListener('click', function(e){
+            e.preventDefault();
+            if(!modifie) {
+                var checkboxes = document.querySelectorAll('.check-membre');
+                for (var i = checkboxes.length - 1; i >= 0; i--) {
+                    checkboxes[i].style.display = '';
+                }
+                var liens = document.querySelectorAll('.profil.membres');
+                for (var i = liens.length - 1; i >= 0; i--) {
+                    liens[i].onclick = function() {
+                        if(this.querySelector('input').checked)
+                            this.querySelector('input').checked = false;
+                        else
+                            this.querySelector('input').checked = true;
+                        return false;
+                    };
+                }
+                document.querySelector('.actions-membres').style.display = '';
+                this.innerHTML = 'Annuler';
+                modifie = true;
+            } else {
+                var checkboxes = document.querySelectorAll('.check-membre');
+                for (var i = checkboxes.length - 1; i >= 0; i--) {
+                    checkboxes[i].style.display = 'none';
+                }
+                var liens = document.querySelectorAll('.profil.membres');
+                for (var i = liens.length - 1; i >= 0; i--) {
+                    liens[i].onclick = function() {
+                        return true;
+                    };
+                }
+                document.querySelector('.actions-membres').style.display = 'none';
+                this.innerHTML = 'Modifier';
+                modifie = false;
+            }
+        });
+    }
+
+    var modifie_responsables = false;
+    if(document.querySelector('.modifier-responsables') != undefined) {
+        document.querySelector('.modifier-responsables').addEventListener('click', function(e){
+            e.preventDefault();
+            if(!modifie_responsables) {
+                var checkboxes = document.querySelectorAll('.check-responsables');
+                for (var i = checkboxes.length - 1; i >= 0; i--) {
+                    checkboxes[i].style.display = '';
+                }
+                var liens = document.querySelectorAll('.profil.responsables');
+                for (var i = liens.length - 1; i >= 0; i--) {
+                    liens[i].onclick = function() {
+                        if(this.querySelector('input').checked)
+                            this.querySelector('input').checked = false;
+                        else
+                            this.querySelector('input').checked = true;
+                        return false;
+                    };
+                }
+                document.querySelector('.actions-responsables').style.display = '';
+                this.innerHTML = 'Annuler';
+                modifie_responsables = true;
+            } else {
+                var checkboxes = document.querySelectorAll('.check-responsables');
+                for (var i = checkboxes.length - 1; i >= 0; i--) {
+                    checkboxes[i].style.display = 'none';
+                }
+                var liens = document.querySelectorAll('.profil.responsables');
+                for (var i = liens.length - 1; i >= 0; i--) {
+                    liens[i].onclick = function() {
+                        return true;
+                    };
+                }
+                document.querySelector('.actions-responsables').style.display = 'none';
+                this.innerHTML = 'Modifier';
+                modifie_responsables = false;
+            }
+        });
+    }
 })

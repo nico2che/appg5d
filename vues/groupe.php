@@ -148,14 +148,17 @@
 		}
 	?>
 		<div class="encadrer">
+			<form action="" method="post">
 	<?php 
 		if(isset($membres_groupe['types'][1]) && !empty($membres_groupe['types'][1])) {
 
-			echo count($membres_groupe['types'][1]); ?> responsable<?php echo (count($membres_groupe['types'][1]) > 1 ? 's' : null) . '<br><br>';
+			echo count($membres_groupe['types'][1]); ?> responsable<?php echo (count($membres_groupe['types'][1]) > 1 ? 's' : null) . (est_auteur_groupe($membres_groupe) ? ' - <a href="#" class="modifier-responsables lien-simple">Modifier</a>' : null).'<br><br>';
 
 			foreach ($membres_groupe['types'][1] as $membre) {
-				echo '	<a class="profil" href="?page=profil&id='.$membre['id'].'">
-							<div class="participant" title="'.htmlspecialchars($membre['pseudo']).'" style="background-image:url(\''.(is_file(chemin_avatar($membre['id'])) ? chemin_avatar($membre['id']) : chemin_avatar('0')).'\');"></div>
+				echo '	<a class="profil responsables" href="?page=profil&id='.$membre['id'].'" data-id="'.$membre['id'].'">
+							<div class="participant" title="'.htmlspecialchars($membre['pseudo']).'" style="background-image:url(\''.(is_file(chemin_avatar($membre['id'])) ? chemin_avatar($membre['id']) : chemin_avatar('0')).'\');">
+								'.(est_auteur_groupe($membres_groupe) ? '<input type="checkbox" class="check-responsables" style="display:none" name="membres[]" value="'.$membre['id'].'">' : null).'
+							</div>
 						</a>';
 			}
 
@@ -164,18 +167,21 @@
 			echo 'Aucun responsable pour ce groupe.';
 		}
 	?>
+				<span class="actions-responsables" style="display:none;"><br><br><input type="submit" name="retrograde" value="Retrograder en tant que membre"></span>
+			</form>
 		</div>
 		<div class="encadrer">
+			<form action="" method="post">
 	<?php
 		if(isset($membres_groupe['types'][0]) && !empty($membres_groupe['types'][0])) {
 
-			echo count($membres_groupe['types'][0]); ?> membre<?php echo (count($membres_groupe['types'][0]) > 1 ? 's' : null) . ' - '.(est_auteur_groupe($membres_groupe) ? '<a href="#" class="modifier-membres lien-simple">Modifier</a>' : null).'<br><br>';
+			echo count($membres_groupe['types'][0]); ?> membre<?php echo (count($membres_groupe['types'][0]) > 1 ? 's' : null) .(est_auteur_groupe($membres_groupe) ? ' - <a href="#" class="modifier-membres lien-simple">Modifier</a>' : null).'<br><br>';
 
 			foreach ($membres_groupe['types'][0] as $membre) {
 
-				echo '	<a class="profil" href="?page=profil&id='.$membre['id'].'">
+				echo '	<a class="profil membres" href="?page=profil&id='.$membre['id'].'" data-id="'.$membre['id'].'">
 							<div class="participant" title="'.htmlspecialchars($membre['pseudo']).'" style="background-image:url(\''.(is_file(chemin_avatar($membre['id'])) ? chemin_avatar($membre['id']) : chemin_avatar('0')).'\');">
-								'.(est_auteur_groupe($membres_groupe) ? '<input type="checkbox" class="check-membre" style="display:none" data-id="'.$membre['id'].'">' : null).'
+								'.(est_auteur_groupe($membres_groupe) ? '<input type="checkbox" class="check-membre" style="display:none" name="membres[]" value="'.$membre['id'].'">' : null).'
 							</div>
 						</a>';
 			}
@@ -184,7 +190,10 @@
 
 			echo 'Aucun membre pour le moment.';
 		}
-	?>
+	?>	
+				<span class="actions-membres" style="display:none;"><br><br><input type="submit" name="responsable" value="Désigner responsable"> ou 
+				<input type="submit" name="exclure" value="Exclure"></span>
+			</form>
 		</div>
 	</div>
 <?php

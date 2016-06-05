@@ -36,7 +36,7 @@ if(connecte() && isset($_GET['quitter'])) {
 
 		$messages['type'] = 'succes';
 		$messages['message'] = 'Vous avez quitté le groupe';
-		supprimer_membre_groupe($id_groupe, $_SESSION['id'], 0);
+		supprimer_membre_groupe($id_groupe, $_SESSION['id']);
 		supprimer_dates_rencontres_membres($id_groupe, $_SESSION['id']);
 		$membres_groupe = membres_groupe($id_groupe);
 	}
@@ -197,6 +197,42 @@ if(est_auteur_groupe($membres_groupe)) {
 			echo json_encode(array('statut' => 2));
 		}
 		exit();
+	}
+
+	if(isset($_POST['membres']) && !empty($_POST['membres']) && is_array($_POST['membres']) && (isset($_POST['responsable']) || isset($_POST['exclure']) || isset($_POST['retrograde']))) {
+
+		if(isset($_POST['responsable'])) {
+
+			foreach ($_POST['membres'] as $id_membre) {
+
+				promouvoir_membre_groupe($id_groupe, $id_membre);
+			}
+
+			$messages['type'] = 'succes';
+			$messages['message'] = 'Les membre sélectionnés ont bien été promus en tant que responsable de ce groupe';
+
+		} elseif(isset($_POST['exclure'])) {
+
+			foreach ($_POST['membres'] as $id_membre) {
+
+				supprimer_membre_groupe($id_groupe, $id_membre);
+			}
+
+			$messages['type'] = 'succes';
+			$messages['message'] = 'Les membre sélectionnés ont bien été exclus de ce groupe';
+
+		} elseif(isset($_POST['retrograde'])) {
+
+			foreach ($_POST['membres'] as $id_membre) {
+
+				retrograde_membre_groupe($id_groupe, $id_membre);
+			}
+
+			$messages['type'] = 'succes';
+			$messages['message'] = 'Les membre sélectionnés ont bien été retrogradés';
+		}
+
+		$membres_groupe = membres_groupe($id_groupe);
 	}
 }
 
