@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 03 Juin 2016 à 14:25
+-- Généré le :  Lun 06 Juin 2016 à 07:25
 -- Version du serveur :  5.7.11
--- Version de PHP :  5.6.18
+-- Version de PHP :  7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -414,6 +414,20 @@ INSERT INTO `groupes_membres` (`id`, `id_groupe`, `id_membre`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `invitations`
+--
+
+CREATE TABLE `invitations` (
+  `id` int(11) NOT NULL,
+  `id_groupe` int(11) NOT NULL,
+  `id_expediteur` int(11) NOT NULL,
+  `id_destinataire` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `membres`
 --
 
@@ -749,6 +763,12 @@ ALTER TABLE `groupes_membres`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `invitations`
+--
+ALTER TABLE `invitations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `membres`
 --
 ALTER TABLE `membres`
@@ -825,6 +845,11 @@ ALTER TABLE `groupes`
 --
 ALTER TABLE `groupes_membres`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT pour la table `invitations`
+--
+ALTER TABLE `invitations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `membres`
 --

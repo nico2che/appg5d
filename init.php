@@ -79,6 +79,26 @@ define('DOSSIER_CLUBS',  'static/user/clubs/');
 
 include 'modeles/membres.php';
 
+if(connecte() && !isset($_SESSION['csrf'])) {
+
+}
+
+function csrf($temps, $referer, $nom = '')
+{
+    if(isset($_SESSION['csrf']) && isset($_SESSION['csrf']) && isset($_POST['_csrf']))
+        if($_SESSION['csrf'] == $_POST['_csrf'])
+            if($_SESSION[$nom.'_token_time'] >= (time() - $temps))
+                if($_SERVER['HTTP_REFERER'] == $referer)
+                    return true;
+    return false;
+}
+
+function csrf_input()
+{
+    $_SESSION['csrf'] = sha1(uniqid() . rand() . uniqid());
+    return '<input type="hidden" name="_csrf" value="'.$_SESSION['csrf'].'">';
+}
+
 if(!connecte() && isset($_COOKIE['membre']) && !empty($_COOKIE['membre']) && isset($_COOKIE['hash']) && !empty($_COOKIE['hash'])) {
 
     if($infos_membre = verifier_membre($_COOKIE['membre'], $_COOKIE['hash'])) {
