@@ -3,9 +3,9 @@
 		</div>
 		<div class="navigation">
 			<ul>
+				<li><a href="?page=profil">Résumé</a></li>
 				<li><a href="?page=mon-profil">Mon Profil</a></li>
 				<li><a href="?page=mon-planning">Mon Planning</a></li>
-				<li><a href="?page=mes-groupes">Mes Groupes</a></li>
 			</ul>
 		</div>
 	</div>

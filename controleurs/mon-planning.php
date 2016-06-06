@@ -1,5 +1,10 @@
 <?php
 
+if(!connecte()) {
+	header('Location: ./');
+	exit();
+}
+
 include 'modeles/groupes.php';
 
 $fichier_css = 'mon-profil';

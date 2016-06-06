@@ -21,7 +21,7 @@
 					<li><a href="?page=forum">Forum</a></li>
 
 				<?php if($profil = connecte(true)) { ?>
-					<li><a href="?page=mon-profil">Mon Compte</a></li>
+					<li><a href="?page=profil">Mon Compte</a></li>
 					<li><a href="?page=deconnexion">Déconnexion</a></li>
 					<li><a href="?page=mon-profil"><img class="avatar-menu" src="<?php echo (is_file(DOSSIER_AVATAR . $profil['id'] . ".jpg") ? DOSSIER_AVATAR . $profil['id'] . ".jpg" : DOSSIER_AVATAR . "0.jpg"); ?>" alt="<?php echo $profil['prenom']; ?>"></a></li>
 			<?php } else { ?>

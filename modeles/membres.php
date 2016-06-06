@@ -38,6 +38,28 @@ function existe_pseudo($pseudo) {
 		return false;
 }
 
+function existe_pseudo_email($chaine) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT * FROM membres WHERE email = :chaine OR pseudo = :chaine');
+	$stmt->bindValue('chaine', $chaine, PDO::PARAM_STR);
+	if($stmt->execute())
+		return $stmt->fetch();
+	else
+		return false;
+}
+function existe_invitation($id_groupe, $id_expediteur, $id_destinataire) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT * FROM invitations WHERE id_destinataire = :id_destinataire AND id_expediteur = :id_expediteur');
+	$stmt->bindValue('id_expediteur', $id_expediteur, PDO::PARAM_INT);
+	$stmt->bindValue('id_destinataire', $id_destinataire, PDO::PARAM_INT);
+	if($stmt->execute())
+		return $stmt->fetch();
+	else
+		return false;
+}
+
 function inscrire_membre($pseudo, $nom, $prenom, $email, $mot_de_passe, $sexe, $id_departement) {
 
 	global $pdo;
@@ -56,6 +78,22 @@ function inscrire_membre($pseudo, $nom, $prenom, $email, $mot_de_passe, $sexe, $
 	$stmt->bindValue('mot_de_passe', $mot_de_passe, PDO::PARAM_STR);
 	$stmt->bindValue('sexe', $sexe, PDO::PARAM_STR);
 	$stmt->bindValue('id_departement', $id_departement, PDO::PARAM_INT);
+	if($stmt->execute())
+		return $pdo->lastInsertId();
+	else
+		return false;
+}
+
+function inviter_membre($id_groupe, $id_expediteur, $id_destinataire) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('INSERT INTO invitations SET 	id_destinataire = :id_destinataire,
+													id_groupe = :id_groupe,
+													id_expediteur = :id_expediteur,
+													date = NOW()');
+	$stmt->bindValue('id_expediteur', $id_expediteur, PDO::PARAM_INT);
+	$stmt->bindValue('id_groupe', $id_groupe, PDO::PARAM_INT);
+	$stmt->bindValue('id_destinataire', $id_destinataire, PDO::PARAM_INT);
 	if($stmt->execute())
 		return $pdo->lastInsertId();
 	else
@@ -92,6 +130,16 @@ function profil_membre($id) {
 	$stmt->bindValue('id', $id, PDO::PARAM_INT);
 	if($stmt->execute())
 		return $stmt->fetch();
+	else
+		return false;
+}
+function recuperer_invitations($id) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT i.*,g.id id_groupe, g.* FROM invitations i LEFT JOIN groupes g ON g.id = i.id_groupe WHERE i.id_destinataire = :id');
+	$stmt->bindValue('id', $id, PDO::PARAM_INT);
+	if($stmt->execute())
+		return $stmt->fetchAll();
 	else
 		return false;
 }

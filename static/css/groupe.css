@@ -134,3 +134,12 @@
 .profil {
   text-decoration: none;
 }
+input#invitation {
+  width:147px;
+}
+span.reponse-invitation.vert {
+  color:green;
+}
+span.reponse-invitation.rouge {
+  color:red;
+}

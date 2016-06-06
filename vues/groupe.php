@@ -167,7 +167,7 @@
 			echo 'Aucun responsable pour ce groupe.';
 		}
 	?>
-				<span class="actions-responsables" style="display:none;"><br><br><input type="submit" name="retrograde" value="Retrograder en tant que membre"></span>
+				<span class="actions-responsables" style="display:none;"><br><br><input type="submit" name="retrograde" value="Rétrograder en tant que membre"></span>
 			</form>
 		</div>
 		<div class="encadrer">
@@ -195,6 +195,18 @@
 				<input type="submit" name="exclure" value="Exclure"></span>
 			</form>
 		</div>
+	<?php
+		if(est_auteur_groupe($membres_groupe)) {
+	?>
+		<div class="encadrer">
+			<label for="invitation">Inviter un membre :</label>
+			<input type="text" placeholder="Email ou pseudo" name="invitation" id="invitation">
+			<input type="submit" value="Inviter" id="invitation-envoie" data-id="<?php echo $id_groupe; ?>">
+			<span class="reponse-invitation"></span>
+		</div>
+	<?php
+		}
+	?>
 	</div>
 <?php
 	}

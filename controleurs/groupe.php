@@ -42,6 +42,34 @@ if(connecte() && isset($_GET['quitter'])) {
 	}
 }
 
+if(connecte() && isset($_GET['invitation']) && !empty($_GET['invitation'])) {
+
+	if(est_membre_groupe($id_groupe, $_SESSION['id'])) {
+
+		if($membre = existe_pseudo_email($_GET['invitation'])) {
+
+			if(!existe_invitation($id_groupe, $membre['id'], $_SESSION['id'])) {
+
+				inviter_membre($id_groupe, $membre['id'], $_SESSION['id']);
+				echo json_encode(array('statut' => 0, 'message' => 'Invitation envoyée !'));
+
+			} else {
+
+				echo json_encode(array('statut' => 1, 'message' => 'Invitation déjà envoyée'));
+			}
+
+		} else {
+
+			echo json_encode(array('statut' => 1, 'message' => 'Aucun membre n\'existe avec ce pseudo ou cet email'));
+		}
+
+	} else {
+
+		echo json_encode(array('statut' => 1, 'message' => 'Vous devez être membre du groupe'));
+	}
+	exit();
+}
+
 
 if(isset($_POST['type']) && isset($_POST['nom']) && isset($_POST['sport']) && isset($_POST['departement']) && isset($_POST['description']) && isset($_POST['min_participants']) && isset($_POST['max_participants']) && isset($_POST['visibilite']) && isset($_POST['recurrence']) && isset($_POST['niveau'])) {
 

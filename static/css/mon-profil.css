@@ -128,3 +128,47 @@ form.formulaire-profil h3 {
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
+.padde {
+  padding:15px;
+}
+
+.invitations .encadrer {
+  height:90px;
+}
+
+.invitations .photo {
+  width:200px;
+  height:90px;
+  background-size: cover;
+  background-position: center;
+  padding:0;
+  float: left;
+}
+
+.invitations .details {
+  padding: 15px;
+  width: 436px  ;
+  display: inline-block;
+  height: 61px;
+}
+.invitations .encadrer > a {
+  color:black;
+  float: left;
+}
+.invitations .details span.date {
+  color:grey;
+}
+
+.invitations .reponse {
+  display: inline-block;
+  padding: 16px;
+  border-left:1px solid grey;
+  font-size:39px;
+}
+.invitations .reponse.accepter a {
+  color:green;
+}
+.invitations .reponse.refuser a {
+  color:red;
+}
