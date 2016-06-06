@@ -131,7 +131,7 @@ if(isset($_POST['mot_de_passe_actuel']) && isset($_POST['mot_de_passe']) && isse
 		
 		if(verifier_membre($_SESSION['id'], sha1($_POST['mot_de_passe_actuel']))) {
 
-			if(strlen($_POST['mot_de_passe']) > 5) {
+			if(strlen($_POST['mot_de_passe']) > 7) {
 
 				if(preg_match('#(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).+#', $_POST['mot_de_passe'])) {
 
@@ -163,7 +163,7 @@ if(isset($_POST['mot_de_passe_actuel']) && isset($_POST['mot_de_passe']) && isse
 			} else {
 
 				$messages['mot_de_passe']['type'] = 'erreur';
-				$messages['mot_de_passe']['message'] = "Le mot de passe doit être de 6 caractères minimum.";
+				$messages['mot_de_passe']['message'] = "Le mot de passe doit être de 8 caractères minimum.";
 			}
 
 		} else {

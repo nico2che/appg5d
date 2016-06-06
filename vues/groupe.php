@@ -134,8 +134,8 @@
 	<?php
 		if(est_auteur_groupe($membres_groupe)) {
 	?>
-		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;modifier&amp;_c=<?php echo _csrf(false); ?>" class="bouton b-principal">Modifier le groupe</a></div>
-		<div class="align-center" style="margin:30px 0;"><a onCLick="return confirm('Si vous supprimez le groupe, toutes ses informations seront définitivement perdues !');" href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;supprimer&amp;_c=<?php echo _csrf(false); ?>" class="bouton b-danger">Supprimer le groupe</a></div>
+		<div class="align-center" style="margin:30px 0;"><a href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;modifier" class="bouton b-principal">Modifier le groupe</a></div>
+		<div class="align-center" style="margin:30px 0;"><a onClick="return confirm('Si vous supprimez le groupe, toutes ses informations seront définitivement perdues !');" href="?page=groupe&amp;id=<?php echo $id_groupe; ?>&amp;supprimer&amp;_c=<?php echo _csrf(false); ?>" class="bouton b-danger">Supprimer le groupe</a></div>
 	<?php 
 		} elseif(est_membre_groupe($id_groupe, $_SESSION['id'])) {
 	?>

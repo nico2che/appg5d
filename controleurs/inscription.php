@@ -6,7 +6,7 @@ if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom'])  &
 
 	if(!empty($_POST['nom']) && !empty($_POST['pseudo']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['mot_de_passe']) && !empty($_POST['confirmation_mot_de_passe'])) {
 
-		if(strlen($_POST['mot_de_passe']) > 5) {
+		if(strlen($_POST['mot_de_passe']) > 7) {
 
 			if(preg_match('#(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).+#', $_POST['mot_de_passe'])) {
 
@@ -48,7 +48,7 @@ if(isset($_POST['pseudo']) && isset($_POST['nom']) && isset($_POST['prenom'])  &
 
 		} else {
 
-			$message = "Le mot de passe doit être de 6 caractères minimum.";
+			$message = "Le mot de passe doit être de 8 caractères minimum.";
 		}
 
 	} else {
