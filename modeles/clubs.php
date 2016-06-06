@@ -146,6 +146,14 @@ function dejaCommente($id_membre, $id_club){
 	$stmt->execute();
 	return $stmt->fetch();
 }
+function commentaire_club_auteur($id_membre, $id_commentaire){
+	global $pdo;
+	$stmt = $pdo-> prepare('SELECT * FROM commentaires_clubs WHERE id_membre= :id_membre AND id= :id_commentaire');
+	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
+	$stmt->bindValue('id_commentaire', $id_commentaire, PDO::PARAM_INT);
+	$stmt->execute();
+	return $stmt->fetch();
+}
 function modifierCommentaire($id_club, $id_membre, $commentaire, $note){
 	global $pdo;
 	$stmt = $pdo->prepare('UPDATE commentaires_clubs SET commentaire = :commentaire,
@@ -160,4 +168,11 @@ function modifierCommentaire($id_club, $id_membre, $commentaire, $note){
 		return true;
 	else
 		return false;
+}
+function supprimer_commentaire_club($id) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('DELETE FROM commentaires_clubs WHERE id = :id');
+	$stmt->bindValue('id', $id, PDO::PARAM_INT);
+	return $stmt->execute();
 }

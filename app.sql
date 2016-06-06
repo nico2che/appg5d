@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 06 Juin 2016 à 07:56
+-- Généré le :  Lun 06 Juin 2016 à 08:25
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -307,7 +307,8 @@ CREATE TABLE `forum_messages` (
 --
 
 INSERT INTO `forum_messages` (`id`, `id_sujet`, `id_membre`, `message`, `date`) VALUES
-(5, 2, 1, 's<v', '2016-06-01 05:21:22');
+(5, 2, 1, 's<v', '2016-06-01 05:21:22'),
+(7, 12, 2, 'ffuyjh', '2016-06-06 10:01:04');
 
 -- --------------------------------------------------------
 
@@ -322,24 +323,25 @@ CREATE TABLE `forum_sujets` (
   `id_sport` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `message` text NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL,
+  `resolu` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `forum_sujets`
 --
 
-INSERT INTO `forum_sujets` (`id`, `id_membre`, `type`, `id_sport`, `titre`, `message`, `date`) VALUES
-(2, 1, 'aide', 0, 'Besoin d\'aide !', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
-(3, 1, 'aide', 0, 'Comment faire ?', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(4, 6, 'aide', 0, 'Demande de rajout sur le site', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(5, 5, 'aide', 0, 'Je ne peux plus accÃ©der Ã  mon groupe', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(6, 2, 'aide', 0, 'Help', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
-(7, 1, 'aide', 0, 'Une idÃ©e pour votre site !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(8, 4, 'aide', 0, 'Merci beaucoup !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(9, 6, 'aide', 0, 'Je ne peux plus accÃ©der Ã  mon groupe encore une fois', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(10, 6, 'aide', 0, 'Oups', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
-(11, 1, 'aide', 1, 'OÃ¹ aller faire son sport ?', 'Question !', '2016-06-01 05:37:21');
+INSERT INTO `forum_sujets` (`id`, `id_membre`, `type`, `id_sport`, `titre`, `message`, `date`, `resolu`) VALUES
+(2, 1, 'aide', 0, 'Besoin d\'aide !', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56', 0),
+(3, 1, 'aide', 0, 'Comment faire ?', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
+(4, 6, 'aide', 0, 'Demande de rajout sur le site', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
+(5, 5, 'aide', 0, 'Je ne peux plus accÃ©der Ã  mon groupe', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
+(6, 2, 'aide', 0, 'Help', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56', 0),
+(7, 1, 'aide', 0, 'Une idÃ©e pour votre site !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
+(8, 4, 'aide', 0, 'Merci beaucoup !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
+(9, 6, 'aide', 0, 'Je ne peux plus accÃ©der Ã  mon groupe encore une fois', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
+(10, 6, 'aide', 0, 'Oups', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56', 0),
+(11, 1, 'aide', 1, 'OÃ¹ aller faire son sport ?', 'Question !', '2016-06-01 05:37:21', 0);
 
 -- --------------------------------------------------------
 
@@ -804,7 +806,7 @@ ALTER TABLE `clubs`
 -- AUTO_INCREMENT pour la table `commentaires_clubs`
 --
 ALTER TABLE `commentaires_clubs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT pour la table `contacte_message`
 --
@@ -829,12 +831,12 @@ ALTER TABLE `departement`
 -- AUTO_INCREMENT pour la table `forum_messages`
 --
 ALTER TABLE `forum_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `forum_sujets`
 --
 ALTER TABLE `forum_sujets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `groupes`
 --
@@ -844,7 +846,7 @@ ALTER TABLE `groupes`
 -- AUTO_INCREMENT pour la table `groupes_membres`
 --
 ALTER TABLE `groupes_membres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `invitations`
 --

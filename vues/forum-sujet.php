@@ -4,7 +4,7 @@
 		$date_sujet = new DateTimeFrench($sujet['date']);
 		if(connecte() && $sujet['id_membre'] == $_SESSION['id']) {
 	?>
-		<p class="ecarts-y">Vous êtes le créateur de ce sujet. Vous pouvez le <a href="?page=forum&amp;modifier&amp;sujet=<?php echo $sujet['id_sujet']; ?>" class="lien-simple">modifier</a> ou le <a href="?page=forum&amp;supprimer&amp;sujet=<?php echo $sujet['id_sujet']; ?>" class="lien-simple" onClick="return confirm('Voulez-vous vraiment supprimer ce sujet ?');">supprimer</a>.</p>
+		<p class="ecarts-y">Vous êtes le créateur de ce sujet. Vous pouvez le <a href="?page=forum&amp;modifier&amp;sujet=<?php echo $sujet['id_sujet']; ?>" class="lien-simple">modifier</a> ou le <a href="?page=forum&amp;supprimer&amp;sujet=<?php echo $sujet['id_sujet']; ?>&amp;_c=<?php echo _csrf(false); ?>" class="lien-simple" onClick="return confirm('Voulez-vous vraiment supprimer ce sujet ?');">supprimer</a>.</p>
 	<?php
 		}
 	?>
@@ -21,7 +21,7 @@
 			$date_reponse = new DateTimeFrench($message['date']);
 	?>
 		<div class="encadrer">
-			<span class="message-infos">Réponse de <?php echo $message['prenom'] . ' '. $message['nom'] . (connecte() && $message['id_membre'] == $_SESSION['id'] ? ' (<a href="?page=forum&sujet='.$id_sujet.'&supprimer-message='.$message['id_message'].'" onClick="return confirm(\'Voulez-vous vraiment supprimer votre message ?\');">supprimer</a>)' : null); ?> <span class="float-right">le <?php echo $date_reponse->format('d F Y'); ?> à <?php echo $date_reponse->format('H:i'); ?></span></span>
+			<span class="message-infos">Réponse de <?php echo $message['prenom'] . ' '. $message['nom'] . (connecte() && $message['id_membre'] == $_SESSION['id'] ? ' (<a href="?page=forum&sujet='.$id_sujet.'&supprimer-message='.$message['id_message'].'&_c='._csrf(false).'" onClick="return confirm(\'Voulez-vous vraiment supprimer votre message ?\');">supprimer</a>)' : null); ?> <span class="float-right">le <?php echo $date_reponse->format('d F Y'); ?> à <?php echo $date_reponse->format('H:i'); ?></span></span>
 			<hr>
 			<?php echo nl2br(htmlspecialchars($message['message'])); ?>
 		</div>

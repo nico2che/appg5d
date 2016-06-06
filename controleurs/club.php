@@ -25,36 +25,76 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 		$commentaires = $informations['commentaires'];
 		$sports = $informations['sports'];
 
-		if(connecte() && isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
+		if(connecte()) {
 
-			if(dejaCommente($_SESSION['id'],$_GET['id'])==false){
+			if(isset($_GET['supprimer-message']) && !empty($_GET['supprimer-message'])) {
+			
+				if(csrf($_GET)) {
 
-				if(ajouterCommentaire($id_club, $_SESSION['id'], $_POST['commentaire'], $_POST['note'])) {
+					$id_commentaire = (int) $_GET['supprimer-message'];
 
-					$messages['type'] = 'succes';
-					$messages['message'] = 'Le commentaire a été ajouté avec succès';
+					// On vérifie que ce commentaire appartient bien à la connexion actuelle
+					if(commentaire_club_auteur($_SESSION['id'], $id_commentaire)) {
+
+						// On peut supprimer
+						if(supprimer_commentaire_club($id_commentaire)) {
+
+							$messages['type'] = 'succes';
+							$messages['message'] = 'Commentaire supprimé';
+							
+							$informations = recuperer_club($id_club);
+							$commentaires = $informations['commentaires'];
+
+						} else {
+
+							$messages['type'] = 'erreur';
+							$messages['message'] = 'Impossible de supprimer ce sujet, veuillez réessayer plus tard';
+						}
+						
+					} else {
+
+						$messages['type'] = 'erreur';
+						$messages['message'] = 'Vous n\'êtes pas l\'auteur de ce sujet !';
+					}
+					
 				} else {
 
 					$messages['type'] = 'erreur';
-					$messages['message'] = 'Impossible d\'ajouter le commentaire, veuillez réessayer plus tard';
-				}
-
-			} else {
-
-				if(modifierCommentaire($id_club, $_SESSION['id'], $_POST['commentaire'], $_POST['note'])) {
-
-					$messages['type'] = 'succes';
-					$messages['message'] = 'Le commentaire a été modifié avec succès';
-
-				} else {
-
-					$messages['type'] = 'erreur';
-					$messages['message'] = 'Impossible de modifier le commentaire, veuillez réessayer plus tard';
+					$messages['message'] = 'Impossible de traiter la requête (Erreur CSRF)';
 				}
 			}
 
-			$informations = recuperer_club($id_club);
-			$commentaires = $informations['commentaires'];
+			if(isset($_POST['commentaire']) && !empty($_POST['commentaire'])) {
+
+				if(dejaCommente($_SESSION['id'],$_GET['id'])==false) {
+
+					if(ajouterCommentaire($id_club, $_SESSION['id'], $_POST['commentaire'], $_POST['note'])) {
+
+						$messages['type'] = 'succes';
+						$messages['message'] = 'Le commentaire a été ajouté avec succès';
+					} else {
+
+						$messages['type'] = 'erreur';
+						$messages['message'] = 'Impossible d\'ajouter le commentaire, veuillez réessayer plus tard';
+					}
+
+				} else {
+
+					if(modifierCommentaire($id_club, $_SESSION['id'], $_POST['commentaire'], $_POST['note'])) {
+
+						$messages['type'] = 'succes';
+						$messages['message'] = 'Le commentaire a été modifié avec succès';
+
+					} else {
+
+						$messages['type'] = 'erreur';
+						$messages['message'] = 'Impossible de modifier le commentaire, veuillez réessayer plus tard';
+					}
+				}
+
+				$informations = recuperer_club($id_club);
+				$commentaires = $informations['commentaires'];
+			}
 		}
 	}
 

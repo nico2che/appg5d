@@ -129,31 +129,39 @@ if(isset($_GET['ajouter'])) { // Si on veut ajouter un sujet
 
 		// On doit être connecté
 		if(connecte()) {
+			
+			if(csrf($_GET)) {
 
-			// Le message doit être explicite
-			if(!empty($_GET['supprimer-message'])) {
+				// Le message doit être explicite
+				if(!empty($_GET['supprimer-message'])) {
 
-				$id_message = (int) $_GET['supprimer-message'];
+					$id_message = (int) $_GET['supprimer-message'];
 
-				// On vérifie que ce message appartient bien à la connexion actuelle
-				if(message_auteur($_SESSION['id'], $id_message)) {
+					// On vérifie que ce message appartient bien à la connexion actuelle
+					if(message_auteur($_SESSION['id'], $id_message)) {
 
-					// On peut supprimer
-					if(supprimer_message($id_message)) {
+						// On peut supprimer
+						if(supprimer_message($id_message)) {
 
-						header('Location: ?page=forum&sujet='.$id_sujet.'&supprimer-succes');
-						exit();
+							header('Location: ?page=forum&sujet='.$id_sujet.'&supprimer-succes');
+							exit();
 
+						} else {
+
+							$messages['type'] = 'erreur';
+							$messages['message'] = 'Impossible de supprimer ce message, veuillez réessayer plus tard';
+						}
 					} else {
 
 						$messages['type'] = 'erreur';
-						$messages['message'] = 'Impossible de supprimer ce message, veuillez réessayer plus tard';
+						$messages['message'] = 'Vous n\'êtes pas l\'auteur de ce message !';
 					}
-				} else {
-
-					$messages['type'] = 'erreur';
-					$messages['message'] = 'Vous n\'êtes pas l\'auteur de ce message !';
 				}
+
+			} else {
+
+				$messages['type'] = 'erreur';
+				$messages['message'] = 'Impossible de traiter la requête (Erreur CSRF)';
 			}
 		}
 	}
@@ -163,25 +171,34 @@ if(isset($_GET['ajouter'])) { // Si on veut ajouter un sujet
 
 		// On doit être connecté
 		if(connecte()) {
+			
+			if(csrf($_GET)) {
 
-			// On vérifie que ce sujet appartient bien à la connexion actuelle
-			if(sujet_auteur($_SESSION['id'], $id_sujet)) {
+				// On vérifie que ce sujet appartient bien à la connexion actuelle
+				if(sujet_auteur($_SESSION['id'], $id_sujet)) {
 
-				// On peut supprimer
-				if(supprimer_sujet($id_sujet)) {
+					// On peut supprimer
+					if(supprimer_sujet($id_sujet)) {
 
-					header('Location: ?page=forum&supprimer-succes');
-					exit();
+						header('Location: ?page=forum&supprimer-succes');
+						exit();
 
+					} else {
+
+						$messages['type'] = 'erreur';
+						$messages['message'] = 'Impossible de supprimer ce sujet, veuillez réessayer plus tard';
+					}
+					
 				} else {
 
 					$messages['type'] = 'erreur';
-					$messages['message'] = 'Impossible de supprimer ce sujet, veuillez réessayer plus tard';
+					$messages['message'] = 'Vous n\'êtes pas l\'auteur de ce sujet !';
 				}
+				
 			} else {
 
 				$messages['type'] = 'erreur';
-				$messages['message'] = 'Vous n\'êtes pas l\'auteur de ce sujet !';
+				$messages['message'] = 'Impossible de traiter la requête (Erreur CSRF)';
 			}
 		}
 	}

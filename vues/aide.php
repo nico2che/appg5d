@@ -1,7 +1,4 @@
-<div id="cover"></div>
-
 <div id="cadreP" class="red-hover">
-
 	<div>
 		<a href="#" id="menu1" onclick="affichage(1)" ><h3 class="onglet">Inscription</h3></a>
 	</div>
@@ -17,10 +14,8 @@
 	<div>
 		<a href="#" id="menu5"onclick="affichage(5)"><h3 class="onglet">Clubs</h3></a>
 	</div>
-
 </div>
 
-<form class="box grad" method="post">
 <div>
 	<h2 class="Title">Foire aux Questions</h2>
 </div>
@@ -53,7 +48,6 @@
 		<img class="logo" src="static/images/logoteam-up.png" height= "60px">
 	</div>
 </div>
-</form>
 
 
 	<!--<img src="static/images/logo.png" height= "90px" width: "77px">-->

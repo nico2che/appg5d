@@ -8,15 +8,6 @@
 	} else {
 ?>
 	<h1><a href="?page=clubs" class="lien-simple"><?php echo $club['nom'] ?></a></h1>
-	<?php
-		if(!empty($messages)) {
-	?>
-		<div class="message <?php echo $messages['type']; ?>">
-			<?php echo $messages['message']; ?>
-		</div>
-	<?php
-		}
-	?>
 	<div class="encadrer details ">
 		<span class="label">Adresse :</span> <?php echo $club['localisation'].", ".$club['code_postale']; ?>
 		<?php
@@ -54,7 +45,7 @@
 			foreach($commentaires as $commentaire) {
 	?>
 		<div class="encadrer">
-			<span class="message-infos">Commentaire de <?php echo $commentaire['prenom_membre'] . ' '. $commentaire['nom_membre'] . (connecte() && $commentaire['id_membre'] == $_SESSION['id'] ? ' (<a href="?page=club&id='.$id_club.'&supprimer-club='.$commentaire['id_commentaire'].'" onClick="return confirm(\'Voulez-vous vraiment supprimer votre commentaire ?\');">supprimer</a>)' : null); ?></span>
+			<span class="message-infos">Commentaire de <?php echo $commentaire['prenom_membre'] . ' '. $commentaire['nom_membre'] . (connecte() && $commentaire['id_membre'] == $_SESSION['id'] ? ' (<a href="?page=club&id='.$id_club.'&supprimer-message='.$commentaire['id_commentaire'].'&_c='._csrf(false).'" onClick="return confirm(\'Voulez-vous vraiment supprimer votre commentaire ?\');">supprimer</a>)' : null); ?></span>
 			<span class="float-right">Note : <?php echo $commentaire['note']; ?>/5</span>
 			<hr>
 			<?php echo nl2br(htmlspecialchars($commentaire['commentaire'])); ?>
