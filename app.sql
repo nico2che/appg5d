@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Lun 06 Juin 2016 à 07:25
+-- Généré le :  Lun 06 Juin 2016 à 07:56
 -- Version du serveur :  5.7.11
 -- Version de PHP :  7.0.3
 
@@ -320,7 +320,6 @@ CREATE TABLE `forum_sujets` (
   `id_membre` int(11) NOT NULL,
   `type` enum('aide','sport') NOT NULL,
   `id_sport` int(11) NOT NULL,
-  `resolu` tinyint(1) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `message` text NOT NULL,
   `date` datetime NOT NULL
@@ -330,17 +329,17 @@ CREATE TABLE `forum_sujets` (
 -- Contenu de la table `forum_sujets`
 --
 
-INSERT INTO `forum_sujets` (`id`, `id_membre`, `type`, `id_sport`, `resolu`, `titre`, `message`, `date`) VALUES
-(2, 1, 'aide', 0, 0, 'Besoin d\'aide !', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
-(3, 1, 'aide', 0, 0, 'Comment faire ?', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(4, 6, 'aide', 0, 0, 'Demande de rajout sur le site', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(5, 5, 'aide', 0, 0, 'Je ne peux plus accÃ©der Ã  mon groupe', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(6, 2, 'aide', 0, 0, 'Help', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
-(7, 1, 'aide', 0, 0, 'Une idÃ©e pour votre site !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(8, 4, 'aide', 0, 0, 'Merci beaucoup !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(9, 6, 'aide', 0, 0, 'Je ne peux plus accÃ©der Ã  mon groupe encore une fois', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
-(10, 6, 'aide', 0, 0, 'Oups', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
-(11, 1, 'aide', 1, 0, 'OÃ¹ aller faire son sport ?', 'Question !', '2016-06-01 05:37:21');
+INSERT INTO `forum_sujets` (`id`, `id_membre`, `type`, `id_sport`, `titre`, `message`, `date`) VALUES
+(2, 1, 'aide', 0, 'Besoin d\'aide !', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
+(3, 1, 'aide', 0, 'Comment faire ?', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(4, 6, 'aide', 0, 'Demande de rajout sur le site', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(5, 5, 'aide', 0, 'Je ne peux plus accÃ©der Ã  mon groupe', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(6, 2, 'aide', 0, 'Help', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
+(7, 1, 'aide', 0, 'Une idÃ©e pour votre site !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(8, 4, 'aide', 0, 'Merci beaucoup !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(9, 6, 'aide', 0, 'Je ne peux plus accÃ©der Ã  mon groupe encore une fois', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25'),
+(10, 6, 'aide', 0, 'Oups', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56'),
+(11, 1, 'aide', 1, 'OÃ¹ aller faire son sport ?', 'Question !', '2016-06-01 05:37:21');
 
 -- --------------------------------------------------------
 
@@ -409,7 +408,8 @@ INSERT INTO `groupes_membres` (`id`, `id_groupe`, `id_membre`, `type`) VALUES
 (9, 9, 1, 1),
 (10, 10, 1, 1),
 (11, 11, 1, 1),
-(12, 12, 1, 1);
+(12, 12, 1, 1),
+(16, 3, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -452,7 +452,7 @@ CREATE TABLE `membres` (
 
 INSERT INTO `membres` (`id`, `pseudo`, `nom`, `prenom`, `email`, `mot_de_passe`, `description`, `date_naissance`, `id_departement`, `sexe`, `bannis`, `role`) VALUES
 (1, 'nico2che', 'de CHEVIGNE', 'Nicolas', 'nico2che@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921', 'je suis un bolosss', '0000-00-00', '90', 'homme', 0, 'membre'),
-(2, '', 'erjzsdnc', 'nicolas', 'nevÃ @vre.com', '782dd27ea8e3b4f4095ffa38eeb4d20b59069077', '', NULL, NULL, NULL, 0, 'membre'),
+(2, 'erjibg', 'erjzsdnc', 'nicolas', 'neve@vre.com', '9cf95dacd226dcf43da376cdb6cbba7035218921', 'Une jolie description avec plein de fleurs\r\n\r\nYoupi', NULL, '17', 'femme', 0, 'membre'),
 (3, '', 'chipon', 'romain', 'romain.chipon@free.fr', '42c3bcf92c52146ed7c639a87b5425adda4f0a04', '', NULL, NULL, NULL, 1, 'membre'),
 (4, '', 'chipon', 'romain', 'romain.chipon77@free.fr', '231e305b64f8db3bffcb86e45555eb21ad90ab2e', '', NULL, NULL, NULL, 1, 'membre'),
 (5, 'pixi', 'Bonnefont', 'Francois-Xavier', 'bonnefontfx@gmail.com', 'c5b2cc208ff1bdf8eba0a171ca431e8d50c71a56', NULL, '1995-12-13', '78000', 'homme', 0, 'admin');
@@ -814,7 +814,7 @@ ALTER TABLE `contacte_message`
 -- AUTO_INCREMENT pour la table `dates_membres`
 --
 ALTER TABLE `dates_membres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT pour la table `dates_rencontres`
 --
@@ -844,7 +844,7 @@ ALTER TABLE `groupes`
 -- AUTO_INCREMENT pour la table `groupes_membres`
 --
 ALTER TABLE `groupes_membres`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT pour la table `invitations`
 --

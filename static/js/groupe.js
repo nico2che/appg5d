@@ -43,40 +43,42 @@ ready(function(){
     }
 
     var chargement = false, reponse_invitation = document.querySelector('.reponse-invitation');
-    document.getElementById('invitation-envoie').addEventListener('click', function(){
-        var email_pseudo = document.getElementById('invitation').value;
-        if(email_pseudo != "" && !chargement) {
-            chargement = true;
-            var that = this;
-            this.innerHTML = 'Chargement';
-            this.disabled = true;
-            var requete = new XMLHttpRequest();
-            requete.open('GET', '?page=groupe&invitation=' + email_pseudo + '&id=' + this.dataset.id, true);
-            requete.onload = function() {
-                if (requete.status >= 200 && requete.status < 400) {
-                    var data = JSON.parse(requete.responseText);
-                    reponse_invitation.classList.remove('rouge');
-                    reponse_invitation.classList.remove('green');
-                    if(data.statut > 0) {
-                        reponse_invitation.classList.add('rouge');
+    if(reponse_invitation != undefined) {
+        document.getElementById('invitation-envoie').addEventListener('click', function(){
+            var email_pseudo = document.getElementById('invitation').value;
+            if(email_pseudo != "" && !chargement) {
+                chargement = true;
+                var that = this;
+                this.innerHTML = 'Chargement';
+                this.disabled = true;
+                var requete = new XMLHttpRequest();
+                requete.open('GET', '?page=groupe&invitation=' + email_pseudo + '&id=' + this.dataset.id, true);
+                requete.onload = function() {
+                    if (requete.status >= 200 && requete.status < 400) {
+                        var data = JSON.parse(requete.responseText);
+                        reponse_invitation.classList.remove('rouge');
+                        reponse_invitation.classList.remove('green');
+                        if(data.statut > 0) {
+                            reponse_invitation.classList.add('rouge');
+                        } else {
+                            reponse_invitation.classList.add('vert');
+                        }
+                        reponse_invitation.innerHTML = data.message;
                     } else {
-                        reponse_invitation.classList.add('vert');
+                        reponse_invitation.innerHTML = 'Erreur, réessayez plus tard';
+                        reponse_invitation.classList.add('rouge');
                     }
-                    reponse_invitation.innerHTML = data.message;
-                } else {
-                    reponse_invitation.innerHTML = 'Erreur, réessayez plus tard';
-                    reponse_invitation.classList.add('rouge');
-                }
-                chargement = false;
-                that.innerHTML = 'Inviter';
-                that.removeAttribute('disabled');
-            };
-            requete.onerror = function(erreur) {
-                console.log(erreur);
-            };
-            requete.send();
-        }
-    });
+                    chargement = false;
+                    that.innerHTML = 'Inviter';
+                    that.removeAttribute('disabled');
+                };
+                requete.onerror = function(erreur) {
+                    console.log(erreur);
+                };
+                requete.send();
+            }
+        });
+    }
 
     var liens = document.querySelectorAll('a.participation');
     for (var i = liens.length - 1; i >= 0; i--) {

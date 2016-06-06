@@ -19,26 +19,41 @@ $membres_groupe = membres_groupe($id_groupe);
 
 $messages = array();
 
-if(connecte() && isset($_GET['rejoindre'])) {
+if(connecte() && isset($_GET['rejoindre']) && csrf($_GET)) {
 
-	if(!est_membre_groupe($id_groupe, $_SESSION['id'])) {
+	if(csrf($_GET)) {
 
-		$messages['type'] = 'succes';
-		$messages['message'] = 'Vous avez rejoint le groupe';
-		ajouter_membre_groupe($id_groupe, $_SESSION['id'], 0);
-		$membres_groupe = membres_groupe($id_groupe);
+		if(!est_membre_groupe($id_groupe, $_SESSION['id'])) {
+			$messages['type'] = 'succes';
+			$messages['message'] = 'Vous avez rejoint le groupe';
+			ajouter_membre_groupe($id_groupe, $_SESSION['id'], 0);
+			$membres_groupe = membres_groupe($id_groupe);
+		}
+
+	} else {
+
+		$messages['type'] = 'erreur';
+		$messages['message'] = 'Impossible de traiter la requête (Erreur CSRF)';
 	}
 }
 
 if(connecte() && isset($_GET['quitter'])) {
 
-	if(est_membre_groupe($id_groupe, $_SESSION['id'])) {
+	if(csrf($_GET)) {
 
-		$messages['type'] = 'succes';
-		$messages['message'] = 'Vous avez quitté le groupe';
-		supprimer_membre_groupe($id_groupe, $_SESSION['id']);
-		supprimer_dates_rencontres_membres($id_groupe, $_SESSION['id']);
-		$membres_groupe = membres_groupe($id_groupe);
+		if(est_membre_groupe($id_groupe, $_SESSION['id'])) {
+
+			$messages['type'] = 'succes';
+			$messages['message'] = 'Vous avez quitté le groupe';
+			supprimer_membre_groupe($id_groupe, $_SESSION['id']);
+			supprimer_dates_rencontres_membres($id_groupe, $_SESSION['id']);
+			$membres_groupe = membres_groupe($id_groupe);
+		}
+		
+	} else {
+
+		$messages['type'] = 'erreur';
+		$messages['message'] = 'Impossible de traiter la requête (Erreur CSRF)';
 	}
 }
 

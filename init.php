@@ -81,22 +81,21 @@ include 'modeles/membres.php';
 
 if(connecte() && !isset($_SESSION['csrf'])) {
 
+    $_SESSION['csrf'] = sha1(uniqid() . rand() . uniqid());
 }
 
-function csrf($temps, $referer, $nom = '')
+function csrf($superglobale, $referer = false)
 {
-    if(isset($_SESSION['csrf']) && isset($_SESSION['csrf']) && isset($_POST['_csrf']))
-        if($_SESSION['csrf'] == $_POST['_csrf'])
-            if($_SESSION[$nom.'_token_time'] >= (time() - $temps))
-                if($_SERVER['HTTP_REFERER'] == $referer)
-                    return true;
+    if(isset($_SESSION['csrf']) && isset($superglobale['_c']))
+        if($_SESSION['csrf'] == $superglobale['_c'])
+            if($_SERVER['HTTP_REFERER'] == $referer || !$referer)
+                return true;
     return false;
 }
 
-function csrf_input()
+function _csrf($input = true)
 {
-    $_SESSION['csrf'] = sha1(uniqid() . rand() . uniqid());
-    return '<input type="hidden" name="_csrf" value="'.$_SESSION['csrf'].'">';
+    return ($input ? '<input type="hidden" name="_csrf" value="'.$_SESSION['csrf'].'">' : $_SESSION['csrf']);
 }
 
 if(!connecte() && isset($_COOKIE['membre']) && !empty($_COOKIE['membre']) && isset($_COOKIE['hash']) && !empty($_COOKIE['hash'])) {
