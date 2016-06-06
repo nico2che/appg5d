@@ -90,7 +90,7 @@ function csrf($superglobale, $referer = false)
 {
     if(isset($_SESSION['csrf']) && isset($superglobale['_c']))
         if($_SESSION['csrf'] == $superglobale['_c'])
-            if($_SERVER['HTTP_REFERER'] == $referer || !$referer)
+            if((isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] == $referer) || !$referer)
                 return true;
     return false;
 }

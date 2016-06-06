@@ -29,8 +29,4 @@
 			<input type="submit" value="envoyer" class="envoyer"></input>
 		</div>
 	</form>	
-
-
-
-
-	
+	<script src="https://www.google.com/recaptcha/api.js"></script>

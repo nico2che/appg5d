@@ -1,8 +1,16 @@
-$(document).ready(function(){
-	$('.modifier-photo').on('click', function(e){
+ready(function(){
+	document.querySelector('.modifier-photo').addEventListener('click', function(e){
 		e.preventDefault();
-		$('#avatar_fichier').trigger('click');
+		var event = new CustomEvent("click");
+		document.getElementById('avatar_fichier').dispatchEvent(event);
+		document.getElementById('avatar_fichier').addEventListener('change', function(e){
+
+		});
 	});
+});
+
+
+$(document).ready(function(){
 	$('#avatar_fichier').on('change', function(){
 		var ancien = $('.photo').attr('src');
 		var thumb = window.URL.createObjectURL(this.files[0]);

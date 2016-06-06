@@ -1,11 +1,11 @@
 ready(function(){
 
+    var inputLieu = document.getElementById('localisationAutoCompletion');
     function creation() {
-        var input = document.getElementById('localisationAutoCompletion');
         var options = {
             componentRestrictions: {country: 'fr'}
         };
-        autocomplete = new google.maps.places.Autocomplete(input, options);
+        autocomplete = new google.maps.places.Autocomplete(inputLieu, options);
         google.maps.event.addListener(autocomplete, 'place_changed', function () {
             var place = autocomplete.getPlace();
             console.log(place.geometry.location.lat(), place.geometry.location.lng())
@@ -13,15 +13,19 @@ ready(function(){
             document.getElementById('localisation_lo').value = place.geometry.location.lng();
         });
     }
-    google.maps.event.addDomListener(window, 'load', creation);
+
+    if(inputLieu != undefined) {
+        google.maps.event.addDomListener(window, 'load', creation);
+    }
 
     var liens = document.querySelectorAll('a.lieu');
     for (var i = liens.length - 1; i >= 0; i--) {
         liens[i].addEventListener('click', function(e){
             e.preventDefault();
-            Array.prototype.forEach.call(document.querySelectorAll('.coordonnees'), function(el, i){
-                el.remove();
-            });
+            var encadrer_map = document.querySelectorAll('.coordonnees');
+            for (var i = encadrer_map.length - 1; i >= 0; i--) {
+                encadrer_map[i].parentNode.removeChild(encadrer_map[i]); 
+            }
             if(this.classList) {
                 if(this.classList.contains('ouvert')) {
                     this.classList.remove('ouvert');
