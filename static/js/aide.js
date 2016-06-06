@@ -1,22 +1,11 @@
-var Categorie =[document.getElementById("complete"),document.getElementById("rejoindre"),document.getElementById("creer"),document.getElementById("forum"),document.getElementById("planning")];
-var tailleCadre=document.getElementById("cadre");
+ready(function(){
+	affichage(document.querySelectorAll('.rubrique')[0].id)
+});
 
-var affichage= function(menu){
-	for (var i=1;i<Categorie.length+1;i++){
-	if(i==menu){
-		Categorie[i-1].style.display= "block";
+function affichage(id) {
+	var blocks = document.querySelectorAll('.rubrique');
+	for (var i=0;i<blocks.length;i++){
+		blocks[i].style.display= "none";
 	}
-	else {
-		Categorie[i-1].style.display= "none";
-	}
-	tailleCadre.style.borderWidth="2px";
+	document.getElementById(id).style.display = 'block';
 }
-
-}
-
-
-
-
-
-
-
