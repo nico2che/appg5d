@@ -62,11 +62,12 @@ if(connecte() && isset($_GET['invitation']) && !empty($_GET['invitation'])) {
 
 		if($membre = existe_pseudo_email($_GET['invitation'])) {
 
-			if(est_membre_groupe($id_groupe, $membre['id'])) {
+			if(!est_membre_groupe($id_groupe, $membre['id'])) {
 
-				if(!existe_invitation($id_groupe, $membre['id'], $_SESSION['id'])) {
+				if(!existe_invitation($id_groupe, $_SESSION['id'], $membre['id'])) {
 
 					inviter_membre($id_groupe, $membre['id'], $_SESSION['id']);
+					@mail($membre['email'], 'Team Up - Vous avez été invité dans un groupe !', 'Bonjour,<br><br>Vous avez été invité à rejoindre un groupe de sport !<br><a href="http://'.$_SERVER['HTTP_HOST'].'/?page=profil="'.$membre['id']);
 					echo json_encode(array('statut' => 0, 'message' => 'Invitation envoyée !'));
 
 				} else {
@@ -76,7 +77,7 @@ if(connecte() && isset($_GET['invitation']) && !empty($_GET['invitation'])) {
 
 			} else {
 
-				echo json_encode(array('statut' => 1, 'message' => 'Cet utilisteur est déjà dans le groupe'));
+				echo json_encode(array('statut' => 1, 'message' => 'Cet utilisateur est déjà dans le groupe'));
 			}
 
 		} else {

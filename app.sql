@@ -51,19 +51,6 @@ CREATE TABLE `clubs` (
   `approuve` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `clubs`
---
-
-INSERT INTO `clubs` (`id`, `nom`, `description`, `localisation`, `code_postale`, `site`, `telephone`, `email`, `departement_id`, `approuve`) VALUES
-(1, 'club1', 'test de club', 'crecy-la-chapelle', 77580, 'http://www.google.fr', '01.14.25.86.95', 'bidule.truc@gmail.com', 77, 1),
-(3, 'club2', 'test', 'Paris', 75009, '', '01.25.75.23.25', '', 75, 1),
-(4, 'club3', 'test club de tennis', 'Crecy-la-Chapelle', 77580, '', '', 'machin.chose@gmail.com', 77, 1),
-(5, 'club de foot', 'vfdgdrdsf ', 'quelque part', 48520, '', '', 'zefze.zefz@gmail.fr', 48, 1),
-(6, 'nouveau', 'coucou bienvenue', 'partout', 30200, '', '', '', 84, 1),
-(7, 'bestclub basket', 'hello', 'je c pas', 87520, '', '', '', 87, 1),
-(8, 'kendo academie', 'club de kendo pour tout les niveaux', 'meaux', 77500, '', '', '', 78, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -77,17 +64,6 @@ CREATE TABLE `commentaires_clubs` (
   `commentaire` text NOT NULL,
   `note` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `commentaires_clubs`
---
-
-INSERT INTO `commentaires_clubs` (`id`, `id_club`, `id_membre`, `commentaire`, `note`) VALUES
-(1, 1, 2, 'test', 5),
-(2, 1, 3, 'coucou', 3),
-(17, 3, 4, 'coucou', 2),
-(12, 1, 4, 'coucou', 2),
-(18, 4, 4, 'coucou', 2);
 
 -- --------------------------------------------------------
 
@@ -103,16 +79,6 @@ CREATE TABLE `contacte_message` (
   `contenu` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `contacte_message`
---
-
-INSERT INTO `contacte_message` (`id`, `nom`, `email`, `sujet`, `contenu`) VALUES
-(5, 'chipon', 'romain.chipon@free.fr', 'test', 'test'),
-(6, 'chipon', 'romain.chipon@free.fr', 'test3', 'sqeesdf'),
-(7, 'chipon', 'romain.chipon@free.fr', 'test4', 'TESTE'),
-(8, 'chipon', 'romain.chipon@free.fr', 'test45', 'dfrhgdsgs');
-
 -- --------------------------------------------------------
 
 --
@@ -124,18 +90,6 @@ CREATE TABLE `dates_membres` (
   `id_membre` int(11) NOT NULL,
   `id_date` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `dates_membres`
---
-
-INSERT INTO `dates_membres` (`id`, `id_membre`, `id_date`) VALUES
-(35, 1, 8),
-(39, 1, 13),
-(43, 1, 16),
-(44, 1, 15),
-(45, 1, 17),
-(46, 1, 18);
 
 -- --------------------------------------------------------
 
@@ -151,20 +105,6 @@ CREATE TABLE `dates_rencontres` (
   `localisation` varchar(255) NOT NULL,
   `coordonnees` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `dates_rencontres`
---
-
-INSERT INTO `dates_rencontres` (`id`, `id_groupe`, `date`, `duree`, `localisation`, `coordonnees`) VALUES
-(14, 1, '2016-05-23 10:00:00', '06:00:00', 'Luxembourg, Paris, France', '48.845577,2.3398520000000644'),
-(15, 1, '2016-05-26 14:00:00', '03:00:00', 'Invalides, Paris, France', '48.8593608,2.3138126999999713'),
-(16, 3, '2016-06-26 13:26:00', '01:00:00', 'Luxembourg, Paris, France', '48.845577,2.3398520000000644'),
-(17, 5, '2016-06-04 14:00:00', '01:00:00', 'Stade de France, Saint-Denis, France', '48.9244592,2.3601644999999962'),
-(18, 6, '2016-06-04 14:00:00', '03:00:00', 'club escrime cachan, AllÃ©e Pierre de Montreuil, Cachan, France', '48.7862808,2.3316388000000643'),
-(19, 9, '2016-06-15 15:00:00', '03:00:00', 'Karate Club de Maisse, Paris, France', '48.86601729999999,2.391281899999967'),
-(20, 9, '2016-06-15 15:00:00', '03:00:00', 'Karate Club de Maisse, Paris, France', '48.86601729999999,2.391281899999967'),
-(21, 9, '2016-06-15 15:00:00', '03:00:00', 'Karate Club de Maisse, Paris, France', '48.86601729999999,2.391281899999967');
 
 -- --------------------------------------------------------
 
@@ -302,14 +242,6 @@ CREATE TABLE `forum_messages` (
   `date` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `forum_messages`
---
-
-INSERT INTO `forum_messages` (`id`, `id_sujet`, `id_membre`, `message`, `date`) VALUES
-(5, 2, 1, 's<v', '2016-06-01 05:21:22'),
-(7, 12, 2, 'ffuyjh', '2016-06-06 10:01:04');
-
 -- --------------------------------------------------------
 
 --
@@ -326,22 +258,6 @@ CREATE TABLE `forum_sujets` (
   `date` datetime NOT NULL,
   `resolu` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `forum_sujets`
---
-
-INSERT INTO `forum_sujets` (`id`, `id_membre`, `type`, `id_sport`, `titre`, `message`, `date`, `resolu`) VALUES
-(2, 1, 'aide', 0, 'Besoin d\'aide !', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56', 0),
-(3, 1, 'aide', 0, 'Comment faire ?', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
-(4, 6, 'aide', 0, 'Demande de rajout sur le site', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
-(5, 5, 'aide', 0, 'Je ne peux plus accÃ©der Ã  mon groupe', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
-(6, 2, 'aide', 0, 'Help', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56', 0),
-(7, 1, 'aide', 0, 'Une idÃ©e pour votre site !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
-(8, 4, 'aide', 0, 'Merci beaucoup !', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
-(9, 6, 'aide', 0, 'Je ne peux plus accÃ©der Ã  mon groupe encore une fois', 'Bonjour \r\n\r\nComment faire ?', '2016-06-01 05:23:25', 0),
-(10, 6, 'aide', 0, 'Oups', 'Bonjour,\r\n\r\nJe n\'arrive pas Ã  me connecter.\r\n\r\nMerci', '2016-06-01 05:18:56', 0),
-(11, 1, 'aide', 1, 'OÃ¹ aller faire son sport ?', 'Question !', '2016-06-01 05:37:21', 0);
 
 -- --------------------------------------------------------
 
@@ -364,23 +280,6 @@ CREATE TABLE `groupes` (
   `tendance` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `groupes`
---
-
-INSERT INTO `groupes` (`id`, `titre`, `id_departement`, `description`, `id_sport`, `id_club`, `max_participants`, `min_participants`, `visibilite`, `recurrence`, `niveau`, `tendance`) VALUES
-(1, 'CompÃ©tition de tennis !', 76, 'Bonjour,\r\nVoici mon groupe de sport', 165, 0, 8, 1, 'public', 'hebdomadaire', 2, 0),
-(4, 'Promenade en montagne', 66, 'Description d\'un groupe\r\n\r\nAlpinisme et compagnie', 5, 0, 0, 2, 'public', 'occasionnel', 1, 0),
-(3, 'Nom du groupe un peu plus long', 86, 'Description d\'un groupe de hockeyyy', 83, 0, 0, 0, 'public', 'occasionnel', 1, 0),
-(5, 'Rencontres foot', 45, 'Bonjour !\r\n\r\nRetrouvons nous tous les samedi aprÃ¨s midi pour jouer au foot\r\n\r\n4v4\r\n5v5\r\n6v6\r\n7v7\r\nou 8v8', 69, 0, 16, 8, 'public', 'hebdomadaire', 2, 0),
-(6, 'CompÃ©tition d\'escrime - Participez au nouveau tournoi officiel version 2016 !', 57, 'Bla bla bla\r\n\r\nbla bla bla', 65, 0, 0, 0, 'public', 'quotidien', 3, 0),
-(7, 'Dansons !', 32, 'danse danse danse !\r\n\r\n10 max', 55, 0, 10, 0, 'public', 'mensuel', 1, 0),
-(8, 'Regroupement de moto', 34, 'Faisons un tour !', 107, 0, 0, 0, 'public', 'occasionnel', 1, 0),
-(9, 'Combats de rue', 76, 'Comme chaque annÃ©e, assistez Ã  nos combats de karatÃ© !\r\n\r\nVenez nombreux', 94, 0, 0, 0, 'public', 'annuel', 3, 0),
-(10, 'Rendez-vous en ULM !', 30, 'Viens !', 176, 0, 4, 0, 'public', 'occasionnel', 3, 0),
-(11, 'AprÃ¨s-midi tandem !', 73, 'Pour les nouveaux !\r\n\r\nOn part tous en voiture !', 116, 0, 5, 0, 'public', 'occasionnel', 1, 0),
-(12, 'RÃ©gate amicale d\'aviron', 76, 'Tous niveaux !', 13, 0, 20, 11, 'public', 'occasionnel', 1, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -393,25 +292,6 @@ CREATE TABLE `groupes_membres` (
   `id_membre` int(11) NOT NULL,
   `type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `groupes_membres`
---
-
-INSERT INTO `groupes_membres` (`id`, `id_groupe`, `id_membre`, `type`) VALUES
-(1, 1, 1, 1),
-(2, 1, 2, 0),
-(3, 3, 1, 1),
-(4, 4, 1, 1),
-(5, 5, 1, 1),
-(6, 6, 1, 1),
-(7, 7, 1, 1),
-(8, 8, 1, 1),
-(9, 9, 1, 1),
-(10, 10, 1, 1),
-(11, 11, 1, 1),
-(12, 12, 1, 1),
-(16, 3, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -453,11 +333,7 @@ CREATE TABLE `membres` (
 --
 
 INSERT INTO `membres` (`id`, `pseudo`, `nom`, `prenom`, `email`, `mot_de_passe`, `description`, `date_naissance`, `id_departement`, `sexe`, `bannis`, `role`) VALUES
-(1, 'nico2che', 'de CHEVIGNE', 'Nicolas', 'nico2che@gmail.com', '9cf95dacd226dcf43da376cdb6cbba7035218921', 'je suis un bolosss', '0000-00-00', '90', 'homme', 0, 'membre'),
-(2, 'erjibg', 'erjzsdnc', 'nicolas', 'neve@vre.com', '9cf95dacd226dcf43da376cdb6cbba7035218921', 'Une jolie description avec plein de fleurs\r\n\r\nYoupi', NULL, '17', 'femme', 0, 'membre'),
-(3, '', 'chipon', 'romain', 'romain.chipon@free.fr', '42c3bcf92c52146ed7c639a87b5425adda4f0a04', '', NULL, NULL, NULL, 1, 'membre'),
-(4, '', 'chipon', 'romain', 'romain.chipon77@free.fr', '231e305b64f8db3bffcb86e45555eb21ad90ab2e', '', NULL, NULL, NULL, 1, 'membre'),
-(5, 'pixi', 'Bonnefont', 'Francois-Xavier', 'bonnefontfx@gmail.com', 'c5b2cc208ff1bdf8eba0a171ca431e8d50c71a56', NULL, '1995-12-13', '78000', 'homme', 0, 'admin');
+(1, 'admin', NULL, NULL, NULL, 'd033e22ae348aeb5660fc2140aec35850c4da997', NULL, '0000-00-00', NULL, NULL, 0, 'admin');
 
 -- --------------------------------------------------------
 

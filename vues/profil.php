@@ -56,11 +56,11 @@
 					<div class="details">
 						<span class="point"><i class="fa fa-fire"></i> <?php echo $invitation['nom_sport']; ?></span><span class="point"><i class="fa fa-calendar"></i> <?php echo ucfirst($invitation['recurrence']); ?></span><span class="point"><i class="fa fa-bar-chart"></i> <?php echo $niveaux[$invitation['niveau']]; ?></span><br>
 						<b><?php echo htmlspecialchars($invitation['titre']); ?></b><br>
-						<?php echo $date->format('l j F à H\hi'); ?>
+						<span class="invitation-recue">Reçue le <?php echo strtolower($date->format('l j F') . ' &agrave; '. $date->format('H\hi')); ?></span>
 					</div>
 				</a>
-				<div class="reponse accepter"><a href="#"><i class="fa fa-thumbs-up"></i></a></div>
-				<div class="reponse refuser"><a href="#"><i class="fa fa-thumbs-down"></i></a></div>
+				<div class="reponse accepter" data-id="<?php echo $invitation['id_invitation']; ?>"><a href="#"><i class="fa fa-thumbs-up"></i></a></div>
+				<div class="reponse refuser" data-id="<?php echo $invitation['id_invitation']; ?>"><a href="#"><i class="fa fa-thumbs-down"></i></a></div>
 			</div>
 	<?php
 				}
@@ -80,7 +80,6 @@
 				if(!empty($groupes['types'][1])) {
 					foreach ($groupes['types'][1] as $infos) {
 			?>
-
 			<div class="encadrer">
 				<a href="?page=groupe&amp;id=<?php echo $infos['id_groupe']; ?>">
 					<div class="photo" style="background-image: url('<?php echo (is_file(DOSSIER_GROUPE . $infos['id_groupe'] . '.jpg') ? DOSSIER_GROUPE . $infos['id_groupe'] . '.jpg' : DOSSIER_GROUPE . '0.jpg') ?>');"></div>

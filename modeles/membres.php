@@ -59,6 +59,27 @@ function existe_invitation($id_groupe, $id_expediteur, $id_destinataire) {
 	else
 		return false;
 }
+function existe_invitation_reponse($id, $id_destinataire) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT * FROM invitations WHERE id_destinataire = :id_destinataire AND id = :id');
+	$stmt->bindValue('id', $id, PDO::PARAM_INT);
+	$stmt->bindValue('id_destinataire', $id_destinataire, PDO::PARAM_INT);
+	if($stmt->execute())
+		return $stmt->fetch();
+	else
+		return false;
+}
+function supprimer_invitation($id) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('DELETE FROM invitations WHERE id = :id');
+	$stmt->bindValue('id', $id, PDO::PARAM_INT);
+	if($stmt->execute())
+		return true;
+	else
+		return false;
+}
 
 function inscrire_membre($pseudo, $nom, $prenom, $email, $mot_de_passe, $sexe, $id_departement) {
 
@@ -136,7 +157,7 @@ function profil_membre($id) {
 function recuperer_invitations($id) {
 
 	global $pdo;
-	$stmt = $pdo->prepare('SELECT s.nom AS nom_sport, i.*,g.id id_groupe, g.* FROM invitations i
+	$stmt = $pdo->prepare('SELECT s.nom AS nom_sport, i.id AS id_invitation, i.*,g.id id_groupe, g.* FROM invitations i
 															LEFT JOIN groupes g ON g.id = i.id_groupe
 															LEFT JOIN sports s ON s.id = g.id_sport
 														WHERE i.id_destinataire = :id');

@@ -176,6 +176,10 @@ form.formulaire-profil h3 {
   border-left:1px solid grey;
   font-size:39px;
 }
+.invitation-recue {
+  color: grey;
+  font-size:14px;
+}
 .liste-profil .reponse.accepter a {
   color:green;
 }
@@ -194,4 +198,8 @@ form.formulaire-profil h3 {
 .liste-profil.groupes .details {
   width: 578px;
   line-height: 32px;
+}
+.repondu {
+  height:auto!important;
+  padding:15px!important;
 }

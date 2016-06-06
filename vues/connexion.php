@@ -11,7 +11,7 @@
 		<div class="connexion-cadre">
 			<a class="connexion-fb" >
             	<span class="fa fa-facebook"></span>
-            	<span class="texte">Chargement...</span>
+            	<span class="texte">Connexion via Facebook</span>
           	</a>
 		</div>
 		<div>

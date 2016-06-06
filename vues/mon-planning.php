@@ -30,7 +30,7 @@
 				for ($i=0; $i < $nombre_jours; $i++) {
 					if($calendrier->format('j') == 1 && $calendrier->format('N') != 1)
 						echo '<td class="sans-bordure" colspan="'.($calendrier->format('N') - 1) .'"></td>';
-					echo '<td>' . $calendrier->format('j');
+					echo '<td>' . ($calendrier->format('j') == date('j') ? '<span>' . $calendrier->format('j') . '</span>' : $calendrier->format('j'));
 					if(isset($groupes[$calendrier->format('Y-m-d')])) {
 						foreach($groupes[$calendrier->format('Y-m-d')] as $groupe) {
 							echo '<a href="?page=groupe&id='.$groupe['id'].'"><span class="groupe">'.$groupe['titre'].'</span></a>';

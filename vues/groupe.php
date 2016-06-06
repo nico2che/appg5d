@@ -202,7 +202,7 @@
 			<label for="invitation">Inviter un membre :</label>
 			<input type="text" placeholder="Email ou pseudo" name="invitation" id="invitation">
 			<input type="submit" value="Inviter" id="invitation-envoie" data-id="<?php echo $id_groupe; ?>">
-			<span class="reponse-invitation"></span>
+			<br><span class="reponse-invitation"></span>
 		</div>
 	<?php
 		}

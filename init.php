@@ -33,8 +33,23 @@ if($installation) {
 
                 try {
 
-                    $pdo = new PDO("mysql:host=".$_POST['hote'].";dbname=".$_POST['base'], $_POST['user'], $_POST['pass']);
+                    $pdo = new PDO("mysql:host=".$_POST['hote'].";", $_POST['user'], $_POST['pass']);
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                    $pdo->query("CREATE DATABASE IF NOT EXISTS ".$_POST['base']);
+                    $pdo->query("USE ".$_POST['base']);
+
+                    $dump = file('structure.sql');
+                    $requete = '';
+                    foreach ($dump as $ligne) {
+                        if(substr($ligne, 0, 2) == '--' || $ligne == '')
+                            continue;
+                        $requete .= $ligne;
+                        if(substr(trim($ligne), -1, 1) == ';') {
+                            $pdo->query($requete);
+                            $requete = '';
+                        }
+                    }
 
                     $configuration  = '<?php' . "\n";
                     $configuration .= 'define("HOTE", "'.$_POST['hote'].'");' . "\n";

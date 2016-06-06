@@ -25,10 +25,10 @@ if(isset($_GET['mois'])) {
 	for ($i=0; $i < $nombre_jours; $i++) {
 		if($calendrier->format('j') == 1 && $calendrier->format('N') != 1)
 			$retour .= '<td class="sans-bordure" colspan="'.($calendrier->format('N') - 1).'"></td>';
-		$retour .= '<td>' . $calendrier->format('j');
+		$retour .= '<td>' . ($calendrier->format('j') == date('j') ? '<span>' . $calendrier->format('j') . '</span>' : $calendrier->format('j'));
 		if(isset($groupes[$calendrier->format('Y-m-d')])) {
 			foreach($groupes[$calendrier->format('Y-m-d')] as $groupe) {
-				$retour .= '<br><a href="?page=groupe&id='.$groupe['id'].'"><span class="groupe">'.$groupe['titre'].'</span></a>';
+				$retour .= '<a href="?page=groupe&id='.$groupe['id'].'"><span class="groupe">'.$groupe['titre'].'</span></a>';
 			}
 		}
 		$retour .= '</td>';

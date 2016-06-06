@@ -22,7 +22,7 @@
 				<?php if($profil = connecte(true)) { ?>
 					<li><a href="?page=profil">Mon Compte</a></li>
 					<li><a href="?page=deconnexion">Déconnexion</a></li>
-					<li><a href="?page=mon-profil"><img class="avatar-menu" src="<?php echo (is_file(DOSSIER_AVATAR . $profil['id'] . ".jpg") ? DOSSIER_AVATAR . $profil['id'] . ".jpg" : DOSSIER_AVATAR . "0.jpg"); ?>" alt="<?php echo $profil['prenom']; ?>"></a></li>
+					<li><a href="?page=mon-profil" class="avatar-menu" style="background-image:url('<?php echo (is_file(DOSSIER_AVATAR . $profil['id'] . ".jpg") ? DOSSIER_AVATAR . $profil['id'] . ".jpg" : DOSSIER_AVATAR . "0.jpg"); ?>');"></a></li>
 			<?php } else { ?>
 					<li><a href="?page=connexion">Connexion</a></li>
 					<li><a href="?page=inscription">Inscription</a></li>
