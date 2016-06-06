@@ -155,7 +155,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 			case 'aide':
 			?><div class="cadre-gestion"><?php
 				include "vues/table-aide.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -169,7 +168,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'clubs':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-clubs.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -188,7 +186,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'commentaires_clubs':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-commentaires-clubs.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -205,7 +202,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'contacte_message':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-contacte-message.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -222,7 +218,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'dates_rencontres':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-dates-rencontres.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -239,7 +234,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'forum_messages':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-forum-messages.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -256,7 +250,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'forum_sujets':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-forum-sujets.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -276,7 +269,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'groupes':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-groupes.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -298,7 +290,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'groupes_membres':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-groupes-membres.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -313,7 +304,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'membres':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-membres.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -335,7 +325,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'sports':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-sports.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -349,7 +338,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				case 'sport_club':
 				?><div class="cadre-gestion"><?php
 				include "vues/table-sport_club.php";
-				?></div><?php
 				foreach($request as $ligne){
 				echo"
 					<tr>
@@ -369,7 +357,7 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 		echo "</tr>";
 		echo "
 			</tbody>
-		</table>";
+		</table></div>";
 
 	}
 ?>
