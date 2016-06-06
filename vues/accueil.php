@@ -1,3 +1,4 @@
+	<!-- bannière -->
 	<div class="banniere">
 		<div class="banniere_contenu">
 			<h1>La passion se partage</h1>
