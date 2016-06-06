@@ -11,6 +11,7 @@
 	<li><a href="?page=bdd&gestion-membres">Membres</a></li>
 	<li><a href="?page=bdd&gestion-nl">Newsletter</a></li>
 	<li><a href="?page=bdd&gestion-clubs">Clubs</a></li>
+	<li><a href="?page=bdd&gestion-aide">Aide</a></li>
 </ul>
 </div>
 

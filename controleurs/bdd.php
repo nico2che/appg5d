@@ -1,19 +1,33 @@
 <?php
+
+if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
+	header('Location: ?page=admin');
+	exit();
+}
+
 	include 'vues/admin-menu.php';
 	include 'modeles/admin.php';
 
 	$tables = array('aide', 'sports','membres','groupes_membres','groupes','forum_sujets','forum_messages','dates_rencontres','clubs','commentaires_clubs','contacte_message','sport_club');
-	
-	echo"<p>Ici, vous  pouvez gérer votre site web, en cliquant sur un onglet du menu de gauche,
-	vous aurez accès à de nombreuses fonctionnalitées!";
-	
-
-
 
 	if(isset($_GET['gestion-bdd'])){
 		?><div class="cadre-gestion"><?php
 		include 'vues/gestionBDD.php';
 		?></div><?php
+	}
+
+	if(isset($_GET['gestion-aide'])){
+		$request = $pdo->query('SELECT * FROM aide');
+		?><div class="cadre-gestion"><?php
+		include 'vues/gestionAide.php';
+		?></div><?php
+
+		if(isset($_GET['mod-titre'])){
+			?><div class="cadre-gestion"><?php
+			include 'vues/modifier-titre.php';
+			?></div><?php
+
+		}
 	}
 	
 
