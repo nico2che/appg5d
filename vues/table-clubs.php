@@ -10,6 +10,8 @@
 									<th>Site</th>
 									<th>Téléphone</th>
 									<th>Email</th>
+									<th>ID departement</th>
+									<th>Approuve</th>
 								</tr>
 							</thead>
 							<tbody>

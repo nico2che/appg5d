@@ -21,7 +21,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 		?><div class="cadre-gestion"><?php
 		include 'vues/gestionAide.php';
 		?></div><?php
-
 		if(isset($_GET['mod-titre'])){
 			?><div class="cadre-gestion"><?php
 			include 'vues/modifier-titre.php';
@@ -31,8 +30,19 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				$param5 = array($_POST['titre-aide'], $_GET['id']);
 				$request->execute($param5);
 			}
+		}
+		if(isset($_GET['mod-texte'])){
+			?><div class="cadre-gestion"><?php
+			include 'vues/modifier-texte.php';
+			?></div><?php
+			if(isset($_POST['texte-aide'])){
+				$request = $pdo->prepare('UPDATE aide SET texte=? WHERE id=?');
+				$param6 = array($_POST['texte-aide'], $_GET['id']);
+				$request->execute($param6);
+			}
 
 		}
+
 	}
 	
 
@@ -174,11 +184,13 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 						<th>{$ligne[0]}</th>
 						<th>{$ligne[1]}</th>
 						<th>{$ligne[2]}</th>
+						<th>{$ligne[3]}</th>
 						<th>{$ligne[4]}</th>
 						<th>{$ligne[5]}</th>
 						<th>{$ligne[6]}</th>
 						<th>{$ligne[7]}</th>
 						<th>{$ligne[8]}</th>
+						<th>{$ligne[9]}</th>
 					</tr>";
 				}
 				break;
@@ -226,6 +238,7 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 						<th>{$ligne[2]}</th>
 						<th>{$ligne[3]}</th>
 						<th>{$ligne[4]}</th>
+						<th>{$ligne[5]}</th>
 					</tr>";
 				}
 
@@ -311,7 +324,7 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 						<th>{$ligne[1]}</th>
 						<th>{$ligne[2]}</th>
 						<th>{$ligne[3]}</th>
-						<th>{$ligne[5]}</th>
+						<th>{$ligne[4]}</th>
 						<th>{$ligne[6]}</th>
 						<th>{$ligne[7]}</th>
 						<th>{$ligne[8]}</th>
