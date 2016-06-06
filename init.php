@@ -10,7 +10,7 @@ $niveaux = array(1 => 'Tous les niveaux', 'Niveau débutant', 'Niveau moyen', 'N
 
 $installation = true;
 
-if(defined('HOTE') && defined('USER') && defined('PASS') && defined('BASE')) {
+if(defined('HOTE') && defined('USER') && defined('PASS') && defined('BASE') && !empty(HOTE) && !empty(USER) && !empty(BASE)) {
 
     try {
 
