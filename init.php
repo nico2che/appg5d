@@ -6,6 +6,8 @@ session_start();
 
 date_default_timezone_set('Europe/Paris');
 
+$niveaux = array(1 => 'Tous les niveaux', 'Niveau débutant', 'Niveau moyen', 'Niveau confirmé');
+
 $installation = true;
 
 if(defined('HOTE') && defined('USER') && defined('PASS') && defined('BASE')) {

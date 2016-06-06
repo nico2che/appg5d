@@ -133,11 +133,21 @@ form.formulaire-profil h3 {
   padding:15px;
 }
 
-.invitations .encadrer {
+.profil.resume h3 {
+  margin-top: 20px;
+}
+.profil.resume h4 {
+  margin: 15px;
+}
+.profil.resume .dates-groupes {
+  margin-left: 55px;
+}
+
+.liste-profil .encadrer {
   height:90px;
 }
 
-.invitations .photo {
+.liste-profil .photo {
   width:200px;
   height:90px;
   background-size: cover;
@@ -146,29 +156,42 @@ form.formulaire-profil h3 {
   float: left;
 }
 
-.invitations .details {
-  padding: 15px;
-  width: 436px  ;
+.liste-profil .details {
+  padding: 8px 15px 0 15px;
+  width: 436px;
   display: inline-block;
   height: 61px;
 }
-.invitations .encadrer > a {
+.liste-profil .encadrer > a {
   color:black;
   float: left;
 }
-.invitations .details span.date {
+.liste-profil .details span.date {
   color:grey;
 }
 
-.invitations .reponse {
+.liste-profil .reponse {
   display: inline-block;
   padding: 16px;
   border-left:1px solid grey;
   font-size:39px;
 }
-.invitations .reponse.accepter a {
+.liste-profil .reponse.accepter a {
   color:green;
 }
-.invitations .reponse.refuser a {
+.liste-profil .reponse.refuser a {
   color:red;
+}
+.liste-profil .details span.point {
+    width: 33%;
+    display: inline-block;
+}
+
+.liste-profil.groupes > .aucun {
+  padding: 15px;
+  height: auto;
+}
+.liste-profil.groupes .details {
+  width: 578px;
+  line-height: 32px;
 }

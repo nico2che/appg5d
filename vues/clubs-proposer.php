@@ -1,4 +1,13 @@
 <div class="form-club">
+<?php
+	if(!connecte()) {
+?>
+	<div class="message erreur">
+		Vous devez être connecté pour proposer un club
+	</div>
+<?php
+	} else {
+?>
 	<h3>Proposer un club</h3>
 	<p>
 		Vous pouvez ici proposer un club qui se trouve près de chez vous afin de le répertorier sur le site.<br>
@@ -10,14 +19,14 @@
 		<label for="nom">Nom du club * :</label> 
 		<input type="text" id="nom" name="nom" value="<?php echo (isset($_POST['nom']) ? htmlspecialchars($_POST['nom']) : null); ?>"><br>
 
-		<label for="image">Photo du club * :</label>
+		<label for="image">Photo du club * :<br><small>(jpg, jpeg, png, gif seulement, max 4 Mo)</small></label>
 		<input type="file" name="image" accept="image/*"><br>
 		
 		<label for="sport">Sports pratiqué(s) dans ce club * :<br><small>(Ctrl+C ou Cmd+C pour en sélectionner plusieurs)</small></label>
 		<select id="sport" name="sports[]" multiple>
 	<?php 
 		foreach ($sports as $sport) {
-			echo '<option value="'.$sport['id'].'"'.(isset($_POST['sport']) && $_POST['sport'] == $sport['id'] ? ' selected=""' : null).'>'.$sport['nom'].'</option>';
+			echo '<option value="'.$sport['id'].'"'.(isset($_POST['sports']) && in_array($sport['id'], $_POST['sports']) ? ' selected=""' : null).'>'.$sport['nom'].'</option>';
 		}
 	?>
 		</select><br>
@@ -52,4 +61,7 @@
 		
 		<input type="submit" value="Proposer le club" class="float-right">
 	</form>
+<?php
+	}
+?>
 </div>

@@ -61,6 +61,7 @@
 		</div>
 	<?php
 		}
+		if(connecte()) {
 	?>
 		<div class="encadrer">
 			<h4>Ajouter un commentaire</h4>
@@ -79,6 +80,9 @@
 				<input type="submit" value="Envoyer">
 			</form>
 		</div>
+	<?php
+		}
+	?>
 	</div>
 <?php
 	}

@@ -103,6 +103,24 @@ function recuperer_groupes_mois($mois, $id_membre) {
 	}
 	return $resultat;
 }
+/* Récupérer les groupes d'un mois précis */
+function recuperer_groupes_membre($id_membre) {
+
+	global $pdo;
+	$stmt = $pdo->prepare('SELECT s.nom AS nom_sport, g_m.*, g.*, m.* FROM groupes_membres g_m
+												LEFT JOIN membres AS m ON g_m.id_membre = m.id
+												LEFT JOIN groupes AS g ON g_m.id_groupe = g.id
+												LEFT JOIN sports AS s ON s.id = g.id_sport
+											WHERE g_m.id_membre = :id_membre');
+	$stmt->bindValue('id_membre', $id_membre, PDO::PARAM_INT);
+	$stmt->execute();
+	$resultat = array();
+	while($ligne = $stmt->fetch()) {
+		$resultat['tous'][] = $ligne;
+		$resultat['types'][$ligne['type']][] = $ligne;
+	}
+	return $resultat;
+}
 /* Ajouter un groupe */
 function ajouter_groupe($titre, $sport, $departement, $description, $min_participants, $max_participants, $visibilite, $recurrence, $niveau) {
 

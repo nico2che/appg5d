@@ -84,7 +84,7 @@ function inscrire_membre($pseudo, $nom, $prenom, $email, $mot_de_passe, $sexe, $
 		return false;
 }
 
-function inviter_membre($id_groupe, $id_expediteur, $id_destinataire) {
+function inviter_membre($id_groupe, $id_destinataire, $id_expediteur) {
 
 	global $pdo;
 	$stmt = $pdo->prepare('INSERT INTO invitations SET 	id_destinataire = :id_destinataire,
@@ -136,7 +136,10 @@ function profil_membre($id) {
 function recuperer_invitations($id) {
 
 	global $pdo;
-	$stmt = $pdo->prepare('SELECT i.*,g.id id_groupe, g.* FROM invitations i LEFT JOIN groupes g ON g.id = i.id_groupe WHERE i.id_destinataire = :id');
+	$stmt = $pdo->prepare('SELECT s.nom AS nom_sport, i.*,g.id id_groupe, g.* FROM invitations i
+															LEFT JOIN groupes g ON g.id = i.id_groupe
+															LEFT JOIN sports s ON s.id = g.id_sport
+														WHERE i.id_destinataire = :id');
 	$stmt->bindValue('id', $id, PDO::PARAM_INT);
 	if($stmt->execute())
 		return $stmt->fetchAll();

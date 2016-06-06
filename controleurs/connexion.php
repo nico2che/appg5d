@@ -13,18 +13,26 @@ if(isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
 
 		if($infos_membre = connexion_membre($_POST['email'], sha1($_POST['mot_de_passe']))) {
 
-			$_SESSION['id'] = $infos_membre['id'];
-			$_SESSION['nom'] = $infos_membre['prenom'] . ' ' . $infos_membre['nom'];
-			$_SESSION['pseudo'] = $infos_membre['pseudo'];
+			if($infos_membre['bannis'] == 0) {
 
-			if(isset($_POST['souvenir']) && !empty($_POST['souvenir'])) {
+				$_SESSION['id'] = $infos_membre['id'];
+				$_SESSION['nom'] = $infos_membre['prenom'] . ' ' . $infos_membre['nom'];
+				$_SESSION['pseudo'] = $infos_membre['pseudo'];
 
-				setcookie('membre', $infos_membre['id'], (time() + 24 * 30));
-				setcookie('hash', sha1($_POST['mot_de_passe']), (time() + 24 * 30));
+				if(isset($_POST['souvenir']) && !empty($_POST['souvenir'])) {
+
+					setcookie('membre', $infos_membre['id'], (time() + 24 * 30));
+					setcookie('hash', sha1($_POST['mot_de_passe']), (time() + 24 * 30));
+				}
+
+				header('Location: ?page=profil');
+				exit();
+
+			} else {
+
+				$messages['type'] = 'erreur';
+				$messages['message'] = "Connexion interdite, le compte a été désactivé";
 			}
-
-			header('Location: ?page=mon-profil');
-			exit();
 
 		} else {
 

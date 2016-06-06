@@ -5,7 +5,6 @@ include 'modeles/sports.php';
 include 'modeles/clubs.php';
 
 $mois = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
-$niveaux = array(1 => 'Tous les niveaux', 'Niveau débutant', 'Niveau moyen', 'Niveau confirmé');
 
 $id_groupe = (int) (isset($_GET['id']) ? $_GET['id'] : 0);
 
@@ -63,14 +62,21 @@ if(connecte() && isset($_GET['invitation']) && !empty($_GET['invitation'])) {
 
 		if($membre = existe_pseudo_email($_GET['invitation'])) {
 
-			if(!existe_invitation($id_groupe, $membre['id'], $_SESSION['id'])) {
+			if(est_membre_groupe($id_groupe, $membre['id'])) {
 
-				inviter_membre($id_groupe, $membre['id'], $_SESSION['id']);
-				echo json_encode(array('statut' => 0, 'message' => 'Invitation envoyée !'));
+				if(!existe_invitation($id_groupe, $membre['id'], $_SESSION['id'])) {
+
+					inviter_membre($id_groupe, $membre['id'], $_SESSION['id']);
+					echo json_encode(array('statut' => 0, 'message' => 'Invitation envoyée !'));
+
+				} else {
+
+					echo json_encode(array('statut' => 1, 'message' => 'Invitation déjà envoyée'));
+				}
 
 			} else {
 
-				echo json_encode(array('statut' => 1, 'message' => 'Invitation déjà envoyée'));
+				echo json_encode(array('statut' => 1, 'message' => 'Cet utilisteur est déjà dans le groupe'));
 			}
 
 		} else {
