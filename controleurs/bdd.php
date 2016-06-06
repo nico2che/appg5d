@@ -26,6 +26,11 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 			?><div class="cadre-gestion"><?php
 			include 'vues/modifier-titre.php';
 			?></div><?php
+			if(isset($_POST['titre-aide'])){
+				$request = $pdo->prepare('UPDATE aide SET titre=? WHERE id=?');
+				$param5 = array($_POST['titre-aide'], $_GET['id']);
+				$request->execute($param5);
+			}
 
 		}
 	}
