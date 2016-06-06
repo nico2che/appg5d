@@ -36,29 +36,28 @@ if($installation) {
                     $pdo = new PDO("mysql:host=".$_POST['hote'].";", $_POST['user'], $_POST['pass']);
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                    $pdo->query("CREATE DATABASE IF NOT EXISTS ".$_POST['base']);
-                    $pdo->query("USE ".$_POST['base']);
-
-                    $dump = file('structure.sql');
-                    $requete = '';
-                    foreach ($dump as $ligne) {
-                        if(substr($ligne, 0, 2) == '--' || $ligne == '')
-                            continue;
-                        $requete .= $ligne;
-                        if(substr(trim($ligne), -1, 1) == ';') {
-                            $pdo->query($requete);
-                            $requete = '';
-                        }
-                    }
-
                     $configuration  = '<?php' . "\n";
                     $configuration .= 'define("HOTE", "'.$_POST['hote'].'");' . "\n";
                     $configuration .= 'define("USER", "'.$_POST['user'].'");' . "\n";
                     $configuration .= 'define("PASS", "'.$_POST['pass'].'");' . "\n";
                     $configuration .= 'define("BASE", "'.$_POST['base'].'");';
 
+                    $pdo->query("CREATE DATABASE IF NOT EXISTS ".$_POST['base']);
+                    $pdo->query("USE ".$_POST['base']);
+
                     if(is_writable('config.php') && file_put_contents('config.php', $configuration)) {
 
+                        $dump = file('structure.sql');
+                        $requete = '';
+                        foreach ($dump as $ligne) {
+                            if(substr($ligne, 0, 2) == '--' || $ligne == '')
+                                continue;
+                            $requete .= $ligne;
+                            if(substr(trim($ligne), -1, 1) == ';') {
+                                $pdo->query($requete);
+                                $requete = '';
+                            }
+                        }
                         $installation_fini = true;
                         
                     } else {
@@ -70,7 +69,7 @@ if($installation) {
                 } catch (PDOException $e) {
 
                     $messages['type'] = 'erreur';
-                    $messages['message'] = 'Impossible de se connecter à la base de données.<br>Veuillez vérifier vos identifiants';
+                    $messages['message'] = 'Impossible de se connecter à la base de données.<br>Veuillez vérifier vos identifiants<br>('.$e->getMessage().')';
                 }
 
             } else {
