@@ -34,22 +34,46 @@
 	</div>
 	<div class="paneldesports">
 		<div class="ligne">
-			<div class="sport" id="tennis"><img src="static/images/Ptennis.jpg"></br><h2>Tennis</h2></div>
-			<div class="sport" id="football"><img src="static/images/Pfootball.jpg"></br><h2>Football</h2></div>
-			<div class="sport" id="cyclisme"><img src="static/images/Pvelo.jpg"></br><h2>Cyclisme</h2></div>
-			<div class="sport" id="athletisme"><img src="static/images/Prunning.jpg"></br><h2>Athlétisme</h2></div>
+			<a class="sport" id="tennis" href="?page=groupes&amp;recherche=&amp;sport=165">
+				<img src="static/images/Ptennis.jpg"></br><h2>Tennis</h2>
+			</a>
+			<a class="sport" id="football" href="?page=groupes&amp;recherche=&amp;sport=69">
+				<img src="static/images/Pfootball.jpg"></br><h2>Football</h2>
+			</a>
+			<a class="sport" id="cyclisme" href="?page=groupes&amp;recherche=&amp;sport=50">
+				<img src="static/images/Pvelo.jpg"></br><h2>Cyclisme</h2>
+			</a>
+			<a class="sport" id="athletisme" href="?page=groupes&amp;recherche=&amp;sport=9">
+				<img src="static/images/Prunning.jpg"></br><h2>Athlétisme</h2>
+			</a>
 		</div>
 		<div class="ligne">
-			<div class="sport" id="randonnee"><img src="static/images/Prandonnee.jpg"></br><h2>Randonnée</h2></div>
-			<div class="sport" id="badminton"><img src="static/images/Pbadminton.jpg"></br><h2>Badminton</h2></div>
-			<div class="sport" id="basketball"><img src="static/images/Pbasket.jpg"></br><h2>Basketball</h2></div>
-			<div class="sport" id="volleyball"><img src="static/images/Pvolley.jpg"></br><h2>Volleyball</h2></div>
+			<a class="sport" href="?page=groupes&amp;recherche=&amp;sport=135" id="randonnee">
+				<img src="static/images/Prandonnee.jpg"></br><h2>Randonnée</h2>
+			</a>
+			<a class="sport" href="?page=groupes&amp;recherche=&amp;sport=14" id="badminton">
+				<img src="static/images/Pbadminton.jpg"></br><h2>Badminton</h2>
+			</a>
+			<a class="sport" href="?page=groupes&amp;recherche=&amp;sport=19" id="basketball">
+				<img src="static/images/Pbasket.jpg"></br><h2>Basketball</h2>
+			</a>
+			<a class="sport" href="?page=groupes&amp;recherche=&amp;sport=182"id="volleyball">
+				<img src="static/images/Pvolley.jpg"></br><h2>Volleyball</h2>
+			</a>
 		</div>
 		<div class="ligne">
-			<div class="sport" id="rugby"><img src="static/images/Prugby.jpg"></br><h2>Rugby</h2></div>
-			<div class="sport" id="golf"><img src="static/images/Pgolf.jpg"></br><h2>Golf</h2></div>
-			<div class="sport" id="natation"><img src="static/images/Pnatation.jpg"></br><h2>Natation</h2></div>
-			<div class="sport" id="etbienplusencore"><p>...et bien plus encore !</p></div>
+			<a class="sport" href="?page=groupes&amp;recherche=&amp;sport=137" id="rugby">
+				<img src="static/images/Prugby.jpg"></br><h2>Rugby</h2>
+			</a>
+			<a class="sport" href="?page=groupes&amp;recherche=&amp;sport=76" id="golf">
+				<img src="static/images/Pgolf.jpg"></br><h2>Golf</h2>
+			</a>
+			<a class="sport" href="?page=groupes&amp;recherche=&amp;sport=112" id="natation">
+				<img src="static/images/Pnatation.jpg"></br><h2>Natation</h2>
+			</a>
+			<a class="sport" href="?page=groupes&amp;recherche=" id="etbienplusencore">
+				<p>...et bien plus encore !</p>
+			</a>
 		</div>
 	</div>
 
