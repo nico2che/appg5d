@@ -21,7 +21,6 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 		?><div class="cadre-gestion"><?php
 		include 'vues/gestionAide.php';
 		?></div><?php
-
 		if(isset($_GET['mod-titre'])){
 			?><div class="cadre-gestion"><?php
 			include 'vues/modifier-titre.php';
@@ -31,8 +30,19 @@ if((!$infos = connecte(true)) || $infos['role'] != 'admin') {
 				$param5 = array($_POST['titre-aide'], $_GET['id']);
 				$request->execute($param5);
 			}
+		}
+		if(isset($_GET['mod-texte'])){
+			?><div class="cadre-gestion"><?php
+			include 'vues/modifier-texte.php';
+			?></div><?php
+			if(isset($_POST['texte-aide'])){
+				$request = $pdo->prepare('UPDATE aide SET texte=? WHERE id=?');
+				$param6 = array($_POST['texte-aide'], $_GET['id']);
+				$request->execute($param6);
+			}
 
 		}
+
 	}
 	
 
