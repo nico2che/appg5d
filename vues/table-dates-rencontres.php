@@ -7,6 +7,7 @@
 									<th>Date  </th>
 									<th>Durée  </th>
 									<th>Localisation  </th>
+									<th>Coordonnées  </th>
 								</tr>
 							</thead>
 							<tbody>

@@ -6,10 +6,10 @@
 									<th>ID membre  </th>
 									<th>Type  </th>
 									<th>ID sport  </th>
-									<th>Résolus  </th>
 									<th>Titre  </th>
 									<th>Message  </th>
 									<th>Date  </th>
+									<th>Résolus  </th>
 								</tr>
 							</thead>
 							<tbody>

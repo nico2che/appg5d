@@ -3,6 +3,7 @@
 							<thead>
 								<tr>
 									<th>ID  </th>
+									<th>Pseudo</th>
 									<th>Nom  </th>
 									<th>Prenom   </th>
 									<th>E-mail  </th>
@@ -12,7 +13,6 @@
 									<th>Sexe  </th>
 									<th>Bannis  </th>
 									<th>Role  </th>
-									<th>Activité forum</th>
 								</tr>
 							</thead>
 							<tbody>
