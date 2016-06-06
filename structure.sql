@@ -36,8 +36,8 @@ INSERT INTO `aide` (`id`, `titre`, `texte`) VALUES
 (1, 'titre 1', "texte 1"),
 (2, 'titre 2', "texte 2"),
 (3, 'titre 3', "texte 3"),
-(3, 'titre 4', "texte 4"),
-(4, 'titre 5', "texte 5");
+(4, 'titre 4', "texte 4"),
+(5, 'titre 5', "texte 5");
 
 -- --------------------------------------------------------
 
